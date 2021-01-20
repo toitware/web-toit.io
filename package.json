@@ -16,11 +16,13 @@
     "lint": "eslint '*/**/*.{js,ts,tsx}' --max-warnings=0"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "gatsby": "^2.26.1",
     "gatsby-plugin-google-analytics": "^2.10.0",
     "gatsby-plugin-manifest": "^2.11.0",
+    "gatsby-plugin-material-ui": "^2.1.10",
     "gatsby-plugin-mdx": "^1.9.0",
     "gatsby-plugin-sitemap": "^2.11.0",
     "gatsby-plugin-typescript": "^2.11.0",

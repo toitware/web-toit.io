@@ -20,6 +20,7 @@ module.exports = {
       },
       'gatsby-plugin-eslint',
       "gatsby-plugin-sitemap",
+      "gatsby-plugin-material-ui",
       {
         resolve: "gatsby-plugin-manifest",
         options: {
