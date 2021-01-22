@@ -1,7 +1,11 @@
 import { createMuiTheme } from "@material-ui/core";
 
-export const primaryTheme = createTheme("#ff8484", "#ffffff");
-export const secondaryTheme = createTheme("#d7dce1", "#374b64");
+export const pinkWhiteTheme = createTheme("#ff8484", "#ffffff");
+export const greyBlueTheme = createTheme("#d7dce1", "#374b64");
+export const whiteBlueTheme = createTheme("#ffffff", "#374b64");
+
+export const primaryTheme = pinkWhiteTheme;
+export const secondaryTheme = greyBlueTheme;
 
 function createTheme(color: string, contrastColor: string) {
   return createMuiTheme({
