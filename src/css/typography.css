@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+@font-face {
+    font-family: "Canano W05 Light";
+    src: url("../fonts/canaro_w05_light/font.eot"); /* IE9 Compat Modes */
+    src: url("../fonts/canaro_w05_light/font.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+       url("../fonts/canaro_w05_light/font.woff2") format("woff2"), /* Super Modern Browsers */
+       url("../fonts/canaro_w05_light/font.woff") format("woff"), /* Pretty Modern Browsers */
+       url("../fonts/canaro_w05_light/font.ttf")  format("truetype"); /* Safari, Android, iOS */
+    ;
+}
+
+@font-face {
+    font-family: "Canano Light";
+    src: url("../fonts/Canaro-Light.otf");
+}

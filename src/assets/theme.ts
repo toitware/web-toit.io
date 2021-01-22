@@ -31,27 +31,32 @@ function createTheme(color: string, contrastColor: string) {
       h1: {
         color: contrastColor,
         fontSize: "4.0rem",
+        fontFamily: "Canano Light",
       },
       h2: {
         color: contrastColor,
         fontSize: "3.0rem",
+        fontFamily: "Canano Light",
       },
       h3: {
         color: contrastColor,
         fontSize: "2.0rem",
+        fontFamily: "Canano Light",
       },
       h4: {
         color: contrastColor,
         fontSize: "1.5rem",
+        fontFamily: "Canano Light",
       },
       h5: {
         color: contrastColor,
         fontSize: "1.25rem",
+        fontFamily: "Canano Light",
       },
       h6: {
         color: contrastColor,
         fontSize: "1rem",
-        fontWeight: "bold",
+        fontFamily: "Canano Light",
       },
     },
   });
