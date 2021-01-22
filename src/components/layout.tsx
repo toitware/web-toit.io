@@ -1,4 +1,5 @@
 import { Button, makeStyles, ThemeProvider } from "@material-ui/core";
+import { MDXProvider } from "@mdx-js/react";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
@@ -6,6 +7,7 @@ import { primaryTheme as theme } from "../assets/theme";
 import ToitwareLogo from "../images/Toitware-secondary-white.png";
 import Footer from "./footer";
 import "./layout.css";
+import { components, shorthands } from "./mdx-components";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -62,27 +64,29 @@ export default function Layout(props: LayoutProps): JSX.Element {
   `);
 
   return (
-    <ThemeProvider theme={theme}>
-      <Helmet title={data.site.siteMetadata?.title}></Helmet>
-      <div className={classes.root}>
-        <div>
-          <div className={classes.toolbarContent}>
-            <div className={classes.logoContainer}>
-              <img src={ToitwareLogo as string} className={classes.logo} />
-            </div>
-            <div className={classes.buttons}>
-              <Button variant="outlined" color="secondary" className={classes.button}>
-                Login
-              </Button>
-              <Button variant="contained" color="secondary" disableElevation className={classes.button}>
-                Sign up
-              </Button>
+    <MDXProvider components={{ ...shorthands, ...components }}>
+      <ThemeProvider theme={theme}>
+        <Helmet title={data.site.siteMetadata?.title}></Helmet>
+        <div className={classes.root}>
+          <div>
+            <div className={classes.toolbarContent}>
+              <div className={classes.logoContainer}>
+                <img src={ToitwareLogo as string} className={classes.logo} />
+              </div>
+              <div className={classes.buttons}>
+                <Button variant="outlined" color="secondary" className={classes.button}>
+                  Login
+                </Button>
+                <Button variant="contained" color="secondary" disableElevation className={classes.button}>
+                  Sign up
+                </Button>
+              </div>
             </div>
           </div>
+          <div className={classes.middle}>{props.children}</div>
+          <Footer />
         </div>
-        <div className={classes.middle}>{props.children}</div>
-        <Footer />
-      </div>
-    </ThemeProvider>
+      </ThemeProvider>
+    </MDXProvider>
   );
 }
