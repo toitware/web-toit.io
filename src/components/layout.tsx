@@ -6,8 +6,10 @@ import { Helmet } from "react-helmet";
 import { primaryTheme as theme } from "../assets/theme";
 import ToitwareLogo from "../images/Toitware-secondary-white.png";
 import Footer from "./footer";
-import "./layout.css";
 import { components, shorthands } from "./mdx-components";
+
+import "@fontsource/roboto";
+import "./layout.css";
 
 const useStyles = makeStyles(() => ({
   root: {
