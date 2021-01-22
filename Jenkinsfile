@@ -2,7 +2,7 @@ pipeline {
 
     agent {
         docker {
-            image 'gcr.io/infrastructure-220307/jenkins-console-toolchain:20200102103553'
+            image 'gcr.io/infrastructure-220307/jenkins-console-toolchain:20210122124009'
             label 'docker'
             args '-v /home/jenkins/agent:/home/jenkins/.cache/ -u jenkins'
             reuseNode true
