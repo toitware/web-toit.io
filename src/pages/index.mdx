@@ -6,16 +6,17 @@ date: 2021-01-20
 
 import { pinkWhiteTheme, greyBlueTheme, whiteBlueTheme } from "../assets/theme";
 import TestImage from "../images/graphic_1.png";
+import { Button } from "@material-ui/core";
 
 <HorizontalBlock theme={pinkWhiteTheme}>
 <HorizontalBlockItem>
 
-# A Software Platform for IoT
+# The Software Platform for IoT
 
 Toit augments your IoT devices with a programmatic interface that allows you to monitor, service, and
 communicate securely with your device fleet in production.
 
-###### Sign up
+<Button>Sign up</Button>
 
 </HorizontalBlockItem>
 <HorizontalBlockItem>
@@ -25,38 +26,23 @@ communicate securely with your device fleet in production.
 </HorizontalBlockItem>
 </HorizontalBlock>
 
-<RightBlock theme={whiteBlueTheme}>
+<HorizontalBlock theme={whiteBlueTheme}>
+<HorizontalBlockItem>
 
-# This is a h1 in a RightBlock
+<Editor />
 
-## This is a h2 in a RightBlock
+</HorizontalBlockItem>
+<HorizontalBlockItem>
 
-### This is a h3 in a RightBlock
+###### By developers for developers
 
-#### This is a h4 in a RightBlock
+# Fast development cycles
 
-##### This is a h5 in a RightBlock
+Our software layer running on the device lets you safely upgrade the system, install and remove individual applications at run-time, and gather data from the field.
 
-###### This is a h6 in a RightBlock
-
-This is p in a RightBlock
-
-</RightBlock>
+</HorizontalBlockItem>
+</HorizontalBlock>
 
 <Block theme={greyBlueTheme} last>
-
-# This is a h1 in a Block
-
-## This is a h2 in a Block
-
-### This is a h3 in a Block
-
-#### This is a h4 in a Block
-
-##### This is a h5 in a Block
-
-###### This is a h6 in a Block
-
-This is p in a Block
 
 </Block>

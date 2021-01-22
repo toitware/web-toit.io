@@ -5,6 +5,7 @@ import { ComponentDictionary } from "@mdx-js/react";
 import React from "react";
 import Block from "./block";
 import { HorizontalBlock, HorizontalBlockItem } from "./horizontal-block";
+import Editor from "./editor";
 import RightBlock from "./right-block";
 
 const P = (props: any) => <Typography {...props} />;
@@ -25,4 +26,4 @@ export const components: ComponentDictionary = {
   h6: H6,
 };
 
-export const shorthands = { Block, RightBlock, HorizontalBlock, HorizontalBlockItem };
+export const shorthands = { Block, RightBlock, HorizontalBlock, HorizontalBlockItem, Editor };
