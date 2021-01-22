@@ -5,8 +5,27 @@ date: 2021-01-20
 ---
 
 import { pinkWhiteTheme, greyBlueTheme, whiteBlueTheme } from "../assets/theme";
+import TestImage from "../images/graphic_1.png";
 
-<RightBlock theme={pinkWhiteTheme}>
+<HorizontalBlock theme={pinkWhiteTheme}>
+<HorizontalBlockItem>
+
+# A Software Platform for IoT
+
+Toit augments your IoT devices with a programmatic interface that allows you to monitor, service, and
+communicate securely with your device fleet in production.
+
+###### Sign up
+
+</HorizontalBlockItem>
+<HorizontalBlockItem>
+
+<img src={TestImage} />
+
+</HorizontalBlockItem>
+</HorizontalBlock>
+
+<RightBlock theme={whiteBlueTheme}>
 
 # This is a h1 in a RightBlock
 
@@ -24,7 +43,7 @@ This is p in a RightBlock
 
 </RightBlock>
 
-<Block theme={greyBlueTheme}>
+<Block theme={greyBlueTheme} last>
 
 # This is a h1 in a Block
 
@@ -41,21 +60,3 @@ This is p in a RightBlock
 This is p in a Block
 
 </Block>
-
-<RightBlock theme={whiteBlueTheme} last>
-
-# This is a h1 in a RightBlock
-
-## This is a h2 in a RightBlock
-
-### This is a h3 in a RightBlock
-
-#### This is a h4 in a RightBlock
-
-##### This is a h5 in a RightBlock
-
-###### This is a h6 in a RightBlock
-
-This is p in a RightBlock
-
-</RightBlock>
