@@ -1,11 +1,8 @@
-import { makeStyles, Theme } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import React from "react";
-import Block from "./block";
+import Block, { BlockProps } from "./block";
 
-interface RightBlockProps {
-  theme: Theme;
-  children: React.ReactNode;
-}
+type RightBlockProps = BlockProps;
 
 const useStyles = makeStyles(() => ({
   content: {
@@ -18,7 +15,7 @@ export default function RightBlock(props: RightBlockProps): JSX.Element {
   const classes = useStyles();
 
   return (
-    <Block theme={props.theme}>
+    <Block theme={props.theme} last={props.last}>
       <div className={classes.content}>
         <div>{props.children}</div>
       </div>

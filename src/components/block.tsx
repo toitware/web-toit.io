@@ -1,14 +1,16 @@
 import { makeStyles, Theme, ThemeProvider } from "@material-ui/core";
 import React from "react";
 
-interface BlockProps {
+export interface BlockProps {
   theme: Theme;
   children: React.ReactNode;
+  last?: boolean;
 }
 
 const useStyles = makeStyles(() => ({
   root: (props: BlockProps) => ({
     backgroundColor: props.theme.palette.primary.main,
+    flexGrow: props.last ? 1 : 0,
   }),
   content: (props: BlockProps) => ({
     margin: "0 auto",

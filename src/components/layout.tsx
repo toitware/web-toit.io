@@ -35,6 +35,8 @@ const useStyles = makeStyles(() => ({
   },
   middle: {
     flexGrow: 1,
+    display: "flex",
+    flexDirection: "column",
   },
 }));
 
