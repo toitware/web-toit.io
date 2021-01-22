@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 declare module "@mdx-js/react" {
   import { ComponentType, FunctionComponent } from "react";
   type MDXProps = {
