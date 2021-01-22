@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Typography } from "@material-ui/core";
 import { ComponentDictionary } from "@mdx-js/react";
-import React, {} from "react";
+import React from "react";
 import Block from "./block";
 import { HorizontalBlock, HorizontalBlockItem } from "./horizontal-block";
 import RightBlock from "./right-block";
