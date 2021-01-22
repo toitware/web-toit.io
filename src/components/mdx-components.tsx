@@ -4,6 +4,7 @@ import { Typography } from "@material-ui/core";
 import { MDXProviderComponentsProp } from "@mdx-js/react";
 import React from "react";
 import Block from "./block";
+import { HorizontalBlock, HorizontalBlockItem } from "./horizontal-block";
 import RightBlock from "./right-block";
 
 const P = (props: any) => <Typography {...props} />;
@@ -24,4 +25,4 @@ export const components: MDXProviderComponentsProp = {
   h6: H6,
 };
 
-export const shorthands = { Block, RightBlock };
+export const shorthands = { Block, RightBlock, HorizontalBlock, HorizontalBlockItem };
