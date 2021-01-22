@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Typography } from "@material-ui/core";
-import { MDXProviderComponentsProp } from "@mdx-js/react";
-import React from "react";
+import { ComponentDictionary } from "@mdx-js/react";
+import React, {} from "react";
 import Block from "./block";
 import RightBlock from "./right-block";
 
@@ -14,7 +14,7 @@ const H4 = (props: any) => <Typography variant="h4" {...props} />;
 const H5 = (props: any) => <Typography variant="h5" {...props} />;
 const H6 = (props: any) => <Typography variant="h6" {...props} />;
 
-export const components: MDXProviderComponentsProp = {
+export const components: ComponentDictionary = {
   p: P,
   h1: H1,
   h2: H2,
