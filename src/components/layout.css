@@ -1,4 +1,5 @@
 @import "../assets/css/typography.css";
+@import "../../node_modules/@jstroem/termynal/termynal.css";
 
 body {
   background: #ff8484;
@@ -8,5 +9,64 @@ body {
 a {
   text-decoration: none;
 }
-
 @import "../assets/css/editor.css";
+
+
+.codeSample {
+  width:350px;
+  font-family: "Roboto Mono" !important;
+}
+
+.codeSample .editor {
+  padding:40px 0px 10px 20px;
+  background:#263237;
+  position: relative;
+  height:140px;
+  border-radius:4px 4px 0px 0px;
+  font-size:14px;
+}
+
+.codeSample .editor .CodeMirror {
+  height: 90px;
+  overflow:hidden;
+}
+
+.codeSample .editor .CodeMirror-scroll {
+  overflow:hidden !important;
+}
+
+.codeSample .editor .CodeMirror .CodeMirror-hscrollbar,
+.codeSample .editor .CodeMirror .CodeMirror-vscrollbar {
+  display: none;
+}
+
+.codeSample .terminal [data-termynal]:before,
+.codeSample .editor:before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  /* A little hack to display the window buttons in one pseudo element. */
+  background: #d9515d;
+  -webkit-box-shadow: 20px 0 0 #f4c025, 40px 0 0 #3ec930;
+          box-shadow: 20px 0 0 #f4c025, 40px 0 0 #3ec930;
+}
+
+.codeSample .editor:after {
+  content: 'edtior: hello.toit';
+  position: absolute;
+  color: var(--color-text-subtle);
+  top: 5px;
+  left: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.codeSample .terminal [data-termynal] {
+  border-radius:0px 0px 4px 4px;
+  font-size:14px;
+}
