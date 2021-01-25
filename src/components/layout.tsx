@@ -1,3 +1,4 @@
+import "@fontsource/roboto";
 import { Button, makeStyles, ThemeProvider } from "@material-ui/core";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql, useStaticQuery } from "gatsby";
@@ -6,11 +7,10 @@ import { Helmet } from "react-helmet";
 import { primaryTheme as theme } from "./theme";
 import ToitwareLogo from "../assets/images/Toitware-secondary-white.png";
 import Footer from "./footer";
-import { components, shorthands } from "./mdx-components";
-
 import "@fontsource/roboto";
 import "@fontsource/roboto-mono";
 import "./layout.css";
+import { components, shorthands } from "./mdx-components";
 
 const useStyles = makeStyles(() => ({
   root: {
