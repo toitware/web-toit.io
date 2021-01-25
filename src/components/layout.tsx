@@ -1,16 +1,15 @@
 import "@fontsource/roboto";
+import "@fontsource/roboto-mono";
 import { Button, makeStyles, ThemeProvider } from "@material-ui/core";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
-import { primaryTheme as theme } from "./theme";
 import ToitwareLogo from "../assets/images/Toitware-secondary-white.png";
 import Footer from "./footer";
-import "@fontsource/roboto";
-import "@fontsource/roboto-mono";
 import "./layout.css";
 import { components, shorthands } from "./mdx-components";
+import { primaryTheme as theme } from "./theme";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -79,9 +78,11 @@ export default function Layout(props: LayoutProps): JSX.Element {
                 <img src={ToitwareLogo as string} className={classes.logo} />
               </div>
               <div className={classes.buttons}>
-                <Button variant="outlined" color="secondary" className={classes.button}>
-                  Login
-                </Button>
+                <a href="http://console.toit.io/login" target="_blank" rel="noreferrer">
+                  <Button variant="outlined" color="secondary" className={classes.button}>
+                    Login
+                  </Button>
+                </a>
                 <Button variant="contained" color="secondary" disableElevation className={classes.button}>
                   Sign up
                 </Button>
