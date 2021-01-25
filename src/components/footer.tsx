@@ -1,6 +1,6 @@
 import { ThemeProvider, Typography } from "@material-ui/core";
 import React from "react";
-import { secondaryTheme } from "../assets/theme";
+import { secondaryTheme } from "./theme";
 import RightBlock from "./right-block";
 
 export default function Footer(): JSX.Element {

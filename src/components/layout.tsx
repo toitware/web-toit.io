@@ -3,12 +3,13 @@ import { MDXProvider } from "@mdx-js/react";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
-import { primaryTheme as theme } from "../assets/theme";
-import ToitwareLogo from "../images/Toitware-secondary-white.png";
+import { primaryTheme as theme } from "./theme";
+import ToitwareLogo from "../assets/images/Toitware-secondary-white.png";
 import Footer from "./footer";
 import { components, shorthands } from "./mdx-components";
 
 import "@fontsource/roboto";
+import "@fontsource/roboto-mono";
 import "./layout.css";
 
 const useStyles = makeStyles(() => ({

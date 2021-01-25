@@ -1,8 +1,8 @@
-@import "../css/typography.css";
+@import "../assets/css/typography.css";
 
 body {
   background: #ff8484;
   margin: 0;
 }
 
-@import "../css/editor.css";
+@import "../assets/css/editor.css";
