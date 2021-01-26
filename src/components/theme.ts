@@ -33,7 +33,7 @@ function createTheme(color: string, contrastColor: string) {
       },
       h1: {
         color: contrastColor,
-        fontSize: "4.0rem",
+        fontSize: "3.5rem",
         fontFamily: "Canano Light",
       },
       h2: {
