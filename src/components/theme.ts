@@ -7,8 +7,11 @@ export const whiteBlueTheme = createTheme("#ffffff", "#374b64");
 export const primaryTheme = pinkWhiteTheme;
 export const secondaryTheme = greyBlueTheme;
 
+export const spacing = 8;
+
 function createTheme(color: string, contrastColor: string) {
   return createMuiTheme({
+    spacing: spacing,
     palette: {
       type: "light",
       primary: {
@@ -30,7 +33,7 @@ function createTheme(color: string, contrastColor: string) {
       },
       h1: {
         color: contrastColor,
-        fontSize: "4.0rem",
+        fontSize: "3.5rem",
         fontFamily: "Canano Light",
       },
       h2: {
@@ -57,6 +60,8 @@ function createTheme(color: string, contrastColor: string) {
         color: contrastColor,
         fontSize: "1rem",
         fontFamily: "Canano Light",
+        fontWeight: "bold",
+        opacity: 0.5,
       },
     },
   });
