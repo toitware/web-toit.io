@@ -19,7 +19,6 @@
   "dependencies": {
     "@fontsource/roboto": "^4.1.0",
     "@fontsource/roboto-mono": "^4.1.0",
-    "@jstroem/termynal": "https://github.com/jstroem/termynal",
     "@material-ui/core": "^4.11.2",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",

@@ -1,266 +1,143 @@
-.code-editor:before,
-.code-editor:after,
-.code-editor span.control:before,
-.code-editor span.after:after {
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
+:root {
+	--code-sample-fontSize: 14px;
+	--code-sample-bg:#263237;
+	--code-sample-process-height: 20px;
+	--code-sample-process-bg:#0a2540;
+	--code-sample-process-mode-bg: #216688;
+	--code-sample-process-mode-insert-bg: #756c3d;
+	--code-sample-process-color:#82AAFF;
+	--code-sample-terminal-color:white;
+	--code-sample-terminal-cursor-color:var(--code-sample-process-color);
+}
+
+.codeSample {
+	width:100%;
+	font-family: "Roboto Mono" !important;
+	font-size:var(--code-sample-fontSize);
+	border-radius:4px;
+	overflow: hidden;
+	background:var(--code-sample-bg);
+}
+
+.codeSample .editor {
+	padding:30px 0px 0px 0px;
+	position: relative;
+	height:120px;
+	font-size:var(--code-sample-fontSize);
+	overflow:hidden;
+}
+
+.codeSample .editor:before {
 	content: '';
 	position: absolute;
-	z-index: 1;
-	-webkit-transition: all .5s ease-in-out;
-    -moz-transition: wall .5s ease-in-out;
-    -o-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
+	top: 10px;
+	left: 10px;
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	/* A little hack to display the window buttons in one pseudo element. */
+	background: #d9515d;
+	-webkit-box-shadow: 20px 0 0 #f4c025, 40px 0 0 #3ec930;
+			box-shadow: 20px 0 0 #f4c025, 40px 0 0 #3ec930;
 }
 
-.code-editor {
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	margin: 40px auto 0 auto;
-   	width: 750px;
-   	text-align: left;
-   	background-color: #473431;
-   	border-radius: 0 0 5px 5px;
-   	overflow: auto;
-   	-webkit-transition: all .5s ease-in-out;
-    -moz-transition: wall .5s ease-in-out;
-    -o-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
+.codeSample .editor .CodeMirror {
+	height: 90px;
+	overflow:hidden;
 }
 
-.code-editor:before {
-	content: 'blink.toit';
-	font-family: 'Roboto Mono';
-	color: #222;
-	padding-top: 6px;
-	text-align: center;
-	top: 25px;
-	width: 750px;
-	height: 30px;
-	background-color: #fafafa;
-	border-radius: 5px 5px 0 0;
-	-moz-border-radius: 5px 5px 0 0;
-	-o-border-radius: 5px 5px 0 0;
-	-webkit-border-radius: 5px 5px 0 0;
+.codeSample .editor .CodeMirror .CodeMirror-hscrollbar,
+.codeSample .editor .CodeMirror .CodeMirror-vscrollbar {
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
-.code-editor span.control:before {
-	content: '';
-	top: 34px;
-	z-index: 2;
-	padding: 6px;
-	border-radius: 20px;
-	-moz-border-radius: 20px;
-	-o-border-radius: 20px;
-	-webkit-border-radius: 20px;
+.codeSample .process {
+	height:var(--code-sample-process-height);
+	width:100%;
+	background:var(--code-sample-process-bg);
+	font-size:var(--code-sample-fontSize);
+	display:block;
+	color:var(--code-sample-process-color);
+	overflow:hidden;
 }
 
-.code-editor span.control:nth-child(1):before {
-	margin-left: 15px;
-	background-color: #df6963;
-
+.codeSample .process .left {
+	float:left;
 }
 
-.code-editor span.control:nth-child(2):before {
-	margin-left: 35px;
-	background-color: #f5e18a;
-
+.codeSample .process .mode {
+	background:var(--code-sample-process-mode-bg);
+	position:relative;
+	color:white;
+	padding:0px 5px;
+	display:inline-block;
+	height:var(--code-sample-process-height);
 }
 
-.code-editor span.control:nth-child(3):before {
-	margin-left: 55px;
-	background-color: #97c38a;
+.codeSample .process .mode.mode-insert {
+	background: var(--code-sample-process-mode-insert-bg);
 }
 
-/* -- iPad Screen -- */
-@media only screen and (min-width: 480px) and (max-width: 768px) {
-	.code-editor {
-   		width: 500px;
-	}
-
-	.code-editor:before {
-		width: 500px;
-	}
+.codeSample .process .mode::after {
+	content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid var(--code-sample-process-mode-bg);
+    border-bottom: calc(var(--code-sample-process-height)/2) solid transparent;
+    border-right: 0 solid transparent;
+    border-top: calc(var(--code-sample-process-height)/2) solid transparent;
 }
 
-/* -- iPhone Screen -- */
-@media only screen and (max-width: 479px) {
-	.code-editor {
-		width: 300px;
-	}
-
-	.code-editor:before {
-		width: 300px;
-	}
+.codeSample .process .mode.mode-insert::after {
+	border-left-color: var(--code-sample-process-mode-insert-bg);
 }
 
-
-code.language-toit {
-  color: #ccc;
-  font-family: "Roboto Mono";
-  direction: ltr;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
-
+.codeSample .process .filename {
+	display:inline-block;
+	padding:0px 5px 0px 20px;
 }
 
-/* Code blocks */
-pre.language-toit {
-  padding: 1em;
-  margin: 0em 0;
-  height: 500px;
-  overflow: auto;
+.codeSample .process .right {
+	float:right;
 }
 
-:not(pre) > code.language-toit,
-pre.language-toit {
-  background: #473431;
+.codeSample .process .view {
+	display:inline-block;
+	padding:0px 10px 0px 0px;
 }
 
-/* Inline code */
-:not(pre) > code.language-toit {
-  padding: .1em;
-  border-radius: .3em;
-  -moz-border-radius: .3em;
-  -o-border-radius: .3em;
-  -webkit-border-radius: .3em;
+.codeSample .process .lines {
+	display:inline-block;
+	padding:0px 10px 0px 0px;
 }
 
-/*
-.token.comment,
-.token.block-comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: #999;
+.codeSample .terminal {
+	color:var(--code-sample-terminal-color);
+	height:100px;
+	padding:10px 20px;
 }
 
-.token.punctuation {
-  color: #ccc;
+.codeSample .terminal .line {
+	display:block;
+	width:100%;
+	margin:1px 0px;
+	height:20px;
+	overflow:hidden;
 }
 
-
-.token.tag,
-.token.attr-name,
-.token.namespace {
-  color: #e2777a;
+.codeSample .terminal .line.input::before {
+	content:"$";
+	color:var(--code-sample-terminal-cursor-color);
+	padding:0px 10px 0px 0px;
 }
 
-.token.function-name {
-  color: #6196cc;
-}
-
-
-.token.boolean,
-.token.number,
-.token.function {
-  color: #f08d49;
-}
-
-.token.property,
-.token.class-name,
-.token.constant,
-.token.symbol {
-  color: #f8c555;
-}
-
-.token.selector,
-.token.important,
-.token.atrule,
-.token.keyword,
-.token.builtin {
-  color: #cc99cd;
-}
-
-.token.string,
-.token.attr-value,
-.token.regex,
-.token.variable {
-  color: #7ec699;
-}
-
-.token.operator,
-.token.entity,
-.token.url
-{
-  color: #67cdcc;
-}
-
-
-.token.important {
-  font-weight: bold;
-}
-
-.token.entity {
-  cursor: help;
-}
-*/
-pre.line-numbers {
-	position: relative;
-	padding-left: 3.8em;
-	counter-reset: linenumber;
-	padding-bottom: 1px;
-}
-
-pre.line-numbers > code {
-	position: relative;
-}
-
-.line-numbers .line-numbers-rows {
-	position: absolute;
-	pointer-events: none;
-	top: 0;
-
-	font-size: 100%;
-	left: -13em;
-	width: 3em; /* works for line-numbers below 1000 lines */
-	letter-spacing: -1px;
-	background-color: #322422;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-
-}
-
-.line-numbers-rows > span {
-	pointer-events: none;
-	display: block;
-	counter-increment: linenumber;
-}
-
-.line-numbers-rows > span:before {
-	content: counter(linenumber);
-	color: #999;
-	display: block;
-	padding-right: 0.8em;
-	text-align: right;
-}
-
-/* Cursor animation */
-
-@-webkit-keyframes blink {
-    50% {
-        opacity: 0;
-    }
-}
-
-@keyframes blink {
-    50% {
-        opacity: 0;
-    }
+.codeSample .terminal .line .time {
+	color:var(--code-sample-terminal-cursor-color);
+	padding:0px 10px 0px 0px;
 }
