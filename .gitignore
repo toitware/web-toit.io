@@ -1,7 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/yarn,node,react
 # Edit at https://www.toptal.com/developers/gitignore?templates=yarn,node,react
 
-.vs-code/
+.vscode/
 
 ### Node ###
 # Logs
