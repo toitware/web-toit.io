@@ -22,7 +22,7 @@
 .codeSample .editor {
 	padding:30px 0px 0px 0px;
 	position: relative;
-	height:120px;
+	height:170px;
 	font-size:var(--code-sample-fontSize);
 	overflow:hidden;
 }
@@ -43,7 +43,6 @@
 }
 
 .codeSample .editor .CodeMirror {
-	height: 90px;
 	overflow:hidden;
 }
 
@@ -119,7 +118,7 @@
 
 .codeSample .terminal {
 	color:var(--code-sample-terminal-color);
-	height:100px;
+	height:120px;
 	padding:10px 20px;
 }
 

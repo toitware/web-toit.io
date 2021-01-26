@@ -12,13 +12,15 @@ enum EditorMode {
 }
 
 enum TerminalMode {
-  Input = 1,
-  Output,
+  Input = "Input",
+  Output = "Output",
+  Wait = "Wait",
 }
 interface TerminalLine {
   Type: TerminalMode;
   Content: string;
   Time?: string;
+  Wait?: number;
 }
 
 interface EditorState {
@@ -35,19 +37,21 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const editorContent = "import gpio\nmain:\n\tpin := gpio.Pin.out 21\n\tpin.set 1\n\tsleep --ms=1000";
-const TerminalContent: TerminalLine[] = [
-  { Type: TerminalMode.Input, Content: "toit run main.toit" },
-  { Type: TerminalMode.Output, Content: "<process initiated>", Time: "2021-01-26 09:48:19" },
-  { Type: TerminalMode.Output, Content: "Hello, world!", Time: "2021-01-26 09:48:19" },
-  { Type: TerminalMode.Output, Content: "<process terminated>", Time: "2021-01-26 09:48:19" },
-];
+interface AnimationState {
+  editorContentIndex: number;
+  lineWait: number;
+  lines: number;
+  mode: EditorMode;
+  terminalContentIndex: number;
+  terminalContentLines: number;
+  lastWait?: Date;
+}
 
 function animateEditor(
   editorContent: string,
   terminalContent: TerminalLine[]
 ): (state: EditorState) => EditorState | undefined {
-  const animationState = {
+  const animationState: AnimationState = {
     editorContentIndex: 0,
     lineWait: 0,
     lines: 1,
@@ -87,7 +91,7 @@ function animateEditor(
 
       let line: TerminalLine = terminalContent[animationState.terminalContentLines];
       if (line.Type == TerminalMode.Input) {
-        state.TerminalContent.pop()
+        state.TerminalContent.pop();
         if (animationState.terminalContentIndex < line.Content.length) {
           animationState.terminalContentIndex++;
           line = {
@@ -99,8 +103,20 @@ function animateEditor(
             ...state,
             EditorMode: animationState.mode,
           };
-        } else {
         }
+      } else if (line.Type == TerminalMode.Wait && line.Wait) {
+        if (animationState.lastWait === undefined) {
+          animationState.lastWait = new Date();
+          return state;
+        } else {
+          const now = new Date();
+          if (now.getTime() - animationState.lastWait.getTime() < line.Wait) {
+            return state;
+          }
+        }
+        animationState.terminalContentLines++;
+        animationState.lastWait = undefined;
+        return state;
       }
 
       animationState.lineWait = 0;
@@ -117,7 +133,12 @@ function animateEditor(
   };
 }
 
-export default function Editor(): JSX.Element {
+interface EditorProps {
+  editor: string;
+  terminal: TerminalLine[];
+}
+
+export default function Editor({ editor, terminal }: EditorProps): JSX.Element {
   const { ref, inView } = useInView<HTMLDivElement>({
     threshold: 0.25,
   });
@@ -137,7 +158,7 @@ export default function Editor(): JSX.Element {
   }
 
   useEffect(() => {
-    const animateFn = animateEditor(editorContent, TerminalContent);
+    const animateFn = animateEditor(editor, terminal);
     const interval = setInterval(() => {
       setState(
         (state: EditorState): EditorState => {
@@ -190,10 +211,10 @@ export default function Editor(): JSX.Element {
 }
 
 interface TerminalProps {
-  lines: TerminalLine[]
+  lines: TerminalLine[];
 }
 
-function Terminal({lines}: TerminalProps): JSX.Element {
+function Terminal({ lines }: TerminalProps): JSX.Element {
   if (lines.length == 0) {
     return (
       <div className="terminal">
@@ -206,12 +227,20 @@ function Terminal({lines}: TerminalProps): JSX.Element {
     <div className="terminal">
       {lines.map((line, key) => {
         if (line.Type == TerminalMode.Input) {
-          return <div className="line input" key={key}>{line.Content}</div>;
+          return (
+            <div className="line input" key={key}>
+              {line.Content}
+            </div>
+          );
+        } else if (line.Type == TerminalMode.Output) {
+          return (
+            <div className="line output" key={key}>
+              {line.Time ? <span className="time">{line.Time}</span> : ""}
+              {line.Content}
+            </div>
+          );
         } else {
-          return <div className="line output" key={key}>
-            {line.Time ? <span className="time">{line.Time}</span> : ""}
-            {line.Content}
-          </div>;
+          return undefined;
         }
       })}
     </div>
