@@ -7,13 +7,15 @@ export default function Footer(): JSX.Element {
   return (
     <ThemeProvider theme={secondaryTheme}>
       <RightBlock theme={secondaryTheme}>
-        <Typography variant="h6">Contact details</Typography>
+        <Typography variant="h5">Contact details</Typography>
         <Typography variant="body2">Toitware ApS</Typography>
         <Typography variant="body2">Inge Lehmanns Gade 10, 6.</Typography>
         <Typography variant="body2">8000 Aarhus C</Typography>
         <Typography variant="body2">Denmark</Typography>
         <br />
-        <Typography variant="body2">Email: contact@toitware.com</Typography>
+        <Typography variant="body2">
+          Email: <a href="mailto:contact@toitware.com">contact@toitware.com</a>
+        </Typography>
       </RightBlock>
     </ThemeProvider>
   );

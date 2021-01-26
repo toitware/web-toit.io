@@ -7,6 +7,7 @@ date: 2021-01-20
 import { pinkWhiteTheme, greyBlueTheme, whiteBlueTheme } from "../components/theme";
 import TestImage from "../assets/images/graphic_1.png";
 import { Button } from "@material-ui/core";
+import StackImage from "../assets/images/stack.png";
 
 <HorizontalBlock theme={pinkWhiteTheme}>
 <HorizontalBlockItem>
@@ -59,29 +60,28 @@ Our software layer running on the device lets you safely upgrade the system, ins
 </HorizontalBlockItem>
 </HorizontalBlock>
 <HorizontalBlock theme={whiteBlueTheme}>
+
 <HorizontalBlockItem>
 
+# The Layers
+<br></br>
 
-<HighLights>
-  <HighLight>
+#### Integration
+Toit makes it easy to gather data. The Toit API makes it easy to fetch data and call actions remotely. You have maximum control!
+<br></br>
 
-<CodeIcon />
+#### Application
+On top of the hardware, the application layer creates endless possibilites for developing and deploying apps. 
+<br></br>
 
-###### Device software layer
+#### Hardware
+Toit runs on the small and efficient ESP32 microcontroller. 
 
-Sandboxing plaus efficient execution of a high-level, memory-safe language
+</HorizontalBlockItem>
 
-  </HighLight>
-  <HighLight>
+<HorizontalBlockItem>
 
-<ConnectionIcon />
-
-###### We handle device communication
-
-You communicate with our cloud or our API, we take care of the rest.
-
-  </HighLight>
-</HighLights>
+<img src={StackImage} style="width:520px" />
 
 </HorizontalBlockItem>
 </HorizontalBlock>
