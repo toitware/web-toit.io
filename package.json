@@ -1,8 +1,8 @@
 {
-  "name": "toitware",
+  "name": "toit.io",
   "version": "1.0.0",
   "private": true,
-  "description": "Toitware",
+  "description": "toit.io webpage",
   "author": "Jesper Lindstrøm",
   "keywords": [
     "gatsby"
