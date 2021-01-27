@@ -44,10 +44,12 @@ pipeline {
             }
             steps {
                 sh "tar -zcvf ${BUILD_VERSION}.tar.gz -C public ."
+                sh "echo ${BUILD_VERSION} > LATEST"
                 withCredentials([[$class: 'FileBinding', credentialsId: 'gcloud-service-auth', variable: 'GOOGLE_APPLICATION_CREDENTIALS']]) {
                     sh "gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}"
                     sh "gcloud config set project infrastructure-220307"
                     sh "gsutil cp ${BUILD_VERSION}.tar.gz gs://toit-tools/web/${BUILD_VERSION}.tar.gz"
+                    sh "gsutil cp LATEST gs://toit-tools/web/LATEST"
                 }
             }
         }
