@@ -4,7 +4,7 @@
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 
 (function (mod) {
-  if (typeof window !== 'object' || typeof window.navigator === 'undefined')
+  if (typeof window === "undefined" || typeof window.navigator == 'undefined' || typeof navigator == "undefined")
     import("codemirror-node").then(mod);
   if ( typeof module == "object" && module.hot)
     import("codemirror").then(mod);
