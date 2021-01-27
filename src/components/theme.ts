@@ -26,6 +26,7 @@ function createTheme(color: string, contrastColor: string) {
     typography: {
       body1: {
         color: contrastColor,
+        paddingBottom: "1rem",
       },
       body2: {
         color: contrastColor,
@@ -35,26 +36,36 @@ function createTheme(color: string, contrastColor: string) {
         color: contrastColor,
         fontSize: "3.5rem",
         fontFamily: "Canano Light",
+        paddingBottom: "1rem",
+        paddingTop: "1rem",
       },
       h2: {
         color: contrastColor,
         fontSize: "3.0rem",
         fontFamily: "Canano Light",
+        paddingBottom: "1rem",
+        paddingTop: "1rem",
       },
       h3: {
         color: contrastColor,
         fontSize: "2.0rem",
         fontFamily: "Canano Light",
+        paddingBottom: "1rem",
+        paddingTop: "1rem",
       },
       h4: {
         color: contrastColor,
         fontSize: "1.5rem",
         fontFamily: "Canano Light",
+        paddingBottom: "1rem",
+        paddingTop: "1rem",
       },
       h5: {
         color: contrastColor,
         fontSize: "1.25rem",
         fontFamily: "Canano Light",
+        paddingBottom: "1rem",
+        paddingTop: "1rem",
       },
       h6: {
         color: contrastColor,
