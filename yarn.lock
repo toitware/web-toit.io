@@ -3338,7 +3338,14 @@ code-point-at@^1.0.0:
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
-codemirror@^5.59.2:
+codemirror-node@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/codemirror-node/-/codemirror-node-0.1.0.tgz#8b754216c0036a418caf69f8f5cdbf8f991bb594"
+  integrity sha512-4/vA4aUrhkmRXkcl33AztbthtiJrKXzgauDwfN+xxuonQNzyfkprWO4XU5YfHFPMWJttULHUvzjv/rvN/EzX5A==
+  dependencies:
+    codemirror "^5.48.2"
+
+codemirror@^5.48.2:
   version "5.59.2"
   resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.59.2.tgz#ee674d3a4a8d241af38d52afc482625ba7393922"
   integrity sha512-/D5PcsKyzthtSy2NNKCyJi3b+htRkoKv3idswR/tR6UAvMNKA7SrmyZy6fOONJxSRs1JlUWEDAbxqfdArbK8iA==

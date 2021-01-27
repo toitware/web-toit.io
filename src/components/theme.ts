@@ -1,15 +1,15 @@
 import { createMuiTheme } from "@material-ui/core";
 
-export const pinkWhiteTheme = createTheme("#ff8484", "#ffffff");
-export const greyBlueTheme = createTheme("#d7dce1", "#374b64");
-export const whiteBlueTheme = createTheme("#ffffff", "#374b64");
+export const spacing = 8;
+
+export const pinkWhiteTheme = createTheme("#ff8484", "#ffffff", spacing);
+export const greyBlueTheme = createTheme("#d7dce1", "#374b64", spacing);
+export const whiteBlueTheme = createTheme("#ffffff", "#374b64", spacing);
 
 export const primaryTheme = pinkWhiteTheme;
 export const secondaryTheme = greyBlueTheme;
 
-export const spacing = 8;
-
-function createTheme(color: string, contrastColor: string) {
+function createTheme(color: string, contrastColor: string, spacing: number) {
   return createMuiTheme({
     spacing: spacing,
     palette: {
@@ -27,10 +27,12 @@ function createTheme(color: string, contrastColor: string) {
       body1: {
         color: contrastColor,
         paddingBottom: "1rem",
+        fontFamily: "Roboto",
       },
       body2: {
         color: contrastColor,
         fontSize: "0.80rem",
+        fontFamily: "Roboto",
       },
       h1: {
         color: contrastColor,

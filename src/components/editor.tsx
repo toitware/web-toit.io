@@ -4,7 +4,7 @@ import "codemirror/theme/material.css";
 import React, { useEffect, useState } from "react";
 import { UnControlled as CodeMirror } from "react-codemirror2";
 import useInView from "react-cool-inview";
-require("../assets/code_mirror/toit");
+import "../assets/code_mirror/toit";
 
 enum EditorMode {
   Insert = 1,
