@@ -28,11 +28,12 @@ export function HorizontalBlock(props: HorizontalBlockProps): JSX.Element {
 interface HorizontalBlockItemProps {
   children: React.ReactNode;
   theme: Theme;
+  single: boolean;
 }
 
 export function HorizontalBlockItem(props: HorizontalBlockItemProps): JSX.Element {
   return (
-    <Grid item xs={12} md={6}>
+    <Grid item xs={12} md={props.single ? 12 : 6}>
       {props.children}
     </Grid>
   );
