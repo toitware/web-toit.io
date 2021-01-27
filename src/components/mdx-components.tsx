@@ -5,8 +5,9 @@ import { MDXProviderComponentsProp } from "@mdx-js/react";
 import React from "react";
 import Block from "./block";
 import Editor from "./editor";
-import { CodeIcon, ConnectionIcon, HighLight, HighLights } from "./highlights";
+import { HighLight, HighLights } from "./highlights";
 import { HorizontalBlock, HorizontalBlockItem } from "./horizontal-block";
+import { CodeIcon, ConnectionIcon } from "./icons";
 import SignupButton from "./signup-button";
 
 const P = (props: any) => <Typography {...props} />;
