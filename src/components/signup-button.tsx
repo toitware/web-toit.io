@@ -3,6 +3,11 @@ import React from "react";
 
 const styles = (theme: Theme) =>
   createStyles({
+    button: {
+      "&:hover": {
+        backgroundColor: theme.palette.secondary.light,
+      },
+    },
     signupContent: {
       width: 500,
       height: 746,
@@ -31,6 +36,7 @@ class SignupButton extends React.Component<SignupButtonProps, SignupButtonState>
         <Button
           variant="contained"
           color="secondary"
+          className={this.props.classes.button}
           disableElevation
           onClick={() => {
             this.setState({ ...this.state, signupOpen: true });
