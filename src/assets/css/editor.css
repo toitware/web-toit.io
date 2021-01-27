@@ -17,12 +17,13 @@
 	border-radius:4px;
 	overflow: hidden;
 	background:var(--code-sample-bg);
+	max-width:460px;
 }
 
 .codeSample .editor {
 	padding:30px 0px 0px 0px;
 	position: relative;
-	height:170px;
+	height:180px;
 	font-size:var(--code-sample-fontSize);
 	overflow:hidden;
 }
@@ -118,7 +119,7 @@
 
 .codeSample .terminal {
 	color:var(--code-sample-terminal-color);
-	height:120px;
+	height:150px;
 	padding:10px 20px;
 }
 

@@ -175,37 +175,35 @@ export default function Editor({ editor, terminal }: EditorProps): JSX.Element {
   }, []);
 
   return (
-    <div className="wrapper">
-      <div ref={ref} className="codeSample">
-        <div className="editor">
-          <CodeMirror
-            value={state.EditorContent}
-            options={{
-              mode: "toit",
-              lineNumbers: true,
-              styleActiveLine: true,
-              theme: "material",
-              readOnly: true,
-              autoScroll: false,
-            }}
-          />
-        </div>
-        <div className="process">
-          <div className="left">
-            <div className={state.EditorMode == EditorMode.Insert ? "mode mode-insert" : "mode mode-normal"}>
-              {state.EditorMode == EditorMode.Insert ? "INSERT" : "NORMAL"}
-            </div>
-            <div className="filename">main.toit</div>
-          </div>
-          <div className="right">
-            <div className="lines">
-              {state.EditorLines}/{state.EditorLines}
-            </div>
-            <div className="view">100% ☰</div>
-          </div>
-        </div>
-        <Terminal lines={state.TerminalContent} />
+    <div ref={ref} className="codeSample">
+      <div className="editor">
+        <CodeMirror
+          value={state.EditorContent}
+          options={{
+            mode: "toit",
+            lineNumbers: true,
+            styleActiveLine: true,
+            theme: "material",
+            readOnly: true,
+            autoScroll: false,
+          }}
+        />
       </div>
+      <div className="process">
+        <div className="left">
+          <div className={state.EditorMode == EditorMode.Insert ? "mode mode-insert" : "mode mode-normal"}>
+            {state.EditorMode == EditorMode.Insert ? "INSERT" : "NORMAL"}
+          </div>
+          <div className="filename">main.toit</div>
+        </div>
+        <div className="right">
+          <div className="lines">
+            {state.EditorLines}/{state.EditorLines}
+          </div>
+          <div className="view">100% ☰</div>
+        </div>
+      </div>
+      <Terminal lines={state.TerminalContent} />
     </div>
   );
 }
