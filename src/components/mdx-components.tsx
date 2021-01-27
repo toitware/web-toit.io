@@ -8,6 +8,7 @@ import Editor from "./editor";
 import { CodeIcon, ConnectionIcon, HighLight, HighLights } from "./highlights";
 import { HorizontalBlock, HorizontalBlockItem } from "./horizontal-block";
 import RightBlock from "./right-block";
+import SignupButton from "./signup-button";
 
 const P = (props: any) => <Typography {...props} />;
 const H1 = (props: any) => <Typography variant="h1" {...props} />;
@@ -37,4 +38,5 @@ export const shorthands = {
   HighLight,
   CodeIcon,
   ConnectionIcon,
+  SignupButton,
 };

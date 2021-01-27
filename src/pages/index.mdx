@@ -16,7 +16,7 @@ import { Button } from "@material-ui/core";
 Toit augments your IoT devices with a programmatic interface that allows you to monitor, service, and
 communicate securely with your device fleet in production.
 
-<Button>Sign up</Button>
+<SignupButton />
 
 </HorizontalBlockItem>
 <HorizontalBlockItem>
@@ -29,22 +29,27 @@ communicate securely with your device fleet in production.
 <HorizontalBlock theme={whiteBlueTheme} last>
 <HorizontalBlockItem>
 
-<Editor editor={"import gpio\n\
+<Editor
+  editor={
+    'import gpio\n\
 \n\
 main:\n\
 \tpin := gpio.Pin.out 21\n\
-\tprint \"Blink 5 times\"\n\
+\tprint "Blink 5 times"\n\
 \t10.repeat:\n\
 \t\tpin.set it % 2\n\
 \t\tsleep --ms=500\n\
-\t\tprint \"Finished\""} terminal={[
-  { Type: "Input", Content: "toit run main.toit" },
-  { Type: "Output", Content: "<process initiated>", Time: "2021-01-26 09:48:19" },
-  { Type: "Output", Content: "Blink 5 times", Time: "2021-01-26 09:48:19" },
-  { Type: "Wait", Wait: 5000 },
-  { Type: "Output", Content: "Terminated", Time: "2021-01-26 09:48:24" },
-  { Type: "Output", Content: "<process terminated>", Time: "2021-01-26 09:48:24" },
-]} />
+\t\tprint "Finished"'
+  }
+  terminal={[
+    { Type: "Input", Content: "toit run main.toit" },
+    { Type: "Output", Content: "<process initiated>", Time: "2021-01-26 09:48:19" },
+    { Type: "Output", Content: "Blink 5 times", Time: "2021-01-26 09:48:19" },
+    { Type: "Wait", Wait: 5000 },
+    { Type: "Output", Content: "Terminated", Time: "2021-01-26 09:48:24" },
+    { Type: "Output", Content: "<process terminated>", Time: "2021-01-26 09:48:24" },
+  ]}
+/>
 
 </HorizontalBlockItem>
 <HorizontalBlockItem>
