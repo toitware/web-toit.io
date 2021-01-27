@@ -1,14 +1,10 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import React from "react";
-import { FaCode, FaWifi } from "react-icons/fa";
 import { spacing } from "./theme";
 
 const useStyles = makeStyles(() => ({
   root: {
     paddingTop: spacing * 4,
-  },
-  icon: {
-    paddingBottom: spacing,
   },
 }));
 
@@ -38,16 +34,4 @@ export function HighLight(props: HighLightProps): JSX.Element {
       {props.children}
     </Grid>
   );
-}
-
-export function CodeIcon(): JSX.Element {
-  const classes = useStyles();
-
-  return <FaCode size={24} className={classes.icon} />;
-}
-
-export function ConnectionIcon(): JSX.Element {
-  const classes = useStyles();
-
-  return <FaWifi size={24} className={classes.icon} />;
 }
