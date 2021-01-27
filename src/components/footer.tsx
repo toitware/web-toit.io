@@ -1,20 +1,34 @@
-import { ThemeProvider, Typography } from "@material-ui/core";
+import { Grid, ThemeProvider, Typography } from "@material-ui/core";
+import { Link } from "gatsby";
 import React from "react";
-import RightBlock from "./right-block";
+import Block from "./block";
 import { secondaryTheme } from "./theme";
 
 export default function Footer(): JSX.Element {
   return (
     <ThemeProvider theme={secondaryTheme}>
-      <RightBlock theme={secondaryTheme}>
-        <Typography variant="h6">Contact details</Typography>
-        <Typography variant="body2">Toitware ApS</Typography>
-        <Typography variant="body2">Inge Lehmanns Gade 10, 6.</Typography>
-        <Typography variant="body2">8000 Aarhus C</Typography>
-        <Typography variant="body2">Denmark</Typography>
-        <br />
-        <Typography variant="body2">Email: contact@toitware.com</Typography>
-      </RightBlock>
+      <Block theme={secondaryTheme}>
+        <Grid container spacing={4} justify="flex-end">
+          <Grid item xs={6} md={3}>
+            <Typography variant="h6">Resources</Typography>
+            <Link to="/terms-of-service">
+              <Typography variant="body2">Terms of service</Typography>
+            </Link>
+            <Link to="/privacy-policy">
+              <Typography variant="body2">Privacy policy</Typography>
+            </Link>
+          </Grid>
+          <Grid item xs={6} md={3}>
+            <Typography variant="h6">Contact details</Typography>
+            <Typography variant="body2">Toitware ApS</Typography>
+            <Typography variant="body2">Inge Lehmanns Gade 10, 6.</Typography>
+            <Typography variant="body2">8000 Aarhus C</Typography>
+            <Typography variant="body2">Denmark</Typography>
+            <br />
+            <Typography variant="body2">Email: contact@toitware.com</Typography>
+          </Grid>
+        </Grid>
+      </Block>
     </ThemeProvider>
   );
 }
