@@ -2,14 +2,38 @@ import { createMuiTheme } from "@material-ui/core";
 
 export const spacing = 8;
 
-export const pinkWhiteTheme = createTheme("#ff8484", "#ffffff", spacing);
-export const greyBlueTheme = createTheme("#d7dce1", "#374b64", spacing);
-export const whiteBlueTheme = createTheme("#ffffff", "#374b64", spacing);
+export const pinkWhiteTheme = createTheme(
+  "rgba(255, 132, 132, 1)",
+  "rgba(255, 255, 255, 1)",
+  "rgba(255, 132, 132, 0.5)",
+  "rgba(255, 255, 255, 0.5)",
+  spacing
+);
+export const greyBlueTheme = createTheme(
+  "rgba(215, 220, 225, 1)",
+  "rgba(55, 75, 100, 1)",
+  "rgba(215, 220, 225, 0.5",
+  "rgba(55, 75, 100, 0.5)",
+  spacing
+);
+export const whiteBlueTheme = createTheme(
+  "rgba(255, 255, 255, 1)",
+  "rgba(55, 75, 100, 1)",
+  "rgba(255, 255, 255, 0.5)",
+  "rgba(55, 75, 100, 0.5)",
+  spacing
+);
 
 export const primaryTheme = pinkWhiteTheme;
 export const secondaryTheme = greyBlueTheme;
 
-function createTheme(color: string, contrastColor: string, spacing: number) {
+function createTheme(
+  color: string,
+  contrastColor: string,
+  colorLight: string,
+  contrastColorLight: string,
+  spacing: number
+) {
   return createMuiTheme({
     spacing: spacing,
     palette: {
@@ -17,10 +41,12 @@ function createTheme(color: string, contrastColor: string, spacing: number) {
       primary: {
         main: color,
         contrastText: contrastColor,
+        light: colorLight,
       },
       secondary: {
         main: contrastColor,
         contrastText: color,
+        light: contrastColorLight,
       },
     },
     typography: {
