@@ -1,4 +1,5 @@
 import { Button, createStyles, Theme, withStyles, WithStyles } from "@material-ui/core";
+import { Link } from "gatsby";
 import React from "react";
 import Logo from "../assets/images/toit-secondary.inline.svg";
 import SignupButton from "./signup-button";
@@ -42,7 +43,9 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       <div>
         <div className={this.props.classes.toolbarContent}>
           <div className={this.props.classes.logoContainer}>
-            <Logo className={this.props.classes.logo} />
+            <Link to="/">
+              <Logo className={this.props.classes.logo} />
+            </Link>
           </div>
           <div className={this.props.classes.buttons}>
             <a href="http://console.toit.io/login" target="_blank" rel="noreferrer">
