@@ -1,5 +1,15 @@
-import { Button, createStyles, Dialog, Theme, withStyles, WithStyles } from "@material-ui/core";
+import {
+  Button,
+  createStyles,
+  Dialog,
+  Theme,
+  ThemeProvider,
+  Typography,
+  withStyles,
+  WithStyles,
+} from "@material-ui/core";
 import React from "react";
+import { greyBlueTheme } from "./theme";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -9,13 +19,23 @@ const styles = (theme: Theme) =>
       },
     },
     signupContent: {
+      backgroundColor: "#f4f8fa",
       width: 500,
-      height: 746,
+      height: 712,
       overflow: "hidden",
+    },
+    signupHeader: {
+      paddingLeft: 40,
+      paddingRight: 40,
+      marginBottom: -18,
+    },
+    signupHeaderText: {
+      textColor: theme.palette.secondary.main,
     },
     signupIframe: {
       width: "100%",
       height: "100%",
+      border: 0,
     },
   });
 
@@ -57,13 +77,18 @@ class SignupButton extends React.Component<SignupButtonProps, SignupButtonState>
           this.setState({ ...this.state, signupOpen: false });
         }}
       >
-        <div className={this.props.classes.signupContent}>
-          <iframe
-            id="hubspot-signup-iframe"
-            src={"https://share.hsforms.com/1D77eKqQSQhyl2Ybs4huWmQ3eaeq"}
-            className={this.props.classes.signupIframe}
-          />
-        </div>
+        <ThemeProvider theme={greyBlueTheme}>
+          <div className={this.props.classes.signupContent}>
+            <div className={this.props.classes.signupHeader}>
+              <Typography variant="h3">Sign up</Typography>
+            </div>
+            <iframe
+              id="hubspot-signup-iframe"
+              src={"https://share.hsforms.com/1D77eKqQSQhyl2Ybs4huWmQ3eaeq"}
+              className={this.props.classes.signupIframe}
+            />
+          </div>
+        </ThemeProvider>
       </Dialog>
     );
   }
