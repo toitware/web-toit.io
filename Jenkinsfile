@@ -48,8 +48,8 @@ pipeline {
                 withCredentials([[$class: 'FileBinding', credentialsId: 'gcloud-service-auth', variable: 'GOOGLE_APPLICATION_CREDENTIALS']]) {
                     sh "gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}"
                     sh "gcloud config set project infrastructure-220307"
-                    sh "gsutil cp ${BUILD_VERSION}.tar.gz gs://toit-web/toit/${BUILD_VERSION}.tar.gz"
-                    sh "gsutil cp LATEST gs://toit-web/toit/LATEST"
+                    sh "gsutil cp ${BUILD_VERSION}.tar.gz gs://toit-web/toit.io/${BUILD_VERSION}.tar.gz"
+                    sh "gsutil cp LATEST gs://toit-web/toit.io/LATEST"
                 }
             }
         }
