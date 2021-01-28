@@ -50,6 +50,7 @@ pipeline {
                     sh "gcloud config set project infrastructure-220307"
                     sh "gsutil cp ${BUILD_VERSION}.tar.gz gs://toit-web/toit.io/${BUILD_VERSION}.tar.gz"
                     sh "gsutil cp LATEST gs://toit-web/toit.io/LATEST"
+                    sh "if [ -z `semver get prerel ${BUILD_VERSION}` ]; then gsutil cp LATEST gs://toit-web/toit.io/RELEASED; fi"
                 }
             }
         }
