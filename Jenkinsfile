@@ -36,7 +36,7 @@ pipeline {
             }
         }
 
-        stage("Upload") {
+        stage("upload") {
             when {
                 anyOf {
                     branch 'master'
