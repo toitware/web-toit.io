@@ -40,6 +40,8 @@ pipeline {
             when {
                 anyOf {
                     branch 'master'
+                    branch pattern: "release-v\\d+.\\d+", comparator: "REGEXP"
+                    tag "v*"
                 }
             }
             steps {
