@@ -2,7 +2,7 @@ pipeline {
 
     agent {
         docker {
-            image 'gcr.io/infrastructure-220307/jenkins-console-toolchain:20210122124009'
+            image 'gcr.io/infrastructure-220307/jenkins-console-toolchain:20210128121045'
             label 'docker'
             args '-v /home/jenkins/agent:/home/jenkins/.cache/ -u jenkins'
             reuseNode true
@@ -14,7 +14,7 @@ pipeline {
     }
 
     environment {
-        BUILD_VERSION = sh(returnStdout: true, script: './tools/version.sh').trim()
+        BUILD_VERSION = sh(returnStdout: true, script: 'gitversion').trim()
     }
 
     stages {
