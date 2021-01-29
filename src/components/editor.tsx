@@ -71,8 +71,9 @@ function animateEditor(
         }
         animationState.lines++;
         animationState.lineWait = 0;
-        // Skip over indentation spaces.
-        while (editorContent[animationState.editorContentIndex + 1] == " ") {
+        // Skip indentation.
+        while (editorContent[animationState.editorContentIndex + 1] == " " ||
+            editorContent[animationState.editorContentIndex + 1] == "\t") {
           animationState.editorContentIndex++;
         }
       }
