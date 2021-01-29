@@ -7,7 +7,17 @@ module.exports = {
       {
         resolve: "gatsby-plugin-google-analytics",
         options: {
-          trackingId: "foobar",
+          trackingId: "UA-140543854-3",
+          respectDNT: true,
+          head: true,
+        },
+      },
+      {
+        resolve: "gatsby-plugin-hubspot",
+        options: {
+            trackingCode: "5705522",
+            respectDNT: true,
+            productionOnly: true,
         },
       },
       {
