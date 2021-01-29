@@ -18,36 +18,36 @@ const styles = (theme: Theme) =>
         backgroundColor: theme.palette.secondary.light,
       },
     },
-    signupContent: {
+    getstartedContent: {
       backgroundColor: "#f4f8fa",
       width: 500,
       height: 712,
       overflow: "hidden",
     },
-    signupHeader: {
+    getstartedHeader: {
       paddingLeft: 40,
       paddingRight: 40,
       marginBottom: -18,
     },
-    signupHeaderText: {
+    getstartedHeaderText: {
       textColor: theme.palette.secondary.main,
     },
-    signupIframe: {
+    getstartedIframe: {
       width: "100%",
       height: "100%",
       border: 0,
     },
   });
 
-type SignupButtonProps = WithStyles<typeof styles>;
+type GetstartedButtonProps = WithStyles<typeof styles>;
 
-interface SignupButtonState {
-  signupOpen: boolean;
+interface GetstartedButtonState {
+  getstartedOpen: boolean;
 }
 
-class SignupButton extends React.Component<SignupButtonProps, SignupButtonState> {
+class GetstartedButton extends React.Component<GetstartedButtonProps, GetstartedButtonState> {
   state = {
-    signupOpen: false,
+    getstartedOpen: false,
   };
 
   render() {
@@ -59,33 +59,33 @@ class SignupButton extends React.Component<SignupButtonProps, SignupButtonState>
           className={this.props.classes.button}
           disableElevation
           onClick={() => {
-            this.setState({ ...this.state, signupOpen: true });
+            this.setState({ ...this.state, getstartedOpen: true });
           }}
         >
-          Sign up
+          Get started
         </Button>
-        {this.signupDialog()}
+        {this.getstartedDialog()}
       </>
     );
   }
 
-  signupDialog() {
+  getstartedDialog() {
     return (
       <Dialog
-        open={this.state.signupOpen}
+        open={this.state.getstartedOpen}
         onClose={() => {
-          this.setState({ ...this.state, signupOpen: false });
+          this.setState({ ...this.state, getstartedOpen: false });
         }}
       >
         <ThemeProvider theme={greyBlueTheme}>
-          <div className={this.props.classes.signupContent}>
-            <div className={this.props.classes.signupHeader}>
-              <Typography variant="h3">Sign up</Typography>
+          <div className={this.props.classes.getstartedContent}>
+            <div className={this.props.classes.getstartedHeader}>
+              <Typography variant="h3">Get started</Typography>
             </div>
             <iframe
-              id="hubspot-signup-iframe"
+              id="hubspot-getstarted-iframe"
               src={"https://share.hsforms.com/1D77eKqQSQhyl2Ybs4huWmQ3eaeq"}
-              className={this.props.classes.signupIframe}
+              className={this.props.classes.getstartedIframe}
             />
           </div>
         </ThemeProvider>
@@ -94,4 +94,4 @@ class SignupButton extends React.Component<SignupButtonProps, SignupButtonState>
   }
 }
 
-export default withStyles(styles)(SignupButton);
+export default withStyles(styles)(GetstartedButton);
