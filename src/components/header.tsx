@@ -2,7 +2,7 @@ import { Button, createStyles, Theme, withStyles, WithStyles } from "@material-u
 import { Link } from "gatsby";
 import React from "react";
 import Logo from "../assets/images/toit-secondary.inline.svg";
-import SignupButton from "./signup-button";
+import GetStartedButton from "./getstarted-button";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -30,12 +30,12 @@ const styles = (theme: Theme) =>
 type HeaderProps = WithStyles<typeof styles>;
 
 interface HeaderState {
-  signupOpen: boolean;
+  getstartedOpen: boolean;
 }
 
 class Header extends React.Component<HeaderProps, HeaderState> {
   state = {
-    signupOpen: false,
+    getstartedOpen: false,
   };
 
   render() {
@@ -54,7 +54,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               </Button>
             </a>
             <span className={this.props.classes.button}>
-              <SignupButton />
+              <GetStartedButton />
             </span>
           </div>
         </div>
