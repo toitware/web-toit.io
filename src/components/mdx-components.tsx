@@ -5,7 +5,7 @@ import { MDXProviderComponentsProp } from "@mdx-js/react";
 import React from "react";
 import Block from "./block";
 import Editor from "./editor";
-import GetstartedButton from "./getstarted-button";
+import GetStartedButton from "./getstarted-button";
 import { HighLight, HighLights } from "./highlights";
 import { HorizontalBlock, HorizontalBlockItem } from "./horizontal-block";
 import { CodeIcon, ConnectionIcon } from "./icons";
@@ -37,5 +37,5 @@ export const shorthands = {
   HighLight,
   CodeIcon,
   ConnectionIcon,
-  GetstartedButton,
+  GetStartedButton,
 };

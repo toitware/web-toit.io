@@ -39,13 +39,13 @@ const styles = (theme: Theme) =>
     },
   });
 
-type GetstartedButtonProps = WithStyles<typeof styles>;
+type GetStartedButtonProps = WithStyles<typeof styles>;
 
-interface GetstartedButtonState {
+interface GetStartedButtonState {
   getstartedOpen: boolean;
 }
 
-class GetstartedButton extends React.Component<GetstartedButtonProps, GetstartedButtonState> {
+class GetStartedButton extends React.Component<GetStartedButtonProps, GetStartedButtonState> {
   state = {
     getstartedOpen: false,
   };
@@ -94,4 +94,4 @@ class GetstartedButton extends React.Component<GetstartedButtonProps, Getstarted
   }
 }
 
-export default withStyles(styles)(GetstartedButton);
+export default withStyles(styles)(GetStartedButton);

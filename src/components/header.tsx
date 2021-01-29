@@ -2,7 +2,7 @@ import { Button, createStyles, Theme, withStyles, WithStyles } from "@material-u
 import { Link } from "gatsby";
 import React from "react";
 import Logo from "../assets/images/toit-secondary.inline.svg";
-import GetstartedButton from "./getstarted-button";
+import GetStartedButton from "./getstarted-button";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -54,7 +54,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               </Button>
             </a>
             <span className={this.props.classes.button}>
-              <GetstartedButton />
+              <GetStartedButton />
             </span>
           </div>
         </div>
