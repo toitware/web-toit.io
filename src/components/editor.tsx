@@ -193,7 +193,6 @@ export default function Editor({ editor, terminal }: EditorProps): JSX.Element {
             theme: "material",
             readOnly: true,
             autoScroll: false,
-            tabSize: 2,
           }}
         />
       </div>
