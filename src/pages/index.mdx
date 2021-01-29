@@ -34,22 +34,22 @@ Monitor and securely service your devices in production; all through the Toit AP
     'import gpio\n\
 \n\
 main:\n\
-  pin := gpio.Pin.out 21\n\
-  print "Blinking 5 times ..."\n\
-  5.repeat:\n\
-    pin.set 1\n\
-    sleep --ms=500\n\
-    pin.set 0\n\
-    sleep --ms=500\n\
-  print "Blinking done!"'
-  }
+\tpin := gpio.Pin.out 21\n\
+\tprint "Blinking 5 times ..."\n\
+\t5.repeat:\n\
+\t\tpin.set 1\n\
+\t\tsleep --ms=500\n\
+\t\tpin.set 0\n\
+\t\tsleep --ms=500\n\
+\tprint "Blinking done!"'
+}
   terminal={[
     { Type: "Input", Content: "toit run main.toit" },
     { Type: "Output", Content: "<process initiated>", Time: "2021-01-26 09:48:19" },
     { Type: "Output", Content: "Blinking 5 times ...", Time: "2021-01-26 09:48:19" },
     { Type: "Wait", Wait: 5000 },
     { Type: "Output", Content: "Blinking done!", Time: "2021-01-26 09:48:24" },
-    { Type: "Output", Content: "<process terminated>", Time: "2021-01-26 09:48:24" },
+    { Type: "Output", Content: "<process finished>", Time: "2021-01-26 09:48:24" },
   ]}
 />
 
