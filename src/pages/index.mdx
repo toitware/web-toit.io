@@ -1,5 +1,5 @@
 ---
-title: Toit - The software platform for IoT
+title: ᴛᴏɪᴛ
 path: /
 date: 2021-01-20
 ---
@@ -11,10 +11,10 @@ import { Button } from "@material-ui/core";
 <HorizontalBlock theme={pinkWhiteTheme}>
 <HorizontalBlockItem>
 
-# The Software Platform for IoT
+# Continuous firmware delivery
 
-Toit augments your IoT devices with a programmatic interface that allows you to monitor, service, and
-communicate securely with your device fleet in production.
+Continuously update the code on your microcontrollers even over cellular connections.
+Monitor and securely service your devices in production; all through the Toit API.
 
 <SignupButton />
 
@@ -34,19 +34,21 @@ communicate securely with your device fleet in production.
     'import gpio\n\
 \n\
 main:\n\
-\tpin := gpio.Pin.out 21\n\
-\tprint "Blink 5 times"\n\
-\t10.repeat:\n\
-\t\tpin.set it % 2\n\
-\t\tsleep --ms=500\n\
-\t\tprint "Finished"'
+  pin := gpio.Pin.out 21\n\
+  print "Blinking 5 times ..."\n\
+  5.repeat:\n\
+    pin.set 1\n\
+    sleep --ms=500\n\
+    pin.set 0\n\
+    sleep --ms=500\n\
+  print "Blinking done!"'
   }
   terminal={[
     { Type: "Input", Content: "toit run main.toit" },
     { Type: "Output", Content: "<process initiated>", Time: "2021-01-26 09:48:19" },
-    { Type: "Output", Content: "Blink 5 times", Time: "2021-01-26 09:48:19" },
+    { Type: "Output", Content: "Blinking 5 times ...", Time: "2021-01-26 09:48:19" },
     { Type: "Wait", Wait: 5000 },
-    { Type: "Output", Content: "Terminated", Time: "2021-01-26 09:48:24" },
+    { Type: "Output", Content: "Blinking done!", Time: "2021-01-26 09:48:24" },
     { Type: "Output", Content: "<process terminated>", Time: "2021-01-26 09:48:24" },
   ]}
 />
@@ -54,29 +56,30 @@ main:\n\
 </HorizontalBlockItem>
 <HorizontalBlockItem>
 
-###### By developers for developers
+###### Modular applications for low-cost devices
 
-# Fast development cycles
+# Fast and safe
 
-Our software layer running on the device lets you safely upgrade the system, install and remove individual applications at run-time, and gather data from the field.
+Write your applications in our high-level, memory-safe language and let our battery-optimized virtual machine execute them efficiently on your microcontrollers.
+Fast to develop, safe to run.
 
 <HighLights>
   <HighLight>
 
 <CodeIcon />
 
-###### Device software layer
+###### Robust sandboxing
 
-Sandboxing plus efficient execution of a high-level, memory-safe language
+Your applications run isolated from each other on your microcontrollers.
 
   </HighLight>
   <HighLight>
 
 <ConnectionIcon />
 
-###### Seamless device communication
+###### Secure communications
 
-You communicate with our cloud or our API, we take care of the rest.
+You communicate with our cloud through our API, we take care of the rest.
 
   </HighLight>
 </HighLights>
