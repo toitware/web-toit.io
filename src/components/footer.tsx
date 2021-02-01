@@ -26,6 +26,9 @@ export default function Footer(): JSX.Element {
             <Link to="/privacy-policy">
               <Typography variant="body2">Privacy policy</Typography>
             </Link>
+            <Link to="/cookies-policy">
+              <Typography variant="body2">Cookies policy</Typography>
+            </Link>
           </Grid>
           <Grid item xs={6} className={classes.contactDetails}>
             <div>

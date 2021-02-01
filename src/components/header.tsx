@@ -1,4 +1,4 @@
-import { Button, createStyles, Theme, withStyles, WithStyles } from "@material-ui/core";
+import { Button, createStyles, Hidden, Theme, withStyles, WithStyles } from "@material-ui/core";
 import { Link } from "gatsby";
 import React from "react";
 import Logo from "../assets/images/toit-secondary.inline.svg";
@@ -48,11 +48,13 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             </Link>
           </div>
           <div className={this.props.classes.buttons}>
-            <a href="http://console.toit.io/login" target="_blank" rel="noreferrer">
-              <Button variant="outlined" color="secondary" className={this.props.classes.button}>
-                Login
-              </Button>
-            </a>
+            <Hidden xsDown>
+              <a href="http://console.toit.io/login" target="_blank" rel="noreferrer">
+                <Button variant="outlined" color="secondary" className={this.props.classes.button}>
+                  Login
+                </Button>
+              </a>
+            </Hidden>
             <span className={this.props.classes.button}>
               <GetStartedButton />
             </span>
