@@ -5,6 +5,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
+import Cookie from "./cookie";
 import Footer from "./footer";
 import Header from "./header";
 import "./layout.css";
@@ -57,6 +58,7 @@ export default function Layout(props: LayoutProps): JSX.Element {
           <Header />
           <div className={classes.middle}>{props.children}</div>
           <Footer />
+          <Cookie />
         </div>
       </ThemeProvider>
     </MDXProvider>
