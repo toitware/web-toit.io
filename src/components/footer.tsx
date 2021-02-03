@@ -38,7 +38,7 @@ export default function Footer(): JSX.Element {
               <Typography variant="body2">8000 Aarhus C</Typography>
               <Typography variant="body2">Denmark</Typography>
               <br />
-              <Typography variant="body2">Email: contact@toitware.com</Typography>
+              <Typography variant="body2">Email: contact@toit.io</Typography>
             </div>
           </Grid>
         </Grid>
