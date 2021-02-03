@@ -5,14 +5,6 @@ module.exports = {
     },
     plugins: [
       {
-        resolve: "gatsby-plugin-google-analytics",
-        options: {
-          trackingId: "UA-140543854-3",
-          respectDNT: true,
-          head: true,
-        },
-      },
-      {
         resolve: "gatsby-plugin-hubspot",
         options: {
             trackingCode: "5705522",
@@ -68,10 +60,8 @@ module.exports = {
         options: {
           googleAnalytics: {
             trackingId: "UA-140543854-3",
-            // Setting this parameter is optional
             anonymize: true
           },
-          // Defines the environments where the tracking should be available  - default is ["production"]
           environments: ["production"]
         },
       },
