@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
   - name: webtoitio
-    image: 465068080952.dkr.ecr.eu-west-1.amazonaws.com/jenkins-console-toolchain:20210203152910
+    image: 465068080952.dkr.ecr.eu-west-1.amazonaws.com/jenkins-console-toolchain:20210204155459
     command:
     - cat
     tty: true
