@@ -12,16 +12,15 @@ spec:
     command:
     - cat
     tty: true
+    envVars: [
+      envVar(key: 'BUILD_VERSION', value: 'sh(returnStdout: true, script: 'gitversion').trim()')
+    ]),
 """
       }
     }
 
     options {
       timeout(time: 30, unit: 'MINUTES')
-    }
-
-    environment {
-        BUILD_VERSION = sh(returnStdout: true, script: 'gitversion').trim()
     }
 
     stages {
@@ -60,11 +59,11 @@ spec:
             steps {
                 container("webtoitio") {
                     sh "tar -zcf ${BUILD_VERSION}.tar.gz -C public ."
-                        withCredentials([[$class: 'FileBinding', credentialsId: 'gcloud-service-auth', variable: 'GOOGLE_APPLICATION_CREDENTIALS']]) {
-                            sh "gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}"
-                                sh "gcloud config set project infrastructure-220307"
-                                sh "toitarchive ${BUILD_VERSION}.tar.gz toit-web toit.io ${BUILD_VERSION}"
-                        }
+                    withCredentials([[$class: 'FileBinding', credentialsId: 'gcloud-service-auth', variable: 'GOOGLE_APPLICATION_CREDENTIALS']]) {
+                        sh "gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}"
+                        sh "gcloud config set project infrastructure-220307"
+                        sh "toitarchive ${BUILD_VERSION}.tar.gz toit-web toit.io ${BUILD_VERSION}"
+                    }
                 }
             }
         }
