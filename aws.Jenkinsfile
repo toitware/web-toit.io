@@ -56,11 +56,11 @@ spec:
             steps {
                 container("webtoitio") {
                     sh "BUILD_VERSION=gitversion"
-                    sh "tar -zcf ${BUILD_VERSION}.tar.gz -C public ."
+                    sh "tar -zcf $BUILD_VERSION.tar.gz -C public ."
                     withCredentials([[$class: 'FileBinding', credentialsId: 'gcloud-service-auth', variable: 'GOOGLE_APPLICATION_CREDENTIALS']]) {
                         sh "gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}"
                         sh "gcloud config set project infrastructure-220307"
-                        sh "FILEEXT=tar.gz toitarchive ${BUILD_VERSION}.tar.gz toit-web toit.io ${BUILD_VERSION}"
+                        sh "FILEEXT=tar.gz toitarchive $BUILD_VERSION.tar.gz toit-web toit.io $BUILD_VERSION"
                     }
                 }
             }
