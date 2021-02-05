@@ -55,7 +55,7 @@ spec:
             }
             steps {
                 container("webtoitio") {
-                    BUILD_VERSION = sh(returnStdout: true, script: 'gitversion').trim()
+                    def BUILD_VERSION = sh(returnStdout: true, script: 'gitversion').trim()
                     sh "tar -zcf ${BUILD_VERSION}.tar.gz -C public ."
                     withCredentials([[$class: 'FileBinding', credentialsId: 'gcloud-service-auth', variable: 'GOOGLE_APPLICATION_CREDENTIALS']]) {
                         sh "gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}"
