@@ -55,7 +55,7 @@ spec:
             }
             steps {
                 container("webtoitio") {
-                    environment {
+                    script {
                         BUILD_VERSION = sh(returnStdout: true, script: 'gitversion').trim()
                     }
                     sh "tar -zcf ${BUILD_VERSION}.tar.gz -C public ."
