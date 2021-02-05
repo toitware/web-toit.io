@@ -12,9 +12,9 @@ spec:
     command:
     - cat
     tty: true
-    envVars: [
-      envVar(key: 'BUILD_VERSION', value: 'sh(returnStdout: true, script: 'gitversion').trim()')
-    ]),
+    env:
+      - name: BUILD_VERSION
+        value: "sh gitversion"
 """
       }
     }
