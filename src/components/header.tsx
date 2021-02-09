@@ -49,15 +49,15 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           </div>
           <div className={this.props.classes.buttons}>
             <Hidden xsDown>
-              <a href="http://console.toit.io/login" target="_blank" rel="noreferrer">
-                <Button variant="outlined" color="secondary" className={this.props.classes.button}>
-                  Login
-                </Button>
-              </a>
+              <span className={this.props.classes.button}>
+                <GetStartedButton />
+              </span>
             </Hidden>
-            <span className={this.props.classes.button}>
-              <GetStartedButton />
-            </span>
+            <a href="http://console.toit.io/login" target="_blank" rel="noreferrer">
+              <Button variant="outlined" color="secondary" className={this.props.classes.button}>
+                Login
+              </Button>
+            </a>
           </div>
         </div>
       </div>
