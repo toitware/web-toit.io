@@ -25,16 +25,15 @@ export function HorizontalBlock(props: HorizontalBlockProps): JSX.Element {
   );
 }
 
-const centeredProps = { display: "flex", justifyContent: "center", alignItems: "center" };
 const useItemStyles = makeStyles(() => ({
-  wrapper: (props: HorizontalBlockItemProps) => (props.centered ? centeredProps : {}),
+  centered: { display: "flex", justifyContent: "center", alignItems: "center" },
 }));
 
 interface HorizontalBlockItemProps {
   children: React.ReactNode;
   theme: Theme;
   single: boolean;
-  centered: boolean;
+  centered?: boolean;
 }
 
 export function HorizontalBlockItem(props: HorizontalBlockItemProps): JSX.Element {
@@ -42,7 +41,7 @@ export function HorizontalBlockItem(props: HorizontalBlockItemProps): JSX.Elemen
 
   return (
     <Grid item xs={12} md={props.single ? 12 : 6}>
-      <div className={classes.wrapper}>{props.children}</div>
+      <div className={props.centered ? classes.centered : ""}>{props.children}</div>
     </Grid>
   );
 }
