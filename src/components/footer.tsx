@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(6),
   },
   logo: {
@@ -27,19 +28,13 @@ export default function Footer(): JSX.Element {
       <div className={classes.container}>
         <Breadcrumbs aria-label="breadcrumb" separator="|">
           <Link to="/terms-of-service">
-            <Typography variant="body2" component="span">
-              Terms of Service
-            </Typography>
+            <Typography variant="body2">Terms of Service</Typography>
           </Link>
           <Link to="/privacy-policy">
-            <Typography variant="body2" component="span">
-              Privacy policy
-            </Typography>
+            <Typography variant="body2">Privacy policy</Typography>
           </Link>
           <Link to="/cookies-policy">
-            <Typography variant="body2" component="span">
-              Cookies policy
-            </Typography>
+            <Typography variant="body2">Cookies policy</Typography>
           </Link>
         </Breadcrumbs>
         <Logo className={classes.logo} />
