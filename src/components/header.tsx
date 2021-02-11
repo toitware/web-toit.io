@@ -11,6 +11,7 @@ const styles = (theme: Theme) =>
       margin: "0 auto",
       maxWidth: "1080px",
       padding: theme.spacing(2),
+      backgroundColor: theme.palette.primary.main,
     },
     logoContainer: {
       height: "32px",

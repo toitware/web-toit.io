@@ -6,6 +6,9 @@ const useStyles = makeStyles(() => ({
   content: (props: HorizontalBlockProps) => ({
     paddingTop: props.theme.spacing(8),
     paddingBottom: props.theme.spacing(8),
+    // This is not ideal, but the Grid is creating a strange overflow and the
+    // easiest fix is to prevent a horizontal overflow.
+    overflowX: "hidden",
   }),
 }));
 
