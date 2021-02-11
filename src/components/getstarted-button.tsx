@@ -20,9 +20,23 @@ const styles = (theme: Theme) =>
     },
     getstartedContent: {
       backgroundColor: "#f4f8fa",
-      width: 500,
-      height: 712,
+      // The default size of the dialog.
+      width: "30rem",
+      height: "45rem",
+      // The maximum size in case the browser size is smaller.
+      maxWidth: "calc(100vw - 4rem)",
+      maxHeight: "calc(100vh - 4rem)",
+
+      display: "flex",
+      flexDirection: "column",
+
+      // A bit of a dirty hack to avoid the iframe to grow past it's provided
+      // container. Can be removed as soon as we build our own form.
       overflow: "hidden",
+      "& > iframe": {
+        flex: 1,
+        overflow: "scroll",
+      },
     },
     getstartedHeader: {
       paddingLeft: 40,
