@@ -14,11 +14,11 @@ import { primaryTheme as theme } from "./theme";
 
 const useStyles = makeStyles(() => ({
   root: {
-    height: "100vh",
+    minHeight: "100vh",
     display: "flex",
     flexDirection: "column",
   },
-  middle: {
+  content: {
     flexGrow: 1,
     display: "flex",
     flexDirection: "column",
@@ -56,10 +56,10 @@ export default function Layout(props: LayoutProps): JSX.Element {
         <Helmet title={data.site.siteMetadata?.title}></Helmet>
         <div className={classes.root}>
           <Header />
-          <div className={classes.middle}>{props.children}</div>
+          <div className={classes.content}>{props.children}</div>
           <Footer />
-          <Cookie />
         </div>
+        <Cookie />
       </ThemeProvider>
     </MDXProvider>
   );
