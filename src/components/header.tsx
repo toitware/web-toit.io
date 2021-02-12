@@ -6,12 +6,14 @@ import GetStartedButton from "./getstarted-button";
 
 const styles = (theme: Theme) =>
   createStyles({
+    container: {
+      backgroundColor: theme.palette.primary.main,
+    },
     toolbarContent: {
       display: "flex",
       margin: "0 auto",
       maxWidth: "1080px",
       padding: theme.spacing(2),
-      backgroundColor: theme.palette.primary.main,
     },
     logoContainer: {
       height: "32px",
@@ -41,7 +43,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
   render() {
     return (
-      <div>
+      <div className={this.props.classes.container}>
         <div className={this.props.classes.toolbarContent}>
           <div className={this.props.classes.logoContainer}>
             <Link to="/">
