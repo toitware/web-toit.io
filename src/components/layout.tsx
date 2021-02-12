@@ -13,9 +13,12 @@ import { components, shorthands } from "./mdx-components";
 import { primaryTheme as theme } from "./theme";
 
 const useStyles = makeStyles(() => ({
+  root: {
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+  },
   content: {
-    // The 14rem here are just an approximation of the header and footer height.
-    minHeight: "calc(100vh - 14rem)",
     flexGrow: 1,
     display: "flex",
     flexDirection: "column",
@@ -51,9 +54,11 @@ export default function Layout(props: LayoutProps): JSX.Element {
     <MDXProvider components={{ ...shorthands, ...components }}>
       <ThemeProvider theme={theme}>
         <Helmet title={data.site.siteMetadata?.title}></Helmet>
-        <Header />
-        <div className={classes.content}>{props.children}</div>
-        <Footer />
+        <div className={classes.root}>
+          <Header />
+          <div className={classes.content}>{props.children}</div>
+          <Footer />
+        </div>
         <Cookie />
       </ThemeProvider>
     </MDXProvider>
