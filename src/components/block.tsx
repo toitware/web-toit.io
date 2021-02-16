@@ -4,13 +4,15 @@ import React from "react";
 export interface BlockProps {
   theme: Theme;
   children: React.ReactNode;
-  last?: boolean;
 }
 
 const useStyles = makeStyles(() => ({
   root: (props: BlockProps) => ({
     backgroundColor: props.theme.palette.primary.main,
-    flexGrow: props.last ? 1 : 0,
+    "&:last-child": {
+      // Make sure that if this is the last block used, it will expand.
+      flexGrow: 1,
+    },
   }),
   content: (props: BlockProps) => ({
     margin: "0 auto",

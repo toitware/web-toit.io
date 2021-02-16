@@ -18,7 +18,7 @@ export function HorizontalBlock(props: HorizontalBlockProps): JSX.Element {
   const classes = useStyles(props);
 
   return (
-    <Block theme={props.theme} last={props.last}>
+    <Block theme={props.theme}>
       <div className={classes.content}>
         <Grid container spacing={5} alignItems="center">
           {props.children}
