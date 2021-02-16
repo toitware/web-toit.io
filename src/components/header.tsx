@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import React from "react";
 import Logo from "../assets/images/toit-secondary.inline.svg";
 import GetStartedButton from "./getstarted-button";
+import Menu from "./menu";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -14,6 +15,9 @@ const styles = (theme: Theme) =>
       margin: "0 auto",
       maxWidth: "1080px",
       padding: theme.spacing(2),
+    },
+    menu: {
+      flexGrow: 1,
     },
     logoContainer: {
       height: "32px",
@@ -49,6 +53,9 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             <Link to="/">
               <Logo className={this.props.classes.logo} />
             </Link>
+          </div>
+          <div className={this.props.classes.menu}>
+            <Menu></Menu>
           </div>
           <div className={this.props.classes.buttons}>
             <Hidden xsDown>

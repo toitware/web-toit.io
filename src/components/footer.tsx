@@ -1,8 +1,7 @@
-import { Breadcrumbs, makeStyles, Theme, Typography } from "@material-ui/core";
+import { Breadcrumbs, makeStyles, Theme, ThemeProvider, Typography } from "@material-ui/core";
 import { Link } from "gatsby";
 import React from "react";
 import Logo from "../assets/images/toit-secondary.inline.svg";
-import Block from "./block";
 import { secondaryTheme } from "./theme";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -24,7 +23,7 @@ export default function Footer(): JSX.Element {
   const classes = useStyles();
 
   return (
-    <Block theme={secondaryTheme}>
+    <ThemeProvider theme={secondaryTheme}>
       <div className={classes.container}>
         <Breadcrumbs aria-label="breadcrumb" separator="|">
           <Link to="/terms-of-service">
@@ -39,6 +38,6 @@ export default function Footer(): JSX.Element {
         </Breadcrumbs>
         <Logo className={classes.logo} />
       </div>
-    </Block>
+    </ThemeProvider>
   );
 }
