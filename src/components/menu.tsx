@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "flex-end",
     alignItems: "center",
-    marginRight: "3rem",
+    marginRight: "5%",
     "& a": {
       color: "white",
     },
@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingBottom: 0,
   },
   active: {
-    fontWeight: "bold",
     textDecorationThickness: "3px",
     textDecorationLine: "underline",
     textDecorationStyle: "solid",

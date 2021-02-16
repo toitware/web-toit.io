@@ -1,4 +1,4 @@
-import { Button, createStyles, Hidden, Theme, withStyles, WithStyles } from "@material-ui/core";
+import { Button, createStyles, Theme, withStyles, WithStyles } from "@material-ui/core";
 import { Link } from "gatsby";
 import React from "react";
 import Logo from "../assets/images/toit-secondary.inline.svg";
@@ -21,6 +21,12 @@ const styles = (theme: Theme) =>
     },
     logoContainer: {
       height: "32px",
+      display: "block",
+      [theme.breakpoints.down(550)]: {
+        // Cut off the text from the logo
+        width: "54px",
+        overflow: "hidden",
+      },
     },
     logo: {
       height: "32px",
@@ -31,6 +37,11 @@ const styles = (theme: Theme) =>
     },
     button: {
       marginLeft: theme.spacing(2),
+    },
+    getStarted: {
+      [theme.breakpoints.down(700)]: {
+        display: "none",
+      },
     },
   });
 
@@ -58,11 +69,9 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             <Menu></Menu>
           </div>
           <div className={this.props.classes.buttons}>
-            <Hidden xsDown>
-              <span className={this.props.classes.button}>
-                <GetStartedButton />
-              </span>
-            </Hidden>
+            <span className={`${this.props.classes.button} ${this.props.classes.getStarted}`}>
+              <GetStartedButton />
+            </span>
             <a href="http://console.toit.io/login" target="_blank" rel="noreferrer">
               <Button variant="outlined" color="secondary" className={this.props.classes.button}>
                 Login
