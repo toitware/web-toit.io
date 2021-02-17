@@ -1,69 +1,69 @@
 module.exports = {
-    siteMetadata: {
-      title: "ᴛᴏɪᴛ",
-      siteUrl: "https://toit.io"
+  siteMetadata: {
+    title: "ᴛᴏɪᴛ",
+    siteUrl: "https://toit.io",
+  },
+  plugins: [
+    {
+      resolve: "gatsby-plugin-hubspot",
+      options: {
+        trackingCode: "5705522",
+        respectDNT: true,
+        productionOnly: true,
+      },
     },
-    plugins: [
-      {
-        resolve: "gatsby-plugin-hubspot",
-        options: {
-            trackingCode: "5705522",
-            respectDNT: true,
-            productionOnly: true,
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true, // defaults to false
+        jsxPragma: `jsx`, // defaults to "React"
+        allExtensions: true, // defaults to false
+      },
+    },
+    "gatsby-plugin-eslint",
+    "gatsby-plugin-sitemap",
+    "gatsby-plugin-typescript-checker",
+    "gatsby-plugin-material-ui",
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "src/assets/images/icon.png",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.svg$/,
         },
       },
-      {
-        resolve: `gatsby-plugin-typescript`,
-        options: {
-          isTSX: true, // defaults to false
-          jsxPragma: `jsx`, // defaults to "React"
-          allExtensions: true, // defaults to false
+    },
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        extensions: [".mdx", ".md"],
+        defaultLayouts: {
+          default: require.resolve("./src/components/layout.tsx"),
         },
       },
-      'gatsby-plugin-eslint',
-      "gatsby-plugin-sitemap",
-      "gatsby-plugin-typescript-checker",
-      "gatsby-plugin-material-ui",
-      {
-        resolve: "gatsby-plugin-manifest",
-        options: {
-          icon: "src/assets/images/icon.png",
-        },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "pages",
+        path: "./src/pages/",
       },
-      {
-        resolve: 'gatsby-plugin-react-svg',
-        options: {
-          rule: {
-            include: /\.svg$/
-          },
+      __key: "pages",
+    },
+    {
+      resolve: "gatsby-plugin-gdpr-cookies",
+      options: {
+        googleAnalytics: {
+          trackingId: "UA-140543854-3",
+          anonymize: true,
         },
+        environments: ["production"],
       },
-      {
-        resolve: "gatsby-plugin-mdx",
-        options: {
-          extensions: [".mdx", ".md"],
-          defaultLayouts: {
-            default: require.resolve("./src/components/layout.tsx"),
-          },
-        },
-      },
-      {
-        resolve: "gatsby-source-filesystem",
-        options: {
-          name: "pages",
-          path: "./src/pages/",
-        },
-        __key: "pages",
-      },
-      {
-        resolve: "gatsby-plugin-gdpr-cookies",
-        options: {
-          googleAnalytics: {
-            trackingId: "UA-140543854-3",
-            anonymize: true
-          },
-          environments: ["production"]
-        },
-      },
-    ],
-  };
+    },
+  ],
+};
