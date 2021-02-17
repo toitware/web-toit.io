@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const Menu: React.FC = () => {
+function Menu(): JSX.Element {
   const classes = useStyles();
 
   return (
@@ -44,6 +44,6 @@ const Menu: React.FC = () => {
       </Breadcrumbs>
     </div>
   );
-};
+}
 
 export default Menu;
