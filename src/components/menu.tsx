@@ -31,12 +31,14 @@ function Menu(): JSX.Element {
   return (
     <div className={classes.breadcrumbs}>
       <Breadcrumbs aria-label="breadcrumb" separator=" " classes={{ root: classes.breadcrumbsNav }}>
+        {/*
         <Link to="/product" activeClassName={classes.active}>
           Product
         </Link>
         <Link to="/pricing" activeClassName={classes.active}>
           Pricing
         </Link>
+        */}
         <Link to="/about" activeClassName={classes.active}>
           About
         </Link>
