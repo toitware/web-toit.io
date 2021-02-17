@@ -21,7 +21,6 @@ const styles = (theme: Theme) =>
     },
     logoContainer: {
       height: "32px",
-      display: "block",
     },
     logo: {
       height: "32px",
