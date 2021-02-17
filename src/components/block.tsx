@@ -21,7 +21,7 @@ const useStyles = makeStyles(() => ({
   }),
 }));
 
-const Block: React.FC<BlockProps> = (props: BlockProps) => {
+function Block(props: BlockProps): JSX.Element {
   const classes = useStyles(props);
 
   return (
@@ -31,6 +31,6 @@ const Block: React.FC<BlockProps> = (props: BlockProps) => {
       </div>
     </ThemeProvider>
   );
-};
+}
 
 export default Block;
