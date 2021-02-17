@@ -7,10 +7,13 @@ date: 2021-01-20
 import { pinkWhiteTheme, greyBlueTheme, whiteBlueTheme } from "../components/theme";
 import webConsole from "../assets/images/webconsole.png";
 
-<HorizontalBlock theme={pinkWhiteTheme}>
-  <HorizontalBlockItem>
+<HorizontalBlock theme={whiteBlueTheme}>
+  <HorizontalBlockItem single>
 
 # We are building the software platform for microcontrollers
+
+  </HorizontalBlockItem>
+  <HorizontalBlockItem>
 
 Microcontrollers are everywhere. They sit inside most modern industrial
 applications and home appliances. A modern car has more than 30, and over 30
@@ -27,6 +30,9 @@ in the stone age. Updating software on a microcontroller is risky and hard, and
 a single bug anywhere in your code can break your entire device. Because of
 that, software on microcontrollers is kept at a minimum, and all code is written
 before shipping the device, never to be touched again.
+
+  </HorizontalBlockItem>
+  <HorizontalBlockItem>
 
 With our platform, developers can easily implement functionality and
 applications while our platform ensures that the device keeps functioning no
