@@ -20,7 +20,7 @@ export function HorizontalBlock(props: HorizontalBlockProps): JSX.Element {
   return (
     <Block theme={props.theme}>
       <div className={classes.content}>
-        <Grid container spacing={5} alignItems="center">
+        <Grid container spacing={5}>
           {props.children}
         </Grid>
       </div>
@@ -29,7 +29,12 @@ export function HorizontalBlock(props: HorizontalBlockProps): JSX.Element {
 }
 
 const useItemStyles = makeStyles(() => ({
-  centered: { display: "flex", justifyContent: "center", alignItems: "center" },
+  centered: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%",
+  },
 }));
 
 interface HorizontalBlockItemProps {
