@@ -4,6 +4,7 @@ import React from "react";
 import Logo from "../assets/images/toit-secondary.inline.svg";
 import GetStartedButton from "./getstarted-button";
 import Menu from "./menu";
+import { pageWidth } from "./shared-styles";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -12,9 +13,7 @@ const styles = (theme: Theme) =>
     },
     toolbarContent: {
       display: "flex",
-      margin: "0 auto",
-      maxWidth: "1080px",
-      padding: theme.spacing(2),
+      ...pageWidth(theme),
     },
     menu: {
       flexGrow: 1,
