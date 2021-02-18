@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "ᴛᴏɪᴛ",
+    title: "Toit",
     siteUrl: "https://toit.io",
   },
   plugins: [
