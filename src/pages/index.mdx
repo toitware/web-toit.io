@@ -157,16 +157,17 @@ microcontrollers.
     'class Person:\n\
   name/string\n\
   constructor .name:\n\
+\n\
   say_hello:\n\
-    print "Hello, $name"\n\
+    print "Hi, I\'m $name"\n\
 \n\
 main:\n\
-  p := Person "Austin"\n\
-  p.say_hello'
+  actor := Person "Austin"\n\
+  actor.say_hello'
   }
   terminal={[
     { Type: "Input", Content: "toit execute main.toit" },
-    { Type: "Output", Content: "Hello, Austin" },
+    { Type: "Output", Content: "Hi, I'm Austin" },
   ]}
 />
 
