@@ -25,14 +25,20 @@ export default function Cookie(): JSX.Element {
       disableButtonStyles
       style={{
         background: theme.palette.primary.main,
+        boxShadow: "0px 0px 30px rgba(0,0,0,0.3)",
       }}
-      ButtonComponent={(props) => (
-        <Button {...props} variant="contained" color="secondary" className={classes.button} />
+      ButtonComponent={(props: { id: string }) => (
+        <Button
+          {...props}
+          variant="contained"
+          color={props.id == "rcc-confirm-button" ? "secondary" : "primary"}
+          className={classes.button}
+        />
       )}
     >
-      <Typography>
+      <Typography component="span">
         This site uses cookies. Read more about our cookies policy{" "}
-        <Link color="error" href="/cookies-policy">
+        <Link color="textPrimary" href="/cookies-policy">
           here.
         </Link>
       </Typography>
