@@ -8,19 +8,88 @@ import { pinkWhiteTheme, greyBlueTheme, whiteBlueTheme } from "../components/the
 import webConsole from "../assets/images/webconsole.png";
 
 <HorizontalBlock theme={pinkWhiteTheme}>
-<HorizontalBlockItem>
+  <HorizontalBlockItem>
 
-# Product
+# Device
 
-Continuously update the code on your microcontrollers even over cellular connections.
-Monitor and securely service your devices in production; all through the Toit API.
+#### Toit Language
 
-<GetStartedButton />
+Toit applications are written in Toit language. Why create a new language?
+Because existing languages that can be used on microntrollers are not very good.
+C has great performance, but is hard to learn, risky to use, and even simple
+functionality takes a long time to build. MicroPython is easy to write, but
+performance is so poor that it’s hardly usable. Oh, and it doesn’t really work
+like Python.
 
-</HorizontalBlockItem>
-<HorizontalBlockItem centered>
+Toit language is a high-level language that’s made to have a syntax very close
+to Python, but built from first principles for microcontrollers. We’ve built a
+slick integration with your favorite editor...
 
-<img src={webConsole} style="max-width:660px;width:100%;" />
+A high-level language with similarities to Python/MicroPython but with
+approximately ten times the execution speed. Turn it into a positive thing - fun
+to work with, get devs excited.
 
-</HorizontalBlockItem>
+#### Toit Virtual Machine
+
+Your code runs as one or more applications inside the Toit Virtual Machine. This
+sandboxes your code, so the worst that can happen from a bug is that your
+application crashes.
+
+  </HorizontalBlockItem>
+  <HorizontalBlockItem>
+
+#### Sandboxing
+
+Enables you to run separate applications and install and uninstall them run-time
+without affecting your underlying system.
+
+#### Out-of-the-box drivers
+
+The Toit ecosystem comes with ready-to-use drivers for many of the commonly used
+peripherals including GSM modules, sensors, actuators and screens. They can be
+accessed directly from Toit using our package manager.
+
+#### Over The Air Updates
+
+Advanced OTA functionalities keep your fleet up-to-date, and changes to
+functionality or bug-fixes can safely and easily be rolled out, even on slow and
+shaky connections. If connection is lost mid-update, the update simply continues
+where it left off.
+
+#### Hardware
+
+Toit runs on the ESP32 chip from Espressif. Why this is a great chip
+
+  </HorizontalBlockItem>
+</HorizontalBlock>
+
+<HorizontalBlock theme={greyBlueTheme}>
+  <HorizontalBlockItem>
+
+# Cloud
+
+#### Programmable Fleet
+
+Our comprehensive fleet management gives you both a clear overview, as well as
+detailed information about your fleet health. Split your devices into groups and
+subgroups and deploy code on a group by group level.
+
+#### End to end encryption
+
+All communication between the device and the cloud is end to end encrypted using
+modern public-key encryption.
+
+  </HorizontalBlockItem>
+  <HorizontalBlockItem>
+
+#### Toit API
+
+Our customers have access to the same APIs that we use internally. Our APIs uses
+the gRPC framework. Why that’s great...
+
+#### Illustration
+
+Code piece in Python, Node, Go where the API is used
+
+  </HorizontalBlockItem>
 </HorizontalBlock>
