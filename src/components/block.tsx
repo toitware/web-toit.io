@@ -1,5 +1,6 @@
 import { makeStyles, Theme, ThemeProvider } from "@material-ui/core";
 import React from "react";
+import { pageWidth } from "./shared-styles";
 
 export interface BlockProps {
   theme: Theme;
@@ -15,9 +16,7 @@ const useStyles = makeStyles(() => ({
     },
   }),
   content: (props: BlockProps) => ({
-    margin: "0 auto",
-    maxWidth: "1080px",
-    padding: props.theme.spacing(2),
+    ...pageWidth(props.theme),
   }),
 }));
 

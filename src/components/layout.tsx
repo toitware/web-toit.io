@@ -10,7 +10,7 @@ import Footer from "./footer";
 import Header from "./header";
 import "./layout.css";
 import { components, shorthands } from "./mdx-components";
-import { primaryTheme as theme } from "./theme";
+import { primaryTheme as theme, secondaryTheme } from "./theme";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -59,7 +59,9 @@ export default function Layout(props: LayoutProps): JSX.Element {
           <div className={classes.content}>{props.children}</div>
           <Footer />
         </div>
-        <Cookie />
+        <ThemeProvider theme={secondaryTheme}>
+          <Cookie />
+        </ThemeProvider>
       </ThemeProvider>
     </MDXProvider>
   );
