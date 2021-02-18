@@ -155,14 +155,14 @@ microcontrollers.
 <Editor
   editor={
     'class Person:\n\
-  name/String\n\
+  name/string\n\
   constructor .name:\n\
-  sayHello:\n\
+  say_hello:\n\
     print "Hello, $name"\n\
 \n\
 main:\n\
   p := Person "Austin"\n\
-  p.sayHello'
+  p.say_hello'
   }
   terminal={[
     { Type: "Input", Content: "toit execute main.toit" },
