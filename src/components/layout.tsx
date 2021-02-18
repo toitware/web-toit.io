@@ -8,7 +8,6 @@ import { Helmet } from "react-helmet";
 import Cookie from "./cookie";
 import Footer from "./footer";
 import Header from "./header";
-import "./layout.css";
 import { components, shorthands } from "./mdx-components";
 import { primaryTheme as theme, secondaryTheme } from "./theme";
 

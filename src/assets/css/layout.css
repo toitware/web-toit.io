@@ -1,4 +1,4 @@
-@import "../assets/css/typography.css";
+@import "./typography.css";
 
 body {
   background: #d7dce1;
@@ -8,4 +8,4 @@ body {
 a {
   text-decoration: none;
 }
-@import "../assets/css/editor.css";
+@import "./editor.css";
