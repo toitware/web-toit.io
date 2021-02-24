@@ -7,7 +7,7 @@ import Cookie from "./cookie";
 import Footer from "./footer";
 import Header from "./header";
 import { components, shorthands } from "./mdx-components";
-import { primaryTheme as theme, secondaryTheme } from "./theme";
+import { darkBlueWhiteTheme, primaryBlue, primaryTheme as theme, secondaryTheme } from "./theme";
 
 const useStyles = makeStyles(() => ({
   "@global": {
@@ -63,7 +63,9 @@ export default function Layout(props: LayoutProps): JSX.Element {
         <div className={classes.root}>
           <Header />
           <div className={classes.content}>{props.children}</div>
-          <Footer />
+          <ThemeProvider theme={darkBlueWhiteTheme}>
+            <Footer />
+          </ThemeProvider>
         </div>
         <ThemeProvider theme={secondaryTheme}>
           <Cookie />
