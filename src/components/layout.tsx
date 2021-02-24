@@ -1,5 +1,3 @@
-import "@fontsource/roboto";
-import "@fontsource/roboto-mono";
 import { makeStyles, ThemeProvider } from "@material-ui/core";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql, useStaticQuery } from "gatsby";
@@ -12,6 +10,15 @@ import { components, shorthands } from "./mdx-components";
 import { primaryTheme as theme, secondaryTheme } from "./theme";
 
 const useStyles = makeStyles(() => ({
+  "@global": {
+    body: {
+      background: primaryBlue.string(),
+      margin: 0,
+    },
+    a: {
+      textDecoration: `none`,
+    },
+  },
   root: {
     minHeight: "100vh",
     display: "flex",
