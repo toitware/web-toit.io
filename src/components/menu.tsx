@@ -39,6 +39,9 @@ function Menu(): JSX.Element {
           Pricing
         </Link>
         */}
+        <a target="_blank" rel="noreferrer" href="https://docs.toit.io">
+          Documentation
+        </a>
         <Link to="/about" activeClassName={classes.active}>
           About
         </Link>
