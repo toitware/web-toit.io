@@ -1,15 +1,12 @@
-import { makeStyles, Theme } from "@material-ui/core";
+import { makeStyles, styled, Theme } from "@material-ui/core";
 import { motion, useCycle } from "framer-motion";
 import * as React from "react";
 import { useRef } from "react";
+import Backdrop from "./backdrop";
 import Menu from "./menu";
 import { MenuToggle } from "./menu-toggle";
-// import { useDimensions } from "./use-dimensions";
 
 const useStyles = makeStyles((theme: Theme) => ({
-  container: {
-    position: "relative",
-  },
   // The actual container of the whole popup menu.
   popup: {
     boxSizing: "border-box",
@@ -18,68 +15,46 @@ const useStyles = makeStyles((theme: Theme) => ({
     right: "-1rem",
     width: "26rem",
     maxWidth: "calc(100vw - 1.5rem)",
-    paddingTop: "4.5rem",
-    paddingBottom: "1.5rem",
-    paddingLeft: "1.5rem",
-    paddingRight: "1.5rem",
+    padding: "4.5rem 1.5rem 1.5rem",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     pointerEvents: "none",
   },
-  // The background that animates in / out
-  background: {
-    background: "white",
-    position: "absolute",
-    top: 0,
-    right: 0,
-    borderRadius: 30,
-    pointerEvents: "auto",
-    boxShadow: "0 0 30px rgb(0, 0, 0, 0.1)",
-  },
 }));
 
-const background = {
-  open: (height = 1000) => ({
-    height: "100%",
-    width: "100%",
-    opacity: 1,
-    transition: {
-      type: "spring",
-      stiffness: 700,
-      damping: 40,
-    },
-  }),
-  closed: {
-    width: "3.5rem",
-    height: "3.5rem",
-    opacity: 0.1,
-    transition: {
-      delay: 0.35,
-      type: "spring",
-      stiffness: 700,
-      damping: 40,
-    },
-  },
-};
+const MainNav = styled(motion.nav)({
+  position: "relative",
+  width: "1.5rem",
+  height: "1.5rem",
+});
 
-export const PopupMenu = () => {
+// Creates a "hamburger button", that when clicked opens the Menu.
+//
+// The element itself is 1.5rem high and wide.
+//
+// The menu "grows out" of the button to the left side and assumes that the
+// button is never closer than 0.75rem to the right edge. (That's important
+// because the max-width of the menu is 100vw - 1.5rem).
+//
+// We might change that in the future if we want to make it more reusable, but
+// in general the position of the hamburger button is quite fixed.
+function PopupMenu(): JSX.Element {
   const classes = useStyles();
 
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
-  // const { height } = useDimensions(containerRef);
 
   return (
-    <motion.nav initial={false} animate={isOpen ? "open" : "closed"} ref={containerRef} className={classes.container}>
+    <MainNav initial={false} animate={isOpen ? "open" : "closed"} ref={containerRef}>
       <div className={classes.popup}>
-        <motion.div className={classes.background} variants={background} />
+        <Backdrop />
         <Menu />
       </div>
 
       <MenuToggle toggle={() => toggleOpen()} />
-    </motion.nav>
+    </MainNav>
   );
-};
+}
 
 export default PopupMenu;

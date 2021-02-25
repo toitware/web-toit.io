@@ -2,6 +2,7 @@ import { Button, makeStyles, Theme, ThemeProvider, Typography } from "@material-
 import { motion, Variants } from "framer-motion";
 import { Link } from "gatsby";
 import * as React from "react";
+import ExternalLinkIcon from "../../assets/icons/external-link.svg";
 import GetStartedButton from "../getstarted-button";
 import { primaryBlue, secondaryTheme } from "../theme";
 import MenuItem from "./menu-item";
@@ -20,6 +21,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   link: {
     "&:hover": { fontWeight: "bolder" },
     marginBottom: "1rem",
+    "& svg": {
+      display: "inline-block",
+      height: "1rem",
+      top: "0.05em",
+      position: "relative",
+    },
   },
   activeLink: {
     textDecorationThickness: "3px",
@@ -47,14 +54,16 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const variants: Variants = {
   open: {
+    pointerEvents: "auto",
     transition: { staggerChildren: 0.05, delayChildren: 0 },
   },
   closed: {
+    pointerEvents: "none",
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
   },
 };
 
-export const Menu = () => {
+function Menu(): JSX.Element {
   const classes = useStyles();
   return (
     <motion.ul variants={variants} className={classes.menu}>
@@ -65,6 +74,7 @@ export const Menu = () => {
           </Typography>
         </Link>
       </MenuItem>
+      {/*
       <MenuItem>
         <Link to="/product" className={classes.link} activeClassName={classes.activeLink}>
           <Typography variant="body1" className={classes.typography} component="span">
@@ -79,12 +89,20 @@ export const Menu = () => {
           </Typography>
         </Link>
       </MenuItem>
+       */}
       <MenuItem>
         <Link to="/about" className={classes.link} activeClassName={classes.activeLink}>
           <Typography variant="body1" className={classes.typography} component="span">
             About
           </Typography>
         </Link>
+      </MenuItem>
+      <MenuItem>
+        <a target="_blank" rel="noreferrer" href="https://docs.toit.io" className={classes.link}>
+          <Typography variant="body1" className={classes.typography} component="span">
+            Docs <ExternalLinkIcon />
+          </Typography>
+        </a>
       </MenuItem>
       <MenuItem className={classes.actions}>
         <ThemeProvider theme={secondaryTheme}>
@@ -98,6 +116,6 @@ export const Menu = () => {
       </MenuItem>
     </motion.ul>
   );
-};
+}
 
 export default Menu;

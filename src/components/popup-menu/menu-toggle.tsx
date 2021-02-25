@@ -4,16 +4,23 @@ import * as React from "react";
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
+    display: "block",
+    position: "relative",
+
+    // Make the button twice the size of its container, so it's easier to click
+    // (or tap) the button.
+    width: "200%",
+    height: "200%",
+    padding: "50%",
+    marginLeft: "-50%",
+    marginTop: "-50%",
+
+    // Remove default styling of button
     border: "none",
     outline: "none",
     userSelect: "none",
     cursor: "pointer",
-    position: "relative",
     background: "transparent",
-    width: "1.5rem",
-    height: "1.5rem",
-    padding: 0,
-    display: "block",
   },
 }));
 
@@ -22,9 +29,10 @@ const Path = (props: SVGMotionProps<SVGPathElement>) => (
 );
 
 interface MenuToggleProps {
-  toggle: (i?: any) => void;
+  toggle: () => void;
 }
 
+/// The toggle assumes to be in a container that is 1.5rem high and wide.
 export function MenuToggle({ toggle }: MenuToggleProps): JSX.Element {
   const classes = useStyles();
   return (
@@ -32,7 +40,7 @@ export function MenuToggle({ toggle }: MenuToggleProps): JSX.Element {
       <motion.svg
         width="100%"
         height="100%"
-        viewBox="0 0 20 20"
+        viewBox="0 0 22 20"
         variants={{
           open: { color: "black" },
           closed: { color: "white", transition: { delay: 0.4 } },

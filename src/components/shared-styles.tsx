@@ -6,7 +6,7 @@ import { CSSProperties } from "react";
 export const pageWidth = (theme: Theme): CSSProperties => ({
   margin: "0 auto",
   maxWidth: "1080px",
-  padding: theme.spacing(2),
+  padding: theme.spacing(3),
 
   [theme.breakpoints.up("sm")]: {
     paddingLeft: theme.spacing(6),

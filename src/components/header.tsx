@@ -39,7 +39,7 @@ const styles = (theme: Theme) =>
       display: "flex",
       justifyContent: "flex-end",
       alignItems: "center",
-      paddingRight: "0.75rem",
+      paddingRight: "0.25rem",
     },
   });
 
