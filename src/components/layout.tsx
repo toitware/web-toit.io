@@ -1,5 +1,3 @@
-import "@fontsource/roboto";
-import "@fontsource/roboto-mono";
 import { makeStyles, ThemeProvider } from "@material-ui/core";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql, useStaticQuery } from "gatsby";
@@ -9,9 +7,18 @@ import Cookie from "./cookie";
 import Footer from "./footer";
 import Header from "./header";
 import { components, shorthands } from "./mdx-components";
-import { primaryTheme as theme, secondaryTheme } from "./theme";
+import { darkBlueWhiteTheme, primaryBlue, primaryTheme as theme, secondaryTheme } from "./theme";
 
 const useStyles = makeStyles(() => ({
+  "@global": {
+    body: {
+      background: primaryBlue.string(),
+      margin: 0,
+    },
+    a: {
+      textDecoration: `none`,
+    },
+  },
   root: {
     minHeight: "100vh",
     display: "flex",
@@ -56,7 +63,9 @@ export default function Layout(props: LayoutProps): JSX.Element {
         <div className={classes.root}>
           <Header />
           <div className={classes.content}>{props.children}</div>
-          <Footer />
+          <ThemeProvider theme={darkBlueWhiteTheme}>
+            <Footer />
+          </ThemeProvider>
         </div>
         <ThemeProvider theme={secondaryTheme}>
           <Cookie />
