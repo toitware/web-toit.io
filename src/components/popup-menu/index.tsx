@@ -17,9 +17,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     top: "-1rem",
     right: "-1rem",
     width: "26rem",
-    maxWidth: "calc(100vw - 1rem)",
+    maxWidth: "calc(100vw - 1.5rem)",
     paddingTop: "4.5rem",
-    paddingBottom: "0.5rem",
+    paddingBottom: "1.5rem",
     paddingLeft: "1.5rem",
     paddingRight: "1.5rem",
     display: "flex",
@@ -43,7 +43,7 @@ const background = {
   open: (height = 1000) => ({
     height: "100%",
     width: "100%",
-    opacity: 0.98,
+    opacity: 1,
     transition: {
       type: "spring",
       stiffness: 700,

@@ -4,7 +4,7 @@ import * as React from "react";
 
 const useStyles = makeStyles((theme: Theme) => ({
   listElement: {
-    marginBottom: "1rem",
+    marginBottom: "1.5rem",
   },
 }));
 const itemVariants: Variants = {

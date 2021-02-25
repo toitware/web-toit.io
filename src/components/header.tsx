@@ -15,15 +15,17 @@ const styles = (theme: Theme) =>
     toolbarContent: {
       display: "flex",
       ...pageWidth(theme),
+      paddingTop: theme.spacing(3),
+      paddingBottom: theme.spacing(3),
     },
     menu: {
       flexGrow: 1,
     },
     logoContainer: {
-      height: "32px",
+      height: "2rem",
     },
     logo: {
-      height: "32px",
+      height: "2rem",
       fill: "white",
     },
     buttons: {
@@ -37,7 +39,7 @@ const styles = (theme: Theme) =>
       display: "flex",
       justifyContent: "flex-end",
       alignItems: "center",
-      paddingRight: "0.5rem",
+      paddingRight: "0.75rem",
     },
   });
 

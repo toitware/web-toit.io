@@ -3,7 +3,7 @@ import { motion, Variants } from "framer-motion";
 import { Link } from "gatsby";
 import * as React from "react";
 import GetStartedButton from "../getstarted-button";
-import { secondaryTheme } from "../theme";
+import { primaryBlue, secondaryTheme } from "../theme";
 import MenuItem from "./menu-item";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -36,8 +36,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   actions: {
     marginTop: "3rem",
     padding: "1.5rem",
-    background: "rgba(0, 0, 0, 0.05)",
+    background: primaryBlue.lighten(2.2).string(),
     borderRadius: "1rem",
+    marginBottom: "0",
   },
   loginLink: {
     marginLeft: "1rem",
