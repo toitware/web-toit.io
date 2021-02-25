@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import React from "react";
 
 const useStyles = makeStyles((theme: Theme) => ({
-  breadcrumbs: {
+  root: {
     height: "100%",
     display: "flex",
     justifyContent: "flex-end",
@@ -29,22 +29,21 @@ function Menu(): JSX.Element {
   const classes = useStyles();
 
   return (
-    <div className={classes.breadcrumbs}>
+    <div className={classes.root}>
       <Breadcrumbs aria-label="breadcrumb" separator=" " classes={{ root: classes.breadcrumbsNav }}>
-        {/*
         <Link to="/product" activeClassName={classes.active}>
           Product
         </Link>
+
         <Link to="/pricing" activeClassName={classes.active}>
           Pricing
         </Link>
-        */}
-        <a target="_blank" rel="noreferrer" href="https://docs.toit.io">
-          Documentation
-        </a>
         <Link to="/about" activeClassName={classes.active}>
           About
         </Link>
+        <a target="_blank" rel="noreferrer" href="https://docs.toit.io">
+          Docs
+        </a>
       </Breadcrumbs>
     </div>
   );

@@ -25,6 +25,7 @@
     "@types/mdx-js__react": "^1.5.3",
     "@types/react-helmet": "^6.1.0",
     "codemirror-node": "^0.1.0",
+    "framer-motion": "^3.7.0",
     "gatsby": "^2.26.1",
     "gatsby-plugin-gdpr-cookies": "^1.0.11",
     "gatsby-plugin-hubspot": "^1.3.4",
