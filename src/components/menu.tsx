@@ -35,6 +35,7 @@ const PositionedExternalLinkIcon = styled(ExternalLinkIcon)({
 function Menu(): JSX.Element {
   const classes = useStyles();
 
+  // Make sure you also update the popup-menu when you make changes here.
   return (
     <div className={classes.root}>
       <Breadcrumbs aria-label="breadcrumb" separator=" " classes={{ root: classes.breadcrumbsNav }}>

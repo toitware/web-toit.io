@@ -65,6 +65,8 @@ const variants: Variants = {
 
 function Menu(): JSX.Element {
   const classes = useStyles();
+
+  // Make sure you also update the main menu when you make changes here.
   return (
     <motion.ul variants={variants} className={classes.menu}>
       <MenuItem>
