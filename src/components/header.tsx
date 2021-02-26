@@ -71,7 +71,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
           <Hidden smDown>
             <div className={this.props.classes.menu}>
-              <Menu></Menu>
+              <Menu />
             </div>
             <div className={this.props.classes.buttons}>
               <Hidden xsDown>
