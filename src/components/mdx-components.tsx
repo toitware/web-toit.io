@@ -5,10 +5,12 @@ import { MDXProviderComponentsProp } from "@mdx-js/react";
 import React from "react";
 import Block from "./block";
 import Editor from "./editor";
+import { Feature, Features } from "./features";
 import GetStartedButton from "./getstarted-button";
 import { HighLight, HighLights } from "./highlights";
 import { HorizontalBlock, HorizontalBlockItem } from "./horizontal-block";
 import { CodeIcon, ConnectionIcon } from "./icons";
+import PricingOption from "./pricing-option";
 
 const P = (props: any) => <Typography {...props} />;
 const H1 = (props: any) => <Typography variant="h1" {...props} />;
@@ -37,6 +39,9 @@ export const shorthands = {
   Editor,
   HighLights,
   HighLight,
+  Features,
+  Feature,
+  PricingOption,
   CodeIcon,
   ConnectionIcon,
   GetStartedButton,

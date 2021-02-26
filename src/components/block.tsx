@@ -5,6 +5,7 @@ import { pageWidth } from "./shared-styles";
 export interface BlockProps {
   theme: Theme;
   children: React.ReactNode;
+  centered?: boolean;
 }
 
 const useStyles = makeStyles(() => ({
@@ -18,6 +19,13 @@ const useStyles = makeStyles(() => ({
   content: (props: BlockProps) => ({
     ...pageWidth(props.theme),
   }),
+  centered: {
+    textAlign: "center",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 }));
 
 function Block(props: BlockProps): JSX.Element {
@@ -26,7 +34,7 @@ function Block(props: BlockProps): JSX.Element {
   return (
     <ThemeProvider theme={props.theme}>
       <div className={classes.root}>
-        <div className={classes.content}>{props.children}</div>
+        <div className={`${classes.content} ${props.centered ? classes.centered : ""}`}>{props.children}</div>
       </div>
     </ThemeProvider>
   );
