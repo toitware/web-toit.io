@@ -4,6 +4,7 @@ import React from "react";
 import Logo from "../assets/images/toit-secondary.inline.svg";
 import GetStartedButton from "./getstarted-button";
 import Menu from "./menu";
+import PopupMenu from "./popup-menu";
 import { pageWidth } from "./shared-styles";
 
 const styles = (theme: Theme) =>
@@ -14,15 +15,17 @@ const styles = (theme: Theme) =>
     toolbarContent: {
       display: "flex",
       ...pageWidth(theme),
+      paddingTop: theme.spacing(3),
+      paddingBottom: theme.spacing(3),
     },
     menu: {
       flexGrow: 1,
     },
     logoContainer: {
-      height: "32px",
+      height: "2rem",
     },
     logo: {
-      height: "32px",
+      height: "2rem",
       fill: "white",
     },
     buttons: {
@@ -30,6 +33,13 @@ const styles = (theme: Theme) =>
     },
     button: {
       marginLeft: theme.spacing(2),
+    },
+    popup: {
+      flexGrow: 1,
+      display: "flex",
+      justifyContent: "flex-end",
+      alignItems: "center",
+      paddingRight: "0.25rem",
     },
   });
 
@@ -53,21 +63,29 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               <Logo className={this.props.classes.logo} />
             </Link>
           </div>
-          <div className={this.props.classes.menu}>
-            <Menu></Menu>
-          </div>
-          <div className={this.props.classes.buttons}>
-            <Hidden xsDown>
-              <span className={this.props.classes.button}>
-                <GetStartedButton />
-              </span>
-            </Hidden>
-            <a href="http://console.toit.io/login" target="_blank" rel="noreferrer">
-              <Button variant="outlined" color="secondary" className={this.props.classes.button}>
-                Login
-              </Button>
-            </a>
-          </div>
+          <Hidden mdUp>
+            <div className={this.props.classes.popup}>
+              <PopupMenu />
+            </div>
+          </Hidden>
+
+          <Hidden smDown>
+            <div className={this.props.classes.menu}>
+              <Menu />
+            </div>
+            <div className={this.props.classes.buttons}>
+              <Hidden xsDown>
+                <span className={this.props.classes.button}>
+                  <GetStartedButton />
+                </span>
+              </Hidden>
+              <a href="http://console.toit.io/login" target="_blank" rel="noreferrer">
+                <Button variant="outlined" color="secondary" className={this.props.classes.button}>
+                  Login
+                </Button>
+              </a>
+            </div>
+          </Hidden>
         </div>
       </div>
     );
