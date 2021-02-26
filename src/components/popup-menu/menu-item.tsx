@@ -1,4 +1,5 @@
 import { makeStyles, Theme } from "@material-ui/core";
+import clsx from "clsx";
 import { motion, Variants } from "framer-motion";
 import * as React from "react";
 
@@ -32,7 +33,7 @@ interface MenuItemProps {
 function MenuItem({ children, className }: MenuItemProps): JSX.Element {
   const classes = useStyles();
   return (
-    <motion.li variants={itemVariants} className={`${classes.listElement} ${className ?? ""}`}>
+    <motion.li variants={itemVariants} className={clsx(classes.listElement, className)}>
       {children}
     </motion.li>
   );

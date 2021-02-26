@@ -25,6 +25,7 @@
     "@types/color": "^3.0.1",
     "@types/mdx-js__react": "^1.5.3",
     "@types/react-helmet": "^6.1.0",
+    "clsx": "^1.1.1",
     "codemirror-node": "^0.1.0",
     "color": "^3.1.3",
     "framer-motion": "^3.7.0",
