@@ -1,4 +1,5 @@
 import { makeStyles, Theme, ThemeProvider } from "@material-ui/core";
+import clsx from "clsx";
 import React from "react";
 import { pageWidth } from "./shared-styles";
 
@@ -37,7 +38,7 @@ function Block(props: BlockProps): JSX.Element {
   return (
     <ThemeProvider theme={props.theme}>
       <div className={classes.root}>
-        <div className={`${classes.content} ${props.centered ? classes.centered : ""}`}>{props.children}</div>
+        <div className={clsx(classes.content, { [classes.centered]: props.centered })}>{props.children}</div>
       </div>
     </ThemeProvider>
   );
