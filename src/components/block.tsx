@@ -9,6 +9,9 @@ export interface BlockProps {
 }
 
 const useStyles = makeStyles(() => ({
+  // Accessing the theme through props because we're overriding the theme
+  // in the component via ThemeProvider, so the makeStyles function doesn't
+  // have the correct one yet.
   root: (props: BlockProps) => ({
     backgroundColor: props.theme.palette.primary.main,
     "&:last-child": {

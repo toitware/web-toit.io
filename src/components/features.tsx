@@ -6,6 +6,8 @@ const useStyles = makeStyles(() => ({
   list: {
     padding: 0,
     display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
     listStyle: "none",
     margin: "3rem 0",
   },
@@ -14,9 +16,8 @@ const useStyles = makeStyles(() => ({
     fontWeight: "bold",
     display: "flex",
     alignItems: "center",
-    "&:not(:first-of-type)": {
-      marginLeft: "1.5rem",
-    },
+    whiteSpace: "nowrap",
+    margin: "0.75rem",
   },
   itemIcon: {
     marginRight: "0.5rem",

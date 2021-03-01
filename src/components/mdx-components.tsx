@@ -10,7 +10,7 @@ import GetStartedButton from "./getstarted-button";
 import { HighLight, HighLights } from "./highlights";
 import { HorizontalBlock, HorizontalBlockItem } from "./horizontal-block";
 import { CodeIcon, ConnectionIcon } from "./icons";
-import PricingOption from "./pricing-option";
+import { ExtendedPricingOption, StandardPricingOption } from "./pricing-option";
 
 const P = (props: any) => <Typography {...props} />;
 const H1 = (props: any) => <Typography variant="h1" {...props} />;
@@ -41,7 +41,8 @@ export const shorthands = {
   HighLight,
   Features,
   Feature,
-  PricingOption,
+  StandardPricingOption,
+  ExtendedPricingOption,
   CodeIcon,
   ConnectionIcon,
   GetStartedButton,
