@@ -83,7 +83,6 @@ function createTheme({
     typography: {
       body1: {
         color: textColor,
-        paddingBottom: "1rem",
         fontFamily: titleFontFamily,
       },
       body2: {

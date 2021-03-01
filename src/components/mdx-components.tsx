@@ -12,7 +12,7 @@ import { HorizontalBlock, HorizontalBlockItem } from "./horizontal-block";
 import { CodeIcon, ConnectionIcon } from "./icons";
 import { ExtendedPricingOption, StandardPricingOption } from "./pricing-option";
 
-const P = (props: any) => <Typography {...props} />;
+const P = (props: any) => <Typography paragraph {...props} />;
 const H1 = (props: any) => <Typography variant="h1" {...props} />;
 const H2 = (props: any) => <Typography variant="h2" {...props} />;
 const H3 = (props: any) => <Typography variant="h3" {...props} />;
