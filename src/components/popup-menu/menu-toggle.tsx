@@ -1,4 +1,4 @@
-import { makeStyles, Theme } from "@material-ui/core";
+import { makeStyles, Theme, useTheme } from "@material-ui/core";
 import { motion, SVGMotionProps } from "framer-motion";
 import * as React from "react";
 
@@ -35,6 +35,7 @@ interface MenuToggleProps {
 /// The toggle assumes to be in a container that is 1.5rem high and wide.
 export function MenuToggle({ toggle }: MenuToggleProps): JSX.Element {
   const classes = useStyles();
+  const theme = useTheme();
   return (
     <button onClick={toggle} className={classes.button}>
       <motion.svg
@@ -43,7 +44,7 @@ export function MenuToggle({ toggle }: MenuToggleProps): JSX.Element {
         viewBox="0 0 22 20"
         variants={{
           open: { color: "black" },
-          closed: { color: "white", transition: { delay: 0.4 } },
+          closed: { color: theme.palette.primary.contrastText, transition: { delay: 0.4 } },
         }}
       >
         <Path

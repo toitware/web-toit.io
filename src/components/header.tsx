@@ -28,7 +28,7 @@ const styles = (theme: Theme) =>
     },
     logo: {
       height: "2rem",
-      fill: "white",
+      fill: theme.palette.primary.contrastText,
     },
     buttons: {},
     button: {

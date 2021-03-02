@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginLeft: "auto",
     paddingBottom: 0,
     "& a": {
-      color: "white",
+      color: theme.palette.primary.contrastText,
     },
   },
   active: {

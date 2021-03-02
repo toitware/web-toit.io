@@ -1,44 +1,54 @@
-import { styled } from "@material-ui/core";
+import { makeStyles, Theme, useTheme } from "@material-ui/core";
 import { motion } from "framer-motion";
 import * as React from "react";
 
-const backdrop = {
-  open: (height = 1000) => ({
-    height: "100%",
-    width: "100%",
-    opacity: 1,
-    transition: {
-      type: "spring",
-      stiffness: 700,
-      damping: 40,
-    },
-  }),
-  closed: {
+const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    background: theme.palette.primary.contrastText,
+    opacity: 0.1,
+    position: "absolute",
+    top: 0,
+    right: 0,
     width: "3.5rem",
     height: "3.5rem",
-    opacity: 0.1,
-    transition: {
-      delay: 0.35,
-      type: "spring",
-      stiffness: 700,
-      damping: 40,
-    },
+    borderRadius: 30,
+    pointerEvents: "auto",
+    boxShadow: "0 0 30px rgb(0, 0, 0, 0.1)",
   },
-};
-
-// The background that animates in / out
-const MotionDiv = styled(motion.div)({
-  background: "white",
-  position: "absolute",
-  top: 0,
-  right: 0,
-  borderRadius: 30,
-  pointerEvents: "auto",
-  boxShadow: "0 0 30px rgb(0, 0, 0, 0.1)",
-});
+}));
 
 function Backdrop(): JSX.Element {
-  return <MotionDiv variants={backdrop} />;
+  const theme = useTheme();
+
+  const backdrop = {
+    open: (height = 1000) => ({
+      height: "100%",
+      width: "100%",
+      background: "white",
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 700,
+        damping: 40,
+      },
+    }),
+    closed: {
+      width: "3.5rem",
+      height: "3.5rem",
+      background: theme.palette.primary.contrastText,
+      opacity: 0.1,
+      transition: {
+        delay: 0.35,
+        type: "spring",
+        stiffness: 700,
+        damping: 40,
+      },
+    },
+  };
+
+  const classes = useStyles();
+
+  return <motion.div className={classes.root} variants={backdrop} />;
 }
 
 export default Backdrop;
