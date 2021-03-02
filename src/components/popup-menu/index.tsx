@@ -31,7 +31,7 @@ const MainNav = styled(motion.nav)({
 
 // Creates a "hamburger button", that when clicked opens the Menu.
 //
-// The element itself is 1.5rem high and wide.
+// The element itself is 1.5rem tall and wide.
 //
 // The menu "grows out" of the button to the left side and assumes that the
 // button is never closer than 0.75rem to the right edge. (That's important

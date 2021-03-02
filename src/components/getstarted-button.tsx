@@ -1,5 +1,6 @@
 import {
   Button,
+  ButtonProps,
   createStyles,
   Dialog,
   Theme,
@@ -8,6 +9,7 @@ import {
   withStyles,
   WithStyles,
 } from "@material-ui/core";
+import clsx from "clsx";
 import React from "react";
 import { greyBlueTheme } from "./theme";
 
@@ -53,7 +55,10 @@ const styles = (theme: Theme) =>
     },
   });
 
-type GetStartedButtonProps = WithStyles<typeof styles>;
+type GetStartedButtonProps = Pick<ButtonProps, "size"> &
+  WithStyles<typeof styles> & {
+    className?: string;
+  };
 
 interface GetStartedButtonState {
   getstartedOpen: boolean;
@@ -70,7 +75,8 @@ class GetStartedButton extends React.Component<GetStartedButtonProps, GetStarted
         <Button
           variant="contained"
           color="secondary"
-          className={this.props.classes.button}
+          size={this.props.size}
+          className={clsx(this.props.classes.button, this.props.className)}
           disableElevation
           onClick={() => {
             this.setState({ ...this.state, getstartedOpen: true });

@@ -43,10 +43,10 @@ function Menu(): JSX.Element {
         <Link to="/product" activeClassName={classes.active}>
           Product
         </Link>
+        */}
         <Link to="/pricing" activeClassName={classes.active}>
           Pricing
         </Link>
-         */}
         <Link to="/about" activeClassName={classes.active}>
           About
         </Link>

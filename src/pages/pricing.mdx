@@ -7,26 +7,32 @@ date: 2021-01-20
 import { pinkWhiteTheme, greyBlueTheme, whiteBlueTheme } from "../components/theme";
 import webConsole from "../assets/images/webconsole.png";
 
-<HorizontalBlock theme={pinkWhiteTheme}>
-<HorizontalBlockItem>
+<Block theme={whiteBlueTheme} centered>
 
 # Pricing
 
-You pay based on how much data is sent from your devices to our cloud. Have as
-many devices as you want.
+You pay based on how much data is transferred  
+through our platform with your devices.
 
-Fixed price: $0.10 per MB
+<Features>
+  <Feature>No signup cost</Feature>
+  <Feature>No provisioning cost</Feature>
+  <Feature>No subscription fee</Feature>
+</Features>
 
-First 100 MB per month are free forever
+Grow the business at your pace.
 
-More than 10 GB per month? [Contact Sales](mailto:sales@toit.io)
+</Block>
 
-<GetStartedButton />
+<HorizontalBlock theme={whiteBlueTheme}>
+<HorizontalBlockItem centered>
+
+<StandardPricingOption title="Standard rate" rate="$0.10" info="First 100 MB per month are always free" />
 
 </HorizontalBlockItem>
 <HorizontalBlockItem centered>
 
-<img src={webConsole} style="max-width:660px;width:100%;" />
+<ExtendedPricingOption title="Need more?" limit="10GB" />
 
 </HorizontalBlockItem>
 </HorizontalBlock>
