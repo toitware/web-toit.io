@@ -4,18 +4,12 @@ import React from "react";
 import ExternalLinkIcon from "../assets/icons/external-link.svg";
 
 const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    height: "100%",
-    display: "flex",
-    justifyContent: "flex-end",
-    alignItems: "center",
-    marginRight: "5%",
-    "& a": {
-      color: "white",
-    },
-  },
   breadcrumbsNav: {
+    marginLeft: "auto",
     paddingBottom: 0,
+    "& a": {
+      color: theme.palette.primary.contrastText,
+    },
   },
   active: {
     textDecorationThickness: "3px",
@@ -37,25 +31,23 @@ function Menu(): JSX.Element {
 
   // Make sure you also update the popup-menu when you make changes here.
   return (
-    <div className={classes.root}>
-      <Breadcrumbs aria-label="breadcrumb" separator=" " classes={{ root: classes.breadcrumbsNav }}>
-        {/*
-        <Link to="/product" activeClassName={classes.active}>
-          Product
-        </Link>
-        */}
-        <Link to="/pricing" activeClassName={classes.active}>
-          Pricing
-        </Link>
-        <Link to="/about" activeClassName={classes.active}>
-          About
-        </Link>
-        <a target="_blank" rel="noreferrer" href="https://docs.toit.io">
-          Docs
-          <PositionedExternalLinkIcon />
-        </a>
-      </Breadcrumbs>
-    </div>
+    <Breadcrumbs aria-label="breadcrumb" separator=" " classes={{ root: classes.breadcrumbsNav }}>
+      {/*
+      <Link to="/product" activeClassName={classes.active}>
+        Product
+      </Link>
+      */}
+      <Link to="/pricing" activeClassName={classes.active}>
+        Pricing
+      </Link>
+      <Link to="/about" activeClassName={classes.active}>
+        About
+      </Link>
+      <a target="_blank" rel="noreferrer" href="https://docs.toit.io">
+        Docs
+        <PositionedExternalLinkIcon />
+      </a>
+    </Breadcrumbs>
   );
 }
 

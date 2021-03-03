@@ -14,23 +14,23 @@ const styles = (theme: Theme) =>
     },
     toolbarContent: {
       display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
       ...pageWidth(theme),
       paddingTop: theme.spacing(3),
       paddingBottom: theme.spacing(3),
     },
     menu: {
-      flexGrow: 1,
+      marginLeft: "auto",
     },
     logoContainer: {
       height: "2rem",
     },
     logo: {
       height: "2rem",
-      fill: "white",
+      fill: theme.palette.primary.contrastText,
     },
-    buttons: {
-      marginLeft: "auto",
-    },
+    buttons: {},
     button: {
       marginLeft: theme.spacing(2),
     },

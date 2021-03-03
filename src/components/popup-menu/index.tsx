@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const MainNav = styled(motion.nav)({
   position: "relative",
+  zIndex: 100,
   width: "1.5rem",
   height: "1.5rem",
 });
