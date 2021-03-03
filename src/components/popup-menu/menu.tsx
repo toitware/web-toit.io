@@ -76,15 +76,13 @@ function Menu(): JSX.Element {
           </Typography>
         </Link>
       </MenuItem>
-      {/*
-      <MenuItem> 
+      <MenuItem>
         <Link to="/product" className={classes.link} activeClassName={classes.activeLink}>
           <Typography variant="body1" className={classes.typography} component="span">
             Product
           </Typography>
         </Link>
       </MenuItem>
-       */}
       <MenuItem>
         <Link to="/pricing" className={classes.link} activeClassName={classes.activeLink}>
           <Typography variant="body1" className={classes.typography} component="span">
