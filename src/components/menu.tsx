@@ -43,9 +43,9 @@ function MenuLink({ item, isActive }: MenuLinkProps): JSX.Element {
       </a>
     );
   } else {
-    let to = `/${item.id}`;
+    let to = item.path;
     if (item.subpages && item.subpages.length > 0) {
-      to += `/${item.subpages[0].id}`;
+      to += item.subpages[0].path;
     }
     return (
       // We're not using activeClassName here, because if we're on subpages of
@@ -66,9 +66,11 @@ function Menu({ currentPath }: MenuProps): JSX.Element {
 
   return (
     <Breadcrumbs aria-label="breadcrumb" separator=" " classes={{ root: classes.breadcrumbsNav }}>
-      {menu.items.map((item) => (
-        <MenuLink key={item.id} isActive={currentPath.startsWith(`/${item.id}`)} item={item} />
-      ))}
+      {menu.items
+        .filter((item) => item.path != "/")
+        .map((item) => (
+          <MenuLink key={item.path} isActive={currentPath.startsWith(item.path)} item={item} />
+        ))}
     </Breadcrumbs>
   );
 }

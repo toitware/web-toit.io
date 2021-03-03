@@ -1,17 +1,19 @@
 # If an item has a subpage, the first subpage will be used as the target for
 # the link.
 items:
-  - id: product # Used to build the path
+  - path: /
+    title: Home
+  - path: /product
     title: Product # Displayed in the menu
     subpages:
-      - id: device
+      - path: /device
         title: Device
-      - id: cloud
+      - path: /cloud
         title: Cloud
-  - id: pricing
+  - path: /pricing
     title: Pricing
-  - id: about
+  - path: /about
     title: About
-  - id: docs
+  - path: /docs
     title: Docs
     to: https://docs.toit.io/

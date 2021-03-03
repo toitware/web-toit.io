@@ -34,7 +34,12 @@ function Submenu({ pathPrefix, items }: SubmenuProps): JSX.Element {
   return (
     <Breadcrumbs aria-label="breadcrumb" separator=" " classes={{ root: classes.breadcrumbsNav }}>
       {items.map((item) => (
-        <Link key={item.id} to={`${pathPrefix}${item.id}`} className={classes.link} activeClassName={classes.active}>
+        <Link
+          key={item.path}
+          to={`${pathPrefix}${item.path}`}
+          className={classes.link}
+          activeClassName={classes.active}
+        >
           {item.title}
         </Link>
       ))}

@@ -13,11 +13,11 @@ declare module "*.svg" {
 
 declare module "*/content/menu.yaml" {
   export interface SubmenuItem {
-    id: string;
+    path: string;
     title: string;
   }
   export interface MenuItem {
-    id: string;
+    path: string;
     title: string;
     to?: string;
     subpages?: SubmenuItem[];

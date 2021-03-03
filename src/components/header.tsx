@@ -62,12 +62,9 @@ type HeaderProps = {
 function Header({ currentPath }: HeaderProps): JSX.Element {
   const classes = useStyles();
 
-  // Selecting the current menu item by iterating over all menu items and
-  // finding the one with the same /{item.id} path.
-  // The reason we can simply compare these two like this, is because the
-  // item.id is used to generate the path in the menu as well, so we can trust
-  // this value.
-  const currentMenuItem = menu.items.find((item) => currentPath.startsWith(`/${item.id}`));
+  const currentItemPath = `/${currentPath.split("/")[1]}`;
+
+  const currentMenuItem = menu.items.find((item) => currentItemPath == item.path);
 
   return (
     <div className={classes.container}>
@@ -104,7 +101,7 @@ function Header({ currentPath }: HeaderProps): JSX.Element {
       {currentMenuItem?.subpages != undefined && (
         <div className={classes.submenuContainer}>
           <div className={classes.submenuContent}>
-            <Submenu pathPrefix={`/${currentMenuItem.id}/`} items={currentMenuItem.subpages}></Submenu>
+            <Submenu pathPrefix={currentMenuItem.path} items={currentMenuItem.subpages} />
           </div>
         </div>
       )}
