@@ -9,7 +9,7 @@ export interface BlockProps {
   centered?: boolean;
 }
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   // Accessing the theme through props because we're overriding the theme
   // in the component via ThemeProvider, so the makeStyles function doesn't
   // have the correct one yet.
@@ -22,6 +22,8 @@ const useStyles = makeStyles(() => ({
   }),
   content: (props: BlockProps) => ({
     ...pageWidth(props.theme),
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
   }),
   centered: {
     textAlign: "center",
@@ -29,6 +31,9 @@ const useStyles = makeStyles(() => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    "& p": {
+      maxWidth: "42rem",
+    },
   },
 }));
 
