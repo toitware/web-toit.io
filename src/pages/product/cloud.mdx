@@ -5,6 +5,8 @@ date: 2021-01-20
 ---
 
 import { pinkWhiteTheme, greyBlueTheme, whiteBlueTheme } from "../../components/theme";
+import orchestrationSvg from "../../assets/images/orchestration.svg";
+import secureCommunicationSvg from "../../assets/images/secure-communication.svg";
 
 <HorizontalBlock theme={whiteBlueTheme}>
 <HorizontalBlockItem>
@@ -17,14 +19,14 @@ about your fleet health.
 Group your devices and deploy code on a group by group level.
 
 </HorizontalBlockItem>
-<HorizontalBlockItem>
-
+<HorizontalBlockItem centered>
+<img src={orchestrationSvg} />
 </HorizontalBlockItem>
 </HorizontalBlock>
 
 <HorizontalBlock theme={greyBlueTheme}>
-<HorizontalBlockItem>
-
+<HorizontalBlockItem centered>
+<img src={secureCommunicationSvg} />
 </HorizontalBlockItem>
 <HorizontalBlockItem>
 
