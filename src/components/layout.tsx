@@ -44,7 +44,7 @@ interface LayoutProps {
   pathContext: {
     frontmatter: {
       title: string;
-      path: string;
+      path?: string;
     };
   };
 }

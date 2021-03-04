@@ -3,7 +3,7 @@ import Color from "color";
 import { Link } from "gatsby";
 import React from "react";
 import Logo from "../assets/images/toit-secondary.inline.svg";
-import menu from "../content/menu.yaml";
+import menu, { MenuItem } from "../content/menu.yaml";
 import GetStartedButton from "./getstarted-button";
 import Menu from "./menu";
 import PopupMenu from "./popup-menu";
@@ -56,15 +56,18 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type HeaderProps = {
-  currentPath: string;
+  currentPath?: string;
 };
 
 function Header({ currentPath }: HeaderProps): JSX.Element {
   const classes = useStyles();
 
-  const currentItemPath = `/${currentPath.split("/")[1]}`;
+  let currentMenuItem: MenuItem | undefined;
 
-  const currentMenuItem = menu.items.find((item) => currentItemPath == item.path);
+  if (currentPath != undefined) {
+    const currentItemPath = `/${currentPath.split("/")[1]}`;
+    currentMenuItem = menu.items.find((item) => currentItemPath == item.path);
+  }
 
   return (
     <div className={classes.container}>

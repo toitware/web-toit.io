@@ -58,7 +58,7 @@ function MenuLink({ item, isActive }: MenuLinkProps): JSX.Element {
 }
 
 interface MenuProps {
-  currentPath: string;
+  currentPath?: string;
 }
 
 function Menu({ currentPath }: MenuProps): JSX.Element {
@@ -69,7 +69,11 @@ function Menu({ currentPath }: MenuProps): JSX.Element {
       {menu.items
         .filter((item) => item.path != "/")
         .map((item) => (
-          <MenuLink key={item.path} isActive={currentPath.startsWith(item.path)} item={item} />
+          <MenuLink
+            key={item.path}
+            isActive={currentPath != undefined && currentPath.startsWith(item.path)}
+            item={item}
+          />
         ))}
     </Breadcrumbs>
   );
