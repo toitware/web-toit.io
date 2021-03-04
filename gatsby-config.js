@@ -31,11 +31,28 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: `gatsby-plugin-svgr-svgo`,
       options: {
-        rule: {
-          include: /\.svg$/,
-        },
+        inlineSvgOptions: [
+          {
+            test: /(\.inline\.svg|icons\/.*\.svg)$/,
+            svgoConfig: {
+              plugins: [{ removeViewBox: false }],
+            },
+          },
+        ],
+        urlSvgOptions: [
+          {
+            test: /\.svg$/,
+            svgoConfig: {
+              plugins: [
+                {
+                  removeViewBox: false,
+                },
+              ],
+            },
+          },
+        ],
       },
     },
     {

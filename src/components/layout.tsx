@@ -7,7 +7,7 @@ import Cookie from "./cookie";
 import Footer from "./footer";
 import Header from "./header";
 import { components, shorthands } from "./mdx-components";
-import { darkBlueWhiteTheme, primaryBlue, primaryTheme as theme, secondaryTheme } from "./theme";
+import { darkBlueWhiteTheme, primaryBlue, primaryTheme, secondaryTheme } from "./theme";
 
 const useStyles = makeStyles(() => ({
   "@global": {
@@ -41,6 +41,12 @@ interface GraphType {
 
 interface LayoutProps {
   children: React.ReactNode;
+  pathContext: {
+    frontmatter: {
+      title: string;
+      path?: string;
+    };
+  };
 }
 
 export default function Layout(props: LayoutProps): JSX.Element {
@@ -56,12 +62,16 @@ export default function Layout(props: LayoutProps): JSX.Element {
     }
   `);
 
+  const pageTitle = props.pathContext.frontmatter.title;
+
+  const title = `${pageTitle ? `${pageTitle} - ` : ""}${data.site.siteMetadata?.title}`;
+
   return (
     <MDXProvider components={{ ...shorthands, ...components }}>
-      <ThemeProvider theme={theme}>
-        <Helmet title={data.site.siteMetadata?.title}></Helmet>
+      <ThemeProvider theme={primaryTheme}>
+        <Helmet title={title}></Helmet>
         <div className={classes.root}>
-          <Header />
+          <Header currentPath={props.pathContext.frontmatter.path} />
           <div className={classes.content}>{props.children}</div>
           <ThemeProvider theme={darkBlueWhiteTheme}>
             <Footer />

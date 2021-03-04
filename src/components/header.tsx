@@ -1,24 +1,35 @@
-import { Button, createStyles, Hidden, Theme, withStyles, WithStyles } from "@material-ui/core";
+import { Button, createStyles, Hidden, makeStyles, Theme } from "@material-ui/core";
+import Color from "color";
 import { Link } from "gatsby";
 import React from "react";
 import Logo from "../assets/images/toit-secondary.inline.svg";
+import menu, { MenuItem } from "../content/menu.yaml";
 import GetStartedButton from "./getstarted-button";
 import Menu from "./menu";
 import PopupMenu from "./popup-menu";
 import { pageWidth } from "./shared-styles";
+import Submenu from "./submenu";
 
-const styles = (theme: Theme) =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
       backgroundColor: theme.palette.primary.main,
     },
     toolbarContent: {
+      ...pageWidth(theme),
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
+    },
+    submenuContainer: {
       ...pageWidth(theme),
+      paddingTop: 0,
+    },
+    submenuContent: {
       paddingTop: theme.spacing(3),
-      paddingBottom: theme.spacing(3),
+      borderTop: `1px solid ${Color(theme.palette.primary.contrastText).alpha(0.3).string()}`,
+      display: "flex",
+      justifyContent: "flex-end",
     },
     menu: {
       marginLeft: "auto",
@@ -41,55 +52,64 @@ const styles = (theme: Theme) =>
       alignItems: "center",
       paddingRight: "0.25rem",
     },
-  });
+  })
+);
 
-type HeaderProps = WithStyles<typeof styles>;
+type HeaderProps = {
+  currentPath?: string;
+};
 
-interface HeaderState {
-  getstartedOpen: boolean;
-}
+function Header({ currentPath }: HeaderProps): JSX.Element {
+  const classes = useStyles();
 
-class Header extends React.Component<HeaderProps, HeaderState> {
-  state = {
-    getstartedOpen: false,
-  };
+  let currentMenuItem: MenuItem | undefined;
 
-  render() {
-    return (
-      <div className={this.props.classes.container}>
-        <div className={this.props.classes.toolbarContent}>
-          <div className={this.props.classes.logoContainer}>
-            <Link to="/">
-              <Logo className={this.props.classes.logo} />
-            </Link>
-          </div>
-          <Hidden mdUp>
-            <div className={this.props.classes.popup}>
-              <PopupMenu />
-            </div>
-          </Hidden>
-
-          <Hidden smDown>
-            <div className={this.props.classes.menu}>
-              <Menu />
-            </div>
-            <div className={this.props.classes.buttons}>
-              <Hidden xsDown>
-                <span className={this.props.classes.button}>
-                  <GetStartedButton />
-                </span>
-              </Hidden>
-              <a href="http://console.toit.io/login" target="_blank" rel="noreferrer">
-                <Button variant="outlined" color="secondary" className={this.props.classes.button}>
-                  Login
-                </Button>
-              </a>
-            </div>
-          </Hidden>
-        </div>
-      </div>
-    );
+  if (currentPath != undefined) {
+    const currentItemPath = `/${currentPath.split("/")[1]}`;
+    currentMenuItem = menu.items.find((item) => currentItemPath == item.path);
   }
+
+  return (
+    <div className={classes.container}>
+      <div className={classes.toolbarContent}>
+        <div className={classes.logoContainer}>
+          <Link to="/">
+            <Logo className={classes.logo} />
+          </Link>
+        </div>
+        <Hidden mdUp>
+          <div className={classes.popup}>
+            <PopupMenu />
+          </div>
+        </Hidden>
+
+        <Hidden smDown>
+          <div className={classes.menu}>
+            <Menu currentPath={currentPath} />
+          </div>
+          <div className={classes.buttons}>
+            <Hidden xsDown>
+              <span className={classes.button}>
+                <GetStartedButton />
+              </span>
+            </Hidden>
+            <a href="http://console.toit.io/login" target="_blank" rel="noreferrer">
+              <Button variant="outlined" color="secondary" className={classes.button}>
+                Login
+              </Button>
+            </a>
+          </div>
+        </Hidden>
+      </div>
+      {currentMenuItem?.subpages != undefined && (
+        <div className={classes.submenuContainer}>
+          <div className={classes.submenuContent}>
+            <Submenu pathPrefix={currentMenuItem.path} items={currentMenuItem.subpages} />
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default withStyles(styles)(Header);
+export default Header;

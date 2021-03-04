@@ -3,6 +3,7 @@ import { motion, Variants } from "framer-motion";
 import { Link } from "gatsby";
 import * as React from "react";
 import ExternalLinkIcon from "../../assets/icons/external-link.svg";
+import * as menu from "../../content/menu.yaml";
 import GetStartedButton from "../getstarted-button";
 import { primaryBlue, secondaryTheme } from "../theme";
 import MenuItem from "./menu-item";
@@ -63,49 +64,43 @@ const variants: Variants = {
   },
 };
 
+function MenuLink({ item }: { item: menu.MenuItem }): JSX.Element {
+  const classes = useStyles();
+  if (item.to != undefined) {
+    return (
+      <a target="_blank" rel="noreferrer" href={item.to} className={classes.link}>
+        <Typography variant="body1" className={classes.typography} component="span">
+          {item.title} <ExternalLinkIcon />
+        </Typography>
+      </a>
+    );
+  } else {
+    let to = item.path;
+    if (item.subpages && item.subpages.length > 0) {
+      to += item.subpages[0].path;
+    }
+
+    return (
+      <Link to={to} className={classes.link} activeClassName={classes.activeLink}>
+        <Typography variant="body1" className={classes.typography} component="span">
+          {item.title}
+        </Typography>
+      </Link>
+    );
+  }
+}
+
 function Menu(): JSX.Element {
   const classes = useStyles();
 
   // Make sure you also update the main menu when you make changes here.
   return (
     <motion.ul variants={variants} className={classes.menu}>
-      <MenuItem>
-        <Link to="/" className={classes.link} activeClassName={classes.activeLink}>
-          <Typography variant="body1" className={classes.typography} component="span">
-            Home
-          </Typography>
-        </Link>
-      </MenuItem>
-      {/*
-      <MenuItem> 
-        <Link to="/product" className={classes.link} activeClassName={classes.activeLink}>
-          <Typography variant="body1" className={classes.typography} component="span">
-            Product
-          </Typography>
-        </Link>
-      </MenuItem>
-       */}
-      <MenuItem>
-        <Link to="/pricing" className={classes.link} activeClassName={classes.activeLink}>
-          <Typography variant="body1" className={classes.typography} component="span">
-            Pricing
-          </Typography>
-        </Link>
-      </MenuItem>
-      <MenuItem>
-        <Link to="/about" className={classes.link} activeClassName={classes.activeLink}>
-          <Typography variant="body1" className={classes.typography} component="span">
-            About
-          </Typography>
-        </Link>
-      </MenuItem>
-      <MenuItem>
-        <a target="_blank" rel="noreferrer" href="https://docs.toit.io" className={classes.link}>
-          <Typography variant="body1" className={classes.typography} component="span">
-            Docs <ExternalLinkIcon />
-          </Typography>
-        </a>
-      </MenuItem>
+      {menu.default.items.map((item) => (
+        <MenuItem key={item.path}>
+          <MenuLink item={item} />
+        </MenuItem>
+      ))}
       <MenuItem className={classes.actions}>
         <ThemeProvider theme={secondaryTheme}>
           <GetStartedButton />

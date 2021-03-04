@@ -2,28 +2,14 @@ import { Grid, makeStyles, Theme } from "@material-ui/core";
 import React from "react";
 import Block, { BlockProps } from "./block";
 
-const useStyles = makeStyles((theme) => ({
-  content: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
-    // This is not ideal, but the Grid is creating a strange overflow and the
-    // easiest fix is to prevent a horizontal overflow.
-    overflowX: "hidden",
-  },
-}));
-
 type HorizontalBlockProps = BlockProps;
 
 export function HorizontalBlock(props: HorizontalBlockProps): JSX.Element {
-  const classes = useStyles(props);
-
   return (
     <Block theme={props.theme}>
-      <div className={classes.content}>
-        <Grid container spacing={5}>
-          {props.children}
-        </Grid>
-      </div>
+      <Grid container spacing={5}>
+        {props.children}
+      </Grid>
     </Block>
   );
 }

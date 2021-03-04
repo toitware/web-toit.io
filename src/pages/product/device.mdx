@@ -1,0 +1,103 @@
+---
+title: Device - Product
+path: /product/device
+date: 2021-01-20
+---
+
+import { pinkWhiteTheme, greyBlueTheme, whiteBlueTheme, darkBlueWhiteTheme } from "../../components/theme";
+import toitVmSvg from "../../assets/images/toit-vm.svg";
+import driversSvg from "../../assets/images/drivers.svg";
+import dataExchangeSvg from "../../assets/images/data-exchange.svg";
+import chipSvg from "../../assets/images/chip.svg";
+import editorImg from "../../assets/images/editor.png";
+
+<Block theme={darkBlueWhiteTheme} centered paddingBottom={0}>
+
+###### Toit applications are written in the Toit language.
+
+# High-level language
+
+Why create a new language? Because existing languages that can be used on
+microcontrollers are not very good. C has great performance but it's hard to
+learn, risky to use, and even simple functionality takes a long time to build.
+MicroPython is easy to write, but performance is so poor that it’s hardly
+usable. Oh, and it doesn’t really work like Python.
+
+Toit language is a high-level language that’s made to have a syntax very close
+to Python, but built from first principles for microcontrollers. This makes it
+at least 20x faster than MicroPython. We’ve also built a slick IDE integration.
+
+<br />
+<br />
+
+<img src={editorImg} />
+</Block>
+
+<HorizontalBlock theme={whiteBlueTheme}>
+<HorizontalBlockItem>
+
+### Virtual machine
+
+Your code runs as one or more applications inside the Toit virtual machine. The
+virtual machine creates a sandboxed environment for your code, so the worst that
+can happen from a bug is that your application crashes. The system keeps
+running, and so do your other applications.
+
+</HorizontalBlockItem>
+<HorizontalBlockItem centered>
+
+<img src={toitVmSvg} />
+
+</HorizontalBlockItem>
+</HorizontalBlock>
+
+<HorizontalBlock theme={greyBlueTheme}>
+<HorizontalBlockItem centered>
+
+<img src={driversSvg} />
+
+</HorizontalBlockItem>
+<HorizontalBlockItem>
+
+### Out-of-the-box drivers
+
+The Toit ecosystem comes with ready-to-use drivers for many of the commonly used
+peripherals including GSM modules, sensors and actuators. They can be accessed
+directly from Toit using our package manager.
+
+</HorizontalBlockItem>
+</HorizontalBlock>
+
+<HorizontalBlock theme={whiteBlueTheme}>
+<HorizontalBlockItem>
+
+### Over the air updates
+
+Updating your devices over the air is as easy on the Toit platform as it is to
+deploy new code to a web app - even on slow and shaky connections. The system
+keeps running through the update, and if the connection is lost mid-update, it
+simply continues where it left off when connectivity is back.
+
+</HorizontalBlockItem>
+<HorizontalBlockItem centered>
+<img src={dataExchangeSvg} />
+</HorizontalBlockItem>
+</HorizontalBlock>
+
+<HorizontalBlock theme={greyBlueTheme}>
+<HorizontalBlockItem centered>
+<img src={chipSvg} />
+</HorizontalBlockItem>
+<HorizontalBlockItem>
+
+### CPUs
+
+Toit runs on the ESP32 chip from Espressif. We chose the ESP32 because it offers
+the best price / performance out of all the CPUs out there. For $2 or less you
+get 512 kB RAM, built-in WiFi, and 34 pins for peripherals that you can use in
+any way you want.
+
+You can buy them [here](https://www.digikey.com/en/products/detail/espressif-systems/ESP32-DEVKITC-32D/9356990).
+
+</HorizontalBlockItem>
+</HorizontalBlock>
