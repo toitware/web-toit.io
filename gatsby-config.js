@@ -30,14 +30,6 @@ module.exports = {
         icon: "src/assets/images/icon.png",
       },
     },
-    // {
-    //   resolve: "gatsby-plugin-react-svg",
-    //   options: {
-    //     rule: {
-    //       include: /\.svg$/,
-    //     },
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-svgr-svgo`,
       options: {
