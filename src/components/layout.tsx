@@ -7,10 +7,16 @@ import Cookie from "./cookie";
 import Footer from "./footer";
 import Header from "./header";
 import { components, shorthands } from "./mdx-components";
-import { darkBlueWhiteTheme, primaryBlue, primaryTheme, secondaryTheme } from "./theme";
+import { darkBlueWhiteTheme, menuTheme, primaryBlue, primaryTheme, secondaryTheme } from "./theme";
 
 const useStyles = makeStyles(() => ({
   "@global": {
+    html: {
+      // Make sure the scrollbar is always visible (on the devices that don't
+      // have a floating scrollbar), so the menu doesn't jump around when larger
+      // sections cause the scrollbar to appear.
+      overflowY: "scroll",
+    },
     body: {
       background: primaryBlue.string(),
       margin: 0,
@@ -71,7 +77,9 @@ export default function Layout(props: LayoutProps): JSX.Element {
       <ThemeProvider theme={primaryTheme}>
         <Helmet title={title}></Helmet>
         <div className={classes.root}>
-          <Header currentPath={props.pathContext.frontmatter.path} />
+          <ThemeProvider theme={menuTheme}>
+            <Header currentPath={props.pathContext.frontmatter.path} />
+          </ThemeProvider>
           <div className={classes.content}>{props.children}</div>
           <ThemeProvider theme={darkBlueWhiteTheme}>
             <Footer />

@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core";
+import { createMuiTheme, PaletteType } from "@material-ui/core";
 import Color from "color";
 
 const defaultSpacing = 8;
@@ -19,65 +19,109 @@ export const secondaryRed = Color.hsl(0, 100, 70);
 
 // The different themes used throughout the website.
 export const pinkWhiteTheme = createTheme({
-  color: primaryRed,
-  contrastColor: Color("white"),
+  type: "dark",
+  background: primaryRed,
+  text: Color("white"),
   errorColor: primaryBlue,
+  primary: Color("white"),
+  primaryContrast: primaryRed,
 });
 export const greyBlueTheme = createTheme({
-  color: primaryBlue100,
-  contrastColor: primaryBlue,
-  errorColor: primaryRed,
+  background: primaryBlue100,
+  text: primaryBlue,
 });
 export const whiteBlueTheme = createTheme({
-  color: Color("white"),
-  contrastColor: primaryBlue,
-  errorColor: primaryRed,
+  background: Color("white"),
+  text: primaryBlue,
 });
 export const darkBlueWhiteTheme = createTheme({
-  color: primaryBlue,
-  contrastColor: primaryBlue100,
-  errorColor: primaryRed,
+  background: primaryBlue,
+  text: primaryBlue100,
 });
 
 export const primaryTheme = pinkWhiteTheme;
 export const secondaryTheme = greyBlueTheme;
+export const menuTheme = pinkWhiteTheme;
 
 type CreateThemeParameters = {
-  color: Color;
-  contrastColor: Color;
-  errorColor: Color;
-  colorLight?: Color;
-  contrastColorLight?: Color;
+  type?: PaletteType;
+  background: Color;
+  text: Color;
+  primary?: Color;
+  primaryContrast?: Color;
+  secondary?: Color;
+  secondaryContrast?: Color;
+  errorColor?: Color;
   spacing?: number;
 };
 
 function createTheme({
-  color,
-  contrastColor,
-  errorColor,
-  colorLight,
-  contrastColorLight,
+  type = "light",
+  background,
+  text,
+  errorColor = primaryRed,
+  primary = primaryBlue,
+  primaryContrast = Color("white"),
+  secondary = secondaryRed,
+  secondaryContrast = Color("white"),
   spacing = defaultSpacing,
 }: CreateThemeParameters) {
-  const textColor = contrastColor.string();
+  const textColor = text.string();
   const titleFontFamily = "Roboto, Helvetica, Arial, sans-serif";
   const bodyFontFamily = "Canano Light, Helvetica, Arial, sans-serif";
+
+  // Small helper function that blends the color with the background if we're in
+  // a "light" theme (since then the background is light), and simply lightens
+  // it otherwise (= makes it more white).
+  //
+  // This is preferable to simply using lighten/darken because it preserves
+  // color information: if you have white text and darken it, it will become
+  // grey, which doesn't look too great on a colored background. But if you
+  // blend it with the background, it will simply get closer to that color which
+  // normally is what you want.
+  function lighten(color: Color): Color {
+    if (type == "dark") {
+      return color.lighten(0.2);
+    } else {
+      return color.mix(background, 0.2);
+    }
+  }
+  // The exact opposite of lighten().
+  function darken(color: Color) {
+    if (type == "light") {
+      return color.darken(0.2);
+    } else {
+      return color.mix(background, 0.2);
+    }
+  }
+
   return createMuiTheme({
     spacing: spacing,
     palette: {
-      type: "light",
+      type: type,
       primary: {
-        main: color.string(),
-        contrastText: contrastColor.string(),
-        light: (colorLight ?? color.alpha(0.5)).string(),
+        main: primary.string(),
+        light: lighten(primary).string(),
+        dark: darken(primary).string(),
+        contrastText: primaryContrast.string(),
       },
       secondary: {
-        main: contrastColor.string(),
-        contrastText: color.string(),
-        light: (contrastColorLight ?? contrastColor.alpha(0.5)).string(),
+        main: secondary.string(),
+        light: lighten(secondary).string(),
+        dark: darken(secondary).string(),
+        contrastText: secondaryContrast.string(),
       },
       error: {
         main: errorColor.string(),
+      },
+      background: {
+        default: background.string(),
+      },
+      text: {
+        primary: text.string(),
+        secondary: text.alpha(0.7).string(),
+        disabled: text.alpha(0.5).string(),
+        hint: text.alpha(0.5).string(),
       },
     },
     typography: {

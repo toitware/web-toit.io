@@ -44,7 +44,7 @@ export function MenuToggle({ toggle }: MenuToggleProps): JSX.Element {
         viewBox="0 0 22 20"
         variants={{
           open: { color: "black" },
-          closed: { color: theme.palette.primary.contrastText, transition: { delay: 0.4 } },
+          closed: { color: theme.palette.text.primary, transition: { delay: 0.4 } },
         }}
       >
         <Path

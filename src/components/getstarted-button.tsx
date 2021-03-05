@@ -9,17 +9,11 @@ import {
   withStyles,
   WithStyles,
 } from "@material-ui/core";
-import clsx from "clsx";
 import React from "react";
 import { greyBlueTheme } from "./theme";
 
 const styles = (theme: Theme) =>
   createStyles({
-    button: {
-      "&:hover": {
-        backgroundColor: theme.palette.secondary.light,
-      },
-    },
     getstartedContent: {
       backgroundColor: "#f4f8fa",
       // The default size of the dialog.
@@ -74,9 +68,9 @@ class GetStartedButton extends React.Component<GetStartedButtonProps, GetStarted
       <>
         <Button
           variant="contained"
-          color="secondary"
+          color="primary"
           size={this.props.size}
-          className={clsx(this.props.classes.button, this.props.className)}
+          className={this.props.className}
           disableElevation
           onClick={() => {
             this.setState({ ...this.state, getstartedOpen: true });

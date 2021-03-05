@@ -4,7 +4,7 @@ import * as React from "react";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    background: theme.palette.primary.contrastText,
+    background: theme.palette.text.primary,
     opacity: 0.1,
     position: "absolute",
     top: 0,
@@ -35,7 +35,7 @@ function Backdrop(): JSX.Element {
     closed: {
       width: "3.5rem",
       height: "3.5rem",
-      background: theme.palette.primary.contrastText,
+      background: theme.palette.text.primary,
       opacity: 0.1,
       transition: {
         delay: 0.35,

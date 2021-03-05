@@ -6,7 +6,7 @@ const styles = (theme: Theme) =>
   createStyles({
     icon: {
       paddingBottom: theme.spacing(1),
-      color: theme.palette.primary.contrastText,
+      color: theme.palette.text.primary,
     },
   });
 

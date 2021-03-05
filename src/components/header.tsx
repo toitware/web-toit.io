@@ -1,4 +1,5 @@
 import { Button, createStyles, Hidden, makeStyles, Theme } from "@material-ui/core";
+import clsx from "clsx";
 import Color from "color";
 import { Link } from "gatsby";
 import React from "react";
@@ -13,7 +14,7 @@ import Submenu from "./submenu";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: theme.palette.background.default,
     },
     toolbarContent: {
       ...pageWidth(theme),
@@ -24,10 +25,11 @@ const useStyles = makeStyles((theme: Theme) =>
     submenuContainer: {
       ...pageWidth(theme),
       paddingTop: 0,
+      paddingBottom: theme.spacing(2),
     },
     submenuContent: {
-      paddingTop: theme.spacing(3),
-      borderTop: `1px solid ${Color(theme.palette.primary.contrastText).alpha(0.3).string()}`,
+      paddingTop: theme.spacing(2),
+      borderTop: `1px solid ${Color(theme.palette.text.primary).alpha(0.3).string()}`,
       display: "flex",
       justifyContent: "flex-end",
     },
@@ -39,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     logo: {
       height: "2rem",
-      fill: theme.palette.primary.contrastText,
+      fill: theme.palette.text.primary,
     },
     buttons: {},
     button: {
@@ -51,6 +53,18 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: "flex-end",
       alignItems: "center",
       paddingRight: "0.25rem",
+    },
+    popupMenuMediaQuery: {
+      display: "flex",
+      [theme.breakpoints.up("md")]: {
+        display: "none",
+      },
+    },
+    defaultMenuMediaQuery: {
+      display: "none",
+      [theme.breakpoints.up("md")]: {
+        display: "block",
+      },
     },
   })
 );
@@ -77,29 +91,27 @@ function Header({ currentPath }: HeaderProps): JSX.Element {
             <Logo className={classes.logo} />
           </Link>
         </div>
-        <Hidden mdUp>
-          <div className={classes.popup}>
-            <PopupMenu />
-          </div>
-        </Hidden>
+        {/* Using a css implementation instead of <Hidden> for better server side rendering */}
+        <div className={clsx(classes.popup, classes.popupMenuMediaQuery)}>
+          <PopupMenu />
+        </div>
 
-        <Hidden smDown>
-          <div className={classes.menu}>
-            <Menu currentPath={currentPath} />
-          </div>
-          <div className={classes.buttons}>
-            <Hidden xsDown>
-              <span className={classes.button}>
-                <GetStartedButton />
-              </span>
-            </Hidden>
-            <a href="http://console.toit.io/login" target="_blank" rel="noreferrer">
-              <Button variant="outlined" color="secondary" className={classes.button}>
-                Login
-              </Button>
-            </a>
-          </div>
-        </Hidden>
+        {/* Using the css implementation for better server side rendering */}
+        <div className={clsx(classes.menu, classes.defaultMenuMediaQuery)}>
+          <Menu currentPath={currentPath} />
+        </div>
+        <div className={clsx(classes.buttons, classes.defaultMenuMediaQuery)}>
+          <Hidden xsDown>
+            <span className={classes.button}>
+              <GetStartedButton />
+            </span>
+          </Hidden>
+          <a href="http://console.toit.io/login" target="_blank" rel="noreferrer">
+            <Button variant="outlined" color="primary" className={classes.button}>
+              Login
+            </Button>
+          </a>
+        </div>
       </div>
       {currentMenuItem?.subpages != undefined && (
         <div className={classes.submenuContainer}>
