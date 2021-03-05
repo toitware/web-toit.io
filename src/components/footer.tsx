@@ -28,7 +28,7 @@ export default function Footer(): JSX.Element {
     <div className={classes.container}>
       <Breadcrumbs aria-label="breadcrumb" separator="|" classes={{ separator: classes.separator }}>
         <Link to="/terms-of-service">
-          <Typography variant="body2">Terms of Service</Typography>
+          <Typography variant="body2">Terms of service</Typography>
         </Link>
         <Link to="/privacy-policy">
           <Typography variant="body2">Privacy policy</Typography>
