@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingBottom: 0,
   },
   link: {
-    color: theme.palette.primary.contrastText,
+    color: theme.palette.text.primary,
     fontSize: "0.9375rem",
     textTransform: "uppercase",
     fontWeight: "bold",
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     textDecorationThickness: "2px",
     textDecorationLine: "underline",
     textDecorationStyle: "solid",
-    textDecorationColor: "white",
+    textDecorationColor: theme.palette.text.primary,
     textUnderlineOffset: "0.4em",
   },
 }));

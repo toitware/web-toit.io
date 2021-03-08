@@ -11,13 +11,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingBottom: 0,
   },
   link: {
-    color: theme.palette.primary.contrastText,
+    color: theme.palette.text.primary,
   },
   active: {
     textDecorationThickness: "3px",
     textDecorationLine: "underline",
     textDecorationStyle: "solid",
-    textDecorationColor: "white",
+    textDecorationColor: theme.palette.text.primary,
     textUnderlineOffset: "0.4em",
   },
 }));

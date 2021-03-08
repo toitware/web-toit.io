@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
   title: {
-    background: theme.palette.primary.contrastText,
+    background: theme.palette.primary.main,
     color: "white",
     fontSize: "1.625rem",
     lineHeight: "2rem",
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     ...theme.typography.body1,
-    border: `2px solid ${theme.palette.primary.contrastText}`,
+    border: `2px solid ${theme.palette.primary.main}`,
     background: primaryBlue.lightness(98).string(),
     borderTop: "none",
     borderRadius: "0 0 0.5rem 0.5rem",
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   primaryButton: {
     background: secondaryRed.string(),
     "&:hover": {
-      background: secondaryRed.lighten(0.15).string(),
+      background: secondaryRed.darken(0.15).string(),
     },
   },
   note: {
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "3rem 0 0 0",
     fontSize: "1rem",
     lineHeight: "1.5rem",
-    color: theme.palette.primary.contrastText,
+    color: theme.palette.primary.main,
   },
   value: {
     lineHeight: "3rem",
@@ -125,7 +125,7 @@ export function ExtendedPricingOption({ title, limit }: ExtendedPricingOptionPro
         </div>
       </div>
       <div className={classes.actions}>
-        <Button variant="contained" color="secondary" size="large" disableElevation href="mailto:sales@toit.io">
+        <Button variant="contained" color="primary" size="large" disableElevation href="mailto:sales@toit.io">
           Contact Sales
         </Button>
       </div>

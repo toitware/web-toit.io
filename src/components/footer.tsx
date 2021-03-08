@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   logo: {
     marginTop: theme.spacing(6),
     height: "2rem",
-    fill: "rgba(0, 0, 0, 0.3)",
+    fill: "rgba(255, 255, 255, 0.3)",
   },
 }));
 

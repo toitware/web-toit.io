@@ -11,7 +11,7 @@ import dataExchangeSvg from "../../assets/images/data-exchange.svg";
 import chipSvg from "../../assets/images/chip.svg";
 import editorImg from "../../assets/images/editor.png";
 
-<Block theme={darkBlueWhiteTheme} centered paddingBottom={0}>
+<Block theme={whiteBlueTheme} centered paddingBottom={0}>
 
 ###### Toit applications are written in the Toit language
 
@@ -30,10 +30,10 @@ at least 20x faster than MicroPython. We’ve also built a slick IDE integration
 <br />
 <br />
 
-<img src={editorImg} />
+<img class="graphic" src={editorImg} />
 </Block>
 
-<HorizontalBlock theme={whiteBlueTheme}>
+<HorizontalBlock theme={greyBlueTheme}>
 <HorizontalBlockItem>
 
 ### Virtual machine
@@ -46,15 +46,15 @@ running, and so do your other applications.
 </HorizontalBlockItem>
 <HorizontalBlockItem centered>
 
-<img src={toitVmSvg} />
+<img class="graphic" src={toitVmSvg} />
 
 </HorizontalBlockItem>
 </HorizontalBlock>
 
-<HorizontalBlock theme={greyBlueTheme}>
+<HorizontalBlock theme={whiteBlueTheme}>
 <HorizontalBlockItem centered>
 
-<img src={driversSvg} />
+<img class="graphic" src={driversSvg} />
 
 </HorizontalBlockItem>
 <HorizontalBlockItem>
@@ -65,10 +65,13 @@ The Toit ecosystem comes with ready-to-use drivers for many of the commonly used
 peripherals including GSM modules, sensors and actuators. They can be accessed
 directly from Toit using our package manager.
 
+And don’t worry if the driver for your favorite sensor is not available yet.
+It’s really easy to write your own in the Toit language.
+
 </HorizontalBlockItem>
 </HorizontalBlock>
 
-<HorizontalBlock theme={whiteBlueTheme}>
+<HorizontalBlock theme={greyBlueTheme}>
 <HorizontalBlockItem>
 
 ### Over-the-air updates
@@ -80,13 +83,13 @@ simply continues where it left off when connectivity is back.
 
 </HorizontalBlockItem>
 <HorizontalBlockItem centered>
-<img src={dataExchangeSvg} />
+<img class="graphic" src={dataExchangeSvg} />
 </HorizontalBlockItem>
 </HorizontalBlock>
 
-<HorizontalBlock theme={greyBlueTheme}>
+<HorizontalBlock theme={whiteBlueTheme}>
 <HorizontalBlockItem centered>
-<img src={chipSvg} />
+<img class="graphic" src={chipSvg} />
 </HorizontalBlockItem>
 <HorizontalBlockItem>
 

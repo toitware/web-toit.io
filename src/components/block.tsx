@@ -15,7 +15,8 @@ const useStyles = makeStyles((theme) => ({
   // in the component via ThemeProvider, so the makeStyles function doesn't
   // have the correct one yet.
   root: (props: BlockProps) => ({
-    backgroundColor: props.theme.palette.primary.main,
+    backgroundColor: props.theme.palette.background.default,
+    color: props.theme.palette.text.primary,
     "&:last-child": {
       // Make sure that if this is the last block used, it will expand.
       flexGrow: 1,
@@ -25,18 +26,24 @@ const useStyles = makeStyles((theme) => ({
     ...pageWidth(props.theme),
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
-    "& :is(img, svg)": {
+    "& img.graphic, & svg.graphic": {
+      margin: "0 auto",
+      display: "block",
       maxWidth: "95%",
     },
   }),
   centered: {
-    textAlign: "center",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    "& p": {
-      maxWidth: "42rem",
+    // Only center above a certain threshold, because otherwise the
+    // centered content looks strange compared to the other sections.
+    [theme.breakpoints.up("md")]: {
+      textAlign: "center",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      "& p": {
+        maxWidth: "42rem",
+      },
     },
   },
 }));
