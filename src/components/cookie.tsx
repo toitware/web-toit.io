@@ -4,9 +4,6 @@ import CookieConsent from "react-cookie-consent";
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
-    "&:hover": {
-      backgroundColor: theme.palette.secondary.light,
-    },
     margin: theme.spacing(2),
   },
 }));
@@ -24,7 +21,7 @@ export default function Cookie(): JSX.Element {
       cookieName="gatsby-gdpr-google-analytics"
       disableButtonStyles
       style={{
-        background: theme.palette.primary.main,
+        background: theme.palette.background.default,
         boxShadow: "0px 0px 30px rgba(0,0,0,0.3)",
       }}
       ButtonComponent={(props: { id: string }) => (
