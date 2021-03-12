@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 import * as React from "react";
 import { FiExternalLink } from "react-icons/fi";
 import * as menu from "../../content/menu.yaml";
-import GetStartedButton from "../getstarted-button";
+import SignUpButton from "../sign-up-button";
 import { primaryBlue, secondaryTheme } from "../../theme";
 import MenuItem from "./menu-item";
 
@@ -22,6 +22,7 @@ const useStyles = makeStyles(() => ({
   link: {
     "&:hover": { fontWeight: "bolder" },
     marginBottom: "1rem",
+    textDecoration: "none",
     "& svg": {
       display: "inline-block",
       height: "1rem",
@@ -48,7 +49,10 @@ const useStyles = makeStyles(() => ({
     borderRadius: "1rem",
     marginBottom: "0",
   },
-  loginLink: {
+  signInLink: {
+    textDecoration: "none",
+  },
+  signInButton: {
     marginLeft: "1rem",
   },
 }));
@@ -103,10 +107,10 @@ function Menu(): JSX.Element {
       ))}
       <MenuItem className={classes.actions}>
         <ThemeProvider theme={secondaryTheme}>
-          <GetStartedButton />
-          <a href="http://console.toit.io/login" target="_blank" rel="noreferrer">
-            <Button className={classes.loginLink} variant="outlined" color="secondary">
-              Login
+          <SignUpButton />
+          <a href="http://console.toit.io/login" className={classes.signInLink} target="_blank" rel="noreferrer">
+            <Button className={classes.signInButton} variant="outlined" color="secondary">
+              Sign in
             </Button>
           </a>
         </ThemeProvider>

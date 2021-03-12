@@ -22,7 +22,7 @@ const useStyles = makeStyles(() => ({
       margin: 0,
     },
     a: {
-      textDecoration: `none`,
+      color: "inherit",
     },
   },
   root: {

@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   link: {
     color: theme.palette.text.primary,
+    textDecoration: "none",
   },
   active: {
     textDecorationThickness: "3px",
