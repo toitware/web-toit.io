@@ -2,7 +2,7 @@ import { Breadcrumbs, makeStyles, styled, Theme } from "@material-ui/core";
 import clsx from "clsx";
 import { Link } from "gatsby";
 import React from "react";
-import ExternalLinkIcon from "../assets/icons/external-link.svg";
+import { FiExternalLink } from "react-icons/fi";
 import menu, { MenuItem } from "../content/menu.yaml";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -22,10 +22,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const PositionedExternalLinkIcon = styled(ExternalLinkIcon)({
+const PositionedExternalLinkIcon = styled(FiExternalLink)({
   height: "1rem",
   position: "relative",
   top: "0.1em",
+  marginLeft: "0.3em",
 });
 
 type MenuLinkProps = {

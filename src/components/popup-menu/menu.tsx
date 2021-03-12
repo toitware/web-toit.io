@@ -2,7 +2,7 @@ import { Button, makeStyles, Theme, ThemeProvider, Typography } from "@material-
 import { motion, Variants } from "framer-motion";
 import { Link } from "gatsby";
 import * as React from "react";
-import ExternalLinkIcon from "../../assets/icons/external-link.svg";
+import { FiExternalLink } from "react-icons/fi";
 import * as menu from "../../content/menu.yaml";
 import GetStartedButton from "../getstarted-button";
 import { primaryBlue, secondaryTheme } from "../theme";
@@ -70,7 +70,7 @@ function MenuLink({ item }: { item: menu.MenuItem }): JSX.Element {
     return (
       <a target="_blank" rel="noreferrer" href={item.to} className={classes.link}>
         <Typography variant="body1" className={classes.typography} component="span">
-          {item.title} <ExternalLinkIcon />
+          {item.title} <FiExternalLink />
         </Typography>
       </a>
     );
