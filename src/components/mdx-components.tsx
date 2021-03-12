@@ -6,11 +6,11 @@ import React from "react";
 import Block from "./block";
 import Editor from "./editor";
 import { Feature, Features } from "./features";
-import GetStartedButton from "./getstarted-button";
 import { HighLight, HighLights } from "./highlights";
 import { HorizontalBlock, HorizontalBlockItem } from "./horizontal-block";
 import { CodeIcon, ConnectionIcon } from "./icons";
 import { ExtendedPricingOption, StandardPricingOption } from "./pricing-option";
+import SignUpButton from "./sign-up-button";
 
 const P = (props: any) => <Typography paragraph {...props} />;
 const H1 = (props: any) => <Typography variant="h1" {...props} />;
@@ -45,5 +45,5 @@ export const shorthands = {
   ExtendedPricingOption,
   CodeIcon,
   ConnectionIcon,
-  GetStartedButton,
+  GetStartedButton: SignUpButton,
 };

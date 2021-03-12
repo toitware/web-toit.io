@@ -1,4 +1,4 @@
-import { Breadcrumbs, makeStyles, Theme, Typography } from "@material-ui/core";
+import { Breadcrumbs, makeStyles, Theme } from "@material-ui/core";
 import { Link } from "gatsby";
 import React from "react";
 import Logo from "../assets/images/toit-secondary.inline.svg";
@@ -11,8 +11,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(6),
   },
-  separator: {
-    color: theme.palette.primary.contrastText,
+  link: {
+    color: theme.palette.text.primary,
+    textDecoration: "none",
+    fontSize: "0.875rem",
   },
   logo: {
     marginTop: theme.spacing(6),
@@ -26,15 +28,15 @@ export default function Footer(): JSX.Element {
 
   return (
     <div className={classes.container}>
-      <Breadcrumbs aria-label="breadcrumb" separator="|" classes={{ separator: classes.separator }}>
-        <Link to="/terms-of-service">
-          <Typography variant="body2">Terms of service</Typography>
+      <Breadcrumbs aria-label="breadcrumb" separator="|" classes={{ separator: classes.link }}>
+        <Link to="/terms-of-service" className={classes.link}>
+          Terms of service
         </Link>
-        <Link to="/privacy-policy">
-          <Typography variant="body2">Privacy policy</Typography>
+        <Link to="/privacy-policy" className={classes.link}>
+          Privacy policy
         </Link>
-        <Link to="/cookies-policy">
-          <Typography variant="body2">Cookies policy</Typography>
+        <Link to="/cookies-policy" className={classes.link}>
+          Cookies policy
         </Link>
       </Breadcrumbs>
       <Logo className={classes.logo} />

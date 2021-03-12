@@ -5,10 +5,10 @@ import { Link } from "gatsby";
 import React from "react";
 import Logo from "../assets/images/toit-secondary.inline.svg";
 import menu, { MenuItem } from "../content/menu.yaml";
-import GetStartedButton from "./getstarted-button";
 import Menu from "./menu";
 import PopupMenu from "./popup-menu";
 import { pageWidth } from "./shared-styles";
+import SignUpButton from "./sign-up-button";
 import Submenu from "./submenu";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     menu: {
       marginLeft: "auto",
+    },
+    link: {
+      textDecoration: "none",
     },
     logoContainer: {
       height: "2rem",
@@ -103,12 +106,12 @@ function Header({ currentPath }: HeaderProps): JSX.Element {
         <div className={clsx(classes.buttons, classes.defaultMenuMediaQuery)}>
           <Hidden xsDown>
             <span className={classes.button}>
-              <GetStartedButton />
+              <SignUpButton />
             </span>
           </Hidden>
-          <a href="http://console.toit.io/login" target="_blank" rel="noreferrer">
+          <a href="http://console.toit.io/login" target="_blank" rel="noreferrer" className={classes.link}>
             <Button variant="outlined" color="primary" className={classes.button}>
-              Login
+              Sign in
             </Button>
           </a>
         </div>

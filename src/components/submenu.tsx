@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: "0.9375rem",
     textTransform: "uppercase",
     fontWeight: "bold",
+    textDecoration: "none",
   },
   active: {
     textDecorationThickness: "2px",
