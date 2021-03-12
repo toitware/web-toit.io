@@ -1,6 +1,6 @@
 import { makeStyles, Typography } from "@material-ui/core";
 import React from "react";
-import CheckCircleIcon from "../assets/icons/check-circle.svg";
+import { FiCheckCircle } from "react-icons/fi";
 
 const useStyles = makeStyles(() => ({
   list: {
@@ -32,7 +32,7 @@ export function Feature({ children }: FeatureProps): JSX.Element {
   const classes = useStyles();
   return (
     <Typography component="li" className={classes.item}>
-      <CheckCircleIcon className={classes.itemIcon} /> {children}
+      <FiCheckCircle className={classes.itemIcon} /> {children}
     </Typography>
   );
 }
