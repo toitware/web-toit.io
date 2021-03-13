@@ -1,9 +1,6 @@
 import {
-  Button,
   createStyles,
   Dialog,
-  DialogActions,
-  DialogContent,
   DialogTitle,
   makeStyles,
   Theme,
@@ -13,36 +10,24 @@ import {
   useTheme,
 } from "@material-ui/core";
 import React, { useCallback, useEffect, useState } from "react";
-import { FiCheckCircle } from "react-icons/fi";
 import { whiteBlueTheme } from "../theme";
+import { useSignUp } from "./context";
 import SignUpForm from "./sign-up-form";
+import SignUpSuccess from "./sign-up-success";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     actions: {
       padding: theme.spacing(2),
     },
-
     title: {
       textColor: theme.palette.text.primary,
       fontSize: "1.8rem",
     },
-    successCheckmark: {
-      width: "4rem",
-      height: "4rem",
-      display: "block",
-      margin: "0 auto 3rem",
-      color: theme.palette.success.main,
-    },
   })
 );
 
-type SignUpDialogProps = {
-  open: boolean;
-  handleClose: () => void;
-};
-
-function SignUpDialog({ open, handleClose }: SignUpDialogProps): JSX.Element {
+function SignUpDialog(): JSX.Element {
   const theme = useTheme();
   const classes = useStyles();
   const fullScreen = useMediaQuery(theme.breakpoints.down("xs"));
@@ -50,48 +35,32 @@ function SignUpDialog({ open, handleClose }: SignUpDialogProps): JSX.Element {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const handleSuccess = useCallback(() => setSubmitSuccess(true), []);
 
+  const { state, dispatch } = useSignUp();
+
+  const handleClose = useCallback(() => {
+    dispatch({ type: "close" });
+  }, [dispatch]);
+
   useEffect(() => {
-    if (open && submitSuccess) {
+    if (state.open && submitSuccess) {
       // Make sure that the form (and not the success message) is shown
       // everytime the dialog appears.
       setSubmitSuccess(false);
     }
-  }, [open]);
+  }, [state.open]);
 
   return (
     <ThemeProvider theme={whiteBlueTheme}>
-      <Dialog fullScreen={fullScreen} open={open} onClose={handleClose} aria-labelledby="responsive-dialog-title">
+      <Dialog fullScreen={fullScreen} open={state.open} onClose={handleClose} aria-labelledby="responsive-dialog-title">
         <DialogTitle id="responsive-dialog-title" disableTypography>
           <Typography variant="h1" className={classes.title}>
             Try it Free
           </Typography>
         </DialogTitle>{" "}
         {!submitSuccess && <SignUpForm handleClose={handleClose} handleSuccess={handleSuccess} />}
-        {submitSuccess && <SuccessMessage handleClose={handleClose} />}
+        {submitSuccess && <SignUpSuccess handleClose={handleClose} />}
       </Dialog>
     </ThemeProvider>
-  );
-}
-
-type SuccessMessageProps = {
-  handleClose: () => void;
-};
-function SuccessMessage({ handleClose }: SuccessMessageProps): JSX.Element {
-  const classes = useStyles();
-  return (
-    <>
-      <DialogContent>
-        <FiCheckCircle className={classes.successCheckmark} />
-        <Typography>
-          Welcome aboard! Please check your email, and follow the instructions to finalise your account.
-        </Typography>
-      </DialogContent>
-      <DialogActions className={classes.actions}>
-        <Button autoFocus onClick={handleClose} color="primary">
-          Close Window
-        </Button>
-      </DialogActions>
-    </>
   );
 }
 
