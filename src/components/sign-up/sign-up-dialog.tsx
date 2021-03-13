@@ -9,7 +9,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@material-ui/core";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback } from "react";
 import { whiteBlueTheme } from "../theme";
 import { useSignUp } from "./context";
 import SignUpForm from "./sign-up-form";
@@ -32,22 +32,10 @@ function SignUpDialog(): JSX.Element {
   const classes = useStyles();
   const fullScreen = useMediaQuery(theme.breakpoints.down("xs"));
 
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-  const handleSuccess = useCallback(() => setSubmitSuccess(true), []);
-
   const { state, dispatch } = useSignUp();
 
-  const handleClose = useCallback(() => {
-    dispatch({ type: "close" });
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (state.open && submitSuccess) {
-      // Make sure that the form (and not the success message) is shown
-      // everytime the dialog appears.
-      setSubmitSuccess(false);
-    }
-  }, [state.open]);
+  const handleSuccess = useCallback(() => dispatch({ type: "sent" }), [dispatch]);
+  const handleClose = useCallback(() => dispatch({ type: "close" }), [dispatch]);
 
   return (
     <ThemeProvider theme={whiteBlueTheme}>
@@ -57,8 +45,8 @@ function SignUpDialog(): JSX.Element {
             Try it Free
           </Typography>
         </DialogTitle>{" "}
-        {!submitSuccess && <SignUpForm handleClose={handleClose} handleSuccess={handleSuccess} />}
-        {submitSuccess && <SignUpSuccess handleClose={handleClose} />}
+        {!state.sentSuccessfully && <SignUpForm handleClose={handleClose} handleSuccess={handleSuccess} />}
+        {state.sentSuccessfully && <SignUpSuccess handleClose={handleClose} />}
       </Dialog>
     </ThemeProvider>
   );

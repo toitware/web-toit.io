@@ -2,9 +2,9 @@ import * as React from "react";
 import SignUpDialog from "./sign-up-dialog";
 import useLocationMapping, { locationIncludesSignUp } from "./use-location-mapping";
 
-export type Action = { type: "open" } | { type: "close" };
+export type Action = { type: "open" } | { type: "close" } | { type: "sent" };
 export type Dispatch = (action: Action) => void;
-export type State = { open: boolean };
+export type State = { open: boolean; sentSuccessfully: boolean };
 
 export type ContextValue = {
   state: State;
@@ -13,14 +13,20 @@ export type ContextValue = {
 
 const SignUpContext = React.createContext<ContextValue | undefined>(undefined);
 
-function signUpReducer(state: State, action: Action) {
+function signUpReducer(state: State, action: Action): State {
   switch (action.type) {
-    case "open": {
-      return state.open ? state : { open: true };
-    }
-    case "close": {
-      return !state.open ? state : { open: false };
-    }
+    case "open":
+      return {
+        open: true,
+        // When the form was closed, we want to reset the "sentSuccessfully" flag
+        // so that the form (and not the success message) is shown when the dialog
+        // appears.
+        sentSuccessfully: !state.open ? false : state.sentSuccessfully,
+      };
+    case "close":
+      return { ...state, open: false };
+    default:
+      throw Error(`Unknown action ${action.type}`);
   }
 }
 
@@ -32,7 +38,10 @@ type SignUpProviderProps = { children: React.ReactNode };
  * This provider should only be used once in the app.
  */
 export function SignUpProvider({ children }: SignUpProviderProps): JSX.Element {
-  const [state, dispatch] = React.useReducer(signUpReducer, { open: locationIncludesSignUp() });
+  const [state, dispatch] = React.useReducer(signUpReducer, {
+    open: locationIncludesSignUp(),
+    sentSuccessfully: false,
+  });
 
   useLocationMapping(state, dispatch);
 
