@@ -32,7 +32,7 @@ export function useLocationMapping(state: State, dispatch: Dispatch): void {
 }
 
 export function locationIncludesSignUp(): boolean {
-  return window.location.hash.includes("sign-up");
+  return typeof window !== "undefined" ? window.location.hash.includes("sign-up") : false;
 }
 
 /**
