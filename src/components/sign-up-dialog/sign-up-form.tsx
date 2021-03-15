@@ -72,7 +72,7 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
   const classes = useStyles();
 
   const [isSending, setIsSending] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | undefined>();
 
   async function submitForm(values: SignUpValues) {
     setIsSending(true);
