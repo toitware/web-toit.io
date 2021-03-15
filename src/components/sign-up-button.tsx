@@ -1,6 +1,6 @@
 import { Button, ButtonProps, useTheme } from "@material-ui/core";
 import React from "react";
-import GetStartedDialog from "./sign-up-dialog";
+import SignUpDialog from "./sign-up-dialog";
 
 type SignUpButtonProps = Pick<ButtonProps, "size"> & {
   className?: string;
@@ -30,7 +30,7 @@ function SignUpButton({ size, className }: SignUpButtonProps): JSX.Element {
       >
         Try it Free
       </Button>
-      <GetStartedDialog open={open} handleClose={handleClose}></GetStartedDialog>
+      <SignUpDialog open={open} handleClose={handleClose}></SignUpDialog>
     </>
   );
 }

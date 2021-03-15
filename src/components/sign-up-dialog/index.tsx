@@ -73,10 +73,10 @@ function SignUpDialog({ open, handleClose }: SignUpDialogProps): JSX.Element {
   );
 }
 
-type SuccessMessage = {
+type SuccessMessageProps = {
   handleClose: () => void;
 };
-function SuccessMessage({ handleClose }: SuccessMessage): JSX.Element {
+function SuccessMessage({ handleClose }: SuccessMessageProps): JSX.Element {
   const classes = useStyles();
   return (
     <>
