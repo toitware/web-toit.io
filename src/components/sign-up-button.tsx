@@ -1,4 +1,4 @@
-import { Button, ButtonProps, useTheme } from "@material-ui/core";
+import { Button, ButtonProps } from "@material-ui/core";
 import React from "react";
 import { useSignUp } from "./sign-up/context";
 
@@ -7,8 +7,6 @@ type SignUpButtonProps = Pick<ButtonProps, "size"> & {
 };
 
 function SignUpButton({ size, className }: SignUpButtonProps): JSX.Element {
-  const theme = useTheme();
-
   const { dispatch } = useSignUp();
 
   return (
