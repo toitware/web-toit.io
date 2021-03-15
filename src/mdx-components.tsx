@@ -45,5 +45,5 @@ export const shorthands = {
   ExtendedPricingOption,
   CodeIcon,
   ConnectionIcon,
-  GetStartedButton: SignUpButton,
+  SignUpButton: SignUpButton,
 };
