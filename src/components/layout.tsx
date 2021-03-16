@@ -7,6 +7,7 @@ import Cookie from "./cookie";
 import Footer from "./footer";
 import Header from "./header";
 import { components, shorthands } from "../mdx-components";
+import { SignUpProvider } from "./sign-up/context";
 import { darkBlueWhiteTheme, menuTheme, primaryBlue, primaryTheme, secondaryTheme } from "../theme";
 
 const useStyles = makeStyles(() => ({
@@ -77,13 +78,15 @@ export default function Layout(props: LayoutProps): JSX.Element {
       <ThemeProvider theme={primaryTheme}>
         <Helmet title={title}></Helmet>
         <div className={classes.root}>
-          <ThemeProvider theme={menuTheme}>
-            <Header currentPath={props.pathContext.frontmatter.path} />
-          </ThemeProvider>
-          <div className={classes.content}>{props.children}</div>
-          <ThemeProvider theme={darkBlueWhiteTheme}>
-            <Footer />
-          </ThemeProvider>
+          <SignUpProvider>
+            <ThemeProvider theme={menuTheme}>
+              <Header currentPath={props.pathContext.frontmatter.path} />
+            </ThemeProvider>
+            <div className={classes.content}>{props.children}</div>
+            <ThemeProvider theme={darkBlueWhiteTheme}>
+              <Footer />
+            </ThemeProvider>
+          </SignUpProvider>
         </div>
         <ThemeProvider theme={secondaryTheme}>
           <Cookie />
