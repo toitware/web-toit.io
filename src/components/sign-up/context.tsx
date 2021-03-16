@@ -2,7 +2,7 @@ import * as React from "react";
 import SignUpDialog from "./sign-up-dialog";
 import useLocationMapping, { locationIncludesSignUp } from "./use-location-mapping";
 
-export type Action = { type: "open" } | { type: "close" } | { type: "sent" };
+export type Action = "open" | "close" | "sent";
 export type Dispatch = (action: Action) => void;
 export type State = { open: boolean; sentSuccessfully: boolean };
 
@@ -14,7 +14,7 @@ export type ContextValue = {
 const SignUpContext = React.createContext<ContextValue | undefined>(undefined);
 
 function signUpReducer(state: State, action: Action): State {
-  switch (action.type) {
+  switch (action) {
     case "open":
       return {
         open: true,
@@ -26,7 +26,7 @@ function signUpReducer(state: State, action: Action): State {
     case "close":
       return { ...state, open: false };
     default:
-      throw Error(`Unknown action ${action.type}`);
+      throw Error(`Unknown action ${action}`);
   }
 }
 
