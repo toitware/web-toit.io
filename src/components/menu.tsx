@@ -37,7 +37,7 @@ function MenuLink({ item, isActive }: MenuLinkProps): JSX.Element {
   const classes = useStyles();
   if (item.to != undefined) {
     return (
-      <a target="_blank" rel="noreferrer" className={classes.link} href={item.to}>
+      <a className={classes.link} href={item.to}>
         {item.title}
         <PositionedExternalLinkIcon />
       </a>
