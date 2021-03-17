@@ -17,3 +17,6 @@ items:
   - path: /docs
     title: Docs
     to: https://docs.toit.io/
+  - path: /blog
+    title: Blog
+    to: https://blog.toit.io/

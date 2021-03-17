@@ -68,7 +68,7 @@ function MenuLink({ item }: { item: menu.MenuItem }): JSX.Element {
   const classes = useStyles();
   if (item.to != undefined) {
     return (
-      <a target="_blank" rel="noreferrer" href={item.to} className={classes.link}>
+      <a href={item.to} className={classes.link}>
         <Typography variant="body1" className={classes.typography} component="span">
           {item.title} <ExternalLinkIcon />
         </Typography>
