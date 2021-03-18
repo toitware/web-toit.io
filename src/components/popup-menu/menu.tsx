@@ -1,4 +1,4 @@
-import { Button, makeStyles, Theme, ThemeProvider, Typography } from "@material-ui/core";
+import { Button, makeStyles, ThemeProvider, Typography } from "@material-ui/core";
 import { motion, Variants } from "framer-motion";
 import { Link } from "gatsby";
 import * as React from "react";
@@ -8,7 +8,7 @@ import GetStartedButton from "../getstarted-button";
 import { primaryBlue, secondaryTheme } from "../theme";
 import MenuItem from "./menu-item";
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(() => ({
   menu: {
     listStyle: "none",
     color: "black",

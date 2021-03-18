@@ -1,9 +1,9 @@
-import { makeStyles, Theme } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import clsx from "clsx";
 import { motion, Variants } from "framer-motion";
 import * as React from "react";
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(() => ({
   listElement: {
     marginBottom: "1.5rem",
   },
