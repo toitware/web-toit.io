@@ -21,6 +21,21 @@ in `$HOME/.profile`
 The version of `node` must be >= v12.16.1, i.e. the version of node that comes
 with yarn is not the latest.
 
+* * *
+
+In order to be able to install packages from this repository on your machine,
+you need to [authenticate with the GitHub
+registry](https://docs.github.com/en/packages/guides/configuring-npm-for-use-with-github-packages#authenticating-to-github-packages).
+
+Here's a short summary of what you need to do:
+
+1. [Create a personal access token](https://github.com/settings/tokens/new)
+   1. Name it appropriately
+   2. Check `write:packages` and `read:packages`
+2. Copy the token
+3. Add the token to your `~/.npmrc`:  
+   `echo "//npm.pkg.github.com/:_authToken=YOUR_TOKEN" >> ~/.npmrc`
+
 ## Running the development server
 
 Install all dependencies with `yarn install` and start the development gatsby

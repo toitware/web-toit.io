@@ -13,7 +13,9 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "lint": "eslint '**/*.{js,ts,tsx}' --max-warnings=0"
+    "lint": "eslint '**/*.{js,ts,tsx}' --max-warnings=0",
+    "test": "jest",
+    "test:jenkins": "jest --ci --reporters=jest-junit --coverage  --coverageDirectory=coverage"
   },
   "types": "src/@types/index.d.ts",
   "dependencies": {
@@ -52,11 +54,20 @@
     "typescript": "^4.1.3"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@toitware/testing-utils": "^0.0.8",
+    "@types/jest": "^26.0.21",
+    "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
+    "babel-jest": "^26.6.3",
+    "babel-preset-gatsby": "^1.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "gatsby-plugin-eslint": "^2.0.8",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.6.3",
     "jest-junit": "^12.0.0",
     "prettier": "^2.1.2",
     "ts-jest": "^26.4.0"

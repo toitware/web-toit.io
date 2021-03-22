@@ -5,7 +5,7 @@ import * as React from "react";
 import ExternalLinkIcon from "../../assets/icons/external-link.svg";
 import * as menu from "../../content/menu.yaml";
 import GetStartedButton from "../getstarted-button";
-import { primaryBlue, secondaryTheme } from "../theme";
+import { primaryBlue, secondaryTheme } from "../../theme";
 import MenuItem from "./menu-item";
 
 const useStyles = makeStyles(() => ({

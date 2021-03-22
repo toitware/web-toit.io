@@ -3,14 +3,14 @@
 import { Link, Typography } from "@material-ui/core";
 import { MDXProviderComponentsProp } from "@mdx-js/react";
 import React from "react";
-import Block from "./block";
-import Editor from "./editor";
-import { Feature, Features } from "./features";
-import GetStartedButton from "./getstarted-button";
-import { HighLight, HighLights } from "./highlights";
-import { HorizontalBlock, HorizontalBlockItem } from "./horizontal-block";
-import { CodeIcon, ConnectionIcon } from "./icons";
-import { ExtendedPricingOption, StandardPricingOption } from "./pricing-option";
+import Block from "./components/block";
+import Editor from "./components/editor";
+import { Feature, Features } from "./components/features";
+import GetStartedButton from "./components/getstarted-button";
+import { HighLight, HighLights } from "./components/highlights";
+import { HorizontalBlock, HorizontalBlockItem } from "./components/horizontal-block";
+import { CodeIcon, ConnectionIcon } from "./components/icons";
+import { ExtendedPricingOption, StandardPricingOption } from "./components/pricing-option";
 
 const P = (props: any) => <Typography paragraph {...props} />;
 const H1 = (props: any) => <Typography variant="h1" {...props} />;
