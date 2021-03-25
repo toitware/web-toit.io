@@ -24,9 +24,9 @@ export function useLocationMapping(state: State, dispatch: Dispatch): void {
   useLocationPoppedState(() => {
     const locationToSignUp = locationIncludesSignUp();
     if (locationToSignUp && !stateRef.current.open) {
-      dispatch({ type: "open" });
+      dispatch("open");
     } else if (!locationToSignUp && stateRef.current.open) {
-      dispatch({ type: "close" });
+      dispatch("close");
     }
   });
 }
