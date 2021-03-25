@@ -10,7 +10,7 @@ import {
   useTheme,
 } from "@material-ui/core";
 import React, { useCallback } from "react";
-import { whiteBlueTheme } from "../theme";
+import { whiteBlueTheme } from "../../theme";
 import { useSignUp } from "./context";
 import SignUpForm from "./sign-up-form";
 import SignUpSuccess from "./sign-up-success";
@@ -34,8 +34,8 @@ function SignUpDialog(): JSX.Element {
 
   const { state, dispatch } = useSignUp();
 
-  const handleSuccess = useCallback(() => dispatch({ type: "sent" }), [dispatch]);
-  const handleClose = useCallback(() => dispatch({ type: "close" }), [dispatch]);
+  const handleSuccess = useCallback(() => dispatch("sent"), [dispatch]);
+  const handleClose = useCallback(() => dispatch("close"), [dispatch]);
 
   return (
     <ThemeProvider theme={whiteBlueTheme}>
