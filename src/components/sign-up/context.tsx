@@ -25,8 +25,11 @@ function signUpReducer(state: State, action: Action): State {
       };
     case "close":
       return { ...state, open: false };
-    default:
-      throw Error(`Unknown action ${action}`);
+    case "sent":
+      return {
+        open: true,
+        sentSuccessfully: true,
+      };
   }
 }
 
