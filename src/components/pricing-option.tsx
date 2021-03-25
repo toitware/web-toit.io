@@ -1,7 +1,7 @@
 import { Button, makeStyles, Typography } from "@material-ui/core";
 import clsx from "clsx";
 import * as React from "react";
-import GetStartedButton from "./getstarted-button";
+import SignUpButton from "./sign-up-button";
 import { primaryBlue, secondaryRed } from "../theme";
 
 const useStyles = makeStyles((theme) => ({
@@ -105,7 +105,7 @@ export function StandardPricingOption({ title, rate, info }: StandardPricingOpti
         <small className={classes.note}>{info}</small>
       </div>
       <div className={classes.actions}>
-        <GetStartedButton className={classes.primaryButton} size={"large"} />
+        <SignUpButton className={classes.primaryButton} size={"large"} />
       </div>
     </PricingOption>
   );
