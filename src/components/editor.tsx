@@ -1,4 +1,3 @@
-import { makeStyles } from "@material-ui/core";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
 import React, { useEffect, useState } from "react";
@@ -30,12 +29,6 @@ interface EditorState {
   EditorMode: EditorMode;
   TerminalContent: TerminalLine[];
 }
-
-const useStyles = makeStyles(() => ({
-  main: {
-    width: "50%",
-  },
-}));
 
 interface AnimationState {
   editorContentIndex: number;
@@ -157,8 +150,6 @@ export default function Editor({ editor, terminal }: EditorProps): JSX.Element {
     EditorMode: EditorMode.Insert,
     TerminalContent: [],
   });
-
-  const classes = useStyles();
 
   if (inView && !state.Animate) {
     setState({ ...state, Animate: true });

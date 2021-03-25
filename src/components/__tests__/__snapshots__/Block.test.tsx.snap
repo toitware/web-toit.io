@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Block renders correctly 1`] = `
+<div
+  class="makeStyles-root makeStyles-root"
+>
+  <div
+    class="makeStyles-content makeStyles-content"
+  >
+    foobar
+  </div>
+</div>
+`;
+
+exports[`Block uses paddingBottom 1`] = `
+<div
+  class="makeStyles-root makeStyles-root"
+>
+  <div
+    class="makeStyles-content makeStyles-content"
+    style="padding-bottom: 16px;"
+  >
+    foobar
+  </div>
+</div>
+`;

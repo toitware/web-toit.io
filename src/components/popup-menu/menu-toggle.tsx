@@ -1,8 +1,8 @@
-import { makeStyles, Theme, useTheme } from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/core";
 import { motion, SVGMotionProps } from "framer-motion";
 import * as React from "react";
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(() => ({
   button: {
     display: "block",
     position: "relative",

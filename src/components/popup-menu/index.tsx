@@ -1,4 +1,4 @@
-import { makeStyles, styled, Theme } from "@material-ui/core";
+import { makeStyles, styled } from "@material-ui/core";
 import { motion, useCycle } from "framer-motion";
 import * as React from "react";
 import { useRef } from "react";
@@ -6,7 +6,7 @@ import Backdrop from "./backdrop";
 import Menu from "./menu";
 import { MenuToggle } from "./menu-toggle";
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(() => ({
   // The actual container of the whole popup menu.
   popup: {
     boxSizing: "border-box",

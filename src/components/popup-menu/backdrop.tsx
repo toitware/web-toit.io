@@ -21,7 +21,7 @@ function Backdrop(): JSX.Element {
   const theme = useTheme();
 
   const backdrop = {
-    open: (height = 1000) => ({
+    open: {
       height: "100%",
       width: "100%",
       background: "white",
@@ -31,7 +31,7 @@ function Backdrop(): JSX.Element {
         stiffness: 700,
         damping: 40,
       },
-    }),
+    },
     closed: {
       width: "3.5rem",
       height: "3.5rem",

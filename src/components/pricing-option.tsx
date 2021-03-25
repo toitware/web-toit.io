@@ -2,7 +2,7 @@ import { Button, makeStyles, Typography } from "@material-ui/core";
 import clsx from "clsx";
 import * as React from "react";
 import GetStartedButton from "./getstarted-button";
-import { primaryBlue, secondaryRed } from "./theme";
+import { primaryBlue, secondaryRed } from "../theme";
 
 const useStyles = makeStyles((theme) => ({
   box: {

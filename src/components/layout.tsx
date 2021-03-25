@@ -6,8 +6,8 @@ import { Helmet } from "react-helmet";
 import Cookie from "./cookie";
 import Footer from "./footer";
 import Header from "./header";
-import { components, shorthands } from "./mdx-components";
-import { darkBlueWhiteTheme, menuTheme, primaryBlue, primaryTheme, secondaryTheme } from "./theme";
+import { components, shorthands } from "../mdx-components";
+import { darkBlueWhiteTheme, menuTheme, primaryBlue, primaryTheme, secondaryTheme } from "../theme";
 
 const useStyles = makeStyles(() => ({
   "@global": {

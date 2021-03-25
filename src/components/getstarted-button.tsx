@@ -10,7 +10,7 @@ import {
   WithStyles,
 } from "@material-ui/core";
 import React from "react";
-import { greyBlueTheme } from "./theme";
+import { greyBlueTheme } from "../theme";
 
 const styles = (theme: Theme) =>
   createStyles({

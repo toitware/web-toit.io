@@ -1,4 +1,4 @@
-import { createMuiTheme, PaletteType } from "@material-ui/core";
+import { createMuiTheme, PaletteType, Theme } from "@material-ui/core";
 import Color from "color";
 
 const defaultSpacing = 8;
@@ -55,7 +55,7 @@ type CreateThemeParameters = {
   spacing?: number;
 };
 
-function createTheme({
+export function createTheme({
   type = "light",
   background,
   text,
@@ -65,10 +65,10 @@ function createTheme({
   secondary = secondaryRed,
   secondaryContrast = Color("white"),
   spacing = defaultSpacing,
-}: CreateThemeParameters) {
+}: CreateThemeParameters): Theme {
   const textColor = text.string();
-  const titleFontFamily = "Roboto, Helvetica, Arial, sans-serif";
-  const bodyFontFamily = "Canano Light, Helvetica, Arial, sans-serif";
+  const bodyFontFamily = "Roboto, Helvetica, Arial, sans-serif";
+  const titleFontFamily = "Canano Light, Helvetica, Arial, sans-serif";
 
   // Small helper function that blends the color with the background if we're in
   // a "light" theme (since then the background is light), and simply lightens
@@ -127,52 +127,52 @@ function createTheme({
     typography: {
       body1: {
         color: textColor,
-        fontFamily: titleFontFamily,
+        fontFamily: bodyFontFamily,
       },
       body2: {
         color: textColor,
         fontSize: "0.80rem",
-        fontFamily: titleFontFamily,
+        fontFamily: bodyFontFamily,
       },
       h1: {
         color: textColor,
         fontSize: "3.5rem",
-        fontFamily: bodyFontFamily,
+        fontFamily: titleFontFamily,
         paddingBottom: "1rem",
         paddingTop: "1rem",
       },
       h2: {
         color: textColor,
         fontSize: "3.0rem",
-        fontFamily: bodyFontFamily,
+        fontFamily: titleFontFamily,
         paddingBottom: "1rem",
         paddingTop: "1rem",
       },
       h3: {
         color: textColor,
         fontSize: "2.0rem",
-        fontFamily: bodyFontFamily,
+        fontFamily: titleFontFamily,
         paddingBottom: "1rem",
         paddingTop: "1rem",
       },
       h4: {
         color: textColor,
         fontSize: "1.5rem",
-        fontFamily: bodyFontFamily,
+        fontFamily: titleFontFamily,
         paddingBottom: "1rem",
         paddingTop: "1rem",
       },
       h5: {
         color: textColor,
         fontSize: "1.25rem",
-        fontFamily: bodyFontFamily,
+        fontFamily: titleFontFamily,
         paddingBottom: "1rem",
         paddingTop: "1rem",
       },
       h6: {
         color: textColor,
         fontSize: "1rem",
-        fontFamily: bodyFontFamily,
+        fontFamily: titleFontFamily,
         fontWeight: "bold",
         opacity: 0.5,
       },
