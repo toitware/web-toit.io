@@ -130,6 +130,8 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
             <TextField
               autoFocus
               id="name"
+              name="name"
+              autoComplete="name"
               label="Full name"
               type="text"
               fullWidth
@@ -145,6 +147,8 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
             <TextField
               autoFocus
               id="email"
+              name="email"
+              autoComplete="email"
               label="Email address"
               type="email"
               fullWidth
@@ -160,6 +164,8 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
             <TextField
               autoFocus
               id="company"
+              name="company"
+              autoComplete="company"
               label="Company name"
               type="text"
               fullWidth
