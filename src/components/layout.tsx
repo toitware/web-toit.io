@@ -1,7 +1,7 @@
 import { makeStyles, ThemeProvider } from "@material-ui/core";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql, useStaticQuery } from "gatsby";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { getCookieConsentValue } from "react-cookie-consent";
 import { Helmet } from "react-helmet";
 import { initSegment } from "../analytics/analytics";
@@ -60,7 +60,6 @@ interface LayoutProps {
 
 export default function Layout(props: LayoutProps): JSX.Element {
   const classes = useStyles();
-  const [useCookies, setUseCookies] = useState<boolean>(false);
 
   const data: GraphType = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -73,7 +72,6 @@ export default function Layout(props: LayoutProps): JSX.Element {
   `);
 
   useEffect(() => {
-    console.log("Hello");
     getCookieConsentValue("gatsby-gdpr-segment-analytics") === "true"
       ? initSegment("gatsby-gdpr-segment-analytics")
       : console.log("failed");
