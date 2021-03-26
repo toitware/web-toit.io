@@ -1,6 +1,7 @@
 import { Button, Link, makeStyles, Theme, Typography, useTheme } from "@material-ui/core";
-import React from "react";
-import CookieConsent from "react-cookie-consent";
+import React, { useEffect } from "react";
+import CookieConsent, { getCookieConsentValue } from "react-cookie-consent";
+import { initSegment } from "../analytics/analytics";
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
@@ -8,9 +9,27 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
+const handleAcceptCookie = () => {
+  if (process.env.SEGMENT_ANALYTICS_ID) {
+    initSegment(process.env.SEGMENT_ANALYTICS_ID);
+  }
+};
+
+const handleDeclineCookie = () => {
+  //remove cookies here
+};
+
 export default function Cookie(): JSX.Element {
   const theme = useTheme();
   const classes = useStyles();
+
+  useEffect(() => {
+    const isConsent = getCookieConsentValue();
+    console.log(isConsent);
+    if (isConsent === "true") {
+      handleAcceptCookie();
+    }
+  }, []);
 
   return (
     <CookieConsent
@@ -18,7 +37,13 @@ export default function Cookie(): JSX.Element {
       buttonText="Accept"
       declineButtonText="Decline"
       enableDeclineButton
-      cookieName="gatsby-gdpr-google-analytics"
+      onAccept={() => {
+        handleAcceptCookie();
+      }}
+      onDecline={() => {
+        handleDeclineCookie();
+      }}
+      cookieName="gatsby-gdpr-segment-analytics"
       disableButtonStyles
       style={{
         background: theme.palette.background.default,

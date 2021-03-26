@@ -1,14 +1,15 @@
 import { makeStyles, ThemeProvider } from "@material-ui/core";
 import { MDXProvider } from "@mdx-js/react";
+import * as dotenv from "dotenv";
 import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
+import { components, shorthands } from "../mdx-components";
+import { darkBlueWhiteTheme, menuTheme, primaryBlue, primaryTheme, secondaryTheme } from "../theme";
 import Cookie from "./cookie";
 import Footer from "./footer";
 import Header from "./header";
-import { components, shorthands } from "../mdx-components";
 import { SignUpProvider } from "./sign-up/context";
-import { darkBlueWhiteTheme, menuTheme, primaryBlue, primaryTheme, secondaryTheme } from "../theme";
 
 const useStyles = makeStyles(() => ({
   "@global": {
@@ -69,6 +70,9 @@ export default function Layout(props: LayoutProps): JSX.Element {
     }
   `);
 
+  useEffect(() => {
+    dotenv.config();
+  });
   const pageTitle = props.pathContext.frontmatter.title;
 
   const title = `${pageTitle ? `${pageTitle} - ` : ""}${data.site.siteMetadata?.title}`;
