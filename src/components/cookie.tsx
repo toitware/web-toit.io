@@ -1,7 +1,6 @@
 import { Button, Link, makeStyles, Theme, Typography, useTheme } from "@material-ui/core";
 import React, { useEffect } from "react";
 import CookieConsent, { getCookieConsentValue } from "react-cookie-consent";
-import { initSegment } from "../analytics/analytics";
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
@@ -10,13 +9,11 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 const handleAcceptCookie = () => {
-  if (process.env.SEGMENT_ANALYTICS_ID) {
-    initSegment(process.env.SEGMENT_ANALYTICS_ID);
-  }
+  window.analytics;
 };
 
 const handleDeclineCookie = () => {
-  //remove cookies here
+  //TODO: remove cookies here
 };
 
 export default function Cookie(): JSX.Element {
@@ -25,7 +22,6 @@ export default function Cookie(): JSX.Element {
 
   useEffect(() => {
     const isConsent = getCookieConsentValue();
-    console.log(isConsent);
     if (isConsent === "true") {
       handleAcceptCookie();
     }
