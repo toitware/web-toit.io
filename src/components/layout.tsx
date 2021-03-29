@@ -1,10 +1,8 @@
 import { makeStyles, ThemeProvider } from "@material-ui/core";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql, useStaticQuery } from "gatsby";
-import React, { useEffect } from "react";
-import { getCookieConsentValue } from "react-cookie-consent";
+import React from "react";
 import { Helmet } from "react-helmet";
-import { initSegment } from "../analytics/analytics";
 import { components, shorthands } from "../mdx-components";
 import { darkBlueWhiteTheme, menuTheme, primaryBlue, primaryTheme, secondaryTheme } from "../theme";
 import Cookie from "./cookie";
@@ -71,11 +69,6 @@ export default function Layout(props: LayoutProps): JSX.Element {
     }
   `);
 
-  useEffect(() => {
-    getCookieConsentValue("gatsby-gdpr-segment-analytics") === "true"
-      ? initSegment("gatsby-gdpr-segment-analytics")
-      : console.log("failed");
-  });
   const pageTitle = props.pathContext.frontmatter.title;
 
   const title = `${pageTitle ? `${pageTitle} - ` : ""}${data.site.siteMetadata?.title}`;

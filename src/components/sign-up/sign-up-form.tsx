@@ -16,6 +16,7 @@ import { useFormik } from "formik";
 import { Link } from "gatsby";
 import React, { useState } from "react";
 import * as yup from "yup";
+import { track } from "../../analytics/analytics";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -95,6 +96,8 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
       }
       setError(error);
       setIsSending(false);
+    } finally {
+      track(values, "Submit clicked", []);
     }
   }
 

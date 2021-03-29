@@ -78,7 +78,7 @@ module.exports = {
       options: {
         prodKey: "14PnMn1fbR5AFUMSsSbZTMD2OzE8fy7x",
         trackPage: true,
-        trackPageDelay: 50,
+        trackPageDelay: 300,
         manualLoad: true,
       },
     },

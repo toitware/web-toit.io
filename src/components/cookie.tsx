@@ -22,6 +22,7 @@ export default function Cookie(): JSX.Element {
 
   useEffect(() => {
     const isConsent = getCookieConsentValue();
+    console.log("Cookie status: ", isConsent);
     if (isConsent === "true") {
       handleAcceptCookie();
     }

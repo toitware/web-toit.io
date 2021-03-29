@@ -2,7 +2,9 @@ import { Button, createStyles, Hidden, makeStyles, Theme } from "@material-ui/co
 import clsx from "clsx";
 import Color from "color";
 import { Link } from "gatsby";
-import React from "react";
+import React, { useEffect } from "react";
+import { getCookieConsentValue } from "react-cookie-consent";
+import { initSegment } from "../analytics/analytics";
 import Logo from "../assets/images/toit-secondary.inline.svg";
 import menu, { MenuItem } from "../content/menu.yaml";
 import Menu from "./menu";
@@ -85,6 +87,13 @@ function Header({ currentPath }: HeaderProps): JSX.Element {
     const currentItemPath = `/${currentPath.split("/")[1]}`;
     currentMenuItem = menu.items.find((item) => currentItemPath == item.path);
   }
+
+  useEffect(() => {
+    console.log("changed path to: ", currentMenuItem);
+    getCookieConsentValue("gatsby-gdpr-segment-analytics") === "true"
+      ? initSegment("gatsby-gdpr-segment-analytics")
+      : console.log("failed");
+  });
 
   return (
     <div className={classes.container}>
