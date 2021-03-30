@@ -9,7 +9,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@material-ui/core";
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import { whiteBlueTheme } from "../../theme";
 import { useSignUp } from "./context";
 import SignUpForm from "./sign-up-form";
@@ -28,10 +28,6 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 function SignUpDialog(): JSX.Element {
-  useEffect(() => {
-    if (state.open) analytics.page("Try-it-free");
-  });
-
   const theme = useTheme();
   const classes = useStyles();
   const fullScreen = useMediaQuery(theme.breakpoints.down("xs"));
