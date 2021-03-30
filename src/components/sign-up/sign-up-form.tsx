@@ -50,7 +50,7 @@ interface SignUpValues {
   name: string;
   email: string;
   company?: string;
-  subscribedToNewsletter: boolean;
+  subscribed_to_newsletter: boolean;
 }
 
 /** The schema used to validate the form values. */
@@ -59,7 +59,7 @@ const validationSchema: yup.SchemaOf<SignUpValues> = yup
     name: yup.string().min(2, "Your name must be at least 2 characters").required("Name is required"),
     email: yup.string().email("Enter a valid email").required("Email is required"),
     company: yup.string().min(2, "Your company must be at least 2 characters"),
-    subscribedToNewsletter: yup.bool().defined(),
+    subscribed_to_newsletter: yup.bool().defined(),
   })
   .defined();
 
@@ -107,7 +107,7 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
       name: "",
       email: "",
       company: "",
-      subscribedToNewsletter: false,
+      subscribed_to_newsletter: false,
     },
     validationSchema: validationSchema,
     onSubmit: submitForm,
@@ -178,8 +178,8 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
 
         <DialogContentText className={classes.emailCheckbox}>
           <FormControlLabel
-            name="subscribedToNewsletter"
-            value={formik.values.subscribedToNewsletter}
+            name="subscribed_to_newsletter"
+            value={formik.values.subscribed_to_newsletter}
             disabled={isSending}
             onChange={formik.handleChange}
             control={<Checkbox color="primary" />}
