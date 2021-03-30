@@ -30,6 +30,6 @@ declare module "*/content/menu.yaml" {
 
 declare global {
   interface Window {
-    analytics: SegmentAnalytics.AnalyticsJS
+    analytics: SegmentAnalytics.AnalyticsJS;
   }
 }

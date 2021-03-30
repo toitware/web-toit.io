@@ -10,7 +10,7 @@ import {
   makeStyles,
   TextField,
   Theme,
-  Typography
+  Typography,
 } from "@material-ui/core";
 import { useFormik } from "formik";
 import { Link } from "gatsby";

@@ -15,8 +15,8 @@ const handleAcceptCookie = () => {
     }
     analytics.ready(() => {
       // TODO (jesper): identity user
-      console.log("analytics ready", analytics)
-    })
+      console.log("analytics ready", analytics);
+    });
   }
 };
 
