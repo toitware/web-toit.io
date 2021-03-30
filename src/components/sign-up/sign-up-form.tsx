@@ -95,6 +95,9 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
       }
       setError(error);
       setIsSending(false);
+    } finally {
+      // TODO: track submit clicked
+      //analytics.track(values, "Submit clicked", []);
     }
   }
 

@@ -4,8 +4,8 @@ import { Link } from "gatsby";
 import * as React from "react";
 import { FiExternalLink } from "react-icons/fi";
 import * as menu from "../../content/menu.yaml";
-import SignUpButton from "../sign-up-button";
 import { primaryBlue, secondaryTheme } from "../../theme";
+import SignUpButton from "../sign-up-button";
 import MenuItem from "./menu-item";
 
 const useStyles = makeStyles(() => ({

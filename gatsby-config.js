@@ -74,13 +74,13 @@ module.exports = {
       __key: "pages",
     },
     {
-      resolve: "gatsby-plugin-gdpr-cookies",
+      resolve: "gatsby-plugin-segment-js",
       options: {
-        googleAnalytics: {
-          trackingId: "UA-140543854-3",
-          anonymize: true,
-        },
-        environments: ["production"],
+        // The keys must be defined otherwise the plugin will no load analytics.js
+        prodKey: "XXXXXXXXXXXXXXXXX",
+        devKey: "XXXXXXXXXXXXXXXXX",
+        manualLoad: true,
+        trackPage: true,
       },
     },
   ],
