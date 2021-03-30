@@ -29,7 +29,7 @@ export default function Cookie(): JSX.Element {
   const classes = useStyles();
 
   useEffect(() => {
-    const isConsent = getCookieConsentValue("gatsby-gdpr-segment-analytics");
+    const isConsent = getCookieConsentValue("toit-allow-cookies");
     if (isConsent === "true") {
       handleAcceptCookie();
     }
@@ -47,7 +47,7 @@ export default function Cookie(): JSX.Element {
       onDecline={() => {
         handleDeclineCookie();
       }}
-      cookieName="gatsby-gdpr-segment-analytics"
+      cookieName="toit-allow-cookies"
       disableButtonStyles
       style={{
         background: theme.palette.background.default,
