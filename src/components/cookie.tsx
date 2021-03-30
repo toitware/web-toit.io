@@ -30,7 +30,6 @@ export default function Cookie(): JSX.Element {
 
   useEffect(() => {
     const isConsent = getCookieConsentValue("gatsby-gdpr-segment-analytics");
-    console.log("Cookie status: ", isConsent);
     if (isConsent === "true") {
       handleAcceptCookie();
     }
