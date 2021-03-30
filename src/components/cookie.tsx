@@ -9,7 +9,15 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 const handleAcceptCookie = () => {
-  window.analytics;
+  if (analytics) {
+    if (analytics.load && process.env.GATSBY_SEGMENT_WRITE_KEY) {
+      analytics.load(process.env.GATSBY_SEGMENT_WRITE_KEY);
+    }
+    analytics.ready(() => {
+      // TODO (jesper): identity user
+      console.log("analytics ready", analytics)
+    })
+  }
 };
 
 const handleDeclineCookie = () => {
@@ -21,7 +29,7 @@ export default function Cookie(): JSX.Element {
   const classes = useStyles();
 
   useEffect(() => {
-    const isConsent = getCookieConsentValue();
+    const isConsent = getCookieConsentValue("gatsby-gdpr-segment-analytics");
     console.log("Cookie status: ", isConsent);
     if (isConsent === "true") {
       handleAcceptCookie();

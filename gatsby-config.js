@@ -76,10 +76,11 @@ module.exports = {
     {
       resolve: "gatsby-plugin-segment-js",
       options: {
-        prodKey: "14PnMn1fbR5AFUMSsSbZTMD2OzE8fy7x",
-        trackPage: true,
-        trackPageDelay: 300,
+        // The keys must be defined otherwise the plugin will no load analytics.js
+        prodKey: "XXXXXXXXXXXXXXXXX",
+        devKey: "XXXXXXXXXXXXXXXXX",
         manualLoad: true,
+        trackPage: true,
       },
     },
   ],

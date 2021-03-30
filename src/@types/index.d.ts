@@ -27,3 +27,9 @@ declare module "*/content/menu.yaml" {
   };
   export default content;
 }
+
+declare global {
+  interface Window {
+    analytics: SegmentAnalytics.AnalyticsJS
+  }
+}
