@@ -76,6 +76,7 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
 
   async function submitForm(values: SignUpValues) {
     setIsSending(true);
+    let error = "";
     try {
       const body = JSON.stringify(values);
       const response = await fetch("https://console.toit.io/forms/create_organization", {
@@ -89,15 +90,15 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
 
       handleSuccess();
     } catch (e) {
-      let error = "Something went wrong. Please try again later.";
+      error = "Something went wrong. Please try again later.";
       if (e instanceof Error) {
         error += ` Error: ${e.message}`;
       }
       setError(error);
       setIsSending(false);
     } finally {
-      // TODO: track submit clicked
-      //analytics.track(values, "Submit clicked", []);
+      if (error !== "") analytics.track("Signup failed", { values, error: error });
+      else analytics.track("Signup completed", values);
     }
   }
 
