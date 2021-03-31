@@ -8,20 +8,30 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
+/**
+ * A helper variable that makes sure the analytics are only loaded once.
+ */
+let loadedAnalytics = false;
+
 const handleAcceptCookie = () => {
-  if (analytics) {
+  if (analytics && !loadedAnalytics) {
+    // Segment
+
+    loadedAnalytics = true;
+
     if (analytics.load && process.env.GATSBY_SEGMENT_WRITE_KEY) {
       analytics.load(process.env.GATSBY_SEGMENT_WRITE_KEY);
     }
     analytics.ready(() => {
-      // TODO (jesper): identity user
-      console.log("analytics ready", analytics);
+      // TODO (jesper): identify user
+      console.log("analytics ready");
     });
   }
 };
 
 const handleDeclineCookie = () => {
-  //TODO: remove cookies here
+  // TODO: remove cookies here
+  analytics.reset();
 };
 
 export default function Cookie(): JSX.Element {
