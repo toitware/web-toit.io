@@ -2356,6 +2356,11 @@
     "@types/glob" "*"
     "@types/node" "*"
 
+"@types/segment-analytics@^0.0.33":
+  version "0.0.33"
+  resolved "https://registry.yarnpkg.com/@types/segment-analytics/-/segment-analytics-0.0.33.tgz#7580723d3978993126636e2f293d5831c8e9585b"
+  integrity sha512-8OB3OhKGuIkItHeQxgQpzldyaL1dVKzJQF9ujfVLmO0MJyIhXZTiOIZtkSHF6jhptEQZqm8EyTuceIAR36OS3A==
+
 "@types/stack-utils@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-2.0.0.tgz#7036640b4e21cc2f259ae826ce843d277dad8cff"
@@ -6880,6 +6885,11 @@ gatsby-plugin-remove-trailing-slashes@^2.10.0:
   integrity sha512-8kx9wBgPJXVcxGt1lUxtfZe1XD+4SRimHnU1T/KE7qiWlSZ8qIupF9rwnjRpxJd35zHjv25Teicy3u/60EXG+A==
   dependencies:
     "@babel/runtime" "^7.12.5"
+
+gatsby-plugin-segment-js@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-segment-js/-/gatsby-plugin-segment-js-3.6.0.tgz#740b2a5e6730119147e0dd1fb2c39acca83e353d"
+  integrity sha512-kdpXV5RUGR5dRcSJHsUxP2+FY8XDOAqi3disj0SHdR5mZDAg4QtpiCQZYRB6Ji1/aP87oypoJVyeu6s1+GpHSw==
 
 gatsby-plugin-sitemap@^2.11.0:
   version "2.11.0"
@@ -15060,8 +15070,10 @@ watchpack@^1.7.4:
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
+    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
+    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
