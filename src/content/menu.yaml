@@ -14,6 +14,8 @@ items:
     title: Pricing
   - path: /about
     title: About
+  - path: /faq
+    title: FAQ
   - path: /docs
     title: Docs
     to: https://docs.toit.io/
