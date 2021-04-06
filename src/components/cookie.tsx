@@ -25,8 +25,6 @@ const handleAcceptCookie = () => {
       segmentAPIKey = segmentKeyDOM.getAttribute("content") || segmentAPIKey;
     }
 
-    console.log("segment key", segmentAPIKey);
-
     if (analytics.load && segmentAPIKey) {
       analytics.load(segmentAPIKey);
     }
