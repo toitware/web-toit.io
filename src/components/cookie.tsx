@@ -62,12 +62,18 @@ let loadedAnalytics = false;
 
 const handleAcceptCookie = () => {
   if (analytics && !loadedAnalytics) {
-    // Segment
-
+    // Setup segment
     loadedAnalytics = true;
+    let segmentAPIKey = process.env.GATSBY_SEGMENT_WRITE_KEY;
 
-    if (analytics.load && process.env.GATSBY_SEGMENT_WRITE_KEY) {
-      analytics.load(process.env.GATSBY_SEGMENT_WRITE_KEY);
+    // Check if the meta segment-key is set.
+    const segmentKeyDOM = document.querySelector('meta[name="segment-key"]');
+    if (segmentKeyDOM) {
+      segmentAPIKey = segmentKeyDOM.getAttribute("content") || segmentAPIKey;
+    }
+
+    if (analytics.load && segmentAPIKey) {
+      analytics.load(segmentAPIKey);
     }
     analytics.ready(() => {
       // TODO (jesper): identify user
