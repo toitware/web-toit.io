@@ -131,19 +131,7 @@ export default function Cookie(): JSX.Element {
         <Typography variant="h3">Toit uses cookies</Typography>
         <Typography>
           We use cookies to register and track the traffic on our website. The main purpose is to improve on our website
-          performance and your experience of our website. We use Segment to gather data, which is shared with Amplitude
-          and HubSpot for analytics.
-        </Typography>
-
-        <Typography className={classes.lineSkip}>
-          Enabling these cookies is not strictly necessary for the website to work but it will provide you with a better
-          browsing experience. You can delete or block these cookies, but if you do that some features of this site may
-          not work as intended.
-        </Typography>
-
-        <Typography className={classes.lineSkip}>
-          The cookie-related information is not used to identify you personally and the pattern data is fully under our
-          control. These cookies are not used for any purpose other than those described here.
+          performance and your experience of our website.{" "}
         </Typography>
 
         <Typography className={classes.lineSkip}>
