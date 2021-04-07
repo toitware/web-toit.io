@@ -1,10 +1,57 @@
-import { Button, Link, makeStyles, Theme, Typography, useTheme } from "@material-ui/core";
+import { Button, makeStyles, Theme, Typography, useTheme } from "@material-ui/core";
 import React, { useEffect } from "react";
-import CookieConsent, { getCookieConsentValue } from "react-cookie-consent";
+import { getCookieConsentValue } from "react-cookie-consent";
+import Logo from "../../assets/images/toit-secondary.inline.svg";
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
     margin: theme.spacing(2),
+  },
+  logo: {
+    height: "1.5rem",
+    fill: "#000",
+  },
+  lineSkip: {
+    paddingTop: theme.spacing(1),
+  },
+  blockingBlock: {
+    position: "fixed",
+    zIndex: 9990,
+    right: 0,
+    bottom: "-200px",
+    top: 0,
+    left: 0,
+    backgroundColor: "rgba(0,0,0,0.7)",
+    textAlign: "center",
+  },
+  cookieConsentContainer: {
+    width: "60%",
+    maxWidth: "700px",
+    height: "auto",
+    maxHeight: "80vh",
+    borderRadius: theme.spacing(1),
+    display: "inline-block",
+    zIndex: 10000,
+    backgroundColor: "#ffffff",
+    textAlign: "left",
+    verticalAlign: "middle",
+    position: "relative",
+    opacity: "100%",
+    overflow: "scroll",
+    marginTop: theme.spacing(10),
+  },
+  cookieConsentTopContent: {
+    margin: theme.spacing(4),
+  },
+  cookieConsentTextContent: {
+    marginLeft: theme.spacing(8),
+    marginRight: theme.spacing(8),
+    marginBottom: theme.spacing(4),
+    marginTop: theme.spacing(4),
+  },
+  buttons: {
+    textAlign: "center",
+    marginBottom: theme.spacing(4),
   },
 }));
 
@@ -46,38 +93,41 @@ export default function Cookie(): JSX.Element {
   }, []);
 
   return (
-    <CookieConsent
-      location="bottom"
-      buttonText="Accept"
-      declineButtonText="Decline"
-      enableDeclineButton
-      onAccept={() => {
-        handleAcceptCookie();
-      }}
-      onDecline={() => {
-        handleDeclineCookie();
-      }}
-      cookieName="toit-allow-cookies"
-      disableButtonStyles
-      style={{
-        background: theme.palette.background.default,
-        boxShadow: "0px 0px 30px rgba(0,0,0,0.3)",
-      }}
-      ButtonComponent={(props: { id: string }) => (
-        <Button
-          {...props}
-          variant="contained"
-          color={props.id == "rcc-confirm-button" ? "secondary" : "primary"}
-          className={classes.button}
-        />
-      )}
-    >
-      <Typography component="span">
-        This site uses cookies. Read more about our cookies policy{" "}
-        <Link color="textPrimary" href="/cookies-policy">
-          here.
-        </Link>
-      </Typography>
-    </CookieConsent>
+    <div className={classes.blockingBlock}>
+      <div className={classes.cookieConsentContainer}>
+        <div className={classes.cookieConsentTopContent}>
+          <Logo className={classes.logo} />
+        </div>
+        <div className={classes.cookieConsentTextContent}>
+          <Typography variant="h3">Before you enter toit.io</Typography>
+          <Typography>
+            We use cookies to register and track the traffic on our website. The main purpose is to improve on our
+            website performance and your experience of our website. We use Segment to gather data. Data from segment is
+            shared with Amplitude and HubSpot for analytics.
+          </Typography>
+
+          <Typography className={classes.lineSkip}>
+            Enabling these cookies is not strictly necessary for the website to work but it will provide you with a
+            better browsing experience. You can delete or block these cookies, but if you do that some features of this
+            site may not work as intended.
+          </Typography>
+
+          <Typography className={classes.lineSkip}>
+            The cookie-related information is not used to identify you personally and the pattern data is fully under
+            our control. These cookies are not used for any purpose other than those described here.
+          </Typography>
+
+          <Typography className={classes.lineSkip}>You can read more about our use of cookies here</Typography>
+        </div>
+        <div className={classes.buttons}>
+          <Button size="large" variant="contained" color="secondary" className={classes.button}>
+            Decline
+          </Button>
+          <Button size="large" variant="contained" color="primary" className={classes.button}>
+            Accept
+          </Button>
+        </div>
+      </div>
+    </div>
   );
 }
