@@ -1,9 +1,10 @@
-import { Button, Dialog, makeStyles, Theme, Typography } from "@material-ui/core";
+import { Button, Dialog, Fab, makeStyles, Theme, Typography } from "@material-ui/core";
 import { Link } from "gatsby";
 import React, { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import Logo from "../assets/images/toit-secondary.inline.svg";
 import { primaryGreen, secondaryGreen } from "../theme";
+import { CheckIcon, CookieBiteIcon, UnCheckedIcon } from "./icons";
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
@@ -40,6 +41,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   link: {
     color: theme.palette.secondary.main,
     textDecoration: "none",
+  },
+  fab: {
+    position: "fixed",
+    bottom: "16px",
+    left: "16px",
+    zIndex: 10000,
   },
 }));
 
@@ -91,6 +98,7 @@ export default function Cookie(): JSX.Element {
   const classes = useStyles();
   const [cookies, setCookie, removeCookie] = useCookies(["toit-allow-cookies"]);
   const [isConsent, setConsent] = useState<null | boolean>(null);
+  const [manageCookies, setManageCookies] = useState(false);
 
   const handleAcceptCookieUI = () => {
     setCookie("toit-allow-cookies", true, {
@@ -98,6 +106,7 @@ export default function Cookie(): JSX.Element {
       expires: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
     });
     setConsent(true);
+    setManageCookies(false);
   };
 
   const handleDeclineCookie = () => {
@@ -109,6 +118,7 @@ export default function Cookie(): JSX.Element {
     });
     analytics.reset();
     setConsent(false);
+    setManageCookies(false);
   };
 
   useEffect(() => {
@@ -123,43 +133,96 @@ export default function Cookie(): JSX.Element {
     }
   }, [isConsent]);
   return (
-    <Dialog open={window.location.href.includes("cookies-policy") === true ? false : isConsent === null ? true : false}>
-      <div className={classes.cookieConsentTopContent}>
-        <Logo className={classes.logo} />
-      </div>
-      <div className={classes.cookieConsentTextContent}>
-        <Typography variant="h3">Toit uses cookies</Typography>
-        <Typography>
-          We use cookies to register and track the traffic on our website. The main purpose is to improve on our website
-          performance and your experience of our website.{" "}
-        </Typography>
+    <>
+      {manageCookies !== true ? (
+        <Fab
+          className={classes.fab}
+          color="default"
+          aria-label="Cookie settings"
+          onClick={() => setManageCookies(true)}
+        >
+          <CookieBiteIcon />
+        </Fab>
+      ) : isConsent === null ? (
+        <Dialog
+          open={window.location.href.includes("cookies-policy") === true ? false : isConsent === null ? true : false}
+        >
+          <div className={classes.cookieConsentTopContent}>
+            <Logo className={classes.logo} />
+          </div>
+          <div className={classes.cookieConsentTextContent}>
+            <Typography variant="h3">Toit uses cookies</Typography>
+            <Typography>
+              We use cookies to register and track the traffic on our website. The main purpose is to improve on our
+              website performance and your experience of our website.{" "}
+            </Typography>
 
-        <Typography className={classes.lineSkip}>
-          You can read more about our use of cookies{" "}
-          <Link to="/cookies-policy" className={classes.link}>
-            here
-          </Link>
-        </Typography>
-      </div>
-      <div className={classes.buttons}>
-        <Button
-          size="large"
-          variant="contained"
-          color="primary"
-          className={classes.button}
-          onClick={() => handleDeclineCookie()}
-        >
-          Decline
-        </Button>
-        <Button
-          size="large"
-          variant="contained"
-          className={classes.acceptButton}
-          onClick={() => handleAcceptCookieUI()}
-        >
-          Accept
-        </Button>
-      </div>
-    </Dialog>
+            <Typography className={classes.lineSkip}>
+              You can read more about our use of cookies{" "}
+              <Link to="/cookies-policy" className={classes.link}>
+                here
+              </Link>
+            </Typography>
+          </div>
+          <div className={classes.buttons}>
+            <Button
+              size="large"
+              variant="contained"
+              color="primary"
+              className={classes.button}
+              onClick={() => handleDeclineCookie()}
+            >
+              Decline
+            </Button>
+            <Button
+              size="large"
+              variant="contained"
+              className={classes.acceptButton}
+              onClick={() => handleAcceptCookieUI()}
+            >
+              Accept
+            </Button>
+          </div>
+        </Dialog>
+      ) : (
+        <Dialog open={manageCookies} onBackdropClick={() => setManageCookies(false)}>
+          <div className={classes.cookieConsentTopContent}>
+            <Logo className={classes.logo} />
+          </div>
+          <div className={classes.cookieConsentTextContent}>
+            <Typography variant="h3">Change your cookie setting</Typography>
+            <Typography>
+              We use cookies to register and track the traffic on our website. The main purpose is to improve on our
+              website performance and your experience of our website.{" "}
+            </Typography>
+
+            <Typography className={classes.lineSkip}>
+              Currently, you are {isConsent ? "accepting" : "declining"} our use of cookies. Feel free to change it any
+              time, by pressing either decline or accept below.
+            </Typography>
+          </div>
+          <div className={classes.buttons}>
+            <Button
+              startIcon={!isConsent ? <CheckIcon /> : <UnCheckedIcon />}
+              size="large"
+              variant="contained"
+              className={classes.button}
+              onClick={() => handleDeclineCookie()}
+            >
+              Decline
+            </Button>
+            <Button
+              startIcon={isConsent ? <CheckIcon /> : <UnCheckedIcon />}
+              size="large"
+              variant="contained"
+              className={classes.button}
+              onClick={() => handleAcceptCookieUI()}
+            >
+              Accept
+            </Button>
+          </div>
+        </Dialog>
+      )}
+    </>
   );
 }
