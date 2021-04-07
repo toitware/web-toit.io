@@ -1,7 +1,7 @@
 import { Button, makeStyles, Theme, Typography, useTheme } from "@material-ui/core";
-import React, { useEffect } from "react";
-import { getCookieConsentValue } from "react-cookie-consent";
-import Logo from "../../assets/images/toit-secondary.inline.svg";
+import React, { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
+import Logo from "../assets/images/toit-secondary.inline.svg";
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
@@ -82,6 +82,23 @@ const handleAcceptCookie = () => {
   }
 };
 
+// Given a cookie key `name`, returns the value of
+// the cookie or `null`, if the key is not found.
+function getCookie(name: string): string | null {
+  const nameLenPlus = name.length + 1;
+  return (
+    document.cookie
+      .split(";")
+      .map((c) => c.trim())
+      .filter((cookie) => {
+        return cookie.substring(0, nameLenPlus) === `${name}=`;
+      })
+      .map((cookie) => {
+        return decodeURIComponent(cookie.substring(nameLenPlus));
+      })[0] || null
+  );
+}
+
 const handleDeclineCookie = () => {
   // TODO: remove cookies here
   analytics.reset();
@@ -90,50 +107,74 @@ const handleDeclineCookie = () => {
 export default function Cookie(): JSX.Element {
   const theme = useTheme();
   const classes = useStyles();
+  const [cookies, setCookie, removeCookie] = useCookies(["toit-allow-cookies"]);
+  const [isConsent, setConsent] = useState<null | boolean>(null);
 
   useEffect(() => {
-    const isConsent = getCookieConsentValue("toit-allow-cookies");
+    const isConsent = getCookie("toit-allow-cookies");
     if (isConsent === "true") {
+      setConsent(true);
       handleAcceptCookie();
+    } else if (isConsent === "false") {
+      setConsent(false);
+    } else {
+      setConsent(null);
     }
-  }, []);
-
+  }, [isConsent]);
   return (
-    <div className={classes.blockingBlock}>
-      <div className={classes.cookieConsentContainer}>
-        <div className={classes.cookieConsentTopContent}>
-          <Logo className={classes.logo} />
-        </div>
-        <div className={classes.cookieConsentTextContent}>
-          <Typography variant="h3">Before you enter toit.io</Typography>
-          <Typography>
-            We use cookies to register and track the traffic on our website. The main purpose is to improve on our
-            website performance and your experience of our website. We use Segment to gather data. Data from segment is
-            shared with Amplitude and HubSpot for analytics.
-          </Typography>
+    <div>
+      {isConsent === null ? (
+        <div className={classes.blockingBlock}>
+          <div className={classes.cookieConsentContainer}>
+            <div className={classes.cookieConsentTopContent}>
+              <Logo className={classes.logo} />
+            </div>
+            <div className={classes.cookieConsentTextContent}>
+              <Typography variant="h3">Before you enter toit.io</Typography>
+              <Typography>
+                We use cookies to register and track the traffic on our website. The main purpose is to improve on our
+                website performance and your experience of our website. We use Segment to gather data. Data from segment
+                is shared with Amplitude and HubSpot for analytics.
+              </Typography>
 
-          <Typography className={classes.lineSkip}>
-            Enabling these cookies is not strictly necessary for the website to work but it will provide you with a
-            better browsing experience. You can delete or block these cookies, but if you do that some features of this
-            site may not work as intended.
-          </Typography>
+              <Typography className={classes.lineSkip}>
+                Enabling these cookies is not strictly necessary for the website to work but it will provide you with a
+                better browsing experience. You can delete or block these cookies, but if you do that some features of
+                this site may not work as intended.
+              </Typography>
 
-          <Typography className={classes.lineSkip}>
-            The cookie-related information is not used to identify you personally and the pattern data is fully under
-            our control. These cookies are not used for any purpose other than those described here.
-          </Typography>
+              <Typography className={classes.lineSkip}>
+                The cookie-related information is not used to identify you personally and the pattern data is fully
+                under our control. These cookies are not used for any purpose other than those described here.
+              </Typography>
 
-          <Typography className={classes.lineSkip}>You can read more about our use of cookies here</Typography>
+              <Typography className={classes.lineSkip}>You can read more about our use of cookies here</Typography>
+            </div>
+            <div className={classes.buttons}>
+              <Button
+                size="large"
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+                onClick={() => handleDeclineCookie()}
+              >
+                Decline
+              </Button>
+              <Button
+                size="large"
+                variant="contained"
+                color="primary"
+                className={classes.button}
+                onClick={() => handleAcceptCookie()}
+              >
+                Accept
+              </Button>
+            </div>
+          </div>
         </div>
-        <div className={classes.buttons}>
-          <Button size="large" variant="contained" color="secondary" className={classes.button}>
-            Decline
-          </Button>
-          <Button size="large" variant="contained" color="primary" className={classes.button}>
-            Accept
-          </Button>
-        </div>
-      </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }
