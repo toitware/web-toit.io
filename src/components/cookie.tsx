@@ -1,7 +1,7 @@
 import { Button, Dialog, Fab, makeStyles, Theme, Typography } from "@material-ui/core";
 import { Link } from "gatsby";
+import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
 import Logo from "../assets/images/toit-secondary.inline.svg";
 import { primaryGreen, secondaryGreen } from "../theme";
 import { CheckIcon, CookieBiteIcon, UnCheckedIcon } from "./icons";
@@ -74,34 +74,25 @@ const handleAcceptCookie = () => {
       // TODO (jesper): identify user
       console.log("analytics ready");
     });
+
+    analytics.ready(() => {
+      const userID = Cookies.get("ToitUserID");
+      if (userID) {
+        analytics.identify("user/" + userID, {
+          entity_type: "user",
+        });
+      }
+    });
   }
 };
 
-// Given a cookie key `name`, returns the value of
-// the cookie or `null`, if the key is not found.
-function getCookie(name: string): string | null {
-  const nameLenPlus = name.length + 1;
-  return (
-    document.cookie
-      .split(";")
-      .map((c) => c.trim())
-      .filter((cookie) => {
-        return cookie.substring(0, nameLenPlus) === `${name}=`;
-      })
-      .map((cookie) => {
-        return decodeURIComponent(cookie.substring(nameLenPlus));
-      })[0] || null
-  );
-}
-
 export default function Cookie(): JSX.Element {
   const classes = useStyles();
-  const [cookies, setCookie, removeCookie] = useCookies(["toit-allow-cookies"]);
   const [isConsent, setConsent] = useState<null | boolean>(null);
   const [manageCookies, setManageCookies] = useState(false);
 
   const handleAcceptCookieUI = () => {
-    setCookie("toit-allow-cookies", true, {
+    Cookies.set("toit-allow-cookies", {
       path: "/",
       expires: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
     });
@@ -110,19 +101,16 @@ export default function Cookie(): JSX.Element {
   };
 
   const handleDeclineCookie = () => {
-    setCookie("toit-allow-cookies", false, {
-      path: "/",
-      expires: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
-      secure: true,
-      sameSite: true,
-    });
+    if (Cookies.get("toit-allow-cookies")) {
+      Cookies.remove("toit-allow-cookies", { path: "/" });
+    }
     analytics.reset();
     setConsent(false);
     setManageCookies(false);
   };
 
   useEffect(() => {
-    const isConsent = getCookie("toit-allow-cookies");
+    const isConsent = Cookies.get("toit-allow-cookies");
     if (isConsent === "true") {
       setConsent(true);
       handleAcceptCookie();

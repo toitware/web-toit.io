@@ -16,7 +16,7 @@ const SignUpContext = React.createContext<ContextValue | undefined>(undefined);
 function signUpReducer(state: State, action: Action): State {
   switch (action) {
     case "open":
-      analytics.page("Try it Free");
+      analytics.page("Try for Free");
       return {
         open: true,
         // When the form was closed, we want to reset the "sentSuccessfully" flag

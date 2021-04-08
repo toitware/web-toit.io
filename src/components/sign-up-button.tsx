@@ -18,7 +18,7 @@ function SignUpButton({ size, className }: SignUpButtonProps): JSX.Element {
       disableElevation
       onClick={() => dispatch("open")}
     >
-      Try it Free
+      Try for Free
     </Button>
   );
 }
