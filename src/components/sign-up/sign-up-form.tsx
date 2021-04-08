@@ -204,7 +204,7 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
         <Typography className={classes.privacyPolicy} component="div">
           <div>
             By clicking the “Sign Up” button, you are creating a Toit account, and you agree to our{" "}
-            <Link to="/terms-of-service">terms or service</Link> and <Link to="/privacy-policy">privacy policy</Link>.
+            <Link to="/terms-of-service">terms of service</Link> and <Link to="/privacy-policy">privacy policy</Link>.
           </div>
         </Typography>
       </DialogActions>
