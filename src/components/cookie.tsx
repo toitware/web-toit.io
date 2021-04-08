@@ -1,4 +1,5 @@
 import { Button, Link, makeStyles, Theme, Typography, useTheme } from "@material-ui/core";
+import Cookies from "js-cookie";
 import React, { useEffect } from "react";
 import CookieConsent, { getCookieConsentValue } from "react-cookie-consent";
 
@@ -31,6 +32,15 @@ const handleAcceptCookie = () => {
     analytics.ready(() => {
       // TODO (jesper): identify user
       console.log("analytics ready");
+    });
+
+    analytics.ready(() => {
+      const userID = Cookies.get("ToitUserID");
+      if (userID) {
+        analytics.identify("user/" + userID, {
+          entity_type: "user",
+        });
+      }
     });
   }
 };
