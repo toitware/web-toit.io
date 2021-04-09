@@ -92,7 +92,7 @@ export default function Cookie(): JSX.Element {
       Cookies.remove("toit-cookies", { path: "/" });
     }
     analytics.reset();
-    window.sessionStorage.setItem("cookies", "false");
+    typeof window !== "undefined" && window.sessionStorage.setItem("cookies", "false");
     setManageCookies(false);
   };
 
@@ -102,7 +102,7 @@ export default function Cookie(): JSX.Element {
     if (Cookies.get("toit-allow-cookies") === "true") {
       setUserConsent(true);
     }
-    if (window.sessionStorage.getItem("cookies") === "false") {
+    if (typeof window !== "undefined" && window.sessionStorage.getItem("cookies") === "false") {
       console.log("user consent = false");
       handleDeclineCookie();
     } else if (Cookies.get("toit-cookies") === undefined) {
@@ -115,7 +115,11 @@ export default function Cookie(): JSX.Element {
     <>
       {manageCookies !== true ? (
         <Card
-          hidden={manageCookies || window.sessionStorage.getItem("cookies") === "false" || isUserConsent === true}
+          hidden={
+            manageCookies ||
+            (typeof window !== "undefined" && sessionStorage.getItem("cookies") === "false") ||
+            isUserConsent === true
+          }
           className={classes.cookieConsentCard}
         >
           <div className={classes.cookieConsentTextContent}>
