@@ -2,32 +2,13 @@ import { Button, Card, Link as LinkCore, makeStyles, Theme, Typography } from "@
 import { Link } from "gatsby";
 import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
-import Logo from "../assets/images/toit-secondary.inline.svg";
-import { primaryGreen, secondaryGreen } from "../theme";
-import { CheckIcon, UnCheckedIcon } from "./icons";
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
     margin: theme.spacing(2),
   },
-  logo: {
-    height: "1.5rem",
-    fill: theme.palette.text.primary,
-  },
-  acceptButton: {
-    margin: theme.spacing(2),
-    backgroundColor: primaryGreen.toString(),
-    color: "white",
-    "&:hover": {
-      backgroundColor: secondaryGreen.toString(),
-      color: "white",
-    },
-  },
   lineSkip: {
     paddingTop: theme.spacing(1),
-  },
-  cookieConsentTopContent: {
-    margin: theme.spacing(4),
   },
   cookieConsentTextContent: {
     margin: theme.spacing(2),
@@ -45,7 +26,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     bottom: theme.spacing(2),
     left: theme.spacing(2),
     zIndex: 10020,
-    maxWidth: "700px",
     width: "calc(100% - 32px)",
   },
 }));
@@ -92,7 +72,6 @@ const handleAcceptCookie = () => {
 
 export default function Cookie(): JSX.Element {
   const classes = useStyles();
-  const [isConsent, setConsent] = useState<boolean>(true);
   const [isUserConsent, setUserConsent] = useState<boolean | null>(null);
   const [manageCookies, setManageCookies] = useState(false);
 
@@ -101,6 +80,7 @@ export default function Cookie(): JSX.Element {
       path: "/",
       expires: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
     });
+    setUserConsent(true);
     setManageCookies(false);
   };
 
@@ -112,16 +92,17 @@ export default function Cookie(): JSX.Element {
       Cookies.remove("toit-cookies", { path: "/" });
     }
     analytics.reset();
-    setConsent(false);
-    setUserConsent(false);
+    sessionStorage.setItem("cookies", "false");
     setManageCookies(false);
   };
 
   useEffect(() => {
+    //toit-allow-cookies is used when the user explicitly accepts cookies
+    //toit-cookies is used when the user has not explicitly accepted cookies yet
     if (Cookies.get("toit-allow-cookies") === "true") {
       setUserConsent(true);
     }
-    if (isUserConsent === false) {
+    if (sessionStorage.getItem("cookies") === "false") {
       console.log("user consent = false");
       handleDeclineCookie();
     } else if (Cookies.get("toit-cookies") === undefined) {
@@ -129,18 +110,22 @@ export default function Cookie(): JSX.Element {
     } else if (isUserConsent) {
       handleAcceptCookieUI();
     }
-  }, [isConsent, isUserConsent]);
+  }, [isUserConsent]);
   return (
     <>
       {manageCookies !== true ? (
         <Card
-          hidden={manageCookies || isUserConsent === true || isUserConsent === false}
+          hidden={manageCookies || sessionStorage.getItem("cookies") === "false" || isUserConsent === true}
           className={classes.cookieConsentCard}
         >
           <div className={classes.cookieConsentTextContent}>
             <Typography>
               We use cookies to collect data to improve your user experience. By using our website, you&apos;re agreeing
-              on our <Link to="/cookies-policy">cookies policy</Link>. You can at any time{" "}
+              on our{" "}
+              <Link to="/cookies-policy" className={classes.link}>
+                cookies policy
+              </Link>
+              . You can at any time{" "}
               <LinkCore onClick={() => setManageCookies(true)} className={classes.link}>
                 manage your cookies
               </LinkCore>
@@ -150,9 +135,6 @@ export default function Cookie(): JSX.Element {
         </Card>
       ) : (
         <Card hidden={!manageCookies} className={classes.cookieConsentCard}>
-          <div className={classes.cookieConsentTopContent}>
-            <Logo className={classes.logo} />
-          </div>
           <div className={classes.cookieConsentTextContent}>
             <Typography variant="h3">Change your cookie setting</Typography>
             <Typography>
@@ -161,27 +143,14 @@ export default function Cookie(): JSX.Element {
             </Typography>
 
             <Typography className={classes.lineSkip}>
-              Currently, you are {isConsent ? "accepting" : "declining"} our use of cookies. Feel free to change it any
-              time, by pressing either decline or accept below.
+              Feel free to change it any time, by pressing either decline or accept below.
             </Typography>
           </div>
           <div className={classes.buttons}>
-            <Button
-              startIcon={isUserConsent === false ? <CheckIcon /> : <UnCheckedIcon />}
-              size="medium"
-              variant="contained"
-              className={classes.button}
-              onClick={() => setUserConsent(false)}
-            >
+            <Button size="medium" variant="contained" className={classes.button} onClick={() => handleDeclineCookie()}>
               Decline
             </Button>
-            <Button
-              startIcon={isUserConsent ? <CheckIcon /> : <UnCheckedIcon />}
-              size="medium"
-              variant="contained"
-              className={classes.button}
-              onClick={() => setUserConsent(true)}
-            >
+            <Button size="medium" variant="contained" className={classes.button} onClick={() => handleAcceptCookieUI()}>
               Accept
             </Button>
           </div>
