@@ -27,7 +27,7 @@ export function SignUpSuccess({ handleClose }: SignUpSuccessProps): JSX.Element 
       <DialogContent>
         <FiCheckCircle className={classes.successCheckmark} />
         <Typography>
-          Welcome aboard! Please check your email, and follow the instructions to finalise your account.
+          Welcome aboard! Please check your email, and follow the instructions to finalize your account.
         </Typography>
       </DialogContent>
       <DialogActions className={classes.actions}>
