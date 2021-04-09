@@ -138,8 +138,8 @@ export default function Cookie(): JSX.Element {
           <div className={classes.cookieConsentTextContent}>
             <Typography variant="h3">Change your cookie setting</Typography>
             <Typography>
-              We use cookies to register and track the traffic on our website. The main purpose is to improve our
-              website performance and your experience of our website.{" "}
+              We use cookies to register the traffic on our website. The main purpose is to improve our website
+              performance and your experience of our website.{" "}
             </Typography>
 
             <Typography className={classes.lineSkip}>
