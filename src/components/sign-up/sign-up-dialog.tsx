@@ -42,7 +42,7 @@ function SignUpDialog(): JSX.Element {
       <Dialog fullScreen={fullScreen} open={state.open} onClose={handleClose} aria-labelledby="responsive-dialog-title">
         <DialogTitle id="responsive-dialog-title" disableTypography>
           <Typography variant="h1" className={classes.title}>
-            Try for Free
+            Try for free
           </Typography>
         </DialogTitle>{" "}
         {!state.sentSuccessfully && <SignUpForm handleClose={handleClose} handleSuccess={handleSuccess} />}
