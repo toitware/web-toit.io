@@ -1,10 +1,10 @@
-import { Button, Dialog, Fab, makeStyles, Theme, Typography } from "@material-ui/core";
+import { Button, Card, Link as LinkCore, makeStyles, Theme, Typography } from "@material-ui/core";
 import { Link } from "gatsby";
 import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
 import Logo from "../assets/images/toit-secondary.inline.svg";
 import { primaryGreen, secondaryGreen } from "../theme";
-import { CheckIcon, CookieBiteIcon, UnCheckedIcon } from "./icons";
+import { CheckIcon, UnCheckedIcon } from "./icons";
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
@@ -30,23 +30,23 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: theme.spacing(4),
   },
   cookieConsentTextContent: {
-    marginLeft: theme.spacing(4),
-    marginRight: theme.spacing(4),
-    marginBottom: theme.spacing(4),
+    margin: theme.spacing(2),
   },
   buttons: {
     textAlign: "center",
-    marginBottom: theme.spacing(4),
+    marginBottom: theme.spacing(2),
   },
   link: {
     color: theme.palette.secondary.main,
     textDecoration: "none",
   },
-  fab: {
+  cookieConsentCard: {
     position: "fixed",
-    bottom: "16px",
-    left: "16px",
-    zIndex: 10000,
+    bottom: theme.spacing(2),
+    left: theme.spacing(2),
+    zIndex: 10020,
+    maxWidth: "700px",
+    width: "calc(100% - 32px)",
   },
 }));
 
@@ -56,6 +56,10 @@ const useStyles = makeStyles((theme: Theme) => ({
 let loadedAnalytics = false;
 
 const handleAcceptCookie = () => {
+  Cookies.set("toit-cookies", "true", {
+    path: "/",
+    expires: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
+  });
   if (analytics && !loadedAnalytics) {
     // Setup segment
     loadedAnalytics = true;
@@ -88,15 +92,15 @@ const handleAcceptCookie = () => {
 
 export default function Cookie(): JSX.Element {
   const classes = useStyles();
-  const [isConsent, setConsent] = useState<null | boolean>(null);
+  const [isConsent, setConsent] = useState<boolean>(true);
+  const [isUserConsent, setUserConsent] = useState<boolean | null>(null);
   const [manageCookies, setManageCookies] = useState(false);
 
   const handleAcceptCookieUI = () => {
-    Cookies.set("toit-allow-cookies", {
+    Cookies.set("toit-allow-cookies", "true", {
       path: "/",
       expires: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
     });
-    setConsent(true);
     setManageCookies(false);
   };
 
@@ -104,76 +108,48 @@ export default function Cookie(): JSX.Element {
     if (Cookies.get("toit-allow-cookies")) {
       Cookies.remove("toit-allow-cookies", { path: "/" });
     }
+    if (Cookies.get("toit-cookies")) {
+      Cookies.remove("toit-cookies", { path: "/" });
+    }
     analytics.reset();
     setConsent(false);
+    setUserConsent(false);
     setManageCookies(false);
   };
 
   useEffect(() => {
-    const isConsent = Cookies.get("toit-allow-cookies");
-    if (isConsent === "true") {
-      setConsent(true);
-      handleAcceptCookie();
-    } else if (isConsent === "false") {
-      setConsent(false);
-    } else {
-      setConsent(null);
+    if (Cookies.get("toit-allow-cookies") === "true") {
+      setUserConsent(true);
     }
-  }, [isConsent]);
+    if (isUserConsent === false) {
+      console.log("user consent = false");
+      handleDeclineCookie();
+    } else if (Cookies.get("toit-cookies") === undefined) {
+      handleAcceptCookie();
+    } else if (isUserConsent) {
+      handleAcceptCookieUI();
+    }
+  }, [isConsent, isUserConsent]);
   return (
     <>
       {manageCookies !== true ? (
-        <Fab
-          className={classes.fab}
-          color="default"
-          aria-label="Cookie settings"
-          onClick={() => setManageCookies(true)}
+        <Card
+          hidden={manageCookies || isUserConsent === true || isUserConsent === false}
+          className={classes.cookieConsentCard}
         >
-          <CookieBiteIcon />
-        </Fab>
-      ) : isConsent === null ? (
-        <Dialog
-          open={window.location.href.includes("cookies-policy") === true ? false : isConsent === null ? true : false}
-        >
-          <div className={classes.cookieConsentTopContent}>
-            <Logo className={classes.logo} />
-          </div>
           <div className={classes.cookieConsentTextContent}>
-            <Typography variant="h3">Toit uses cookies</Typography>
             <Typography>
-              We use cookies to register and track the traffic on our website. The main purpose is to improve on our
-              website performance and your experience of our website.{" "}
-            </Typography>
-
-            <Typography className={classes.lineSkip}>
-              You can read more about our use of cookies{" "}
-              <Link to="/cookies-policy" className={classes.link}>
-                here
-              </Link>
+              We use cookies to collect data to improve your user experience. By using our website, you&apos;re agreeing
+              on our <Link to="/cookies-policy">cookies policy</Link>. You can at any time{" "}
+              <LinkCore onClick={() => setManageCookies(true)} className={classes.link}>
+                manage your cookies
+              </LinkCore>
+              .
             </Typography>
           </div>
-          <div className={classes.buttons}>
-            <Button
-              size="large"
-              variant="contained"
-              color="primary"
-              className={classes.button}
-              onClick={() => handleDeclineCookie()}
-            >
-              Decline
-            </Button>
-            <Button
-              size="large"
-              variant="contained"
-              className={classes.acceptButton}
-              onClick={() => handleAcceptCookieUI()}
-            >
-              Accept
-            </Button>
-          </div>
-        </Dialog>
+        </Card>
       ) : (
-        <Dialog open={manageCookies} onBackdropClick={() => setManageCookies(false)}>
+        <Card hidden={!manageCookies} className={classes.cookieConsentCard}>
           <div className={classes.cookieConsentTopContent}>
             <Logo className={classes.logo} />
           </div>
@@ -191,25 +167,25 @@ export default function Cookie(): JSX.Element {
           </div>
           <div className={classes.buttons}>
             <Button
-              startIcon={!isConsent ? <CheckIcon /> : <UnCheckedIcon />}
-              size="large"
+              startIcon={isUserConsent === false ? <CheckIcon /> : <UnCheckedIcon />}
+              size="medium"
               variant="contained"
               className={classes.button}
-              onClick={() => handleDeclineCookie()}
+              onClick={() => setUserConsent(false)}
             >
               Decline
             </Button>
             <Button
-              startIcon={isConsent ? <CheckIcon /> : <UnCheckedIcon />}
-              size="large"
+              startIcon={isUserConsent ? <CheckIcon /> : <UnCheckedIcon />}
+              size="medium"
               variant="contained"
               className={classes.button}
-              onClick={() => handleAcceptCookieUI()}
+              onClick={() => setUserConsent(true)}
             >
               Accept
             </Button>
           </div>
-        </Dialog>
+        </Card>
       )}
     </>
   );
