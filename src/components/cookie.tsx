@@ -121,15 +121,15 @@ export default function Cookie(): JSX.Element {
           <div className={classes.cookieConsentTextContent}>
             <Typography>
               We use cookies to collect data to improve your user experience. By using our website, you&apos;re agreeing
-              on our{" "}
+              to our{" "}
               <Link to="/cookies-policy" className={classes.link}>
                 cookies policy
               </Link>
-              . You can at any time{" "}
+              . You can change your{" "}
               <LinkCore onClick={() => setManageCookies(true)} className={classes.link}>
-                manage your cookies
-              </LinkCore>
-              .
+                preferences
+              </LinkCore>{" "}
+              at any time.
             </Typography>
           </div>
         </Card>
@@ -138,7 +138,7 @@ export default function Cookie(): JSX.Element {
           <div className={classes.cookieConsentTextContent}>
             <Typography variant="h3">Change your cookie setting</Typography>
             <Typography>
-              We use cookies to register and track the traffic on our website. The main purpose is to improve on our
+              We use cookies to register and track the traffic on our website. The main purpose is to improve our
               website performance and your experience of our website.{" "}
             </Typography>
 
