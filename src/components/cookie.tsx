@@ -73,20 +73,11 @@ export default function Cookie(): JSX.Element {
   const [showCookieConsent, setShowCookiesConsent] = useState<boolean>(
     Cookies.get("toit-cookies") === "true" ||
       (typeof window !== "undefined" &&
-        window &&
         window.sessionStorage &&
         window.sessionStorage.getItem("disallow-cookies") === "true")
       ? false
       : true
   );
-
-  const handleCookies = () => {
-    if (window && window.sessionStorage.getItem("disallow-cookies") === "true") {
-      handleDeclineCookie();
-    } else {
-      handleAcceptCookie();
-    }
-  };
 
   const handleAcceptCookieUI = () => {
     Cookies.set("toit-cookies", "true", {
@@ -112,6 +103,14 @@ export default function Cookie(): JSX.Element {
       window.sessionStorage.setItem("disallow-cookies", "true");
     handleDeclineCookie();
     window.location.reload();
+  };
+
+  const handleCookies = () => {
+    if (window && window.sessionStorage.getItem("disallow-cookies") === "true") {
+      handleDeclineCookie();
+    } else {
+      handleAcceptCookie();
+    }
   };
 
   useEffect(() => {
