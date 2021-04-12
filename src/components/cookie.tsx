@@ -104,11 +104,14 @@ export default function Cookie(): JSX.Element {
   };
 
   useEffect(() => {
+    // Check if user does not allow cookies
     if (window && window.sessionStorage.getItem("disallow-cookies") === "true") {
       handleDeclineCookie();
     } else {
       handleAcceptCookie();
     }
+
+    // Check if user has explicitly chosen to opt in or out
     if (isUserConsent) {
       handleAcceptCookieUI();
     } else if (isUserConsent === false) {
