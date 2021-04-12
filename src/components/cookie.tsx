@@ -72,10 +72,21 @@ export default function Cookie(): JSX.Element {
   const [manageCookies, setManageCookies] = useState<boolean>(false);
   const [showCookieConsent, setShowCookiesConsent] = useState<boolean>(
     Cookies.get("toit-cookies") === "true" ||
-      (typeof window !== "undefined" && window.sessionStorage.getItem("disallow-cookies") === "true")
+      (typeof window !== "undefined" &&
+        window &&
+        window.sessionStorage &&
+        window.sessionStorage.getItem("disallow-cookies") === "true")
       ? false
       : true
   );
+
+  const handleCookies = () => {
+    if (window && window.sessionStorage.getItem("disallow-cookies") === "true") {
+      handleDeclineCookie();
+    } else {
+      handleAcceptCookie();
+    }
+  };
 
   const handleAcceptCookieUI = () => {
     Cookies.set("toit-cookies", "true", {
@@ -90,27 +101,21 @@ export default function Cookie(): JSX.Element {
     if (Cookies.get("toit-cookies")) {
       Cookies.remove("toit-cookies", { path: "/" });
     }
-    analytics.reset();
-    typeof window &&
-      window.sessionStorage &&
-      window.sessionStorage.setItem &&
-      window.sessionStorage.setItem("disallow-cookies", "true");
     setUserConsent(false);
     setShowCookiesConsent(false);
   };
 
   const handleDeclineCookieUI = () => {
+    typeof window &&
+      window.sessionStorage &&
+      window.sessionStorage.setItem &&
+      window.sessionStorage.setItem("disallow-cookies", "true");
     handleDeclineCookie();
     window.location.reload();
   };
 
   useEffect(() => {
-    // Check if user does not allow cookies
-    if (window && window.sessionStorage.getItem("disallow-cookies") === "true") {
-      handleDeclineCookie();
-    } else {
-      handleAcceptCookie();
-    }
+    handleCookies();
 
     // Check if user has explicitly chosen to opt in or out
     if (isUserConsent) {
