@@ -97,8 +97,8 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
       setError(error);
       setIsSending(false);
     } finally {
-      if (error !== "") analytics.track("Signup Failed", { values, error: error });
-      else analytics.track("Signup Completed", values);
+      if (error !== "") analytics.track("Signup Form Failed", { values, error: error });
+      else analytics.track("Signup Form Succeeded", values);
     }
   }
 
