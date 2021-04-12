@@ -36,10 +36,6 @@ const useStyles = makeStyles((theme: Theme) => ({
 let loadedAnalytics = false;
 
 const handleAcceptCookie = () => {
-  Cookies.set("toit-cookies", "true", {
-    path: "/",
-    expires: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
-  });
   if (analytics && !loadedAnalytics) {
     // Setup segment
     loadedAnalytics = true;
@@ -73,55 +69,56 @@ const handleAcceptCookie = () => {
 export default function Cookie(): JSX.Element {
   const classes = useStyles();
   const [isUserConsent, setUserConsent] = useState<boolean | null>(null);
-  const [manageCookies, setManageCookies] = useState(false);
+  const [manageCookies, setManageCookies] = useState<boolean>(false);
+  const [showCookieConsent, setShowCookiesConsent] = useState<boolean>(
+    Cookies.get("toit-cookies") === "true" || window.sessionStorage.getItem("disallow-cookies") === "true"
+      ? false
+      : true
+  );
 
   const handleAcceptCookieUI = () => {
-    Cookies.set("toit-allow-cookies", "true", {
+    Cookies.set("toit-cookies", "true", {
       path: "/",
       expires: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
     });
     setUserConsent(true);
-    setManageCookies(false);
+    setShowCookiesConsent(false);
   };
 
   const handleDeclineCookie = () => {
-    if (Cookies.get("toit-allow-cookies")) {
-      Cookies.remove("toit-allow-cookies", { path: "/" });
-    }
     if (Cookies.get("toit-cookies")) {
       Cookies.remove("toit-cookies", { path: "/" });
     }
     analytics.reset();
-    typeof window !== "undefined" && window.sessionStorage.setItem("cookies", "false");
-    setManageCookies(false);
+    typeof window &&
+      window.sessionStorage &&
+      window.sessionStorage.setItem &&
+      window.sessionStorage.setItem("disallow-cookies", "true");
+    setUserConsent(false);
+    setShowCookiesConsent(false);
+  };
+
+  const handleDeclineCookieUI = () => {
+    handleDeclineCookie();
+    window.location.reload();
   };
 
   useEffect(() => {
-    //toit-allow-cookies is used when the user explicitly accepts cookies
-    //toit-cookies is used when the user has not explicitly accepted cookies yet
-    if (Cookies.get("toit-allow-cookies") === "true") {
-      setUserConsent(true);
-    }
-    if (typeof window !== "undefined" && window.sessionStorage.getItem("cookies") === "false") {
-      console.log("user consent = false");
+    if (window && window.sessionStorage.getItem("disallow-cookies") === "true") {
       handleDeclineCookie();
-    } else if (Cookies.get("toit-cookies") === undefined) {
+    } else {
       handleAcceptCookie();
-    } else if (isUserConsent) {
+    }
+    if (isUserConsent) {
       handleAcceptCookieUI();
+    } else if (isUserConsent === false) {
+      handleDeclineCookie();
     }
   }, [isUserConsent]);
   return (
     <>
-      {manageCookies !== true ? (
-        <Card
-          hidden={
-            manageCookies ||
-            (typeof window !== "undefined" && sessionStorage.getItem("cookies") === "false") ||
-            isUserConsent === true
-          }
-          className={classes.cookieConsentCard}
-        >
+      {showCookieConsent && !manageCookies ? (
+        <Card className={classes.cookieConsentCard}>
           <div className={classes.cookieConsentTextContent}>
             <Typography>
               We use cookies to collect data to improve your user experience. By using our website, you&apos;re agreeing
@@ -138,7 +135,7 @@ export default function Cookie(): JSX.Element {
           </div>
         </Card>
       ) : (
-        <Card hidden={!manageCookies} className={classes.cookieConsentCard}>
+        <Card hidden={!manageCookies || isUserConsent !== null} className={classes.cookieConsentCard}>
           <div className={classes.cookieConsentTextContent}>
             <Typography variant="h3">Change your cookie setting</Typography>
             <Typography>
@@ -151,7 +148,12 @@ export default function Cookie(): JSX.Element {
             </Typography>
           </div>
           <div className={classes.buttons}>
-            <Button size="medium" variant="contained" className={classes.button} onClick={() => handleDeclineCookie()}>
+            <Button
+              size="medium"
+              variant="contained"
+              className={classes.button}
+              onClick={() => handleDeclineCookieUI()}
+            >
               Decline
             </Button>
             <Button size="medium" variant="contained" className={classes.button} onClick={() => handleAcceptCookieUI()}>
