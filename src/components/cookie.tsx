@@ -71,7 +71,8 @@ export default function Cookie(): JSX.Element {
   const [isUserConsent, setUserConsent] = useState<boolean | null>(null);
   const [manageCookies, setManageCookies] = useState<boolean>(false);
   const [showCookieConsent, setShowCookiesConsent] = useState<boolean>(
-    Cookies.get("toit-cookies") === "true" || window.sessionStorage.getItem("disallow-cookies") === "true"
+    Cookies.get("toit-cookies") === "true" ||
+      (typeof window !== "undefined" && window.sessionStorage.getItem("disallow-cookies") === "true")
       ? false
       : true
   );
