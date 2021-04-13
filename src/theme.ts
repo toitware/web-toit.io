@@ -16,6 +16,8 @@ const primaryBlue100 = primaryBlue.lightness(86);
 export const secondaryGold = Color.hsl(40, 94, 69);
 export const secondaryBlack = Color.hsl(0, 0, 16);
 export const secondaryRed = Color.hsl(0, 100, 70);
+export const primaryGreen = Color.hsl(109, 100, 32);
+export const secondaryGreen = Color.hsl(135, 65, 33);
 
 // The different themes used throughout the website.
 export const pinkWhiteTheme = createTheme({

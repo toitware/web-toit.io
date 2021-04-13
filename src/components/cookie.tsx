@@ -1,11 +1,32 @@
-import { Button, Link, makeStyles, Theme, Typography, useTheme } from "@material-ui/core";
+import { Button, Card, Link as LinkCore, makeStyles, Theme, Typography } from "@material-ui/core";
+import { Link } from "gatsby";
 import Cookies from "js-cookie";
-import React, { useEffect } from "react";
-import CookieConsent, { getCookieConsentValue } from "react-cookie-consent";
+import React, { useEffect, useState } from "react";
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
     margin: theme.spacing(2),
+  },
+  lineSkip: {
+    paddingTop: theme.spacing(1),
+  },
+  cookieConsentTextContent: {
+    margin: theme.spacing(2),
+  },
+  buttons: {
+    textAlign: "center",
+    marginBottom: theme.spacing(2),
+  },
+  link: {
+    color: theme.palette.secondary.main,
+    textDecoration: "none",
+  },
+  cookieConsentCard: {
+    position: "fixed",
+    bottom: theme.spacing(2),
+    left: theme.spacing(2),
+    zIndex: 10020,
+    width: "calc(100% - 32px)",
   },
 }));
 
@@ -29,10 +50,6 @@ const handleAcceptCookie = () => {
     if (analytics.load && segmentAPIKey) {
       analytics.load(segmentAPIKey);
     }
-    analytics.ready(() => {
-      // TODO (jesper): identify user
-      console.log("analytics ready");
-    });
 
     analytics.ready(() => {
       const userID = Cookies.get("ToitUserID");
@@ -45,55 +62,113 @@ const handleAcceptCookie = () => {
   }
 };
 
-const handleDeclineCookie = () => {
-  // TODO: remove cookies here
-  analytics.reset();
-};
-
 export default function Cookie(): JSX.Element {
-  const theme = useTheme();
   const classes = useStyles();
+  const [isUserConsent, setUserConsent] = useState<boolean | null>(null);
+  const [isUserSignedIn, setUserSignedIn] = useState<boolean>(false);
+  const [manageCookies, setManageCookies] = useState<boolean>(false);
+  const [showCookieConsent, setShowCookiesConsent] = useState<boolean>(
+    Cookies.get("toit-cookies") === "true" ||
+      (typeof window !== "undefined" &&
+        window.sessionStorage &&
+        window.sessionStorage.getItem("disallow-cookies") === "true")
+      ? false
+      : true
+  );
 
-  useEffect(() => {
-    const isConsent = getCookieConsentValue("toit-allow-cookies");
-    if (isConsent === "true") {
+  const handleAcceptCookieUI = () => {
+    Cookies.set("toit-cookies", "true", {
+      path: "/",
+      expires: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
+    });
+    setUserConsent(true);
+    setShowCookiesConsent(false);
+  };
+
+  const handleDeclineCookie = () => {
+    if (Cookies.get("toit-cookies")) {
+      Cookies.remove("toit-cookies", { path: "/" });
+    }
+    setUserConsent(false);
+    setShowCookiesConsent(false);
+  };
+
+  const handleDeclineCookieUI = () => {
+    typeof window &&
+      window.sessionStorage &&
+      window.sessionStorage.setItem &&
+      window.sessionStorage.setItem("disallow-cookies", "true");
+    handleDeclineCookie();
+    window.location.reload();
+  };
+
+  const handleCookies = () => {
+    if (window && window.sessionStorage.getItem("disallow-cookies") === "true") {
+      handleDeclineCookie();
+    } else {
       handleAcceptCookie();
     }
-  }, []);
+  };
 
+  useEffect(() => {
+    handleCookies();
+    if (Cookies.get("ToitUserID")) {
+      setUserSignedIn(true);
+    }
+    // Check if user has explicitly chosen to opt in or out
+    if (isUserConsent) {
+      handleAcceptCookieUI();
+    } else if (isUserConsent === false) {
+      handleDeclineCookie();
+    }
+  }, [isUserConsent]);
   return (
-    <CookieConsent
-      location="bottom"
-      buttonText="Accept"
-      declineButtonText="Decline"
-      enableDeclineButton
-      onAccept={() => {
-        handleAcceptCookie();
-      }}
-      onDecline={() => {
-        handleDeclineCookie();
-      }}
-      cookieName="toit-allow-cookies"
-      disableButtonStyles
-      style={{
-        background: theme.palette.background.default,
-        boxShadow: "0px 0px 30px rgba(0,0,0,0.3)",
-      }}
-      ButtonComponent={(props: { id: string }) => (
-        <Button
-          {...props}
-          variant="contained"
-          color={props.id == "rcc-confirm-button" ? "secondary" : "primary"}
-          className={classes.button}
-        />
+    <>
+      {!isUserSignedIn && showCookieConsent && !manageCookies ? (
+        <Card className={classes.cookieConsentCard}>
+          <div className={classes.cookieConsentTextContent}>
+            <Typography>
+              We use cookies to collect data to improve your user experience. By using our website, you&apos;re agreeing
+              to our{" "}
+              <Link to="/cookies-policy" className={classes.link}>
+                cookies policy
+              </Link>
+              . You can change your{" "}
+              <LinkCore onClick={() => setManageCookies(true)} className={classes.link}>
+                preferences
+              </LinkCore>{" "}
+              at any time.
+            </Typography>
+          </div>
+        </Card>
+      ) : (
+        <Card hidden={isUserSignedIn || !manageCookies || isUserConsent !== null} className={classes.cookieConsentCard}>
+          <div className={classes.cookieConsentTextContent}>
+            <Typography variant="h3">Change your cookie setting</Typography>
+            <Typography>
+              We use cookies to register the traffic on our website. The main purpose is to improve our website
+              performance and your experience of our website.{" "}
+            </Typography>
+
+            <Typography className={classes.lineSkip}>
+              Feel free to change it any time, by pressing either decline or accept below.
+            </Typography>
+          </div>
+          <div className={classes.buttons}>
+            <Button
+              size="medium"
+              variant="contained"
+              className={classes.button}
+              onClick={() => handleDeclineCookieUI()}
+            >
+              Decline
+            </Button>
+            <Button size="medium" variant="contained" className={classes.button} onClick={() => handleAcceptCookieUI()}>
+              Accept
+            </Button>
+          </div>
+        </Card>
       )}
-    >
-      <Typography component="span">
-        This site uses cookies. Read more about our cookies policy{" "}
-        <Link color="textPrimary" href="/cookies-policy">
-          here.
-        </Link>
-      </Typography>
-    </CookieConsent>
+    </>
   );
 }
