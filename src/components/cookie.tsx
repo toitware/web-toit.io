@@ -131,24 +131,7 @@ export default function Cookie(): JSX.Element {
         showCookieConsent &&
         !isUserConsent &&
         isPageLoaded &&
-        (!manageCookies ? (
-          <Card className={classes.cookieConsentCard}>
-            <div className={classes.cookieConsentTextContent}>
-              <Typography>
-                We use cookies to collect data to improve your user experience. By using our website, you&apos;re
-                agreeing to our{" "}
-                <Link to="/cookies-policy" className={classes.link}>
-                  cookies policy
-                </Link>
-                . You can change your{" "}
-                <LinkCore onClick={() => setManageCookies(true)} className={classes.link}>
-                  preferences
-                </LinkCore>{" "}
-                at any time.
-              </Typography>
-            </div>
-          </Card>
-        ) : manageCookies ? (
+        (manageCookies ? (
           <Card className={classes.cookieConsentCard}>
             <div className={classes.cookieConsentTextContent}>
               <Typography variant="h3">Change your cookie setting</Typography>
@@ -180,7 +163,24 @@ export default function Cookie(): JSX.Element {
               </Button>
             </div>
           </Card>
-        ) : null)}
+        ) : (
+          <Card className={classes.cookieConsentCard}>
+            <div className={classes.cookieConsentTextContent}>
+              <Typography>
+                We use cookies to collect data to improve your user experience. By using our website, you&apos;re
+                agreeing to our{" "}
+                <Link to="/cookies-policy" className={classes.link}>
+                  cookies policy
+                </Link>
+                . You can change your{" "}
+                <LinkCore onClick={() => setManageCookies(true)} className={classes.link}>
+                  preferences
+                </LinkCore>{" "}
+                at any time.
+              </Typography>
+            </div>
+          </Card>
+        ))}
     </>
   );
 }
