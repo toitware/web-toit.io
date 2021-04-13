@@ -90,9 +90,6 @@ export default function Cookie(): JSX.Element {
     if (Cookies.get("toit-cookies")) {
       Cookies.remove("toit-cookies", { path: "/" });
     }
-    if (Cookies.get("hubspotutk")) {
-      Cookies.remove("hubspotutk", { path: "/" });
-    }
     setUserConsent(false);
     setShowCookiesConsent(false);
   };
