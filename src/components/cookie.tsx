@@ -50,10 +50,6 @@ const handleAcceptCookie = () => {
     if (analytics.load && segmentAPIKey) {
       analytics.load(segmentAPIKey);
     }
-    analytics.ready(() => {
-      // TODO (jesper): identify user
-      console.log("analytics ready");
-    });
 
     analytics.ready(() => {
       const userID = Cookies.get("ToitUserID");
@@ -69,6 +65,7 @@ const handleAcceptCookie = () => {
 export default function Cookie(): JSX.Element {
   const classes = useStyles();
   const [isUserConsent, setUserConsent] = useState<boolean | null>(null);
+  const [isUserSignedIn, setUserSignedIn] = useState<boolean>(false);
   const [manageCookies, setManageCookies] = useState<boolean>(false);
   const [showCookieConsent, setShowCookiesConsent] = useState<boolean>(
     Cookies.get("toit-cookies") === "true" ||
@@ -115,7 +112,9 @@ export default function Cookie(): JSX.Element {
 
   useEffect(() => {
     handleCookies();
-
+    if (Cookies.get("ToitUserID")) {
+      setUserSignedIn(true);
+    }
     // Check if user has explicitly chosen to opt in or out
     if (isUserConsent) {
       handleAcceptCookieUI();
@@ -125,7 +124,7 @@ export default function Cookie(): JSX.Element {
   }, [isUserConsent]);
   return (
     <>
-      {showCookieConsent && !manageCookies ? (
+      {!isUserSignedIn && showCookieConsent && !manageCookies ? (
         <Card className={classes.cookieConsentCard}>
           <div className={classes.cookieConsentTextContent}>
             <Typography>
@@ -143,7 +142,7 @@ export default function Cookie(): JSX.Element {
           </div>
         </Card>
       ) : (
-        <Card hidden={!manageCookies || isUserConsent !== null} className={classes.cookieConsentCard}>
+        <Card hidden={isUserSignedIn || !manageCookies || isUserConsent !== null} className={classes.cookieConsentCard}>
           <div className={classes.cookieConsentTextContent}>
             <Typography variant="h3">Change your cookie setting</Typography>
             <Typography>
