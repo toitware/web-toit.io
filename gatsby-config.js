@@ -5,14 +5,6 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-plugin-hubspot",
-      options: {
-        trackingCode: "5705522",
-        respectDNT: true,
-        productionOnly: true,
-      },
-    },
-    {
       resolve: `gatsby-plugin-typescript`,
       options: {
         isTSX: true, // defaults to false
