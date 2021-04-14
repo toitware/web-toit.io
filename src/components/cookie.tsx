@@ -1,7 +1,8 @@
-import { Button, Card, Link as LinkCore, makeStyles, Theme, Typography } from "@material-ui/core";
+import { Button, Card, IconButton, Link as LinkCore, makeStyles, Theme, Typography } from "@material-ui/core";
 import { Link } from "gatsby";
 import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
+import { FiX } from "react-icons/fi";
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
@@ -12,6 +13,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   cookieConsentTextContent: {
     margin: theme.spacing(2),
+    marginTop: theme.spacing(4),
   },
   buttons: {
     textAlign: "center",
@@ -27,6 +29,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     left: theme.spacing(2),
     zIndex: 10020,
     width: "calc(100% - 32px)",
+  },
+  exitButton: {
+    position: "absolute",
+    top: 0,
+    right: 0,
   },
 }));
 
@@ -62,7 +69,11 @@ const handleAcceptCookie = () => {
   }
 };
 
-export default function Cookie(): JSX.Element {
+interface CookieProps {
+  show: boolean;
+}
+
+export default function Cookie({ show }: CookieProps): JSX.Element {
   const classes = useStyles();
   const [isUserConsent, setUserConsent] = useState<boolean | null>(null);
   const [isPageLoaded, setPageLoaded] = useState<boolean>(false);
@@ -165,6 +176,9 @@ export default function Cookie(): JSX.Element {
           </Card>
         ) : (
           <Card className={classes.cookieConsentCard}>
+            <IconButton className={classes.exitButton} onClick={() => handleAcceptCookieUI()}>
+              <FiX />
+            </IconButton>
             <div className={classes.cookieConsentTextContent}>
               <Typography>
                 We use cookies to collect data to improve your user experience. By using our website, you&apos;re
