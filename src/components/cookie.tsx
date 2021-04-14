@@ -103,6 +103,7 @@ export default function Cookie({ show, callback }: CookieProps): JSX.Element {
       window.sessionStorage.removeItem &&
       window.sessionStorage.removeItem("disallow-cookies");
     callback(false);
+    window.location.reload();
   };
 
   const handleDeclineCookie = () => {
