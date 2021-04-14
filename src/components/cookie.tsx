@@ -151,7 +151,7 @@ export default function Cookie({ show, callback }: CookieProps): JSX.Element {
         showCookieConsent &&
         !isUserConsent &&
         isPageLoaded &&
-        (manageCookies ? (
+        (manageCookies || show === true ? (
           <Card className={classes.cookieConsentCard}>
             <IconButton className={classes.exitButton} onClick={() => handleAcceptCookieUI()}>
               <FiX />
