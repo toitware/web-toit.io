@@ -27,12 +27,12 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export default function Footer(): JSX.Element {
   const classes = useStyles();
-  const [cookieConsent, showCookieConsent] = useState<boolean>(true);
+  const [showCookieConsent, setShowCookieConsent] = useState<boolean>(false);
 
   return (
     <div className={classes.container}>
       <ThemeProvider theme={secondaryTheme}>
-        <Cookie />
+        <Cookie show={showCookieConsent} />
       </ThemeProvider>
       <Breadcrumbs aria-label="breadcrumb" separator="|" classes={{ separator: classes.link }}>
         <Link to="/terms-of-service" className={classes.link}>
@@ -44,7 +44,7 @@ export default function Footer(): JSX.Element {
         <Link to="/cookies-policy" className={classes.link}>
           Cookies policy
         </Link>
-        <LinkCore component="button" onClick={() => showCookieConsent(!cookieConsent && true)} className={classes.link}>
+        <LinkCore component="button" onClick={() => console.log("hey")} className={classes.link}>
           Change cookie consent
         </LinkCore>
       </Breadcrumbs>

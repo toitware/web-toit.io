@@ -70,7 +70,7 @@ const handleAcceptCookie = () => {
 };
 
 interface CookieProps {
-  showCookieConsent: boolean;
+  show: boolean;
 }
 
 export default function Cookie({ show }: CookieProps): JSX.Element {
@@ -80,10 +80,12 @@ export default function Cookie({ show }: CookieProps): JSX.Element {
   const [isUserSignedIn, setUserSignedIn] = useState<boolean>(false);
   const [manageCookies, setManageCookies] = useState<boolean>(false);
   const [showCookieConsent, setShowCookiesConsent] = useState<boolean>(
-    Cookies.get("toit-cookies") === "true" ||
-      (typeof window !== "undefined" &&
-        window.sessionStorage &&
-        window.sessionStorage.getItem("disallow-cookies") === "true")
+    show
+      ? true
+      : Cookies.get("toit-cookies") === "true" ||
+        (typeof window !== "undefined" &&
+          window.sessionStorage &&
+          window.sessionStorage.getItem("disallow-cookies") === "true")
       ? false
       : true
   );
