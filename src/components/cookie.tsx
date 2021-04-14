@@ -70,7 +70,7 @@ const handleAcceptCookie = () => {
 };
 
 interface CookieProps {
-  show: boolean;
+  showCookieConsent: boolean;
 }
 
 export default function Cookie({ show }: CookieProps): JSX.Element {
