@@ -131,7 +131,6 @@ export default function Cookie({ show, callback }: CookieProps): JSX.Element {
   };
 
   useEffect(() => {
-    console.log("Show: ", show);
     handleCookies();
 
     if (Cookies.get("ToitUserID")) {

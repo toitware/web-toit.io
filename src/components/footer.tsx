@@ -48,7 +48,7 @@ export default function Footer(): JSX.Element {
           Cookies policy
         </Link>
         <LinkCore component="button" onClick={() => setShowCookieConsent(true)} className={classes.link}>
-          Change consent
+          Change cookie consent
         </LinkCore>
       </Breadcrumbs>
       <Logo className={classes.logo} />
