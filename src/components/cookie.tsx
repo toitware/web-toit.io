@@ -71,9 +71,10 @@ const handleAcceptCookie = () => {
 
 interface CookieProps {
   show: boolean;
+  callback: (show: boolean) => void;
 }
 
-export default function Cookie({ show }: CookieProps): JSX.Element {
+export default function Cookie({ show, callback }: CookieProps): JSX.Element {
   const classes = useStyles();
   const [isUserConsent, setUserConsent] = useState<boolean | null>(null);
   const [isPageLoaded, setPageLoaded] = useState<boolean>(false);
@@ -97,6 +98,11 @@ export default function Cookie({ show }: CookieProps): JSX.Element {
     });
     setUserConsent(true);
     setShowCookiesConsent(false);
+    typeof window &&
+      window.sessionStorage &&
+      window.sessionStorage.removeItem &&
+      window.sessionStorage.removeItem("disallow-cookies");
+    callback(false);
   };
 
   const handleDeclineCookie = () => {
@@ -125,6 +131,7 @@ export default function Cookie({ show }: CookieProps): JSX.Element {
   };
 
   useEffect(() => {
+    console.log("Show: ", show);
     handleCookies();
 
     if (Cookies.get("ToitUserID")) {
@@ -137,7 +144,7 @@ export default function Cookie({ show }: CookieProps): JSX.Element {
       handleDeclineCookie();
     }
     setPageLoaded(true);
-  }, [isUserConsent]);
+  }, [isUserConsent, show]);
   return (
     <>
       {!isUserSignedIn &&
@@ -146,6 +153,9 @@ export default function Cookie({ show }: CookieProps): JSX.Element {
         isPageLoaded &&
         (manageCookies ? (
           <Card className={classes.cookieConsentCard}>
+            <IconButton className={classes.exitButton} onClick={() => handleAcceptCookieUI()}>
+              <FiX />
+            </IconButton>
             <div className={classes.cookieConsentTextContent}>
               <Typography variant="h3">Change your cookie setting</Typography>
               <Typography>
@@ -197,6 +207,37 @@ export default function Cookie({ show }: CookieProps): JSX.Element {
             </div>
           </Card>
         ))}
+      {show && (
+        <Card className={classes.cookieConsentCard}>
+          <IconButton className={classes.exitButton} onClick={() => handleAcceptCookieUI()}>
+            <FiX />
+          </IconButton>
+          <div className={classes.cookieConsentTextContent}>
+            <Typography variant="h3">Change your cookie setting</Typography>
+            <Typography>
+              We use cookies to register the traffic on our website. The main purpose is to improve our website
+              performance and your experience of our website.{" "}
+            </Typography>
+
+            <Typography className={classes.lineSkip}>
+              Feel free to change it any time, by pressing either decline or accept below.
+            </Typography>
+          </div>
+          <div className={classes.buttons}>
+            <Button
+              size="medium"
+              variant="contained"
+              className={classes.button}
+              onClick={() => handleDeclineCookieUI()}
+            >
+              Decline
+            </Button>
+            <Button size="medium" variant="contained" className={classes.button} onClick={() => handleAcceptCookieUI()}>
+              Accept
+            </Button>
+          </div>
+        </Card>
+      )}
     </>
   );
 }

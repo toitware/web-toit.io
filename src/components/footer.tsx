@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    paddingTop: theme.spacing(4),
+    padding: theme.spacing(4),
     paddingBottom: theme.spacing(6),
   },
   link: {
@@ -28,11 +28,14 @@ const useStyles = makeStyles((theme: Theme) => ({
 export default function Footer(): JSX.Element {
   const classes = useStyles();
   const [showCookieConsent, setShowCookieConsent] = useState<boolean>(false);
+  const callbackSetCookieConsent = React.useCallback((show: boolean) => setShowCookieConsent(show), [
+    setShowCookieConsent,
+  ]);
 
   return (
     <div className={classes.container}>
       <ThemeProvider theme={secondaryTheme}>
-        <Cookie show={showCookieConsent} />
+        <Cookie show={showCookieConsent} callback={callbackSetCookieConsent} />
       </ThemeProvider>
       <Breadcrumbs aria-label="breadcrumb" separator="|" classes={{ separator: classes.link }}>
         <Link to="/terms-of-service" className={classes.link}>
@@ -44,8 +47,8 @@ export default function Footer(): JSX.Element {
         <Link to="/cookies-policy" className={classes.link}>
           Cookies policy
         </Link>
-        <LinkCore component="button" onClick={() => console.log("hey")} className={classes.link}>
-          Change cookie consent
+        <LinkCore component="button" onClick={() => setShowCookieConsent(true)} className={classes.link}>
+          Change consent
         </LinkCore>
       </Breadcrumbs>
       <Logo className={classes.logo} />
