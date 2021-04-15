@@ -4,8 +4,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
 import { components, shorthands } from "../mdx-components";
-import { darkBlueWhiteTheme, menuTheme, primaryBlue, primaryTheme, secondaryTheme } from "../theme";
-import Cookie from "./cookie";
+import { darkBlueWhiteTheme, menuTheme, primaryBlue, primaryTheme } from "../theme";
 import Footer from "./footer";
 import Header from "./header";
 import { SignUpProvider } from "./sign-up/context";
@@ -88,9 +87,6 @@ export default function Layout(props: LayoutProps): JSX.Element {
             </ThemeProvider>
           </SignUpProvider>
         </div>
-        <ThemeProvider theme={secondaryTheme}>
-          <Cookie />
-        </ThemeProvider>
       </ThemeProvider>
     </MDXProvider>
   );

@@ -1,7 +1,8 @@
-import { Button, Card, Link as LinkCore, makeStyles, Theme, Typography } from "@material-ui/core";
+import { Button, Card, IconButton, Link as LinkCore, makeStyles, Theme, Typography } from "@material-ui/core";
 import { Link } from "gatsby";
 import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
+import { FiX } from "react-icons/fi";
 
 const useStyles = makeStyles((theme: Theme) => ({
   button: {
@@ -27,6 +28,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     left: theme.spacing(2),
     zIndex: 10020,
     width: "calc(100% - 32px)",
+    overflow: "visible",
+  },
+  exitButton: {
+    position: "absolute",
+    top: -10,
+    right: -10,
   },
 }));
 
@@ -62,17 +69,22 @@ const handleAcceptCookie = () => {
   }
 };
 
-export default function Cookie(): JSX.Element {
+interface CookieProps {
+  show: boolean;
+  callback: (show: boolean) => void;
+}
+
+export default function Cookie({ show, callback }: CookieProps): JSX.Element {
   const classes = useStyles();
   const [isUserConsent, setUserConsent] = useState<boolean | null>(null);
   const [isPageLoaded, setPageLoaded] = useState<boolean>(false);
   const [isUserSignedIn, setUserSignedIn] = useState<boolean>(false);
   const [manageCookies, setManageCookies] = useState<boolean>(false);
   const [showCookieConsent, setShowCookiesConsent] = useState<boolean>(
-    Cookies.get("toit-cookies") === "true" ||
-      (typeof window !== "undefined" &&
-        window.sessionStorage &&
-        window.sessionStorage.getItem("disallow-cookies") === "true")
+    show
+      ? true
+      : Cookies.get("toit-cookies") === "true" ||
+        (typeof window !== "undefined" && window.sessionStorage?.getItem("disallow-cookies") === "true")
       ? false
       : true
   );
@@ -84,6 +96,9 @@ export default function Cookie(): JSX.Element {
     });
     setUserConsent(true);
     setShowCookiesConsent(false);
+    window.sessionStorage.removeItem && window?.sessionStorage?.removeItem("disallow-cookies");
+    callback(false);
+    window.location.reload();
   };
 
   const handleDeclineCookie = () => {
@@ -95,16 +110,13 @@ export default function Cookie(): JSX.Element {
   };
 
   const handleDeclineCookieUI = () => {
-    typeof window &&
-      window.sessionStorage &&
-      window.sessionStorage.setItem &&
-      window.sessionStorage.setItem("disallow-cookies", "true");
+    window.sessionStorage.setItem && window?.sessionStorage?.setItem("disallow-cookies", "true");
     handleDeclineCookie();
     window.location.reload();
   };
 
   const handleCookies = () => {
-    if (window && window.sessionStorage.getItem("disallow-cookies") === "true") {
+    if (window?.sessionStorage.getItem("disallow-cookies") === "true") {
       handleDeclineCookie();
     } else {
       handleAcceptCookie();
@@ -124,63 +136,61 @@ export default function Cookie(): JSX.Element {
       handleDeclineCookie();
     }
     setPageLoaded(true);
-  }, [isUserConsent]);
+  }, [isUserConsent, show]);
   return (
     <>
-      {!isUserSignedIn &&
-        showCookieConsent &&
-        !isUserConsent &&
-        isPageLoaded &&
-        (manageCookies ? (
-          <Card className={classes.cookieConsentCard}>
-            <div className={classes.cookieConsentTextContent}>
-              <Typography variant="h3">Change your cookie setting</Typography>
-              <Typography>
-                We use cookies to register the traffic on our website. The main purpose is to improve our website
-                performance and your experience of our website.{" "}
-              </Typography>
+      {((!isUserSignedIn && showCookieConsent && !isUserConsent && isPageLoaded && manageCookies) || show) && (
+        <Card className={classes.cookieConsentCard}>
+          <IconButton className={classes.exitButton} onClick={() => handleAcceptCookieUI()}>
+            <FiX />
+          </IconButton>
+          <div className={classes.cookieConsentTextContent}>
+            <Typography variant="h3">Change your cookie setting</Typography>
+            <Typography>
+              We use cookies to register the traffic on our website. The main purpose is to improve our website
+              performance and your experience of our website.{" "}
+            </Typography>
 
-              <Typography className={classes.lineSkip}>
-                Feel free to change it any time, by pressing either decline or accept below.
-              </Typography>
-            </div>
-            <div className={classes.buttons}>
-              <Button
-                size="medium"
-                variant="contained"
-                className={classes.button}
-                onClick={() => handleDeclineCookieUI()}
-              >
-                Decline
-              </Button>
-              <Button
-                size="medium"
-                variant="contained"
-                className={classes.button}
-                onClick={() => handleAcceptCookieUI()}
-              >
-                Accept
-              </Button>
-            </div>
-          </Card>
-        ) : (
-          <Card className={classes.cookieConsentCard}>
-            <div className={classes.cookieConsentTextContent}>
-              <Typography>
-                We use cookies to collect data to improve your user experience. By using our website, you&apos;re
-                agreeing to our{" "}
-                <Link to="/cookies-policy" className={classes.link}>
-                  cookies policy
-                </Link>
-                . You can change your{" "}
-                <LinkCore href="javascript:undefined;" onClick={() => setManageCookies(true)} className={classes.link}>
-                  preferences
-                </LinkCore>{" "}
-                at any time.
-              </Typography>
-            </div>
-          </Card>
-        ))}
+            <Typography className={classes.lineSkip}>
+              Feel free to change it any time, by pressing either decline or accept below.
+            </Typography>
+          </div>
+          <div className={classes.buttons}>
+            <Button
+              size="medium"
+              variant="contained"
+              className={classes.button}
+              onClick={() => handleDeclineCookieUI()}
+            >
+              Decline
+            </Button>
+            <Button size="medium" variant="contained" className={classes.button} onClick={() => handleAcceptCookieUI()}>
+              Accept
+            </Button>
+          </div>
+        </Card>
+      )}
+      {!isUserSignedIn && showCookieConsent && !isUserConsent && isPageLoaded && !manageCookies && (
+        <Card className={classes.cookieConsentCard}>
+          <IconButton className={classes.exitButton} onClick={() => handleAcceptCookieUI()}>
+            <FiX />
+          </IconButton>
+          <div className={classes.cookieConsentTextContent}>
+            <Typography>
+              We use cookies to collect data to improve your user experience. By using our website, you&apos;re agreeing
+              to our{" "}
+              <Link to="/cookies-policy" className={classes.link}>
+                cookies policy
+              </Link>
+              . You can change your{" "}
+              <LinkCore href="javascript:undefined;" onClick={() => setManageCookies(true)} className={classes.link}>
+                preferences
+              </LinkCore>{" "}
+              at any time.
+            </Typography>
+          </div>
+        </Card>
+      )}
     </>
   );
 }
