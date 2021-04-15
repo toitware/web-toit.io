@@ -1,14 +1,16 @@
-import { Breadcrumbs, makeStyles, Theme } from "@material-ui/core";
+import { Breadcrumbs, Link as LinkCore, makeStyles, Theme, ThemeProvider } from "@material-ui/core";
 import { Link } from "gatsby";
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../assets/images/toit-secondary.inline.svg";
+import { secondaryTheme } from "../theme";
+import Cookie from "./cookie";
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    paddingTop: theme.spacing(4),
+    padding: theme.spacing(4),
     paddingBottom: theme.spacing(6),
   },
   link: {
@@ -25,9 +27,16 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export default function Footer(): JSX.Element {
   const classes = useStyles();
+  const [showCookieConsent, setShowCookieConsent] = useState<boolean>(false);
+  const callbackSetCookieConsent = React.useCallback((show: boolean) => setShowCookieConsent(show), [
+    setShowCookieConsent,
+  ]);
 
   return (
     <div className={classes.container}>
+      <ThemeProvider theme={secondaryTheme}>
+        <Cookie show={showCookieConsent} callback={callbackSetCookieConsent} />
+      </ThemeProvider>
       <Breadcrumbs aria-label="breadcrumb" separator="|" classes={{ separator: classes.link }}>
         <Link to="/terms-of-service" className={classes.link}>
           Terms of service
@@ -38,6 +47,9 @@ export default function Footer(): JSX.Element {
         <Link to="/cookies-policy" className={classes.link}>
           Cookies policy
         </Link>
+        <LinkCore component="button" onClick={() => setShowCookieConsent(true)} className={classes.link}>
+          Change cookie consent
+        </LinkCore>
       </Breadcrumbs>
       <Logo className={classes.logo} />
     </div>
