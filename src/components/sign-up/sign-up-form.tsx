@@ -10,7 +10,7 @@ import {
   makeStyles,
   TextField,
   Theme,
-  Typography
+  Typography,
 } from "@material-ui/core";
 import { useFormik } from "formik";
 import { Link } from "gatsby";
@@ -83,7 +83,7 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: body,
-        credentials: 'same-origin',
+        credentials: "same-origin",
       });
       if (!response.ok) {
         throw Error(await response.text());
