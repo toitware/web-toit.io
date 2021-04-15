@@ -173,7 +173,7 @@ export default function Cookie(): JSX.Element {
                   cookies policy
                 </Link>
                 . You can change your{" "}
-                <LinkCore onClick={() => setManageCookies(true)} className={classes.link}>
+                <LinkCore href="javascript:undefined;" onClick={() => setManageCookies(true)} className={classes.link}>
                   preferences
                 </LinkCore>{" "}
                 at any time.
