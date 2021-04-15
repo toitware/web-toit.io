@@ -47,7 +47,7 @@ interface GraphType {
 
 interface LayoutProps {
   children: React.ReactNode;
-  pathContext: {
+  pageContext: {
     frontmatter: {
       title: string;
       path?: string;
@@ -68,7 +68,7 @@ export default function Layout(props: LayoutProps): JSX.Element {
     }
   `);
 
-  const pageTitle = props.pathContext.frontmatter.title;
+  const pageTitle = props.pageContext.frontmatter.title;
 
   const title = `${pageTitle ? `${pageTitle} - ` : ""}${data.site.siteMetadata?.title}`;
 
@@ -79,7 +79,7 @@ export default function Layout(props: LayoutProps): JSX.Element {
         <div className={classes.root}>
           <SignUpProvider>
             <ThemeProvider theme={menuTheme}>
-              <Header currentPath={props.pathContext.frontmatter.path} />
+              <Header currentPath={props.pageContext.frontmatter.path} />
             </ThemeProvider>
             <div className={classes.content}>{props.children}</div>
             <ThemeProvider theme={darkBlueWhiteTheme}>

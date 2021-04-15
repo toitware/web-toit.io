@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import React, { useState } from "react";
 import Logo from "../assets/images/toit-secondary.inline.svg";
 import { secondaryTheme } from "../theme";
-import Cookie from "./cookie";
+import Cookie from "@toitware/cookie-consent";
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
@@ -32,10 +32,18 @@ export default function Footer(): JSX.Element {
     setShowCookieConsent,
   ]);
 
+  let segmentAPIKey = process.env.GATSBY_SEGMENT_WRITE_KEY;
+
+  // Check if the meta segment-key is set.
+  const segmentKeyDOM = document.querySelector('meta[name="segment-key"]');
+  if (segmentKeyDOM) {
+    segmentAPIKey = segmentKeyDOM.getAttribute("content") || segmentAPIKey;
+  }
+
   return (
     <div className={classes.container}>
       <ThemeProvider theme={secondaryTheme}>
-        <Cookie show={showCookieConsent} callback={callbackSetCookieConsent} />
+        <Cookie segmentKey={segmentAPIKey || "no-key"} show={showCookieConsent} callback={callbackSetCookieConsent} />
       </ThemeProvider>
       <Breadcrumbs aria-label="breadcrumb" separator="|" classes={{ separator: classes.link }}>
         <Link to="/terms-of-service" className={classes.link}>
