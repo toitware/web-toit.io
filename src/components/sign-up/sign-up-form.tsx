@@ -83,6 +83,7 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: body,
+        credentials: "include",
       });
       if (!response.ok) {
         throw Error(await response.text());
