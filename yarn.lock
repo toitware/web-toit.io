@@ -1884,6 +1884,7 @@
   version "0.0.1"
   dependencies:
     js-cookie "^2.2.1"
+    react-icons "^4.1.0"
 
 "@toitware/testing-utils@^0.0.8":
   version "0.0.8"
@@ -11338,11 +11339,6 @@ react-cookie@^4.0.3:
     "@types/hoist-non-react-statics" "^3.0.1"
     hoist-non-react-statics "^3.0.0"
     universal-cookie "^4.0.0"
-
-react-cool-inview@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/react-cool-inview/-/react-cool-inview-2.0.3.tgz#1505be121ed2b88a26e403b651df82a6aca50f9f"
-  integrity sha512-Xs+co8MkTAXlDnukgTVCg1Kbs806dNFoHt03KarxEMfLStZrZN9hLJHRzLNXIqRtPm1KtwGOFU+9Y0Y+47Htrw==
 
 react-dev-utils@^11.0.3:
   version "11.0.4"
