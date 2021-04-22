@@ -1,7 +1,7 @@
-import { Breadcrumbs, Link as LinkCore, makeStyles, Theme } from "@material-ui/core";
+import { Breadcrumbs, Link as LinkCore, makeStyles, Theme, ThemeProvider } from "@material-ui/core";
+import CookieConsent from "@toitware/cookie-consent";
 import { Link } from "gatsby";
 import React, { useState } from "react";
-import CookieConsent from "../../../npm-packages/packages/cookie-consent/dist";
 import Logo from "../assets/images/toit-secondary.inline.svg";
 import { secondaryTheme } from "../theme";
 
@@ -42,12 +42,13 @@ export default function Footer(): JSX.Element {
 
   return (
     <div className={classes.container}>
-      <CookieConsent
-        segmentKey={segmentAPIKey || "no-key"}
-        show={showCookieConsent}
-        callback={callbackSetCookieConsent}
-        cookieTheme={secondaryTheme}
-      />
+      <ThemeProvider theme={secondaryTheme}>
+        <CookieConsent
+          segmentKey={segmentAPIKey || "no-key"}
+          show={showCookieConsent}
+          callback={callbackSetCookieConsent}
+        />
+      </ThemeProvider>
       <Breadcrumbs aria-label="breadcrumb" separator="|" classes={{ separator: classes.link }}>
         <Link to="/terms-of-service" className={classes.link}>
           Terms of service
