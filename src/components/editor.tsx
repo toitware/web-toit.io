@@ -1,8 +1,9 @@
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { UnControlled as CodeMirror } from "react-codemirror2";
-// import "../assets/code_mirror/toit";
+import useInView from "react-cool-inview";
+import "../assets/code_mirror/toit";
 
 enum EditorMode {
   Insert = 1,
@@ -135,30 +136,6 @@ function animateEditor(
 interface EditorProps {
   editor: string;
   terminal: TerminalLine[];
-}
-
-function useInView<T extends HTMLElement>({}): { ref: React.Ref<T>; inView: boolean } {
-  const [inView, setInView] = useState(false);
-  const ref = useRef<T>(null);
-
-  const options = {
-    root: null,
-    rootMargin: "0px",
-    threshhold: 0.25,
-  };
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      const [entry] = entries;
-      setInView(entry.isIntersecting);
-    }, options);
-
-    if (ref.current) observer.observe(ref.current);
-    return () => {
-      if (ref.current) observer.unobserve(ref.current);
-    };
-  }, [ref, options]);
-
-  return { inView, ref };
 }
 
 export default function Editor({ editor, terminal }: EditorProps): JSX.Element {
