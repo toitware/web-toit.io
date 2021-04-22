@@ -34,10 +34,12 @@ export default function Footer(): JSX.Element {
 
   let segmentAPIKey = process.env.GATSBY_SEGMENT_WRITE_KEY;
 
-  // Check if the meta segment-key is set.
-  const segmentKeyDOM = document.querySelector('meta[name="segment-key"]');
-  if (segmentKeyDOM) {
-    segmentAPIKey = segmentKeyDOM.getAttribute("content") || segmentAPIKey;
+  if (typeof document !== `undefined`) {
+    // Check if the meta segment-key is set.
+    const segmentKeyDOM = document.querySelector('meta[name="segment-key"]');
+    if (segmentKeyDOM) {
+      segmentAPIKey = segmentKeyDOM.getAttribute("content") || segmentAPIKey;
+    }
   }
 
   return (
