@@ -1,9 +1,9 @@
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
+import { StableClassNames } from "@toitware/testing-utils";
 import React from "react";
 import { primaryTheme } from "../../theme";
 import Block from "../block";
-import { StableClassNames } from "@toitware/testing-utils";
 
 describe("Block", () => {
   it("renders correctly", () => {

@@ -44,6 +44,7 @@ export default function Footer(): JSX.Element {
     <div className={classes.container}>
       <ThemeProvider theme={secondaryTheme}>
         <CookieConsent
+          cookieTheme={secondaryTheme}
           segmentKey={segmentAPIKey || "no-key"}
           show={showCookieConsent}
           callback={callbackSetCookieConsent}
