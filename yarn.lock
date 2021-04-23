@@ -11342,10 +11342,10 @@ react-cookie@^4.0.3:
     hoist-non-react-statics "^3.0.0"
     universal-cookie "^4.0.0"
 
-react-cool-inview@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/react-cool-inview/-/react-cool-inview-2.0.3.tgz#1505be121ed2b88a26e403b651df82a6aca50f9f"
-  integrity sha512-Xs+co8MkTAXlDnukgTVCg1Kbs806dNFoHt03KarxEMfLStZrZN9hLJHRzLNXIqRtPm1KtwGOFU+9Y0Y+47Htrw==
+react-cool-inview@^1.2.0:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/react-cool-inview/-/react-cool-inview-1.3.2.tgz#1e516d0178135614fb66e242f61a64a96b0be1c5"
+  integrity sha512-YH/3KMUdUZ8ZWxW1Dq52zPCKiWM9GtX2dI1Gzp5Wm6xZvmPG3p+xJsqO2eLQeDnCZwDi5mTzG2aHdYl49qu29Q==
 
 react-dev-utils@^11.0.3:
   version "11.0.4"
