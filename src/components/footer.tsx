@@ -27,10 +27,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export default function Footer(): JSX.Element {
   const classes = useStyles();
-  const [showCookieConsent, setShowCookieConsent] = useState<boolean>(false);
-  const callbackSetCookieConsent = React.useCallback((show: boolean) => setShowCookieConsent(show), [
-    setShowCookieConsent,
-  ]);
+  const [changeConsent, setChangeConsent] = useState<boolean>(false);
 
   let segmentAPIKey = process.env.GATSBY_SEGMENT_WRITE_KEY;
 
@@ -45,11 +42,7 @@ export default function Footer(): JSX.Element {
   return (
     <div className={classes.container}>
       <ThemeProvider theme={secondaryTheme}>
-        <CookieConsent
-          segmentKey={segmentAPIKey || "no-key"}
-          show={showCookieConsent}
-          callback={callbackSetCookieConsent}
-        />
+        <CookieConsent segmentKey={segmentAPIKey || "no-key"} show={true} changeConsent={changeConsent} />
       </ThemeProvider>
       <Breadcrumbs aria-label="breadcrumb" separator="|" classes={{ separator: classes.link }}>
         <Link to="/terms-of-service" className={classes.link}>
@@ -61,7 +54,7 @@ export default function Footer(): JSX.Element {
         <Link to="/cookies-policy" className={classes.link}>
           Cookies policy
         </Link>
-        <LinkCore component="button" onClick={() => setShowCookieConsent(true)} className={classes.link}>
+        <LinkCore component="button" onClick={() => setChangeConsent(true)} className={classes.link}>
           Change cookie consent
         </LinkCore>
       </Breadcrumbs>
