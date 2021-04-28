@@ -1,9 +1,9 @@
 import { Breadcrumbs, Link as LinkCore, makeStyles, Theme, ThemeProvider } from "@material-ui/core";
+import CookieConsent from "@toitware/cookie-consent";
 import { Link } from "gatsby";
 import React, { useState } from "react";
 import Logo from "../assets/images/toit-secondary.inline.svg";
 import { secondaryTheme } from "../theme";
-import Cookie from "./cookie";
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
@@ -27,15 +27,21 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export default function Footer(): JSX.Element {
   const classes = useStyles();
-  const [showCookieConsent, setShowCookieConsent] = useState<boolean>(false);
-  const callbackSetCookieConsent = React.useCallback((show: boolean) => setShowCookieConsent(show), [
-    setShowCookieConsent,
-  ]);
+  const [changeConsent, setChangeConsent] = useState<boolean>(false);
+  let segmentAPIKey = process.env.GATSBY_SEGMENT_WRITE_KEY;
+
+  if (typeof document !== `undefined`) {
+    // Check if the meta segment-key is set.
+    const segmentKeyDOM = document.querySelector('meta[name="segment-key"]');
+    if (segmentKeyDOM) {
+      segmentAPIKey = segmentKeyDOM.getAttribute("content") || segmentAPIKey;
+    }
+  }
 
   return (
     <div className={classes.container}>
       <ThemeProvider theme={secondaryTheme}>
-        <Cookie show={showCookieConsent} callback={callbackSetCookieConsent} />
+        <CookieConsent show={true} segmentKey={segmentAPIKey || "no-key"} changeConsent={changeConsent} />
       </ThemeProvider>
       <Breadcrumbs aria-label="breadcrumb" separator="|" classes={{ separator: classes.link }}>
         <Link to="/terms-of-service" className={classes.link}>
@@ -47,7 +53,7 @@ export default function Footer(): JSX.Element {
         <Link to="/cookies-policy" className={classes.link}>
           Cookies policy
         </Link>
-        <LinkCore component="button" onClick={() => setShowCookieConsent(true)} className={classes.link}>
+        <LinkCore component="button" onClick={() => setChangeConsent(true)} className={classes.link}>
           Change cookie consent
         </LinkCore>
       </Breadcrumbs>
