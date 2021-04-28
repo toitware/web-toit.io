@@ -28,8 +28,24 @@ declare module "*/content/menu.yaml" {
   export default content;
 }
 
+namespace Reddit {
+  export interface RedditPixelAnalytics {
+    use(plugin: (reddit: RedditPixelAnalytics) => void): this;
+
+    rdt(type: string, ...args: any): void;
+  }
+}
+
+declare let reddit: Reddit.RedditPixelAnalytics;
+
+declare module "@reddit/analytics" {
+  let reddit: Reddit.RedditPixelAnalytics;
+  export default reddit;
+}
+
 declare global {
   interface Window {
     analytics: SegmentAnalytics.AnalyticsJS;
+    reddit: Reddit.RedditPixel;
   }
 }

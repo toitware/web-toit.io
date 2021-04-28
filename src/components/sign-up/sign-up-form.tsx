@@ -99,7 +99,11 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
       setIsSending(false);
     } finally {
       if (error !== "") analytics.track("Signup Form Failed", { values, error: error });
-      else analytics.track("Signup Form Succeeded", values);
+      else {
+        analytics.track("Signup Form Succeeded", values);
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+        reddit.rdt("track", values);
+      }
     }
   }
 
