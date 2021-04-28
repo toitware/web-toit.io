@@ -28,7 +28,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 export default function Footer(): JSX.Element {
   const classes = useStyles();
   const [changeConsent, setChangeConsent] = useState<boolean>(false);
-  let segmentAPIKey = "";
+  let segmentAPIKey = process.env.GATSBY_SEGMENT_WRITE_KEY;
+
   if (typeof document !== `undefined`) {
     // Check if the meta segment-key is set.
     const segmentKeyDOM = document.querySelector('meta[name="segment-key"]');
