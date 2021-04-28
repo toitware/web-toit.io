@@ -2009,6 +2009,14 @@
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^7.28.1"
 
+"@toitware/cookie-consent@^0.1.1":
+  version "0.1.1"
+  resolved "https://npm.pkg.github.com/download/@toitware/cookie-consent/0.1.1/d72b6fa75181c9c32b2e9b490010e4b8cb1d69ff27f9ae94cd651e001ad02064#539342100c34e961129f9495a003fabfff3e90b6"
+  integrity sha512-ciRHuz93Qa8AMKH4QROgBAv4rENgxZz0FJ+zMpBsWI9SULjuDzzndawKtNwY3GuZKpkO8sBMWBNlJte4CSPQ/g==
+  dependencies:
+    js-cookie "^2.2.1"
+    react-icons "^4.1.0"
+
 "@toitware/testing-utils@^0.0.8":
   version "0.0.8"
   resolved "https://npm.pkg.github.com/download/@toitware/testing-utils/0.0.8/24fef56a34809b99da029820a5108f8ad72b09eff8005d4826405050169ae4f0#47193c06dcec58e5feffa5aefc53776145ddf2fb"
