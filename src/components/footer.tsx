@@ -4,6 +4,7 @@ import { Link } from "gatsby";
 import React, { useState } from "react";
 import Logo from "../assets/images/toit-secondary.inline.svg";
 import { secondaryTheme } from "../theme";
+import redditSnippetLoader from "./gatsby-ssr";
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
@@ -41,7 +42,12 @@ export default function Footer(): JSX.Element {
   return (
     <div className={classes.container}>
       <ThemeProvider theme={secondaryTheme}>
-        <CookieConsent show={true} segmentKey={segmentAPIKey || "no-key"} changeConsent={changeConsent} />
+        <CookieConsent
+          show={true}
+          segmentKey={segmentAPIKey || "no-key"}
+          changeConsent={changeConsent}
+          onAnalyticsReady={() => redditSnippetLoader("t2_brvtmsx5")}
+        />
       </ThemeProvider>
       <Breadcrumbs aria-label="breadcrumb" separator="|" classes={{ separator: classes.link }}>
         <Link to="/terms-of-service" className={classes.link}>
