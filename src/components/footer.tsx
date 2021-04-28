@@ -2,7 +2,6 @@ import { Breadcrumbs, Link as LinkCore, makeStyles, Theme, ThemeProvider } from 
 import CookieConsent from "@toitware/cookie-consent";
 import { Link } from "gatsby";
 import React, { useState } from "react";
-import redditSnippetLoader from "../../gatsby-ssr";
 import Logo from "../assets/images/toit-secondary.inline.svg";
 import { secondaryTheme } from "../theme";
 
@@ -46,7 +45,7 @@ export default function Footer(): JSX.Element {
           show={true}
           segmentKey={segmentAPIKey || "no-key"}
           changeConsent={changeConsent}
-          onAnalyticsReady={() => redditSnippetLoader.onRenderBody("t2_brvtmsx5")}
+          onAnalyticsReady={() => redditSnippetLoader("t2_brvtmsx5")}
         />
       </ThemeProvider>
       <Breadcrumbs aria-label="breadcrumb" separator="|" classes={{ separator: classes.link }}>

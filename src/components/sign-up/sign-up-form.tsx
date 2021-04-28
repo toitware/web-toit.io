@@ -101,7 +101,12 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
       if (error !== "") analytics.track("Signup Form Failed", { values, error: error });
       else {
         analytics.track("Signup Form Succeeded", values);
-        reddit.rdt("track", values);
+        analytics.on("track", (event) => {
+          rdt("track", event);
+        });
+        analytics.on("page", (event) => {
+          rdt("page", event);
+        });
       }
     }
   }
