@@ -1,5 +1,10 @@
+"use strict";
 // Import React so that you can use JSX in HeadComponents
-const React = require("react");
+const React = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 
 const HeadComponents = [<meta name="segment-key" content="" key="segment-key" />];
 
@@ -10,13 +15,9 @@ exports.onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }) => {
   replaceHeadComponents(headComponents);
 };
 
-("use strict");
-
 var _react = require("react");
 var _react2 = _interopRequireDefault(_react);
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
-}
+
 exports.onRenderBody = function (_ref) {
   var setHeadComponents = _ref.setHeadComponents;
   var snippet =
@@ -26,7 +27,7 @@ exports.onRenderBody = function (_ref) {
     snippet +
     "\n      rdt('init',id);\n      if (callback) callback();\n    }\n  }\n";
   setHeadComponents([
-    _react2.default.createElement("script", {
+    React.default.createElement("script", {
       key: "reddit-pixel",
       dangerouslySetInnerHTML: { __html: delayedLoader },
     }),
