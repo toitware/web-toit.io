@@ -38,11 +38,6 @@ namespace Reddit {
 
 declare let reddit: Reddit.RedditPixelAnalytics;
 
-declare module "@reddit/analytics" {
-  let reddit: Reddit.RedditPixelAnalytics;
-  export default reddit;
-}
-
 declare global {
   interface Window {
     analytics: SegmentAnalytics.AnalyticsJS;
