@@ -98,8 +98,13 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
       setError(error);
       setIsSending(false);
     } finally {
-      if (error !== "") analytics.track("Signup Form Failed", { values, error: error });
-      else analytics.track("Signup Form Succeeded", values);
+      if (error !== "") {
+        analytics.track("Signup Form Failed", { values, error: error });
+      } else {
+        analytics.track("Signup Form Succeeded", values);
+        analytics.track("StartTrial", {}, { integrations: { All: false, "Facebook Pixel": true } });
+        analytics.track("SignUp", {}, { integrations: { All: false, Reddit: true } });
+      }
     }
   }
 
