@@ -2,6 +2,7 @@ import { Breadcrumbs, Link as LinkCore, makeStyles, Theme, ThemeProvider } from 
 import CookieConsent from "@toitware/cookie-consent";
 import { Link } from "gatsby";
 import React, { useState } from "react";
+
 import Logo from "../assets/images/toit-secondary.inline.svg";
 import { secondaryTheme } from "../theme";
 
@@ -37,11 +38,32 @@ export default function Footer(): JSX.Element {
       segmentAPIKey = segmentKeyDOM.getAttribute("content") || segmentAPIKey;
     }
   }
+  // Redirect to analytics requests to reddit.
+  const forReddit = (options: SegmentAnalytics.SegmentOpts): boolean => {
+    const integrations = options.integrations as { Reddit?: boolean } | undefined;
+    return !!(integrations && integrations.Reddit);
+  };
+
+  if (typeof window !== "undefined") {
+    analytics.on("track", (event, properties, options) => {
+      if (forReddit(options)) {
+        window.rdt("track", event);
+      }
+    });
+    analytics.on("page", () => {
+      window.rdt("track", "PageVisit");
+    });
+  }
 
   return (
     <div className={classes.container}>
       <ThemeProvider theme={secondaryTheme}>
-        <CookieConsent show={true} segmentKey={segmentAPIKey || "no-key"} changeConsent={changeConsent} />
+        <CookieConsent
+          show={true}
+          segmentKey={segmentAPIKey || "no-key"}
+          changeConsent={changeConsent}
+          onAnalyticsReady={() => window.redditSnippetLoader("t2_brvtmsx5")}
+        />
       </ThemeProvider>
       <Breadcrumbs aria-label="breadcrumb" separator="|" classes={{ separator: classes.link }}>
         <Link to="/terms-of-service" className={classes.link}>

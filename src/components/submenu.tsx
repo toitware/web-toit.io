@@ -1,6 +1,7 @@
 import { Breadcrumbs, makeStyles, Theme } from "@material-ui/core";
 import { Link } from "gatsby";
 import React from "react";
+
 import { SubmenuItem } from "../content/menu.yaml";
 
 const useStyles = makeStyles((theme: Theme) => ({
