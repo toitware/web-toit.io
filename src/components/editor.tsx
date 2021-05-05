@@ -139,7 +139,7 @@ interface EditorProps {
 }
 
 export default function Editor({ editor, terminal }: EditorProps): JSX.Element {
-  const { ref, inView } = useInView<HTMLDivElement>({
+  const { inView } = useInView<HTMLDivElement>({
     threshold: 0.25,
   });
 
@@ -173,7 +173,7 @@ export default function Editor({ editor, terminal }: EditorProps): JSX.Element {
   }, []);
 
   return (
-    <div ref={ref} className="codeSample">
+    <div className="codeSample">
       <div className="editor">
         <CodeMirror
           value={state.EditorContent}

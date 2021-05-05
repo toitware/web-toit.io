@@ -3,6 +3,25 @@ import Color from "color";
 
 const defaultSpacing = 8;
 
+export const white = Color("#fff");
+
+export const black = Color("#000");
+export const passion = Color("#FF8484");
+export const golden = Color("#FAC864");
+export const dart = Color("#5E6FDB");
+export const python = Color("#53978E");
+export const tiger = Color("#53978E");
+
+export const blackSecondary = black.alpha(0.3);
+export const passionSecondary = passion.alpha(0.6);
+export const goldenSecondary = golden.alpha(0.5);
+export const dartSecondary = dart.alpha(0.5);
+export const pythonSecondary = python.alpha(0.4);
+export const tigerSecondary = tiger.alpha(0.5);
+
+export const errorColor = Color("#f00");
+export const successColor = Color("#0f0");
+
 // The color definitions provided by our corporate identity.
 export const primaryRed = Color.hsl(0, 100, 76);
 export const primaryBlue = Color.hsl(213, 29, 30);
@@ -18,6 +37,16 @@ export const secondaryBlack = Color.hsl(0, 0, 16);
 export const secondaryRed = Color.hsl(0, 100, 70);
 export const primaryGreen = Color.hsl(109, 100, 32);
 export const secondaryGreen = Color.hsl(135, 65, 33);
+
+// The different themes used throughout the website.
+export const blackTheme = createTheme({
+  type: "dark",
+  background: black,
+  text: white,
+  errorColor: errorColor,
+  primary: Color("white"),
+  primaryContrast: primaryRed,
+});
 
 // The different themes used throughout the website.
 export const pinkWhiteTheme = createTheme({

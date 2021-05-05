@@ -1,33 +1,99 @@
-import { Breadcrumbs, Link as LinkCore, makeStyles, Theme, ThemeProvider } from "@material-ui/core";
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+import { ThemeProvider } from "@material-ui/styles";
 import CookieConsent from "@toitware/cookie-consent";
-import { Link } from "gatsby";
+import { Link } from "./link";
 import React, { useState } from "react";
-import Logo from "../assets/images/toit-secondary.inline.svg";
-import { secondaryTheme } from "../theme";
+import ToitLogo from "../assets/images/toit-logo.inline.svg";
+import LinkedInIcon from "../assets/images/social/linked-in.inline.svg";
+import RedditIcon from "../assets/images/social/reddit.inline.svg";
+import TwitterIcon from "../assets/images/social/twitter.inline.svg";
 
-const useStyles = makeStyles((theme: Theme) => ({
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: theme.spacing(4),
-    paddingBottom: theme.spacing(6),
-  },
-  link: {
-    color: theme.palette.text.primary,
-    textDecoration: "none",
-    fontSize: "0.875rem",
-  },
-  logo: {
-    marginTop: theme.spacing(6),
-    height: "2rem",
-    fill: "rgba(255, 255, 255, 0.3)",
-  },
-}));
+import { black, secondaryTheme, white } from "../theme";
+import { breakpoints, contentWidth } from "./global-css";
+
+const Root = styled.footer`
+  width: 100%;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background: ${black.string()};
+  color: ${white.string()};
+  ${contentWidth}
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 1.5rem;
+  grid-template-areas:
+    "contact   contact"
+    "product   developers"
+    "company   legal"
+    "copyright copyright"
+    "design    design";
+
+  ${breakpoints.small} {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas:
+      "contact   product   developers company legal"
+      "contact   product   developers company legal"
+      "contact   product   developers company legal"
+      "copyright copyright copyright  design  design";
+  }
+`;
+
+const Contact = styled.div`
+  grid-area: contact;
+`;
+
+const navStyles = css`
+  header {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  ul,
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    margin: 1.5rem 0;
+  }
+`;
+
+const Product = styled.div`
+  grid-area: product;
+  ${navStyles}
+`;
+const Developers = styled.div`
+  grid-area: developers;
+  ${navStyles}
+`;
+const Company = styled.div`
+  grid-area: company;
+  ${navStyles}
+`;
+const Legal = styled.div`
+  grid-area: legal;
+  ${navStyles}
+`;
+
+const Copyright = styled.div`
+  grid-area: copyright;
+  padding-top: 6rem;
+  font-size: 0.875rem;
+`;
+const Design = styled.div`
+  grid-area: design;
+  font-size: 0.875rem;
+  ${breakpoints.small} {
+    align-self: end;
+    justify-self: end;
+  }
+`;
 
 export default function Footer(): JSX.Element {
-  const classes = useStyles();
-  const [changeConsent, setChangeConsent] = useState<boolean>(false);
+  const [changeConsent] = useState<boolean>(false);
 
   let segmentAPIKey = process.env.GATSBY_SEGMENT_WRITE_KEY;
 
@@ -40,25 +106,81 @@ export default function Footer(): JSX.Element {
   }
 
   return (
-    <div className={classes.container}>
+    <>
       <ThemeProvider theme={secondaryTheme}>
         <CookieConsent segmentKey={segmentAPIKey || "no-key"} show={true} changeConsent={changeConsent} />
       </ThemeProvider>
-      <Breadcrumbs aria-label="breadcrumb" separator="|" classes={{ separator: classes.link }}>
-        <Link to="/terms-of-service" className={classes.link}>
-          Terms of service
-        </Link>
-        <Link to="/privacy-policy" className={classes.link}>
-          Privacy policy
-        </Link>
-        <Link to="/cookies-policy" className={classes.link}>
-          Cookies policy
-        </Link>
-        <LinkCore component="button" onClick={() => setChangeConsent(true)} className={classes.link}>
-          Change cookie consent
-        </LinkCore>
-      </Breadcrumbs>
-      <Logo className={classes.logo} />
-    </div>
+      <Root>
+        <Contact>
+          <ToitLogo
+            css={css`
+              height: 1.5rem;
+              width: auto;
+              margin-right: 8rem;
+              margin-bottom: 1.5rem;
+              path {
+                fill: currentColor;
+              }
+            `}
+          />
+          <br />
+          <Link href="mailto:contact@toit.io">Contact us</Link>
+          <br />
+          <div
+            css={css`
+              margin-top: 1.5rem;
+              a {
+                margin-right: 0.5rem;
+              }
+            `}
+          >
+            <Link href="https://twitter.com/toitware">
+              <TwitterIcon />
+            </Link>
+            <Link href="https://www.linkedin.com/company/toitio">
+              <LinkedInIcon />
+            </Link>
+            <Link href="https://www.reddit.com/user/toit-io">
+              <RedditIcon />
+            </Link>
+          </div>
+        </Contact>
+        <Product>
+          <header>Product</header>
+          <ul>
+            <li>Devices</li>
+            <li>Cloud</li>
+          </ul>
+        </Product>
+        <Developers>
+          <header>Developers</header>
+          <ul>
+            <li>Documentation</li>
+            <li>API</li>
+          </ul>
+        </Developers>
+        <Company>
+          <header>Company</header>
+          <ul>
+            <li>About</li>
+            <li>Blog</li>
+            <li>FAQ</li>
+          </ul>
+        </Company>
+        <Legal>
+          <header>Legal</header>
+          <ul>
+            <li>Terms of service</li>
+            <li>Privacy policy</li>
+            <li>Cookies policy</li>
+            <li>Cookie consent</li>
+          </ul>
+        </Legal>
+        <Copyright>&copy; Toitware ApS. 2021.</Copyright>
+        <Design>
+          Design by <Link href="https://jacktheobald.com/">Jack Theobald</Link>
+        </Design>
+      </Root>
+    </>
   );
 }

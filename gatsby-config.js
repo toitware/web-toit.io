@@ -17,6 +17,7 @@ module.exports = {
     "gatsby-plugin-sitemap",
     "gatsby-plugin-typescript-checker",
     "gatsby-plugin-material-ui",
+    "gatsby-plugin-emotion",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
