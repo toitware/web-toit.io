@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 
   display: flex;
 
-  padding: 2% 4%;
+  padding: max(2%, 0.5rem) max(0.5rem, 4%);
 
   &:nth-child(even) {
     align-self: flex-end;

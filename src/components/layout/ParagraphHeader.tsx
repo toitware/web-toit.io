@@ -1,12 +1,14 @@
 import styled from "@emotion/styled";
 import React, { ReactNode } from "react";
+import { breakpoints } from "../global-css";
 
-const Wrapper = styled.section`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  gap: 1.5rem;
+const Wrapper = styled.div`
   padding-top: 3rem;
   padding-bottom: 3rem;
+
+  ${breakpoints.small} {
+    display: flex;
+  }
 
   text-align: left;
 
@@ -14,6 +16,11 @@ const Wrapper = styled.section`
 `;
 
 const Titles = styled.div`
+  flex: 1;
+  margin-bottom: 1.5rem;
+  ${breakpoints.medium} {
+    margin-right: 1.5rem;
+  }
   h1,
   h3 {
     margin: 0;
@@ -25,7 +32,9 @@ const Titles = styled.div`
   }
 `;
 
-const Paragraph = styled.div``;
+const Paragraph = styled.div`
+  flex: 1;
+`;
 
 type ParagraphHeaderProps = {
   title: string;
