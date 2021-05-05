@@ -1,14 +1,7 @@
 import styled from "@emotion/styled";
 import React, { ReactNode } from "react";
-import { sidePadding } from "../global-css";
 
 const Wrapper = styled.section`
-  margin: 0 auto;
-  // We want the content to have a specific width, regardless of the padding
-  box-sizing: content-box;
-  max-width: 1080px;
-  ${sidePadding}
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: 1.5rem;

@@ -7,6 +7,8 @@ import KeysSvg from "../assets/images/illustrations/keys.svg";
 import ThermostatSvg from "../assets/images/illustrations/thermostat.svg";
 import ControlCenterSvg from "../assets/images/illustrations/control-center.svg";
 import SymbolsSvg from "../assets/images/illustrations/symbols.svg";
+import RobustSandboxingSvg from "../assets/images/icons/robust-sandboxing.inline.svg";
+import SecureCommunicationsSvg from "../assets/images/icons/secure-communications.inline.svg";
 import WeatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
 import ConsoleSvg from "../assets/images/console.svg";
 import { breakpoints } from "../components/global-css";
@@ -16,8 +18,9 @@ import SideBySide from "../components/layout/SideBySide";
 import { black, golden, white } from "../theme";
 import Button, { ButtonLink } from "../components/button";
 import CenteredBlock from "../components/layout/CenteredBlock";
+import FeatureBox, { FeaturesContainer } from "../components/FeatureBox";
 
-const Hero = styled.div`
+const Hero = styled.section`
   min-height: 30rem;
   background: ${golden.string()};
   padding-top: 4.5rem;
@@ -48,21 +51,16 @@ const Hero = styled.div`
   }
 `;
 
-const Section = styled.div`
+const Section = styled.section`
   min-height: 30rem;
   padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
   text-align: center;
-  h1 {
-    display: block;
-    max-width: 14em;
-    margin: 3rem auto;
-  }
-  .content {
-    max-width: 24em;
-  }
+  padding-left: max(var(--contentPadding), calc((100vw - var(--maxContentWidth)) / 2));
+  padding-right: max(var(--contentPadding), calc((100vw - var(--maxContentWidth)) / 2));
 `;
 
-const h1 = styled.h1`
+const H1 = styled.h1`
   display: block;
   max-width: 14em;
   margin: 3rem 0;
@@ -85,7 +83,7 @@ export function IndexPage(): JSX.Element {
           border-bottom: 2px solid ${black.string()};
         `}
       >
-        <h1>The best software platform for IoT</h1>
+        <H1>The best software platform for IoT</H1>
         <hr />
         <p>We make it as easy to create software for microcontrollers as it is to build a mobile app.</p>
         <p>
@@ -93,7 +91,7 @@ export function IndexPage(): JSX.Element {
         </p>
       </Hero>
       <Section>
-        <h1 className="centered">Continuous firmware delivery</h1>
+        <H1 className="centered">Continuous firmware delivery</H1>
         <SideBySide illustration={GreenhouseSvg}>
           <p>
             Continuously update the code on your microcontrollers even over cellular connections. Monitor and securely
@@ -112,11 +110,31 @@ export function IndexPage(): JSX.Element {
           Write your applications in our high-level, memory-safe language and let our battery-optimized virtual machine
           execute them efficiently on your microcontrollers. Fast to develop, safe to run.
         </ParagraphHeader>
-        <img src={BeltSvg} />
+
+        <div
+          css={css`
+            text-align: center;
+            box-sizing: content-box;
+            max-width: var(--maxContentWidth);
+            margin: 0 auto;
+            padding: 1.5rem var(--contentPadding);
+          `}
+        >
+          <img src={BeltSvg} />
+
+          <FeaturesContainer>
+            <FeatureBox title="Robust sandboxing" icon={<RobustSandboxingSvg />}>
+              Your applications run isolated from the system, and each other, on the devices.
+            </FeatureBox>
+            <FeatureBox title="Secure communications" icon={<SecureCommunicationsSvg />}>
+              Communicate with our cloud through a simple API, we take care of the rest.
+            </FeatureBox>
+          </FeaturesContainer>
+        </div>
       </Section>
       <Section>
         <SideBySide illustration={KeysSvg}>
-          <h1>Keep your keys</h1>
+          <H1>Keep your keys</H1>
           <p>
             You own your data and you get to store it wherever you want. We help you get your data to and from your
             devices. It is as simple as that.
@@ -128,15 +146,7 @@ export function IndexPage(): JSX.Element {
         </SideBySide>
         <SideBySide
           illustration={
-            <video
-              muted
-              autoPlay
-              loop
-              playsInline
-              css={css`
-                max-width: 100%;
-              `}
-            >
+            <video muted autoPlay loop playsInline>
               <source src={WeatherBalloonMp4} type="video/mp4" />
             </video>
           }
@@ -184,7 +194,7 @@ export function IndexPage(): JSX.Element {
         `}
       >
         <CenteredBlock>
-          <h1>Built for software developers</h1>
+          <H1>Built for software developers</H1>
           <p>
             If you have ever tried to write code for microcontrollers you know that it’s not a nice experience. You code
             in C, and a simple code change takes minutes to re-deploy.
@@ -219,7 +229,7 @@ export function IndexPage(): JSX.Element {
       </Section>
 
       <Section>
-        <h1>Ready to get started?</h1>
+        <H1>Ready to get started?</H1>
         <p>Sign up for our platform and start your journey to invent the future.</p>
       </Section>
     </Layout>

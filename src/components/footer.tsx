@@ -2,23 +2,22 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { ThemeProvider } from "@material-ui/styles";
 import CookieConsent from "@toitware/cookie-consent";
-import { Link } from "./link";
 import React, { useState } from "react";
-import ToitLogo from "../assets/images/toit-logo.inline.svg";
 import LinkedInIcon from "../assets/images/social/linked-in.inline.svg";
 import RedditIcon from "../assets/images/social/reddit.inline.svg";
 import TwitterIcon from "../assets/images/social/twitter.inline.svg";
-
+import ToitLogo from "../assets/images/toit-logo.inline.svg";
 import { black, secondaryTheme, white } from "../theme";
-import { breakpoints, contentWidth } from "./global-css";
+import { breakpoints } from "./global-css";
+import { Link } from "./link";
 
 const Root = styled.footer`
   width: 100%;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  margin: 0 auto;
+  max-width: var(--maxPageWidth);
+  padding: 3rem var(--contentPadding);
   background: ${black.string()};
   color: ${white.string()};
-  ${contentWidth}
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);

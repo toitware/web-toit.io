@@ -1,32 +1,38 @@
 import styled from "@emotion/styled";
 import React, { ReactNode } from "react";
-import { sidePadding } from "../global-css";
+import { breakpoints } from "../global-css";
 
 const Wrapper = styled.section`
-  margin: 0 auto;
-  // We want the content to have a specific width, regardless of the padding
-  box-sizing: content-box;
-  max-width: 1080px;
-  ${sidePadding}
-
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  gap: 4.5rem;
+  justify-content: center;
   padding-top: 3rem;
   padding-bottom: 3rem;
+
+  ${breakpoints.small} {
+    grid-template-columns: 1fr 1fr;
+    gap: 4.5rem;
+  }
 `;
 
 const Content = styled.div`
-  max-width: 28rem;
+  max-width: 32rem;
   text-align: left;
 `;
 
 const Illustration = styled.div`
-  img {
-    max-width: 100%;
+  img,
+  video {
+    width: 100%;
+    max-width: 24rem;
+    ${breakpoints.medium} {
+      max-width: none;
+    }
   }
-  &.left {
-    grid-row: 1;
+
+  ${breakpoints.small} {
+    &.left {
+      grid-row: 1;
+    }
   }
 `;
 

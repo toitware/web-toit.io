@@ -8,26 +8,6 @@ export const breakpoints = {
   large: `@media (min-width: 1200px)`,
 };
 
-export const sidePadding = css`
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-
-  ${breakpoints.small} {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
-  ${breakpoints.medium} {
-    padding-left: 4.5rem;
-    padding-right: 4.5rem;
-  }
-`;
-
-export const contentWidth = css`
-  margin: 0 auto;
-  max-width: 1440px;
-  ${sidePadding}
-`;
-
 export function GlobalCss(): JSX.Element {
   return (
     <Global
@@ -36,6 +16,17 @@ export function GlobalCss(): JSX.Element {
           box-sizing: border-box;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
+        }
+        :root {
+          --maxPageWidth: 1440px;
+          --maxContentWidth: 1080px;
+          --contentPadding: 1.5rem;
+          ${breakpoints.small} {
+            --contentPadding: 3rem;
+          }
+          ${breakpoints.medium} {
+            --contentPadding: 4.5rem;
+          }
         }
         html {
           // Make sure the scrollbar is always visible (on the devices that don't

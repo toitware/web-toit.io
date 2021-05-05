@@ -5,7 +5,6 @@ import ToitLogo from "../assets/images/toit-logo.inline.svg";
 import menu from "../content/menu.yaml";
 import { white } from "../theme";
 import Button from "./button";
-import { contentWidth } from "./global-css";
 
 const Container = styled.header`
   position: fixed;
@@ -20,7 +19,10 @@ const Container = styled.header`
 `;
 
 const Content = styled.div`
-  ${contentWidth}
+  margin: 0 auto;
+  max-width: var(--maxPageWidth);
+  padding: 0 var(--contentPadding);
+
   display: flex;
   height: 4.5rem;
   align-items: center;
