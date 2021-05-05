@@ -1,10 +1,16 @@
-import { Breadcrumbs, Link as LinkCore, makeStyles, Theme, ThemeProvider } from "@material-ui/core";
-import CookieConsent from "@toitware/cookie-consent";
-import { Link } from "gatsby";
-import React, { useState } from "react";
+import { Breadcrumbs, Link as LinkCore, makeStyles, Theme, ThemeProvider } from '@material-ui/core';
+import CookieConsent from '@toitware/cookie-consent';
+import { Link } from 'gatsby';
+import React, { useState } from 'react';
 
-import Logo from "../assets/images/toit-secondary.inline.svg";
-import { secondaryTheme } from "../theme";
+import Logo from '../assets/images/toit-secondary.inline.svg';
+import { secondaryTheme } from '../theme';
+
+
+
+
+
+
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
@@ -44,14 +50,16 @@ export default function Footer(): JSX.Element {
     return !!(integrations && integrations.Reddit);
   };
 
-  analytics.on("track", (event, properties, options) => {
-    if (forReddit(options)) {
-      window.rdt("track", event);
-    }
-  });
-  analytics.on("page", () => {
-    window.rdt("track", "PageVisit");
-  });
+  if (typeof window !== "undefined") {
+    analytics.on("track", (event, properties, options) => {
+      if (forReddit(options)) {
+        window.rdt("track", event);
+      }
+    });
+    analytics.on("page", () => {
+      window.rdt("track", "PageVisit");
+    });
+  }
 
   return (
     <div className={classes.container}>
