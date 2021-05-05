@@ -1,16 +1,10 @@
-import { Breadcrumbs, Link as LinkCore, makeStyles, Theme, ThemeProvider } from '@material-ui/core';
-import CookieConsent from '@toitware/cookie-consent';
-import { Link } from 'gatsby';
-import React, { useState } from 'react';
+import { Breadcrumbs, Link as LinkCore, makeStyles, Theme, ThemeProvider } from "@material-ui/core";
+import CookieConsent from "@toitware/cookie-consent";
+import { Link } from "gatsby";
+import React, { useState } from "react";
 
-import Logo from '../assets/images/toit-secondary.inline.svg';
-import { secondaryTheme } from '../theme';
-
-
-
-
-
-
+import Logo from "../assets/images/toit-secondary.inline.svg";
+import { secondaryTheme } from "../theme";
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
