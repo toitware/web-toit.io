@@ -16,14 +16,14 @@ const setupRedditTracking = () => {
   }
   RedditTrackingSetup = true;
   // Redirect to analytics requests to reddit.
-  const forReddit = (options: SegmentAnalytics.SegmentOpts): boolean => {
-    const integrations = options.integrations as { Reddit?: boolean } | undefined;
+  const forReddit = (options?: SegmentAnalytics.SegmentOpts): boolean => {
+    const integrations = options && (options.integrations as { Reddit?: boolean } | undefined);
     return !!(integrations && integrations.Reddit);
   };
 
   if (typeof window !== "undefined") {
     analytics.on("track", (event, properties, options) => {
-      console.log("Got", event, "testing", forReddit(options));
+      console.log("got", event, "options", options, "test", forReddit(options));
       if (forReddit(options)) {
         window.rdt("track", event);
       }
