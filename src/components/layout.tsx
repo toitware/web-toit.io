@@ -9,6 +9,31 @@ import Footer from "./footer";
 import Header from "./header";
 import { SignUpProvider } from "./sign-up/context";
 
+let RedditTrackingSetup = false;
+const setupRedditTracking = () => {
+  if (RedditTrackingSetup) {
+    return;
+  }
+  RedditTrackingSetup = true;
+  // Redirect to analytics requests to reddit.
+  const forReddit = (options: SegmentAnalytics.SegmentOpts): boolean => {
+    const integrations = options.integrations as { Reddit?: boolean } | undefined;
+    return !!(integrations && integrations.Reddit);
+  };
+
+  if (typeof window !== "undefined") {
+    analytics.on("track", (event, properties, options) => {
+      if (forReddit(options)) {
+        window.rdt("track", event);
+      }
+    });
+    analytics.on("page", () => {
+      window.rdt("track", "PageVisit");
+    });
+  }
+};
+setupRedditTracking();
+
 const useStyles = makeStyles(() => ({
   "@global": {
     html: {
@@ -69,7 +94,6 @@ export default function Layout(props: LayoutProps): JSX.Element {
   `);
 
   const pageTitle = props.pathContext.frontmatter.title;
-
   const title = `${pageTitle ? `${pageTitle} - ` : ""}${data.site.siteMetadata?.title}`;
 
   return (
