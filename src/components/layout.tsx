@@ -23,7 +23,6 @@ const setupRedditTracking = () => {
 
   if (typeof window !== "undefined") {
     analytics.on("track", (event, properties, options) => {
-      console.log("got", event, "options", options, "test", forReddit(options));
       if (forReddit(options)) {
         window.rdt("track", event);
       }
