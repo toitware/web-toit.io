@@ -114,10 +114,7 @@ export function IndexPage(): JSX.Element {
         <div
           css={css`
             text-align: center;
-            box-sizing: content-box;
-            max-width: var(--maxContentWidth);
-            margin: 0 auto;
-            padding: 1.5rem var(--contentPadding);
+            padding: 1.5rem 0;
           `}
         >
           <img src={BeltSvg} />
@@ -228,10 +225,13 @@ export function IndexPage(): JSX.Element {
         </SideBySide>
       </Section>
 
-      <Section>
+      <CenteredBlock>
         <H1>Ready to get started?</H1>
         <p>Sign up for our platform and start your journey to invent the future.</p>
-      </Section>
+        <p>
+          <Button>Start now</Button>
+        </p>
+      </CenteredBlock>
     </Layout>
   );
 }

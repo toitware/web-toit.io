@@ -70,15 +70,15 @@ const variants: Variants = {
 
 function MenuLink({ item }: { item: menu.MenuItem }): JSX.Element {
   const classes = useStyles();
-  if (item.to != undefined) {
+  if (item.href != undefined) {
     return (
-      <a href={item.to} className={classes.link}>
+      <a href={item.href} className={classes.link}>
         <Typography variant="body1" className={classes.typography} component="span">
           {item.title} <FiExternalLink />
         </Typography>
       </a>
     );
-  } else {
+  } else if (item.path != undefined) {
     let to = item.path;
     if (item.subpages && item.subpages.length > 0) {
       to += item.subpages[0].path;
@@ -91,6 +91,8 @@ function MenuLink({ item }: { item: menu.MenuItem }): JSX.Element {
         </Typography>
       </Link>
     );
+  } else {
+    return <span>Error: no path or to specified</span>;
   }
 }
 

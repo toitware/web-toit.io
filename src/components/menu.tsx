@@ -37,14 +37,14 @@ type MenuLinkProps = {
 
 function MenuLink({ item, isActive }: MenuLinkProps): JSX.Element {
   const classes = useStyles();
-  if (item.to != undefined) {
+  if (item.href != undefined) {
     return (
-      <a className={classes.link} href={item.to}>
+      <a className={classes.link} href={item.href}>
         {item.title}
         <PositionedExternalLinkIcon />
       </a>
     );
-  } else {
+  } else if (item.path != undefined) {
     let to = item.path;
     if (item.subpages && item.subpages.length > 0) {
       to += item.subpages[0].path;
@@ -53,9 +53,11 @@ function MenuLink({ item, isActive }: MenuLinkProps): JSX.Element {
       // We're not using activeClassName here, because if we're on subpages of
       // the menu item, we still want this menu item to be highlighted.
       <Link to={to} className={clsx(classes.link, { [classes.active]: isActive })}>
-        {item.title} {item.to}
+        {item.title}
       </Link>
     );
+  } else {
+    return <span>Error: no path or to</span>;
   }
 }
 
@@ -73,7 +75,7 @@ function Menu({ currentPath }: MenuProps): JSX.Element {
         .map((item) => (
           <MenuLink
             key={item.path}
-            isActive={currentPath != undefined && currentPath.startsWith(item.path)}
+            isActive={currentPath != undefined && currentPath.startsWith(item.path || "foo")}
             item={item}
           />
         ))}

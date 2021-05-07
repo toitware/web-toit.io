@@ -6,7 +6,7 @@ type Props = {
   to?: string;
   href?: string;
   children: ReactNode;
-};
+} & React.HTMLProps<HTMLAnchorElement>;
 
 export function Link(props: Props): JSX.Element {
   const { to, href, children } = props;
@@ -15,7 +15,7 @@ export function Link(props: Props): JSX.Element {
     return <a target="_blank" rel="noreferrer" {...props} />;
   } else if (to) {
     return (
-      <GatsbyLink to={to} {...props}>
+      <GatsbyLink to={to} className={props.className}>
         {children}
       </GatsbyLink>
     );

@@ -20,13 +20,7 @@ export function GlobalCss(): JSX.Element {
         :root {
           --maxPageWidth: 1440px;
           --maxContentWidth: 1080px;
-          --contentPadding: 1.5rem;
-          ${breakpoints.small} {
-            --contentPadding: 3rem;
-          }
-          ${breakpoints.medium} {
-            --contentPadding: 4.5rem;
-          }
+          --contentPadding: max(1.5rem, 6vw);
         }
         html {
           // Make sure the scrollbar is always visible (on the devices that don't
@@ -52,35 +46,13 @@ export function GlobalCss(): JSX.Element {
           line-height: 1.3em;
         }
         h1 {
-          font-size: 2.5rem;
+          font-size: clamp(2.5rem, 4vw, 3.125rem);
         }
         h2 {
-          font-size: 2.25rem;
+          font-size: clamp(2.25rem, 3vw, 2.5rem);
         }
         h3 {
-          font-size: 2rem;
-        }
-        ${breakpoints.medium} {
-          h1 {
-            font-size: 2.75rem;
-          }
-          h2 {
-            font-size: 2.5rem;
-          }
-          h3 {
-            font-size: 2.25rem;
-          }
-        }
-        ${breakpoints.large} {
-          h1 {
-            font-size: 3.125rem;
-          }
-          h2 {
-            font-size: 2.5rem;
-          }
-          h3 {
-            font-size: 2rem;
-          }
+          font-size: clamp(2rem, 2.5vw, 2.2rem);
         }
 
         a {

@@ -16,9 +16,9 @@ const Wrapper = styled.div`
 
   display: flex;
 
-  padding: max(2%, 0.5rem) max(0.5rem, 4%);
+  padding: max(2%, 1rem) max(1rem, 4%);
 
-  &:nth-child(even) {
+  &:nth-of-type(even) {
     align-self: flex-end;
   }
 `;

@@ -24,13 +24,16 @@ declare module "*.mp4" {
 
 declare module "*/content/menu.yaml" {
   export interface SubmenuItem {
-    path: string;
     title: string;
+    description?: string;
+    path?: string;
+    href?: string;
   }
   export interface MenuItem {
-    path: string;
     title: string;
-    to?: string;
+    description?: string;
+    href?: string;
+    path?: string;
     subpages?: SubmenuItem[];
   }
   const content: {
