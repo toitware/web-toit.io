@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { breakpoints } from "./global-css";
 
 export const FeaturesContainer = styled.div`
   display: flex;
@@ -30,29 +29,19 @@ const Icon = styled.div`
     height: auto;
   }
 
-  width: 3rem;
-
-  ${breakpoints.small} {
-    width: 4rem;
-  }
+  width: clamp(3rem, 8vw, 4rem);
 `;
 
-const Text = styled.p`
+const Text = styled.div`
   margin: 0 0 0 1rem;
   line-height: 1.3em;
-
-  ${breakpoints.small} {
-    font-size: 1.875rem;
-  }
+  font-size: clamp(1rem, 3vw, 1.875rem);
 `;
 
 const Title = styled.h1`
   font-family: inherit;
-  font-size: 0.875rem;
   margin: 0 0 1rem 0;
-  ${breakpoints.medium} {
-    font-size: 1.25rem;
-  }
+  font-size: clamp(0.875rem, 2vw, 1.25rem);
 `;
 
 type Props = {

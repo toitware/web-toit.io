@@ -91,20 +91,22 @@ function Header(): JSX.Element {
   return (
     <Container ref={containerRef} onMouseLeave={closeSubmenu}>
       <Content>
-        <ToitLogo
-          css={css`
-            height: 1.5rem;
-            width: auto;
-            margin-right: 8rem;
-          `}
-        />
+        <Link to="/">
+          <ToitLogo
+            css={css`
+              height: 1.5rem;
+              width: auto;
+              margin-right: 8rem;
+            `}
+          />
+        </Link>
         <Menu>
           {menu.items.map((menuItem) => {
             if (menuItem.subpages) {
               return (
                 <a
-                  css={menuLinkCss}
                   key={menuItem.title}
+                  css={menuLinkCss}
                   onMouseEnter={openSubmenu(menuItem.title)}
                   onClick={toggleSubmenu(menuItem.title)}
                 >
@@ -114,6 +116,7 @@ function Header(): JSX.Element {
             } else {
               return (
                 <Link
+                  key={menuItem.title}
                   css={menuLinkCss}
                   to={menuItem.path}
                   href={menuItem.href}
