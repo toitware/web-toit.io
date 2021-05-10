@@ -8,6 +8,26 @@ export const breakpoints = {
   large: `@media (min-width: 1200px)`,
 };
 
+/**
+ * Takes the viewport widths in pixels and the font sizes in rem.
+ *
+ * Normally, you can simply use the vw, choose a number that looks good to
+ * you, and clamp it. But sometimes the values need to coordinate properly
+ * (e.g.: the padding and size of a box). In these cases it's helpful to define
+ * a linear interpolation between the min and max browser width.
+ */
+export function clampBuilder(minWidthPx: number, maxWidthPx: number, minFontSize: number, maxFontSize: number): string {
+  const pixelsPerRem = 16;
+
+  const minWidth = minWidthPx / pixelsPerRem;
+  const maxWidth = maxWidthPx / pixelsPerRem;
+
+  const slope = (maxFontSize - minFontSize) / (maxWidth - minWidth);
+  const yAxisIntersection = -minWidth * slope + minFontSize;
+
+  return `clamp(${minFontSize}rem, ${yAxisIntersection}rem + ${slope * 100}vw, ${maxFontSize}rem)`;
+}
+
 export function GlobalCss(): JSX.Element {
   return (
     <Global
@@ -20,7 +40,9 @@ export function GlobalCss(): JSX.Element {
         :root {
           --maxPageWidth: 1440px;
           --maxContentWidth: 1080px;
+          --sectionVerticalPadding: 4.5rem;
           --contentPadding: max(1.5rem, 6vw);
+          --calculatedContentPadding: max(var(--contentPadding), calc((100vw - var(--maxContentWidth)) / 2));
         }
         html {
           // Make sure the scrollbar is always visible (on the devices that don't

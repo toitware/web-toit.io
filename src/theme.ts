@@ -13,11 +13,11 @@ export const python = Color("#53978E");
 export const tiger = Color("#53978E");
 
 export const blackSecondary = black.alpha(0.3);
-export const passionSecondary = passion.alpha(0.6);
-export const goldenSecondary = golden.alpha(0.5);
-export const dartSecondary = dart.alpha(0.5);
-export const pythonSecondary = python.alpha(0.4);
-export const tigerSecondary = tiger.alpha(0.5);
+export const passionSecondary = Color("#FFB5B5");
+export const goldenSecondary = Color("#FFE598");
+export const dartSecondary = Color("#B0B8ED");
+export const pythonSecondary = Color("#BDDCD8");
+export const tigerSecondary = Color("#FFDBC0");
 
 export const errorColor = Color("#f00");
 export const successColor = Color("#0f0");

@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 import React, { ReactNode } from "react";
 
-const Wrapper = styled.section`
+const Wrapper = styled.div`
+  position: relative;
   display: block;
   // We want the content to have a specific width, regardless of the padding
   box-sizing: content-box;
@@ -12,10 +13,11 @@ const Wrapper = styled.section`
 
 type Props = {
   children: ReactNode;
+  className?: string;
 };
 
-export function CenteredBlock({ children }: Props): JSX.Element {
-  return <Wrapper>{children}</Wrapper>;
+export function CenteredBlock({ children, className }: Props): JSX.Element {
+  return <Wrapper className={className}>{children}</Wrapper>;
 }
 
 export default CenteredBlock;

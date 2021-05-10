@@ -1,3 +1,4 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { ThemeProvider as MuiThemeProvider, ThemeProvider } from "@material-ui/core";
 import { MDXProvider } from "@mdx-js/react";
@@ -5,10 +6,12 @@ import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
 import { components, shorthands } from "../mdx-components";
-import { primaryTheme, white } from "../theme";
+import { black, golden, primaryTheme, white } from "../theme";
 import Footer from "./footer";
 import GlobalCss, { breakpoints } from "./global-css";
 import Header from "./header";
+import Section from "./layout/Section";
+import SignUpButton from "./sign-up-button";
 import { SignUpProvider } from "./sign-up/context";
 
 const Root = styled.div`
@@ -73,7 +76,27 @@ export default function Layout({ title, children }: LayoutProps): JSX.Element {
             <SignUpProvider>
               <Root>
                 <Header />
-                <Content>{children}</Content>
+                <Content>
+                  {children}
+
+                  <Section
+                    css={css`
+                      background: ${golden.string()};
+                      border-top: 2px solid ${black.string()};
+                    `}
+                  >
+                    <h2>Ready to get started?</h2>
+                    <p
+                      css={css`
+                        max-width: 18em;
+                        margin: 3rem auto;
+                      `}
+                    >
+                      Get access to our platform and start your journey to invent the future.
+                    </p>
+                    <SignUpButton />
+                  </Section>
+                </Content>
                 <Footer />
               </Root>
             </SignUpProvider>

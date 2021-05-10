@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { Link } from "gatsby";
+import { Link } from "./link";
 import React from "react";
 import { black, white } from "../theme";
 
@@ -29,23 +29,48 @@ const outlined = css`
   background: transparent;
 `;
 
-type Props = {
+type BaseProps = {
   children: React.ReactNode;
   size?: "small" | "medium";
   variant?: "contained" | "outlined";
+  className?: string;
 };
 
-export function Button({ children, size = "medium", variant = "contained" }: Props): JSX.Element {
-  return <button css={[base, size == "small" && small, variant == "outlined" && outlined]}>{children}</button>;
+export type ButtonProps = Pick<React.HTMLProps<HTMLButtonElement>, "onClick"> & BaseProps;
+
+export function Button(props: ButtonProps): JSX.Element {
+  const { children, className, size = "medium", variant = "contained" } = props;
+  return (
+    <button
+      className={className}
+      css={[base, size == "small" && small, variant == "outlined" && outlined]}
+      onClick={props.onClick}
+    >
+      {children}
+    </button>
+  );
 }
 
-type LinkProps = {
-  to: string;
+export type ButtonLinkProps = BaseProps & {
+  to?: string;
+  href?: string;
 };
 
-export function ButtonLink({ children, to, size = "medium", variant = "contained" }: Props & LinkProps): JSX.Element {
+export function ButtonLink({
+  children,
+  to,
+  href,
+  size = "medium",
+  variant = "contained",
+  className,
+}: ButtonLinkProps): JSX.Element {
   return (
-    <Link to={to} css={[base, size == "small" && small, variant == "outlined" && outlined]}>
+    <Link
+      to={to}
+      href={href}
+      className={className}
+      css={[base, size == "small" && small, variant == "outlined" && outlined]}
+    >
       {children}
     </Link>
   );

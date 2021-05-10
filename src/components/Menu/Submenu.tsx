@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 
   pointer-events: none;
   opacity: 0;
-  transition: all 100ms linear;
+  transition: all var(--menuFadeSpeed) linear;
 
   display: flex;
   align-items: flex-start;

@@ -1,63 +1,34 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React from "react";
-import BeltSvg from "../assets/images/illustrations/belt.svg";
-import GreenhouseSvg from "../assets/images/illustrations/greenhouse.svg";
-import KeysSvg from "../assets/images/illustrations/keys.svg";
-import ThermostatSvg from "../assets/images/illustrations/thermostat.svg";
-import ControlCenterSvg from "../assets/images/illustrations/control-center.svg";
-import SymbolsSvg from "../assets/images/illustrations/symbols.svg";
+import ConsoleSvg from "../assets/images/console.svg";
 import RobustSandboxingSvg from "../assets/images/icons/robust-sandboxing.inline.svg";
 import SecureCommunicationsSvg from "../assets/images/icons/secure-communications.inline.svg";
+import BeltSvg from "../assets/images/illustrations/belt.svg";
+import ControlCenterSvg from "../assets/images/illustrations/control-center.svg";
+import GreenhouseSvg from "../assets/images/illustrations/greenhouse.svg";
+import KeysSvg from "../assets/images/illustrations/keys.svg";
+import SymbolsSvg from "../assets/images/illustrations/symbols.svg";
+import ThermostatSvg from "../assets/images/illustrations/thermostat.svg";
 import WeatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
-import ConsoleSvg from "../assets/images/console.svg";
-import { breakpoints } from "../components/global-css";
+import Button, { ButtonLink } from "../components/button";
+import FeatureBox, { FeaturesContainer } from "../components/FeatureBox";
 import Layout from "../components/layout";
+import CenteredBlock from "../components/layout/CenteredBlock";
+import PageTitle from "../components/layout/PageTitle";
 import ParagraphHeader from "../components/layout/ParagraphHeader";
+import Section from "../components/layout/Section";
 import SideBySide from "../components/layout/SideBySide";
 import { black, golden, white } from "../theme";
-import Button, { ButtonLink } from "../components/button";
-import CenteredBlock from "../components/layout/CenteredBlock";
-import FeatureBox, { FeaturesContainer } from "../components/FeatureBox";
 
 const Hero = styled.section`
-  min-height: 30rem;
   background: ${golden.string()};
-  padding-top: 4.5rem;
   text-align: center;
-  ${breakpoints.small} {
-    h1 {
-      font-size: 2.75rem;
-    }
-  }
-  ${breakpoints.medium} {
-    h1 {
-      font-size: 3rem;
-    }
-  }
-  ${breakpoints.large} {
-    h1 {
-      font-size: 3.75rem;
-    }
-  }
-  h1,
   p {
     display: block;
-    max-width: 14em;
+    max-width: 24em;
     margin: 3rem auto;
   }
-  p {
-    max-width: 24em;
-  }
-`;
-
-const Section = styled.section`
-  min-height: 30rem;
-  padding-top: 4.5rem;
-  padding-bottom: 4.5rem;
-  text-align: center;
-  padding-left: max(var(--contentPadding), calc((100vw - var(--maxContentWidth)) / 2));
-  padding-right: max(var(--contentPadding), calc((100vw - var(--maxContentWidth)) / 2));
 `;
 
 const H1 = styled.h1`
@@ -83,8 +54,7 @@ export function IndexPage(): JSX.Element {
           border-bottom: 2px solid ${black.string()};
         `}
       >
-        <H1>The best software platform for IoT</H1>
-        <hr />
+        <PageTitle title="The best software platform for IoT" />
         <p>We make it as easy to create software for microcontrollers as it is to build a mobile app.</p>
         <p>
           <Button>Start now</Button>
@@ -224,14 +194,6 @@ export function IndexPage(): JSX.Element {
           </p>
         </SideBySide>
       </Section>
-
-      <CenteredBlock>
-        <H1>Ready to get started?</H1>
-        <p>Sign up for our platform and start your journey to invent the future.</p>
-        <p>
-          <Button>Start now</Button>
-        </p>
-      </CenteredBlock>
     </Layout>
   );
 }

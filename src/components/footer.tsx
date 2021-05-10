@@ -58,6 +58,10 @@ const navStyles = css`
   li {
     margin: 1.5rem 0;
   }
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 const Product = styled.div`
@@ -122,9 +126,6 @@ export default function Footer(): JSX.Element {
               }
             `}
           />
-          <br />
-          <Link href="mailto:contact@toit.io">Contact us</Link>
-          <br />
           <div
             css={css`
               margin-top: 1.5rem;
@@ -164,6 +165,9 @@ export default function Footer(): JSX.Element {
             <li>About</li>
             <li>Blog</li>
             <li>FAQ</li>
+            <li>
+              <Link href="mailto:contact@toit.io">Contact us</Link>
+            </li>
           </ul>
         </Company>
         <Legal>
