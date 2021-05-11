@@ -8,8 +8,10 @@ import ToitLogo from "../assets/images/toit-logo.inline.svg";
 import menu from "../content/menu.yaml";
 import { white } from "../theme";
 import { ButtonLink } from "./button";
+import { breakpoints } from "./global-css";
 import Link from "./link";
 import SubmenuContainer from "./Menu/SubmenuContainer";
+import PopupMenu from "./popup-menu";
 import SignUpButton from "./sign-up-button";
 
 const Wrapper = styled.div`
@@ -26,6 +28,17 @@ const Container = styled.header`
   transition: background-color var(--menuFadeSpeed) linear;
   &:hover {
     background: ${white.string()};
+  }
+`;
+
+const desktopCss = css`
+  ${breakpoints.mediumDown} {
+    display: none;
+  }
+`;
+const mobileCss = css`
+  ${breakpoints.medium} {
+    display: none;
   }
 `;
 
@@ -129,7 +142,7 @@ function Header(): JSX.Element {
               `}
             />
           </Link>
-          <Menu>
+          <Menu css={desktopCss}>
             {menu.items.map((menuItem) => {
               if (menuItem.subpages) {
                 return (
@@ -158,7 +171,7 @@ function Header(): JSX.Element {
               }
             })}
           </Menu>
-          <AccountButtons>
+          <AccountButtons css={desktopCss}>
             <ButtonLink
               href="http://console.toit.io/login"
               size="small"
@@ -171,6 +184,7 @@ function Header(): JSX.Element {
             </ButtonLink>
             <SignUpButton size="small" />
           </AccountButtons>
+          <PopupMenu css={mobileCss} />
         </Content>
         <SubmenuContainer isVisible={submenuVisible} visibleSubmenu={visibleSubmenu} />
       </Container>

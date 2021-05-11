@@ -4,8 +4,11 @@ import { black } from "../theme";
 
 export const breakpoints = {
   small: `@media (min-width: 800px)`,
+  smallDown: `@media (max-width: 799px)`,
   medium: `@media (min-width: 1024px)`,
+  mediumDown: `@media (max-width: 1023px)`,
   large: `@media (min-width: 1200px)`,
+  largeDown: `@media (max-width: 1199px)`,
 };
 
 /**

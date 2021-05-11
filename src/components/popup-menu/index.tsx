@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
     top: "-1rem",
     right: "-1rem",
     width: "26rem",
-    maxWidth: "calc(100vw - 1.5rem)",
+    maxWidth: "calc(100vw - 1rem)",
     padding: "4.5rem 1.5rem 1.5rem",
     display: "flex",
     justifyContent: "center",
@@ -30,6 +30,10 @@ const MainNav = styled(motion.nav)({
   height: "1.5rem",
 });
 
+type PopupMenuProps = {
+  className?: string;
+};
+
 // Creates a "hamburger button", that when clicked opens the Menu.
 //
 // The element itself is 1.5rem tall and wide.
@@ -40,14 +44,14 @@ const MainNav = styled(motion.nav)({
 //
 // We might change that in the future if we want to make it more reusable, but
 // in general the position of the hamburger button is quite fixed.
-function PopupMenu(): JSX.Element {
+function PopupMenu({ className }: PopupMenuProps): JSX.Element {
   const classes = useStyles();
 
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
 
   return (
-    <MainNav initial={false} animate={isOpen ? "open" : "closed"} ref={containerRef}>
+    <MainNav className={className} initial={false} animate={isOpen ? "open" : "closed"} ref={containerRef}>
       <div className={classes.popup}>
         <Backdrop />
         <Menu />

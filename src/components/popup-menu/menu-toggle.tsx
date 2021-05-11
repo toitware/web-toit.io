@@ -25,7 +25,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Path = (props: SVGMotionProps<SVGPathElement>) => (
-  <motion.path fill="transparent" strokeWidth="3" stroke="currentColor" strokeLinecap="round" {...props} />
+  <motion.path fill="transparent" strokeWidth="2" stroke="currentColor" strokeLinecap="round" {...props} />
 );
 
 interface MenuToggleProps {
