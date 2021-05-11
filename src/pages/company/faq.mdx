@@ -6,20 +6,19 @@ date: 2021-04-06
 
 import { pinkWhiteTheme, greyBlueTheme, whiteBlueTheme } from "../../theme";
 import theStack from "../../assets/images/the-stack.png";
+import { goldenSecondary, passionSecondary, dartSecondary, pythonSecondary } from "../../theme.ts";
 
-<HorizontalBlock theme={whiteBlueTheme}>
+<PageTitle title="Frequently asked questions" subTitle="FAQ" />
 
-<HorizontalBlockItem single centered>
+<CenteredBlock>
 
-# Frequently asked questions
+Find the answers to our most common questions below.
 
-</HorizontalBlockItem>
+</CenteredBlock>
 
-<HorizontalBlockItem centeredBlock>
+<FaqGroup title="General" activeColor={ goldenSecondary.string() }>
 
-### General
-
-#### What is Toit?
+<FaqEntry question="What is Toit?">
 
 Toit is revolutionizing IoT development, making developing, installing and
 updating apps and/or the underlying firmware on embedded devices as simple and
@@ -28,7 +27,9 @@ and safely transports your data to the cloud, even when your device is on a
 shaky connection. And Toit is so efficient that your device can run on
 batteries, allowing you to deploy IoT in remote locations unreachable before.
 
-#### How does it work?
+</FaqEntry>
+
+<FaqEntry question="How does it work?">
 
 The Toit virtual machine runs programs written in the Toit language. It has been
 designed to address common pain points in embedded systems.
@@ -50,7 +51,9 @@ To see it for yourself, [watch](https://www.youtube.com/watch?v=Nh83qoq0nKU) how
 Toit allows you to deploy, update and uninstall three apps, including one that
 would crash any other IoT device, on an ESP32 microcontroller.
 
-#### Why can I trust the Toit team?
+</FaqEntry>
+
+<FaqEntry question="Why can I trust the Toit team?">
 
 Since 2018, developers using Toit can build software for IoT that runs inside a
 virtual machine on the IoT device, in a similar way to how Google Chrome and its
@@ -71,9 +74,13 @@ Corry](https://www.linkedin.com/in/erik-corry-2a53811/), [Anders
 Johnsen](https://www.linkedin.com/in/anders-n-johnsen/), and [Florian
 Loitsch](https://www.linkedin.com/in/florian-loitsch-47b7261b4/).
 
-### ESP32
+</FaqEntry>
 
-#### Why the ESP32?
+</FaqGroup>
+
+<FaqGroup title="ESP32" activeColor={ dartSecondary.string() }>
+
+<FaqEntry question="Why the ESP32?">
 
 Toit runs on the [ESP32](https://www.espressif.com/en/products/socs/esp32) chip
 from Espressif. We chose the ESP32 because it offers the best price/performance
@@ -84,9 +91,13 @@ more. In addition, its deep-sleep mode allows for extremely low power usage and
 you can run on a couple of AA batteries for years. All this at a price that is a
 fraction of that for comparable or even inferior chips.
 
-### Language
+</FaqEntry>
 
-#### Why a new language?
+</FaqGroup>
+
+<FaqGroup title="Language" activeColor={ passionSecondary.string() }>
+
+<FaqEntry question="Why a new language?">
 
 Because of the resource constraints on embedded microchips, an IoT computing
 platform needs to be tight in order to work.
@@ -102,7 +113,9 @@ is 20x faster.
 With Toit, you use only one language for all logic on your devices, whether it
 is the driver for a sensor, or the applications running on the device.
 
-#### Why use Toit over C?
+</FaqEntry>
+
+<FaqEntry question="Why use Toit over C?">
 
 C is a low-level language that allows full access to the system. It's a great
 language for operations that require precise memory layouts or interact a lot
@@ -123,7 +136,9 @@ Finally, the Toit language comes with high-level libraries that abstract away
 the low-level operations. We, the Toit developers, fiddle with C, so that you
 don't need to.
 
-#### Why use Toit over MicroPython?
+</FaqEntry>
+
+<FaqEntry question="Why use Toit over MicroPython?">
 
 MicroPython is a stripped-down version of Python that was not tailor-made for
 IoT. It is high-level, but it does not really behave as Python does, so that the
@@ -136,9 +151,13 @@ programs. Furthermore, the memory layout of objects in MicroPython is not as
 efficient as the one in Toit, which means that bigger programs (with many heap
 objects) are handled better by Toit than by MicroPython.
 
-### Platform
+</FaqEntry>
 
-#### Many IoT platform companies claim to have an “easy-to-use platform”...what makes yours different?
+</FaqGroup>
+
+<FaqGroup title="Platform" activeColor={ pythonSecondary.string() }>
+
+<FaqEntry question="Many IoT platform companies claim to have an “easy-to-use platform”...what makes yours different?">
 
 - **The Toit VM** - Our Virtual Machine completely isolates you from the
   underlying microcontroller and peripherals, and lets you focus on building your
@@ -162,14 +181,18 @@ In short, with Toit, you do not need to worry about bugs; they can easily be
 fixed remotely, run-time. Don't worry about sketchy connectivity either: your
 updates will get there as soon as the device goes online.
 
-#### Do I have to use the Toit console?
+</FaqEntry>
+
+<FaqEntry question="Do I have to use the Toit console?">
 
 All the functionality of the Toit console is available using the CLI or the APIs
 directly, so you never have to use our console if you do not like it. But even
 more, our API is available for you to develop your own fleet management UI, or
 to integrate Toit functionality with an existing third-party platform.
 
-#### Do I have to use the Toit cloud?
+</FaqEntry>
+
+<FaqEntry question="Do I have to use the Toit cloud?">
 
 The Toit platform is built so that our cloud is essential for firmware updates,
 apps deployment. It is also used to collect data, logs and metrics. This tight
@@ -187,7 +210,9 @@ And you can of course always redirect your data to another backend, but we are
 confident that using our cloud offers so many benefits in terms of security and
 ease of use that you will want to work with the Toit cloud.
 
-#### How much control do I have on the amount of data transferred between the cloud and each device?
+</FaqEntry>
+
+<FaqEntry question="How much control do I have on the amount of data transferred between the cloud and each device?">
 
 Our platform is **optimized** to transfer as little data as possible, the amount
 of data can be **customized** to your needs, and we offer maximum
@@ -215,11 +240,14 @@ Finally, our device software allows you to send your data directly to your own
 backend so that it never reaches our cloud. You only depend on us for the
 deployment of applications and firmware updates.
 
-#### What do you offer in terms of connectivity?
+</FaqEntry>
+
+<FaqEntry question="What do you offer in terms of connectivity?">
 
 The ESP32 and Toit offer out-of-the-box WiFi connectivity. It is also possible
 to add Cellular connectivity with the operator of your choice, so you are
 flexible to choose the best provider for your communications needs.
 
-</HorizontalBlockItem>
-</HorizontalBlock>
+</FaqEntry>
+
+</FaqGroup>

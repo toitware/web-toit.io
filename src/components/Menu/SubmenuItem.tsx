@@ -6,7 +6,7 @@ import Link from "../link";
 const rootCss = css`
   display: flex;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: var(--borderRadius);
   padding: 0.5rem;
 
   &:hover {

@@ -13,7 +13,7 @@ const base = css`
   line-height: 1.5rem;
   height: 3.25rem;
   padding: 0 1.875rem;
-  border-radius: 5px;
+  border-radius: var(--borderRadius);
   text-decoration: none;
   cursor: pointer;
 `;

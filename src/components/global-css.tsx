@@ -44,6 +44,7 @@ export function GlobalCss(): JSX.Element {
           --maxPageWidth: 1440px;
           --maxContentWidth: 1080px;
           --sectionVerticalPadding: 4.5rem;
+          --borderRadius: 5px;
           --contentPadding: max(1.5rem, 6vw);
           --calculatedContentPadding: max(var(--contentPadding), calc((100vw - var(--maxContentWidth)) / 2));
         }

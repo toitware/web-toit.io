@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   max-width: 40rem;
   background: ${white.string()};
   border: 1px solid ${black.string()};
-  border-radius: 5px;
+  border-radius: var(--borderRadius);
   margin: 0 auto;
   font-size: 1rem;
 `;
@@ -38,7 +38,7 @@ const freeLimit = css`
   display: flex;
   align-items: center;
   color: white;
-  border-radius: 5px 0 0 5px;
+  border-radius: var(--borderRadius) 0 0 var(--borderRadius);
   padding: 0 3%;
   font-size: clamp(0.875rem, 2vw, 1.25rem);
 `;
