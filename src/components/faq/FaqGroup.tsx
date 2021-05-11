@@ -1,7 +1,12 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React from "react";
-import Section from "../layout/Section";
+
+const Wrapper = styled.div`
+  text-align: left;
+  padding-top: 0;
+  padding-bottom: 3rem;
+`;
 
 const Title = styled.h2`
   font-family: inherit;
@@ -15,17 +20,14 @@ type FaqGroupProps = {
 
 export const FaqGroup: React.FC<FaqGroupProps> = ({ title, children, activeColor }) => {
   return (
-    <Section
+    <Wrapper
       css={css`
-        text-align: left;
-        padding-top: 0;
-        padding-bottom: 3rem;
         --activeColor: ${activeColor};
       `}
     >
       <Title>{title}</Title>
       {children}
-    </Section>
+    </Wrapper>
   );
 };
 
