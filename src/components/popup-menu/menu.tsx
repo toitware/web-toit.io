@@ -1,10 +1,9 @@
-import { makeStyles, ThemeProvider, Typography } from "@material-ui/core";
+import { makeStyles, Typography } from "@material-ui/core";
 import { motion, Variants } from "framer-motion";
 import { Link } from "gatsby";
 import * as React from "react";
 import { FiExternalLink } from "react-icons/fi";
 import * as menu from "../../content/menu.yaml";
-import { primaryBlue, secondaryTheme } from "../../theme";
 import { ButtonLink } from "../button";
 import SignUpButton from "../sign-up-button";
 import MenuItem from "./menu-item";
