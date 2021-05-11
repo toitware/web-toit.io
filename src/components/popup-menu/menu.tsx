@@ -1,10 +1,11 @@
-import { Button, makeStyles, ThemeProvider, Typography } from "@material-ui/core";
+import { makeStyles, ThemeProvider, Typography } from "@material-ui/core";
 import { motion, Variants } from "framer-motion";
 import { Link } from "gatsby";
 import * as React from "react";
 import { FiExternalLink } from "react-icons/fi";
 import * as menu from "../../content/menu.yaml";
 import { primaryBlue, secondaryTheme } from "../../theme";
+import { ButtonLink } from "../button";
 import SignUpButton from "../sign-up-button";
 import MenuItem from "./menu-item";
 
@@ -43,18 +44,15 @@ const useStyles = makeStyles(() => ({
     fontSize: "1.1rem",
   },
   actions: {
-    marginTop: "3rem",
-    padding: "1.5rem",
-    background: primaryBlue.lighten(2.2).string(),
-    borderRadius: "1rem",
-    marginBottom: "0",
+    marginTop: "4.5rem",
+    marginBottom: "1.5rem",
+    display: "flex",
+    justifyContent: "space-around",
   },
   signInLink: {
     textDecoration: "none",
   },
-  signInButton: {
-    marginLeft: "1rem",
-  },
+  signInButton: {},
 }));
 
 const variants: Variants = {
@@ -108,14 +106,10 @@ function Menu(): JSX.Element {
         </MenuItem>
       ))}
       <MenuItem className={classes.actions}>
-        <ThemeProvider theme={secondaryTheme}>
-          <SignUpButton />
-          <a href="http://console.toit.io/login" className={classes.signInLink} target="_blank" rel="noreferrer">
-            <Button className={classes.signInButton} variant="outlined" color="secondary">
-              Sign in
-            </Button>
-          </a>
-        </ThemeProvider>
+        <ButtonLink href="http://console.toit.io/login" className={classes.signInButton} variant="outlined">
+          Sign in
+        </ButtonLink>
+        <SignUpButton />
       </MenuItem>
     </motion.ul>
   );

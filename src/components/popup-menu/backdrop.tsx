@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
     right: 0,
     width: "3.5rem",
     height: "3.5rem",
-    borderRadius: 30,
+    borderRadius: 5,
     pointerEvents: "auto",
     boxShadow: "0 0 30px rgb(0, 0, 0, 0.1)",
   },
