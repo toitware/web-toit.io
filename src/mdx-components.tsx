@@ -4,7 +4,6 @@ import { MDXProviderComponentsProp } from "@mdx-js/react";
 import React from "react";
 import Block from "./components/block";
 import Editor from "./components/editor";
-import { Feature, Features } from "./components/features";
 import { HighLight, HighLights } from "./components/highlights";
 import { HorizontalBlock, HorizontalBlockItem } from "./components/horizontal-block";
 import { CodeIcon, ConnectionIcon } from "./components/icons";

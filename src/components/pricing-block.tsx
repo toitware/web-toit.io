@@ -24,6 +24,7 @@ const PricingBlockHeader = styled.header`
   align-items: center;
   color: ${golden.string()};
   padding-left: 5%;
+  padding-right: 0;
 
   h2 {
     margin: 0;
@@ -37,7 +38,7 @@ const freeLimit = css`
   display: flex;
   align-items: center;
   color: white;
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
   padding: 0 3%;
   font-size: clamp(0.875rem, 2vw, 1.25rem);
 `;
@@ -95,7 +96,7 @@ const PricingBlock: React.FC<Props> = ({ className }) => (
           }
         `}
       >
-        Nee more than <strong>10GB</strong> per month?
+        Need more than <strong>10GB</strong> per month?
       </div>
       <div>
         <a href="mailto:sales@toit.io">Contact us</a> for more than 10GB per month.

@@ -39,6 +39,16 @@ export const primaryGreen = Color.hsl(109, 100, 32);
 export const secondaryGreen = Color.hsl(135, 65, 33);
 
 // The different themes used throughout the website.
+export const whiteTheme = createTheme({
+  type: "light",
+  background: white,
+  text: black,
+  errorColor: errorColor,
+  primary: dart,
+  primaryContrast: black,
+});
+
+// The different themes used throughout the website.
 export const blackTheme = createTheme({
   type: "dark",
   background: black,
@@ -70,7 +80,7 @@ export const darkBlueWhiteTheme = createTheme({
   text: primaryBlue100,
 });
 
-export const primaryTheme = pinkWhiteTheme;
+export const primaryTheme = whiteTheme;
 export const secondaryTheme = greyBlueTheme;
 export const menuTheme = pinkWhiteTheme;
 

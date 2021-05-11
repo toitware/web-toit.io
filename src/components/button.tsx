@@ -36,16 +36,13 @@ type BaseProps = {
   className?: string;
 };
 
-export type ButtonProps = Pick<React.HTMLProps<HTMLButtonElement>, "onClick"> & BaseProps;
+export type ButtonProps = Pick<React.ComponentProps<"button">, "onClick" | "type" | "autoFocus" | "disabled"> &
+  BaseProps;
 
 export function Button(props: ButtonProps): JSX.Element {
-  const { children, className, size = "medium", variant = "contained" } = props;
+  const { children, size = "medium", variant = "contained" } = props;
   return (
-    <button
-      className={className}
-      css={[base, size == "small" && small, variant == "outlined" && outlined]}
-      onClick={props.onClick}
-    >
+    <button {...props} css={[base, size == "small" && small, variant == "outlined" && outlined]}>
       {children}
     </button>
   );
