@@ -96,7 +96,7 @@ const Design = styled.div`
 `;
 
 export default function Footer(): JSX.Element {
-  const [changeConsent] = useState<boolean>(false);
+  const [changeConsent, setChangeConsent] = useState(false);
 
   let segmentAPIKey = process.env.GATSBY_SEGMENT_WRITE_KEY;
 
@@ -111,7 +111,12 @@ export default function Footer(): JSX.Element {
   return (
     <>
       <ThemeProvider theme={secondaryTheme}>
-        <CookieConsent segmentKey={segmentAPIKey || "no-key"} show={true} changeConsent={changeConsent} />
+        <CookieConsent
+          show={true}
+          segmentKey={segmentAPIKey || "no-key"}
+          changeConsent={changeConsent}
+          onAnalyticsReady={() => window.redditSnippetLoader("t2_brvtmsx5")}
+        />
       </ThemeProvider>
       <Root>
         <Contact>
@@ -176,7 +181,9 @@ export default function Footer(): JSX.Element {
             <li>Terms of service</li>
             <li>Privacy policy</li>
             <li>Cookies policy</li>
-            <li>Cookie consent</li>
+            <li>
+              <a onClick={() => setChangeConsent(true)}>Change cookie consent</a>
+            </li>
           </ul>
         </Legal>
         <Copyright>&copy; Toitware ApS. 2021.</Copyright>

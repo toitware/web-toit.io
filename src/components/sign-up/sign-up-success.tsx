@@ -28,6 +28,13 @@ export function SignUpSuccess({ handleClose }: SignUpSuccessProps): JSX.Element 
         <FiCheckCircle className={classes.successCheckmark} />
         <Typography>
           Welcome aboard! Please check your email, and follow the instructions to finalize your account.
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            alt=""
+            src="https://px.ads.linkedin.com/collect/?pid=3155756&conversionId=4095170&fmt=gif"
+          />
         </Typography>
       </DialogContent>
       <DialogActions className={classes.actions}>
