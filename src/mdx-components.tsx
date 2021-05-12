@@ -3,7 +3,7 @@
 import { MDXProviderComponentsProp } from "@mdx-js/react";
 import React from "react";
 import Block from "./components/block";
-import Editor from "./components/editor";
+// import Editor from "./components/editor";
 import { HighLight, HighLights } from "./components/highlights";
 import { HorizontalBlock, HorizontalBlockItem } from "./components/horizontal-block";
 import { CodeIcon, ConnectionIcon } from "./components/icons";
@@ -25,7 +25,7 @@ export const shorthands = {
   Block,
   HorizontalBlock,
   HorizontalBlockItem,
-  Editor,
+  // Editor,
   HighLights,
   HighLight,
   Section,

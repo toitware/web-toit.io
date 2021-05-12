@@ -18,8 +18,7 @@
     "types": [
       "node",
       // This shouldn't be necessary theoretically, but it seems to be.
-      "@emotion/react/types/css-prop",
-      "@types/segment-analytics"
+      "@emotion/react/types/css-prop"
     ]
   },
   "include": ["src/**/*"],
