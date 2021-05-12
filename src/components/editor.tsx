@@ -158,16 +158,14 @@ export default function Editor({ editor, terminal }: EditorProps): JSX.Element {
   useEffect(() => {
     const animateFn = animateEditor(editor, terminal);
     const interval = setInterval(() => {
-      setState(
-        (state: EditorState): EditorState => {
-          const res = animateFn(state);
-          if (res === undefined) {
-            clearInterval(interval);
-            return state;
-          }
-          return res;
+      setState((state: EditorState): EditorState => {
+        const res = animateFn(state);
+        if (res === undefined) {
+          clearInterval(interval);
+          return state;
         }
-      );
+        return res;
+      });
     }, 40);
     return () => clearInterval(interval);
   }, []);
