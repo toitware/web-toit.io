@@ -21,6 +21,8 @@ const useStyles = makeStyles(() => ({
     userSelect: "none",
     cursor: "pointer",
     background: "transparent",
+
+    zIndex: 1000,
   },
 }));
 
