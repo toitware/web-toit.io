@@ -16,7 +16,7 @@ export function AboutPage(): JSX.Element {
             max-width: 15em;
           }
         `}
-        title="We are building the software platform for microcontrollers"
+        title="We are building the software platform for IoT"
         subTitle="About"
       />
 

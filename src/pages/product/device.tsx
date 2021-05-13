@@ -78,9 +78,16 @@ export function DevicePage(): JSX.Element {
       <Section>
         <SideBySide illustration={boxesSvg} illustrationPosition="left">
           <h1>Out of the box drivers</h1>
-          Your code runs as one or more applications inside the Toit virtual machine. The virtual machine creates a
-          sandboxed environment for your code, so the worst that can happen from a bug is your application crashing. The
-          system keeps running and so do your other applications.
+
+          <p>
+            The Toit ecosystem comes with ready-to-use drivers for many of the commonly used peripherals, including GSM
+            modules, sensors and actuators. They can be accessed directly from Toit using our package manager.
+          </p>
+
+          <p>
+            And don’t worry if the driver for your favorite sensor is not available yet, it&apos;s really easy to write
+            your own in the Toit language.
+          </p>
         </SideBySide>
         <SideBySide illustration={overTheAirUpdatesSvg} illustrationPosition="right">
           <h1>Over-the-air updates</h1>
