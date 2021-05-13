@@ -20,6 +20,7 @@ import PageTitle from "../components/layout/PageTitle";
 import ParagraphHeader from "../components/layout/ParagraphHeader";
 import Section from "../components/layout/Section";
 import SideBySide from "../components/layout/SideBySide";
+import SignUpButton from "../components/sign-up-button";
 import { black, golden, white } from "../theme";
 
 const Hero = styled.section`
@@ -60,7 +61,7 @@ export function IndexPage(): JSX.Element {
         <PageTitle title="The best software platform for IoT" />
         <p>We make it as easy to create software for microcontrollers as it is to build a mobile app.</p>
         <p>
-          <Button>Start now</Button>
+          <SignUpButton />
         </p>
       </Hero>
       <Section>
@@ -70,7 +71,7 @@ export function IndexPage(): JSX.Element {
             Continuously update the code on your microcontrollers even over cellular connections. Monitor and securely
             service your devices in production; all through the Toit API.
           </p>
-          <Button>Start now</Button>
+          <SignUpButton />
         </SideBySide>
       </Section>
       <Section
