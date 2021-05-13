@@ -1,5 +1,4 @@
 import {
-  Button,
   Checkbox,
   createStyles,
   DialogActions,
@@ -16,6 +15,7 @@ import { useFormik } from "formik";
 import { Link } from "gatsby";
 import React, { useState } from "react";
 import * as yup from "yup";
+import Button from "../button";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "100%",
       textAlign: "center",
       marginTop: theme.spacing(6),
-      marginBottom: theme.spacing(4),
+      marginBottom: theme.spacing(2),
       opacity: 0.5,
       "& div": {
         maxWidth: "30em",
@@ -200,10 +200,11 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
         </DialogContentText>
       </DialogContent>
       <DialogActions className={classes.actions}>
-        <Button autoFocus onClick={handleClose} color="secondary" disabled={isSending}>
+        <Button autoFocus onClick={handleClose} variant="outlined" disabled={isSending}>
           Cancel
         </Button>
-        <Button type="submit" variant="contained" color="primary" autoFocus disabled={isSending}>
+        &nbsp;
+        <Button type="submit" variant="contained" autoFocus disabled={isSending}>
           Sign Up
         </Button>
         <Typography className={classes.privacyPolicy} component="div">

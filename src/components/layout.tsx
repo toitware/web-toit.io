@@ -1,12 +1,21 @@
-import { makeStyles, ThemeProvider } from "@material-ui/core";
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+import { ThemeProvider as MuiThemeProvider, ThemeProvider } from "@material-ui/core";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
+import EspressifSvg from "../assets/images/logos/espressif.svg";
+import OnomondoSvg from "../assets/images/logos/onomondo.svg";
+import SoracomSvg from "../assets/images/logos/soracom.svg";
+import UbloxSvg from "../assets/images/logos/ublox.svg";
 import { components, shorthands } from "../mdx-components";
-import { darkBlueWhiteTheme, menuTheme, primaryBlue, primaryTheme } from "../theme";
+import { golden, primaryTheme, white } from "../theme";
 import Footer from "./footer";
+import GlobalCss, { breakpoints } from "./global-css";
 import Header from "./header";
+import Section from "./layout/Section";
+import SignUpButton from "./sign-up-button";
 import { SignUpProvider } from "./sign-up/context";
 
 let RedditTrackingSetup = false;
@@ -34,33 +43,40 @@ const setupRedditTracking = () => {
 };
 setupRedditTracking();
 
-const useStyles = makeStyles(() => ({
-  "@global": {
-    html: {
-      // Make sure the scrollbar is always visible (on the devices that don't
-      // have a floating scrollbar), so the menu doesn't jump around when larger
-      // sections cause the scrollbar to appear.
-      overflowY: "scroll",
-    },
-    body: {
-      background: primaryBlue.string(),
-      margin: 0,
-    },
-    a: {
-      color: "inherit",
-    },
-  },
-  root: {
-    minHeight: "100vh",
-    display: "flex",
-    flexDirection: "column",
-  },
-  content: {
-    flexGrow: 1,
-    display: "flex",
-    flexDirection: "column",
-  },
-}));
+const Root = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Content = styled.div`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background: ${white.string()};
+
+  img {
+    max-width: 100%;
+  }
+
+  ${breakpoints.medium} {
+    font-size: 1.125rem;
+    line-height: 1.5em;
+  }
+  ${breakpoints.large} {
+    font-size: 1.25rem;
+    line-height: 1.5em;
+  }
+`;
+
+const ThirdPartyLogos = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  img {
+    margin: 1.5rem;
+  }
+`;
 
 interface GraphType {
   site: {
@@ -72,19 +88,12 @@ interface GraphType {
 
 interface LayoutProps {
   children: React.ReactNode;
-  pathContext: {
-    frontmatter: {
-      title: string;
-      path?: string;
-    };
-  };
+  title?: string;
 }
 
-export default function Layout(props: LayoutProps): JSX.Element {
-  const classes = useStyles();
-
+export default function Layout({ title, children }: LayoutProps): JSX.Element {
   const data: GraphType = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    query LayoutTitleQuery {
       site {
         siteMetadata {
           title
@@ -93,25 +102,61 @@ export default function Layout(props: LayoutProps): JSX.Element {
     }
   `);
 
-  const pageTitle = props.pathContext.frontmatter.title;
-  const title = `${pageTitle ? `${pageTitle} - ` : ""}${data.site.siteMetadata?.title}`;
+  const titleWithSuffix = `${title ? `${title} - ` : ""}${data.site.siteMetadata?.title}`;
 
   return (
-    <MDXProvider components={{ ...shorthands, ...components }}>
-      <ThemeProvider theme={primaryTheme}>
-        <Helmet title={title}></Helmet>
-        <div className={classes.root}>
-          <SignUpProvider>
-            <ThemeProvider theme={menuTheme}>
-              <Header currentPath={props.pathContext.frontmatter.path} />
-            </ThemeProvider>
-            <div className={classes.content}>{props.children}</div>
-            <ThemeProvider theme={darkBlueWhiteTheme}>
-              <Footer />
-            </ThemeProvider>
-          </SignUpProvider>
-        </div>
-      </ThemeProvider>
-    </MDXProvider>
+    <>
+      <GlobalCss />
+      <Helmet title={titleWithSuffix}></Helmet>
+      <MDXProvider components={{ ...shorthands, ...components }}>
+        <MuiThemeProvider theme={primaryTheme}>
+          <ThemeProvider theme={primaryTheme}>
+            <SignUpProvider>
+              <Root>
+                <Header />
+                <Content>
+                  {children}
+
+                  <Section
+                    centered
+                    css={css`
+                      background: ${golden.string()};
+                    `}
+                  >
+                    <h2>Ready to get started?</h2>
+                    <p
+                      css={css`
+                        max-width: 18em;
+                        margin: 3rem auto;
+                      `}
+                    >
+                      Get access to our platform and start your journey to invent the future.
+                    </p>
+                    <SignUpButton />
+                  </Section>
+                  <Section centered>
+                    <p
+                      css={css`
+                        margin: 0 0 3rem;
+                      `}
+                    >
+                      Official platform partners:
+                    </p>
+
+                    <ThirdPartyLogos>
+                      <img src={EspressifSvg} />
+                      <img src={OnomondoSvg} />
+                      <img src={SoracomSvg} />
+                      <img src={UbloxSvg} />
+                    </ThirdPartyLogos>
+                  </Section>
+                </Content>
+                <Footer />
+              </Root>
+            </SignUpProvider>
+          </ThemeProvider>
+        </MuiThemeProvider>
+      </MDXProvider>
+    </>
   );
 }

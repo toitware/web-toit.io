@@ -1,129 +1,202 @@
-import { Button, createStyles, Hidden, makeStyles, Theme } from "@material-ui/core";
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 import clsx from "clsx";
-import Color from "color";
-import { Link } from "gatsby";
-import React from "react";
-import Logo from "../assets/images/toit-secondary.inline.svg";
-import menu, { MenuItem } from "../content/menu.yaml";
-import Menu from "./menu";
+import * as React from "react";
+import { useEffect, useRef, useState } from "react";
+import CaretSvg from "../assets/images/icons/caret.inline.svg";
+import ToitLogo from "../assets/images/toit-logo.inline.svg";
+import menu from "../content/menu.yaml";
+import { white } from "../theme";
+import { ButtonLink } from "./button";
+import { breakpoints } from "./global-css";
+import Link from "./link";
+import SubmenuContainer from "./Menu/SubmenuContainer";
 import PopupMenu from "./popup-menu";
-import { pageWidth } from "./shared-styles";
 import SignUpButton from "./sign-up-button";
-import Submenu from "./submenu";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    container: {
-      backgroundColor: theme.palette.background.default,
-    },
-    toolbarContent: {
-      ...pageWidth(theme),
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-    },
-    submenuContainer: {
-      ...pageWidth(theme),
-      paddingTop: 0,
-      paddingBottom: theme.spacing(2),
-    },
-    submenuContent: {
-      paddingTop: theme.spacing(2),
-      borderTop: `1px solid ${Color(theme.palette.text.primary).alpha(0.3).string()}`,
-      display: "flex",
-      justifyContent: "flex-end",
-    },
-    menu: {
-      marginLeft: "auto",
-    },
-    link: {
-      textDecoration: "none",
-    },
-    logoContainer: {
-      height: "2rem",
-    },
-    logo: {
-      height: "2rem",
-      fill: theme.palette.text.primary,
-    },
-    buttons: {},
-    button: {
-      marginLeft: theme.spacing(2),
-    },
-    popup: {
-      flexGrow: 1,
-      display: "flex",
-      justifyContent: "flex-end",
-      alignItems: "center",
-      paddingRight: "0.25rem",
-    },
-    popupMenuMediaQuery: {
-      display: "flex",
-      [theme.breakpoints.up("md")]: {
-        display: "none",
-      },
-    },
-    defaultMenuMediaQuery: {
-      display: "none",
-      [theme.breakpoints.up("md")]: {
-        display: "block",
-      },
-    },
-  })
-);
+const Wrapper = styled.div`
+  --menuFadeSpeed: 150ms;
+`;
 
-type HeaderProps = {
-  currentPath?: string;
-};
+const Container = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 500;
+  backdrop-filter: blur(10px);
+  transition: background-color var(--menuFadeSpeed) linear;
+  &:hover {
+    background: ${white.string()};
+  }
+`;
 
-function Header({ currentPath }: HeaderProps): JSX.Element {
-  const classes = useStyles();
+const desktopCss = css`
+  ${breakpoints.mediumDown} {
+    display: none;
+  }
+`;
+const mobileCss = css`
+  ${breakpoints.medium} {
+    display: none;
+  }
+`;
 
-  let currentMenuItem: MenuItem | undefined;
+const scrolledDown = css`
+  background: ${white.alpha(0.4).string()};
+`;
 
-  if (currentPath != undefined) {
-    const currentItemPath = `/${currentPath.split("/")[1]}`;
-    currentMenuItem = menu.items.find((item) => currentItemPath == item.path);
+const Mask = styled.div`
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 499;
+  opacity: 0;
+  transition: opacity var(--menuFadeSpeed) linear;
+  pointer-events: none;
+`;
+
+const Content = styled.div`
+  margin: 0 auto;
+  max-width: var(--maxPageWidth);
+  padding: 0 var(--contentPadding);
+
+  display: flex;
+  height: 4.5rem;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const AccountButtons = styled.div``;
+
+const Menu = styled.nav`
+  svg {
+    position: relative;
+    top: -2px;
+    transition: all 100ms linear;
+    &.opened {
+      transform: rotate(180deg);
+    }
+  }
+`;
+
+const menuLinkCss = css`
+  cursor: pointer;
+  text-decoration: none;
+  &:not(:last-of-type) {
+    margin-right: 1.5rem;
+  }
+`;
+
+function Header(): JSX.Element {
+  const [submenuVisible, setSubmenuVisible] = useState(false);
+
+  const [visibleSubmenu, setVisibleSubmenu] = useState<string | undefined>();
+
+  // Whether the user scrolled down a bit. This is used to either set a
+  // background to the menu or not.
+  const [isScrolledDown, setIsScrolledDown] = useState(false);
+
+  useEffect(() => {
+    const setScrolled = () => setIsScrolledDown(window.scrollY > 40);
+
+    window.addEventListener("scroll", setScrolled);
+
+    return () => window.removeEventListener("scroll", setScrolled);
+  }, []);
+
+  function openSubmenu(item: string) {
+    return () => {
+      setSubmenuVisible(true);
+      setVisibleSubmenu(item);
+    };
+  }
+  function toggleSubmenu(item: string) {
+    return () => {
+      if (visibleSubmenu == item) {
+        closeSubmenu();
+      } else {
+        openSubmenu(item)();
+      }
+    };
+  }
+  function closeSubmenu() {
+    setVisibleSubmenu(undefined);
+    setSubmenuVisible(false);
   }
 
-  return (
-    <div className={classes.container}>
-      <div className={classes.toolbarContent}>
-        <div className={classes.logoContainer}>
-          <Link to="/">
-            <Logo className={classes.logo} />
-          </Link>
-        </div>
-        {/* Using a css implementation instead of <Hidden> for better server side rendering */}
-        <div className={clsx(classes.popup, classes.popupMenuMediaQuery)}>
-          <PopupMenu />
-        </div>
+  const containerRef = useRef<HTMLElement>(null);
 
-        {/* Using the css implementation for better server side rendering */}
-        <div className={clsx(classes.menu, classes.defaultMenuMediaQuery)}>
-          <Menu currentPath={currentPath} />
-        </div>
-        <div className={clsx(classes.buttons, classes.defaultMenuMediaQuery)}>
-          <Hidden xsDown>
-            <span className={classes.button}>
-              <SignUpButton />
-            </span>
-          </Hidden>
-          <a href="http://console.toit.io/login" target="_blank" rel="noreferrer" className={classes.link}>
-            <Button variant="outlined" color="primary" className={classes.button}>
+  return (
+    <Wrapper>
+      <Container ref={containerRef} onMouseLeave={closeSubmenu} css={isScrolledDown && scrolledDown}>
+        <Content>
+          <Link to="/">
+            <ToitLogo
+              css={css`
+                height: 1.5rem;
+                width: auto;
+                margin-right: 8rem;
+              `}
+            />
+          </Link>
+          <Menu css={desktopCss}>
+            {menu.items.map((menuItem) => {
+              if (menuItem.subpages) {
+                return (
+                  <a
+                    key={menuItem.title}
+                    css={menuLinkCss}
+                    onMouseEnter={openSubmenu(menuItem.title)}
+                    onClick={toggleSubmenu(menuItem.title)}
+                  >
+                    {menuItem.title} <CaretSvg className={clsx(visibleSubmenu == menuItem.title && "opened")} />
+                  </a>
+                );
+              } else {
+                return (
+                  <Link
+                    key={menuItem.title}
+                    css={menuLinkCss}
+                    to={menuItem.path}
+                    href={menuItem.href}
+                    onMouseEnter={closeSubmenu}
+                    onClick={closeSubmenu}
+                  >
+                    {menuItem.title}
+                  </Link>
+                );
+              }
+            })}
+          </Menu>
+          <AccountButtons css={desktopCss}>
+            <ButtonLink
+              href="http://console.toit.io/login"
+              size="small"
+              variant="outlined"
+              css={css`
+                margin-right: 1.5rem;
+              `}
+            >
               Sign in
-            </Button>
-          </a>
-        </div>
-      </div>
-      {currentMenuItem?.subpages != undefined && (
-        <div className={classes.submenuContainer}>
-          <div className={classes.submenuContent}>
-            <Submenu pathPrefix={currentMenuItem.path} items={currentMenuItem.subpages} />
-          </div>
-        </div>
-      )}
-    </div>
+            </ButtonLink>
+            <SignUpButton size="small" />
+          </AccountButtons>
+          <PopupMenu css={mobileCss} />
+        </Content>
+        <SubmenuContainer isVisible={submenuVisible} visibleSubmenu={visibleSubmenu} />
+      </Container>
+      <Mask
+        css={
+          submenuVisible &&
+          css`
+            opacity: 1;
+          `
+        }
+      />
+    </Wrapper>
   );
 }
 

@@ -5,10 +5,9 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
 
-// Move Typography.js styles to the top of the head section so they're loaded first.
 exports.onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }) => {
   const headComponents = getHeadComponents();
-  headComponents.unshift(<meta name="segment-key" content="" key="segment-key" />);
+  headComponents.unshift(React.createElement("meta", { name: "segment-key", content: "", key: "segment-key" }));
   replaceHeadComponents(headComponents);
 };
 

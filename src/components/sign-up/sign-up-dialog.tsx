@@ -1,28 +1,21 @@
-import {
-  createStyles,
-  Dialog,
-  DialogTitle,
-  makeStyles,
-  Theme,
-  ThemeProvider,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@material-ui/core";
+import { createStyles, Dialog, DialogTitle, makeStyles, Theme, useMediaQuery, useTheme } from "@material-ui/core";
 import React, { useCallback } from "react";
-import { whiteBlueTheme } from "../../theme";
 import { useSignUp } from "./context";
 import SignUpForm from "./sign-up-form";
 import SignUpSuccess from "./sign-up-success";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    dialog: {
+      boxShadow: "none",
+      border: "2px solid black",
+    },
     actions: {
       padding: theme.spacing(2),
     },
     title: {
-      textColor: theme.palette.text.primary,
-      fontSize: "1.8rem",
+      color: theme.palette.text.primary,
+      margin: "1rem 0",
     },
   })
 );
@@ -38,17 +31,19 @@ function SignUpDialog(): JSX.Element {
   const handleClose = useCallback(() => dispatch("close"), [dispatch]);
 
   return (
-    <ThemeProvider theme={whiteBlueTheme}>
-      <Dialog fullScreen={fullScreen} open={state.open} onClose={handleClose} aria-labelledby="responsive-dialog-title">
-        <DialogTitle id="responsive-dialog-title" disableTypography>
-          <Typography variant="h1" className={classes.title}>
-            Try for free
-          </Typography>
-        </DialogTitle>{" "}
-        {!state.sentSuccessfully && <SignUpForm handleClose={handleClose} handleSuccess={handleSuccess} />}
-        {state.sentSuccessfully && <SignUpSuccess handleClose={handleClose} />}
-      </Dialog>
-    </ThemeProvider>
+    <Dialog
+      fullScreen={fullScreen}
+      open={state.open}
+      onClose={handleClose}
+      aria-labelledby="responsive-dialog-title"
+      classes={{ paper: classes.dialog }}
+    >
+      <DialogTitle id="responsive-dialog-title" disableTypography>
+        <h2 className={classes.title}>Try for free</h2>
+      </DialogTitle>{" "}
+      {!state.sentSuccessfully && <SignUpForm handleClose={handleClose} handleSuccess={handleSuccess} />}
+      {state.sentSuccessfully && <SignUpSuccess handleClose={handleClose} />}
+    </Dialog>
   );
 }
 

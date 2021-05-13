@@ -1,4 +1,4 @@
-import { Button, ButtonProps } from "@material-ui/core";
+import { Button, ButtonProps } from "./button";
 import React from "react";
 import { useSignUp } from "./sign-up/context";
 
@@ -10,15 +10,8 @@ function SignUpButton({ size, className }: SignUpButtonProps): JSX.Element {
   const { dispatch } = useSignUp();
 
   return (
-    <Button
-      variant="contained"
-      color="primary"
-      size={size}
-      className={className}
-      disableElevation
-      onClick={() => dispatch("open")}
-    >
-      Try for free
+    <Button variant="contained" size={size} className={className} onClick={() => dispatch("open")}>
+      Start now
     </Button>
   );
 }
