@@ -5,8 +5,12 @@ import { MDXProvider } from "@mdx-js/react";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
+import EspressifSvg from "../assets/images/logos/espressif.svg";
+import OnomondoSvg from "../assets/images/logos/onomondo.svg";
+import SoracomSvg from "../assets/images/logos/soracom.svg";
+import UbloxSvg from "../assets/images/logos/ublox.svg";
 import { components, shorthands } from "../mdx-components";
-import { black, golden, primaryTheme, white } from "../theme";
+import { golden, primaryTheme, white } from "../theme";
 import Footer from "./footer";
 import GlobalCss, { breakpoints } from "./global-css";
 import Header from "./header";
@@ -65,6 +69,15 @@ const Content = styled.div`
   }
 `;
 
+const ThirdPartyLogos = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  img {
+    margin: 1.5rem;
+  }
+`;
+
 interface GraphType {
   site: {
     siteMetadata: {
@@ -105,9 +118,9 @@ export default function Layout({ title, children }: LayoutProps): JSX.Element {
                   {children}
 
                   <Section
+                    centered
                     css={css`
                       background: ${golden.string()};
-                      border-top: 2px solid ${black.string()};
                     `}
                   >
                     <h2>Ready to get started?</h2>
@@ -120,6 +133,22 @@ export default function Layout({ title, children }: LayoutProps): JSX.Element {
                       Get access to our platform and start your journey to invent the future.
                     </p>
                     <SignUpButton />
+                  </Section>
+                  <Section centered>
+                    <p
+                      css={css`
+                        margin: 0 0 3rem;
+                      `}
+                    >
+                      Official platform partners:
+                    </p>
+
+                    <ThirdPartyLogos>
+                      <img src={EspressifSvg} />
+                      <img src={OnomondoSvg} />
+                      <img src={SoracomSvg} />
+                      <img src={UbloxSvg} />
+                    </ThirdPartyLogos>
                   </Section>
                 </Content>
                 <Footer />

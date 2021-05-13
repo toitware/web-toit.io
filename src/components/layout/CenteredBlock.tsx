@@ -4,9 +4,7 @@ import React, { ReactNode } from "react";
 const Wrapper = styled.div`
   position: relative;
   display: block;
-  // We want the content to have a specific width, regardless of the padding
-  box-sizing: content-box;
-  max-width: 30rem;
+  max-width: var(--centeredBlockWidth);
   margin: 3rem auto;
   text-align: center;
 `;

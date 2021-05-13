@@ -9,6 +9,7 @@ import { HorizontalBlock, HorizontalBlockItem } from "./components/horizontal-bl
 import { CodeIcon, ConnectionIcon } from "./components/icons";
 import CenteredBlock from "./components/layout/CenteredBlock";
 import PageTitle from "./components/layout/PageTitle";
+import SideBySide from "./components/layout/SideBySide";
 import FaqGroup from "./components/faq/FaqGroup";
 import FaqEntry from "./components/faq/FaqEntry";
 import Section from "./components/layout/Section";
@@ -32,6 +33,7 @@ export const shorthands = {
   CodeIcon,
   ConnectionIcon,
   PageTitle,
+  SideBySide,
   CenteredBlock,
   SignUpButton: SignUpButton,
   FaqGroup,

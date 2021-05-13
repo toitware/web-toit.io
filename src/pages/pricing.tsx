@@ -16,7 +16,7 @@ const featureCss = css`
 
 export function PricingPage(): JSX.Element {
   return (
-    <Layout>
+    <Layout title="Pricing">
       <PageTitle title="Start free, pay for what you need" subTitle="Pricing" />
       <Section
         css={css`
@@ -40,7 +40,7 @@ export function PricingPage(): JSX.Element {
 
         <PricingBlock />
       </Section>
-      <Section>
+      <Section centered>
         <h2>Why Toit?</h2>
         <p>Grow the business at your pace</p>
         <ul

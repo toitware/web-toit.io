@@ -153,23 +153,40 @@ export default function Footer(): JSX.Element {
         <Product>
           <header>Product</header>
           <ul>
-            <li>Devices</li>
-            <li>Cloud</li>
+            <li>
+              <Link to="/product/device">Device</Link>
+            </li>
+            <li>
+              <Link to="/product/cloud">Cloud</Link>
+            </li>
+            <li>
+              <Link to="/pricing">Pricing</Link>
+            </li>
           </ul>
         </Product>
         <Developers>
           <header>Developers</header>
           <ul>
-            <li>Documentation</li>
-            <li>API</li>
+            <li>
+              <Link href="https://docs.toit.io/">Documentation</Link>
+            </li>
+            <li>
+              <Link href="https://docs.toit.io/apis/api">API</Link>
+            </li>
           </ul>
         </Developers>
         <Company>
           <header>Company</header>
           <ul>
-            <li>About</li>
-            <li>Blog</li>
-            <li>FAQ</li>
+            <li>
+              <Link to="/company/about">About</Link>
+            </li>
+            <li>
+              <Link href="https://blog.toit.io/">Blog</Link>
+            </li>
+            <li>
+              <Link to="/company/faq">FAQ</Link>
+            </li>
             <li>
               <Link href="mailto:contact@toit.io">Contact us</Link>
             </li>
@@ -178,11 +195,19 @@ export default function Footer(): JSX.Element {
         <Legal>
           <header>Legal</header>
           <ul>
-            <li>Terms of service</li>
-            <li>Privacy policy</li>
-            <li>Cookies policy</li>
             <li>
-              <a onClick={() => setChangeConsent(true)}>Change cookie consent</a>
+              <Link to="/terms-of-service">Terms of service</Link>
+            </li>
+            <li>
+              <Link to="/privacy-policy">Privacy policy</Link>
+            </li>
+            <li>
+              <Link to="/cookies-policy">Cookies policy</Link>
+            </li>
+            <li>
+              <a href="#" onClick={() => setChangeConsent(true)}>
+                Change cookie consent
+              </a>
             </li>
           </ul>
         </Legal>

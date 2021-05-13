@@ -17,16 +17,27 @@ const Wrapper = styled.section`
 const Content = styled.div`
   max-width: 32rem;
   text-align: left;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  h1:first-of-type,
+  h2:first-of-type,
+  p:first-of-type {
+    margin-top: 0;
+  }
 `;
 
 const Illustration = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   img,
   video {
-    width: 100%;
-    max-width: 24rem;
-    ${breakpoints.medium} {
-      max-width: none;
-    }
+    max-width: min(24rem, 100%);
   }
 
   ${breakpoints.small} {
@@ -41,12 +52,20 @@ type SideBySideProps = {
   children: ReactNode;
   illustration: string | JSX.Element;
   illustrationPosition?: "left" | "right";
+  className?: string;
 };
 
-export function SideBySide({ children, illustration, illustrationPosition = "right" }: SideBySideProps): JSX.Element {
+export function SideBySide({
+  children,
+  className,
+  illustration,
+  illustrationPosition = "right",
+}: SideBySideProps): JSX.Element {
   return (
-    <Wrapper>
-      <Content>{children}</Content>
+    <Wrapper className={className}>
+      <Content>
+        <div>{children}</div>
+      </Content>
       <Illustration className={illustrationPosition}>
         {typeof illustration === "string" && <img src={illustration} />}
         {typeof illustration !== "string" && illustration}

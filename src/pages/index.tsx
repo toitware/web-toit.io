@@ -13,6 +13,7 @@ import ThermostatSvg from "../assets/images/illustrations/thermostat.svg";
 import WeatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
 import Button, { ButtonLink } from "../components/button";
 import FeatureBox, { FeaturesContainer } from "../components/FeatureBox";
+import { breakpoints } from "../components/global-css";
 import Layout from "../components/layout";
 import CenteredBlock from "../components/layout/CenteredBlock";
 import PageTitle from "../components/layout/PageTitle";
@@ -51,7 +52,9 @@ export function IndexPage(): JSX.Element {
           background-repeat: no-repeat;
           background-position: center 200%;
           padding-bottom: 16rem;
-          border-bottom: 2px solid ${black.string()};
+          ${breakpoints.mediumDown} {
+            background-position: 2rem 200%;
+          }
         `}
       >
         <PageTitle title="The best software platform for IoT" />
@@ -87,7 +90,12 @@ export function IndexPage(): JSX.Element {
             padding: 1.5rem 0;
           `}
         >
-          <img src={BeltSvg} />
+          <img
+            css={css`
+              margin-bottom: 3rem;
+            `}
+            src={BeltSvg}
+          />
 
           <FeaturesContainer>
             <FeatureBox title="Robust sandboxing" icon={<RobustSandboxingSvg />}>
@@ -167,6 +175,30 @@ export function IndexPage(): JSX.Element {
             in C, and a simple code change takes minutes to re-deploy.
           </p>
         </CenteredBlock>
+
+        {/* <Editor
+  editor={
+    'import gpio\n\
+\n\
+main:\n\
+  pin := gpio.Pin.out 21\n\
+  print "Blinking 5 times ..."\n\
+  5.repeat:\n\
+    pin.set 1\n\
+    sleep --ms=500\n\
+    pin.set 0\n\
+    sleep --ms=500\n\
+  print "Blinking done!"'
+  }
+  terminal={[
+    { Type: "Input", Content: "toit run main.toit" },
+    { Type: "Output", Content: "<process initiated>", Time: "2021-01-26 09:48:19" },
+    { Type: "Output", Content: "Blinking 5 times ...", Time: "2021-01-26 09:48:19" },
+    { Type: "Wait", Wait: 5000 },
+    { Type: "Output", Content: "Blinking done!", Time: "2021-01-26 09:48:24" },
+    { Type: "Output", Content: "<process finished>", Time: "2021-01-26 09:48:24" },
+  ]}
+/> */}
 
         <SideBySide illustration={SymbolsSvg} illustrationPosition="left">
           <p>

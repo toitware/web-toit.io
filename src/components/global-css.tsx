@@ -47,6 +47,8 @@ export function GlobalCss(): JSX.Element {
           --borderRadius: 5px;
           --contentPadding: max(1.5rem, 6vw);
           --calculatedContentPadding: max(var(--contentPadding), calc((100vw - var(--maxContentWidth)) / 2));
+
+          --centeredBlockWidth: 30rem;
         }
         html {
           // Make sure the scrollbar is always visible (on the devices that don't

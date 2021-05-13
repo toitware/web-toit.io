@@ -1,11 +1,9 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { black } from "../../theme";
 
 const Wrapper = styled.div`
   display: block;
   text-align: center;
-  border-bottom: 2px solid ${black.string()};
   padding: 7.5rem var(--calculatedContentPadding) 3rem;
 `;
 
