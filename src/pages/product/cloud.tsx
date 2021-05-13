@@ -10,6 +10,69 @@ import SideBySide from "../../components/layout/SideBySide";
 import SignUpButton from "../../components/sign-up-button";
 import { dartSecondary } from "../../theme";
 
+const ApiCalls: React.FC = () => (
+  <div
+    css={css`
+      height: 100%;
+      width: 100%;
+      min-height: 30rem;
+      position: relative;
+      overflow: hidden;
+      ::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          to bottom,
+          ${dartSecondary.string()},
+          ${dartSecondary.alpha(0).string()} 30%,
+          ${dartSecondary.alpha(0).string()} 70%,
+          ${dartSecondary.string()}
+        );
+      }
+    `}
+  >
+    <ul
+      css={css`
+        position: absolute;
+        top: -0.5rem;
+        bottom: -0.5rem;
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto Mono", monospace;
+        font-size: 2em;
+        font-weight: bold;
+        color: white;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        li {
+          list-style: none;
+        }
+      `}
+    >
+      {[
+        "lookupDevices",
+        "login",
+        "listJobs",
+        "createApiKey",
+        "healthCheck",
+        "listUsers",
+        "configureJob",
+        "rebootDevice",
+        "lookupDevice",
+      ].map((apiCall) => (
+        <li key={apiCall}>{apiCall}</li>
+      ))}
+    </ul>
+  </div>
+);
+
 export function CloudPage(): JSX.Element {
   return (
     <Layout title="Cloud">
@@ -57,23 +120,39 @@ export function CloudPage(): JSX.Element {
       <Section
         css={css`
           background-color: ${dartSecondary.string()};
+          padding-top: 0;
+          padding-bottom: 0;
         `}
       >
-        <SideBySide illustration={securityGateSvg} illustrationPosition="right">
-          <h1>Fully programmable</h1>
-          <p>
-            Our APIs are designed to give you full programmatic control of your devices and to make it easy to ingest
-            collected data into your own backend. After all, IoT is all about data - your data!
-          </p>
-          <p>
-            Our customers have access to the same APIs that we use internally. This means that everything you can do
-            with the Toit platform, you can do with our gRPC-based APIs.
-          </p>
-          <p>
-            <ButtonLink variant="outlined" href="https://docs.toit.io/apis/api">
-              Learn more
-            </ButtonLink>
-          </p>
+        <SideBySide
+          css={css`
+            padding-top: 0;
+            padding-bottom: 0;
+          `}
+          illustration={<ApiCalls />}
+          illustrationPosition="right"
+        >
+          <div
+            css={css`
+              padding-top: 6rem;
+              padding-bottom: 6rem;
+            `}
+          >
+            <h1>Fully programmable</h1>
+            <p>
+              Our APIs are designed to give you full programmatic control of your devices and to make it easy to ingest
+              collected data into your own backend. After all, IoT is all about data - your data!
+            </p>
+            <p>
+              Our customers have access to the same APIs that we use internally. This means that everything you can do
+              with the Toit platform, you can do with our gRPC-based APIs.
+            </p>
+            <p>
+              <ButtonLink variant="outlined" href="https://docs.toit.io/apis/api">
+                Learn more
+              </ButtonLink>
+            </p>
+          </div>
         </SideBySide>
       </Section>
     </Layout>
