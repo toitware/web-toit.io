@@ -11,7 +11,7 @@ import KeysSvg from "../assets/images/illustrations/keys.svg";
 import SymbolsSvg from "../assets/images/illustrations/symbols.svg";
 import ThermostatSvg from "../assets/images/illustrations/thermostat.svg";
 import WeatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
-import Button, { ButtonLink } from "../components/button";
+import { ButtonLink } from "../components/button";
 import FeatureBox, { FeaturesContainer } from "../components/FeatureBox";
 import { breakpoints } from "../components/global-css";
 import Layout from "../components/layout";
