@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import React from "react";
 import { clampBuilder } from "../components/global-css";
 import SignUpButton from "../components/sign-up-button";
-import { black, dart, golden, python, white } from "../theme";
+import { black, dart, golden, white } from "../theme";
 
 const Wrapper = styled.div`
   position: relative;
