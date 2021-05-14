@@ -17,6 +17,7 @@ module.exports = {
     "gatsby-plugin-sitemap",
     "gatsby-plugin-typescript-checker",
     "gatsby-plugin-material-ui",
+    "gatsby-plugin-emotion",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -53,7 +54,7 @@ module.exports = {
       options: {
         extensions: [".mdx", ".md"],
         defaultLayouts: {
-          default: require.resolve("./src/components/layout.tsx"),
+          default: require.resolve("./src/components/MdxLayout.tsx"),
         },
       },
     },

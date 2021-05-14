@@ -1,13 +1,6 @@
-import { makeStyles } from "@material-ui/core";
-import clsx from "clsx";
 import { motion, Variants } from "framer-motion";
 import * as React from "react";
 
-const useStyles = makeStyles(() => ({
-  listElement: {
-    marginBottom: "1.5rem",
-  },
-}));
 const itemVariants: Variants = {
   open: {
     y: 0,
@@ -26,14 +19,13 @@ const itemVariants: Variants = {
 };
 
 interface MenuItemProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
 }
 
 function MenuItem({ children, className }: MenuItemProps): JSX.Element {
-  const classes = useStyles();
   return (
-    <motion.li variants={itemVariants} className={clsx(classes.listElement, className)}>
+    <motion.li variants={itemVariants} className={className}>
       {children}
     </motion.li>
   );

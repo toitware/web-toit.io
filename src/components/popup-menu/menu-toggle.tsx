@@ -21,11 +21,13 @@ const useStyles = makeStyles(() => ({
     userSelect: "none",
     cursor: "pointer",
     background: "transparent",
+
+    zIndex: 1000,
   },
 }));
 
 const Path = (props: SVGMotionProps<SVGPathElement>) => (
-  <motion.path fill="transparent" strokeWidth="3" stroke="currentColor" strokeLinecap="round" {...props} />
+  <motion.path fill="transparent" strokeWidth="2" stroke="currentColor" strokeLinecap="round" {...props} />
 );
 
 interface MenuToggleProps {

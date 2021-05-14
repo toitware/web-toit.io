@@ -1,4 +1,4 @@
-import { Grid, makeStyles, Theme } from "@material-ui/core";
+import { Grid, makeStyles } from "@material-ui/core";
 import clsx from "clsx";
 import React from "react";
 import Block, { BlockProps } from "./block";
@@ -30,8 +30,7 @@ const useItemStyles = makeStyles(() => ({
 
 interface HorizontalBlockItemProps {
   children: React.ReactNode;
-  theme: Theme;
-  single: boolean;
+  single?: boolean;
   centered?: boolean;
   centeredBlock?: boolean;
 }
