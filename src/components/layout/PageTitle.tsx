@@ -22,11 +22,12 @@ const SubTitle = styled.h3`
 type Props = {
   title: string;
   subTitle?: string;
+  className?: string;
 };
 
-export function PageTitle({ title, subTitle }: Props): JSX.Element {
+export function PageTitle({ title, subTitle, className }: Props): JSX.Element {
   return (
-    <Wrapper>
+    <Wrapper className={className}>
       {subTitle && <SubTitle>{subTitle}</SubTitle>}
       <Title>{title}</Title>
     </Wrapper>

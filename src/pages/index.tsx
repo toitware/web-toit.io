@@ -6,6 +6,8 @@ import RobustSandboxingSvg from "../assets/images/icons/robust-sandboxing.inline
 import SecureCommunicationsSvg from "../assets/images/icons/secure-communications.inline.svg";
 import BeltSvg from "../assets/images/illustrations/belt.svg";
 import ControlCenterSvg from "../assets/images/illustrations/control-center.svg";
+import ArrowRightSvg from "../assets/images/illustrations/arrow-right.inline.svg";
+import ArrowLeftSvg from "../assets/images/illustrations/arrow-left.inline.svg";
 import GreenhouseSvg from "../assets/images/illustrations/greenhouse.svg";
 import KeysSvg from "../assets/images/illustrations/keys.svg";
 import SymbolsSvg from "../assets/images/illustrations/symbols.svg";
@@ -58,11 +60,38 @@ export function IndexPage(): JSX.Element {
           }
         `}
       >
-        <PageTitle title="The best software platform for IoT" />
-        <p>We make it as easy to create software for microcontrollers as it is to build a mobile app.</p>
-        <p>
-          <SignUpButton />
-        </p>
+        <PageTitle
+          title="The best software platform for IoT"
+          css={css`
+            border-bottom: 2px solid ${black.string()};
+          `}
+        />
+        <div
+          css={css`
+            position: relative;
+          `}
+        >
+          <p>We make it as easy to create software for microcontrollers as it is to build a mobile app.</p>
+          <p>
+            <SignUpButton />
+          </p>
+          <ArrowLeftSvg
+            css={css`
+              position: absolute;
+              right: 50%;
+              margin-right: -36rem;
+              bottom: -1rem;
+            `}
+          />
+          <ArrowRightSvg
+            css={css`
+              position: absolute;
+              left: 50%;
+              margin-left: -40rem;
+              bottom: -3rem;
+            `}
+          />
+        </div>
       </Hero>
       <Section>
         <H1 className="centered">Continuous firmware delivery</H1>
