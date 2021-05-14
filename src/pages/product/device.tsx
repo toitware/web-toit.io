@@ -66,9 +66,8 @@ export function DevicePage(): JSX.Element {
           background-color: ${pythonSecondary.string()};
         `}
       >
-        <h1>Virtual machine</h1>
-
         <SideBySide illustration={chipSvg}>
+          <h1>Virtual machine</h1>
           Your code runs as one or more applications inside the Toit virtual machine. The virtual machine creates a
           sandboxed environment for your code, so the worst that can happen from a bug is your application crashing. The
           system keeps running and so do your other applications.

@@ -21,7 +21,7 @@ export function AboutPage(): JSX.Element {
       />
 
       <Section centered>
-        <h2>Microcontrollers are everywhere.</h2>
+        <h2>Microcontrollers are everywhere</h2>
         <CenteredBlock>
           They sit inside most modern industrial applications and home appliances. A modern car has more than 30, and
           over 30 billion are sold each year. They cost just a few dollars or less, are the size of a fingernail, and
