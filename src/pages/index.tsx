@@ -26,6 +26,7 @@ import SignUpButton from "../components/sign-up-button";
 import { black, golden, white } from "../theme";
 
 const Hero = styled.section`
+  position: relative;
   background: ${golden.string()};
   text-align: center;
   p {
@@ -66,21 +67,28 @@ export function IndexPage(): JSX.Element {
             border-bottom: 2px solid ${black.string()};
           `}
         />
+        <p>We make it as easy to create software for microcontrollers as it is to build a mobile app.</p>
+        <p>
+          <SignUpButton />
+        </p>
+
         <div
           css={css`
-            position: relative;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
           `}
         >
-          <p>We make it as easy to create software for microcontrollers as it is to build a mobile app.</p>
-          <p>
-            <SignUpButton />
-          </p>
           <ArrowLeftSvg
             css={css`
               position: absolute;
               right: 50%;
               margin-right: -36rem;
-              bottom: -1rem;
+              bottom: 17rem;
             `}
           />
           <ArrowRightSvg
@@ -88,7 +96,7 @@ export function IndexPage(): JSX.Element {
               position: absolute;
               left: 50%;
               margin-left: -40rem;
-              bottom: -3rem;
+              bottom: 16rem;
             `}
           />
         </div>
