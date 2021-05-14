@@ -7,7 +7,7 @@ date: 2021-04-06
 import { goldenSecondary, passionSecondary, dartSecondary, pythonSecondary } from "../../theme.ts";
 import theStack from "../../assets/images/the-stack.png";
 
-<PageTitle title="Frequently asked questions" subTitle="" />
+<PageTitle title="Frequently asked questions" subTitle="FAQ" />
 
 <Section>
 
@@ -21,8 +21,8 @@ Find the answers to the most common Toit questions.
 
 <FaqEntry question="Why Toit?">
 
-Toit is revolutionizing the IoT development process. The current state of IoT development has not changed for decades, and our goal 
-is to change that paradigm: We turn firmware development into software development, enabling every software developer to become a 
+Toit is revolutionizing the IoT development process. The current state of IoT development has not changed for decades, and our goal
+is to change that paradigm: We turn firmware development into software development, enabling every software developer to become a
 successful IoT software developer.
 
 </FaqEntry>
@@ -31,14 +31,14 @@ successful IoT software developer.
 Toit is an end-to-end IoT software platform. Toit is also a new programming language tailored for embedded devices,
 and Toit provides powerful API endpoints such that your data can flow from your devices into your own IoT cloud system.
 
-Toit offers a device dashboard where you can orchestrate and monitor your device fleet, and the Toit cloud allows for easy and flawless 
+Toit offers a device dashboard where you can orchestrate and monitor your device fleet, and the Toit cloud allows for easy and flawless
 over-the-air firmware upgrade of your devices, as well as application deployment even if your devices are offline.
 
 </FaqEntry>
 
 <FaqEntry question="Why add a virtual machine to an embedded device?">
 
-When you install the Toit firmware on your hardware, the Toit virtual machine is installed on top of the operating system. 
+When you install the Toit firmware on your hardware, the Toit virtual machine is installed on top of the operating system.
 It isolates the embedded IoT applications from each other and provides a robust, resilient, and secure execution environment.
 
 <img class="graphic" src={theStack} />
@@ -55,25 +55,25 @@ from Espressif. We have chosen the ESP32 because it offers the best price and pe
 out of all the MCUs out there. For $2 or less you get 520 KB RAM, built-in WiFi,
 and 34 pins for peripherals configurable to be used for communication
 protocols (SPI, I2C), analog/digital interfacing (ADC/DAC), Ethernet, and much
-more. 
+more.
 
 The deep-sleep mode of the ESP32 allows for extremely low power usage and
 you can run on a couple of AA batteries for years. All this at a price that is a
 fraction of that for comparable or even inferior chips.
 
-At the moment, we only support the ESP32 hardware model with 4 MB of flash. 
+At the moment, we only support the ESP32 hardware model with 4 MB of flash.
 
 </FaqEntry>
 <FaqEntry question="How do my devices communicate with each other using Toit?">
 
-Toit offers easy, out-of-the-box device communication using the publish/subscribe pattern. 
+Toit offers easy, out-of-the-box device communication using the publish/subscribe pattern.
 
 Publish/subscribe is an asynchronous messaging service that decouples services that produces messages from the services processing them.
 
-The applications running on your devices can communicate with each other either directly, if they run on the same device, or via the Toit cloud 
-if they are installed and running on different devices. 
+The applications running on your devices can communicate with each other either directly, if they run on the same device, or via the Toit cloud
+if they are installed and running on different devices.
 
-An application can publish serializable data on a topic which is sent to all subscribers. Another application can then subscribe to the same 
+An application can publish serializable data on a topic which is sent to all subscribers. Another application can then subscribe to the same
 topic to receive the published data.
 
 All this can be achived with only few lines of code in your applications.
@@ -82,7 +82,7 @@ All this can be achived with only few lines of code in your applications.
 <FaqEntry question="How do I write my own driver in Toit?">
 
 With Toit, you get build-in access to IoT procotols such as I2C and SPI, as well as GPIO support, which makes it possible to write drivers directly in the Toit language.
-The [documentation](https://docs.toit.io/sensors/drivers/sparkfun_joystick/) contains a tutorial on how to write drivers. 
+The [documentation](https://docs.toit.io/sensors/drivers/sparkfun_joystick/) contains a tutorial on how to write drivers.
 Furthermore, we have published drivers for some common peripherals on Github. These are often good starting points for your own drivers.
 
 If you need help or have questions regarding drivers, don't hesitate to ask us either using the public Slack channel
@@ -92,11 +92,11 @@ or by writing to developers@toit.io
 <FaqEntry question="How can I get the device data into my own backend?">
 
 All the functionality of the Toit cloud is also available using the Toit APIs
-directly. 
+directly.
 
-Toit offers publicly available APIs, which are designed to make it easy to ingest collected device data into your own IoT backend. 
+Toit offers publicly available APIs, which are designed to make it easy to ingest collected device data into your own IoT backend.
 
-Toit provides a GRPC API for communicating with the Toit console from your client applicatopn. 
+Toit provides a GRPC API for communicating with the Toit console from your client applicatopn.
 We have example implementations of client applications written in Java, Python, Dart/Flutter and NodeJS.
 
 Toit also offers a Data API where data to be ingested is grouped into two groups: Metrics and Logs.
@@ -106,7 +106,7 @@ Toit also offers a Data API where data to be ingested is grouped into two groups
 
 There are only a few steps required to get started wiht Toit. First, you need a Toit account.
 
-Then, provision your hardware, thereby installing the latest released Toit firmware and adding initial WiFi connection settings. 
+Then, provision your hardware, thereby installing the latest released Toit firmware and adding initial WiFi connection settings.
 This step links your hardware to your Toit account.
 
 At this point you can push code to your hardware, either by using the web-based Toit console, or by using the Toit CLI.
@@ -114,8 +114,8 @@ At this point you can push code to your hardware, either by using the web-based 
 </FaqEntry>
 <FaqEntry question="How fast is over-the-air firmware updates of my devices?">
 
-We have designed the over-the-air firmware updates to only transfer the changes in each update, not the entire bundle. 
-If your connection to your hardware is unstable, the update will eventually succeed, so you don't need to worry about the state of your device. 
+We have designed the over-the-air firmware updates to only transfer the changes in each update, not the entire bundle.
+If your connection to your hardware is unstable, the update will eventually succeed, so you don't need to worry about the state of your device.
 
 The same approach is applicable to the over-the-air updates of your apps to your devices.
 
