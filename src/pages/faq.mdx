@@ -28,14 +28,14 @@ successful IoT software developer.
 #### What is Toit?
 
 Toit is an end-to-end IoT software platform. Toit is also a new programming language tailored for embedded devices,
-and Toit provides powerful API endpoints such that you data can flow from your devices into your own IoT cloud system.
+and Toit provides powerful API endpoints such that your data can flow from your devices into your own IoT cloud system.
 
 Toit offers a device dashboard where you can orchestrate and monitor your device fleet, and the Toit cloud allows for easy and flawless 
 over-the-air firmware upgrade of your devices, as well as application deployment even if your devices are offline.
 
 #### Why add a virtual machine to an embedded device?
 
-When you install the Toit firmware on your hardware, the Toit virtual machine is installed on top of the operating system. Thereby, isolating your 
+When you install the Toit firmware on your hardware, the Toit virtual machine is installed on top of the operating system. Thereby isolating your 
 embedded IoT applications from each other. The Toit virtual machine gives you a robust, resilient, and secure execution environment for your IoT apps.
 
 <img class="graphic" src={theStack} />
@@ -51,10 +51,13 @@ from Espressif. We have chosen the ESP32 because it offers the best price and pe
 out of all the MCUs out there. For $2 or less you get 520 KB RAM, built-in WiFi,
 and 34 pins for peripherals configurable to be used for communication
 protocols (SPI, I2C), analog/digital interfacing (ADC/DAC), Ethernet, and much
-more. In addition, its deep-sleep mode allows for extremely low power usage and
+more. 
+
+The deep-sleep mode of the ESP32 allows for extremely low power usage and
 you can run on a couple of AA batteries for years. All this at a price that is a
 fraction of that for comparable or even inferior chips.
 
+At the moment, we only support the ESP32 hardware model with 4 MB of flash. 
 
 #### How do my devices communicate with each other using Toit?
 
@@ -62,11 +65,13 @@ Toit offers easy, out-of-the-box device communication using the publish/subscrib
 
 Publish/subscribe is an asynchronous messaging service that decouples services that produces messages from the services processing them.
 
-The applications running on your devices can communicate with each other either directly, if they run on the same device, or via the Toit cloudm
+The applications running on your devices can communicate with each other either directly, if they run on the same device, or via the Toit cloud 
 if they are installed and running on different devices. 
 
 An application can publish serializable data on a topic which is sent to all subscribers. Another application can then subscribe to the same 
 topic to receive the published data.
+
+All this can be achived with only few lines of code in your applications.
 
 #### How do I write my own driver in Toit?
 
@@ -94,16 +99,16 @@ Toit also offers a Data API where data to be ingested is grouped into two groups
 
 There are only a few steps required to get started wiht Toit. First, you need a Toit account go get started.
 
-Then, provision your hardware, thereby installing the latest released Toit firmware and setup WiFi connections.
+Then, provision your hardware, thereby installing the latest released Toit firmware and adding initial WiFi connection settings.
 
-Your hardware will be linked to your Toit account and your are ready to run or deploy Toit code on your hardware.
+Your hardware will be linked to your Toit account and your are ready to run or deploy Toit code on your hardware via the Toit cloud.
 
 #### How fast is over-the-air firmware updates of my devices?
 
 We have designed the over-the-air firmware updates to only transfer the changes in each update, not the entire bundle. 
-If your connection to your hardware is unstable, the update will eventually succeed, so you dont need to worry about that part. 
+If your connection to your hardware is unstable, the update will eventually succeed, so you don't need to worry about the state of your device. 
 
-The same is applicable to Toit application updates on your devices.
+The same approach is applicable to the over-the-air updates of your apps to your devices.
 
 #### Which types of connectivity do Toit offer?
 
@@ -116,7 +121,6 @@ In the future, we will also provide ethernet connectivity.
 
 Because of the resource constraints on embedded microchips, an IoT computing
 platform needs to be tight in order to work.
-
 Previous IoT languages (such as Java SE Embedded and MicroPython) were generated
 as a limited version of the corresponding standard language by removing classes
 and other tools. At Toit, we wanted to create a high-level language that
