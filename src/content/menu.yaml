@@ -27,10 +27,13 @@ items:
       - title: API
         href: https://docs.toit.io/apis/api
         description: Talk to your devices and get the data you need. #Get started with connecting your apps to our API.
+      - path: /faq
+        title: FAQ
+        description: Answers to the most common questions.
   - path: /company
     title: Company
     description: >
-      Toit strives to provide technology starts up with the tools to create effortlessly.
+      Toit strives to provide technology start ups with the tools to create effortlessly.
     subpages:
       - path: /about
         title: About
@@ -38,6 +41,3 @@ items:
       - href: https://blog.toit.io/
         title: Blog
         description: Keep up to date with Toit and our projects.
-      - path: /faq
-        title: FAQ
-        description: Answers to the most common questions.

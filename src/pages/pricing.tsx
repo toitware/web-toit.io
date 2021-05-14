@@ -21,7 +21,6 @@ export function PricingPage(): JSX.Element {
       <Section
         css={css`
           padding-top: 1.5rem;
-          border-bottom: 2px solid ${black.string()};
           &::before {
             content: "";
             position: absolute;

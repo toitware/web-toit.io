@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import React from "react";
 import { clampBuilder } from "../components/global-css";
 import SignUpButton from "../components/sign-up-button";
-import { black, dart, golden, python, white } from "../theme";
+import { black, dart, golden, white } from "../theme";
 
 const Wrapper = styled.div`
   position: relative;
@@ -18,13 +18,11 @@ const Wrapper = styled.div`
 const PricingBlockHeader = styled.header`
   background: ${black.string()};
   height: ${clampBuilder(375, 1080, 3.75, 5.125)};
-  padding: ${clampBuilder(375, 1080, 0.5, 1)};
+  padding: ${clampBuilder(375, 1080, 0.5, 1)} 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: ${golden.string()};
-  padding-left: 5%;
-  padding-right: 0;
 
   h2 {
     margin: 0;
@@ -33,13 +31,7 @@ const PricingBlockHeader = styled.header`
 `;
 
 const freeLimit = css`
-  background: ${python.string()};
-  height: 100%;
-  display: flex;
-  align-items: center;
   color: white;
-  border-radius: var(--borderRadius) 0 0 var(--borderRadius);
-  padding: 0 3%;
   font-size: clamp(0.875rem, 2vw, 1.25rem);
 `;
 

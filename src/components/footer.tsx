@@ -211,7 +211,7 @@ export default function Footer(): JSX.Element {
             </li>
           </ul>
         </Legal>
-        <Copyright>&copy; Toitware ApS. 2021.</Copyright>
+        <Copyright>&copy; Toit</Copyright>
         <Design>
           Design by <Link href="https://jacktheobald.com/">Jack Theobald</Link>
         </Design>

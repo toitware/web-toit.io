@@ -43,7 +43,7 @@ const mobileCss = css`
 `;
 
 const scrolledDown = css`
-  background: ${white.alpha(0.4).string()};
+  background: ${white.alpha(0.6).string()};
 `;
 
 const Mask = styled.div`

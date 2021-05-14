@@ -47,18 +47,14 @@ const useStyles = makeStyles((theme: Theme) =>
 
 /** The values controlled by this form. */
 interface SignUpValues {
-  name: string;
   email: string;
-  company?: string;
   subscribed_to_newsletter: boolean;
 }
 
 /** The schema used to validate the form values. */
 const validationSchema: yup.SchemaOf<SignUpValues> = yup
   .object({
-    name: yup.string().min(2, "Your name must be at least 2 characters").required("Name is required"),
     email: yup.string().email("Enter a valid email").required("Email is required"),
-    company: yup.string().min(2, "Your company must be at least 2 characters"),
     subscribed_to_newsletter: yup.bool().defined(),
   })
   .defined();
@@ -109,16 +105,13 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
 
   const formik = useFormik<SignUpValues>({
     initialValues: {
-      name: "",
       email: "",
-      company: "",
       subscribed_to_newsletter: false,
     },
     validationSchema: validationSchema,
     onSubmit: submitForm,
   });
 
-  const companyHelperText = (formik.touched.company && formik.errors.company) ?? "(Optional)";
   return (
     // Sticking novalidate on the form to prevent browser validation. Otherwise
     // a browser built in email validation popup appears and it doesn't look
@@ -138,23 +131,6 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
           <Grid item xs={6}>
             <TextField
               autoFocus
-              id="name"
-              name="name"
-              autoComplete="name"
-              label="Full name"
-              type="text"
-              fullWidth
-              required
-              disabled={isSending}
-              value={formik.values.name}
-              onChange={formik.handleChange}
-              error={formik.touched.name && Boolean(formik.errors.name)}
-              helperText={formik.touched.name && formik.errors.name}
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <TextField
-              autoFocus
               id="email"
               name="email"
               autoComplete="email"
@@ -167,22 +143,6 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
               onChange={formik.handleChange}
               error={formik.touched.email && Boolean(formik.errors.email)}
               helperText={formik.touched.email && formik.errors.email}
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <TextField
-              autoFocus
-              id="company"
-              name="company"
-              autoComplete="company"
-              label="Company name"
-              type="text"
-              fullWidth
-              disabled={isSending}
-              value={formik.values.company}
-              onChange={formik.handleChange}
-              error={formik.touched.company && Boolean(formik.errors.company)}
-              helperText={companyHelperText}
             />
           </Grid>
         </Grid>
@@ -200,16 +160,16 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
         </DialogContentText>
       </DialogContent>
       <DialogActions className={classes.actions}>
-        <Button autoFocus onClick={handleClose} variant="outlined" disabled={isSending}>
+        <Button type="button" autoFocus onClick={handleClose} variant="outlined" disabled={isSending}>
           Cancel
         </Button>
         &nbsp;
         <Button type="submit" variant="contained" autoFocus disabled={isSending}>
-          Sign Up
+          Sign up
         </Button>
         <Typography className={classes.privacyPolicy} component="div">
           <div>
-            By clicking the “Sign Up” button, you are creating a Toit account, and you agree to our{" "}
+            By clicking the “Sign up” button, you are creating a Toit account, and you agree to our{" "}
             <Link to="/terms-of-service">terms of service</Link> and <Link to="/privacy-policy">privacy policy</Link>.
           </div>
         </Typography>

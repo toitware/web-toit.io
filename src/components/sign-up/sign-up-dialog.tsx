@@ -39,7 +39,7 @@ function SignUpDialog(): JSX.Element {
       classes={{ paper: classes.dialog }}
     >
       <DialogTitle id="responsive-dialog-title" disableTypography>
-        <h2 className={classes.title}>Try for free</h2>
+        <h2 className={classes.title}>Start now</h2>
       </DialogTitle>{" "}
       {!state.sentSuccessfully && <SignUpForm handleClose={handleClose} handleSuccess={handleSuccess} />}
       {state.sentSuccessfully && <SignUpSuccess handleClose={handleClose} />}
