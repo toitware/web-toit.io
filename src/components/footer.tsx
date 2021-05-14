@@ -173,6 +173,9 @@ export default function Footer(): JSX.Element {
             <li>
               <Link href="https://docs.toit.io/apis/api">API</Link>
             </li>
+            <li>
+              <Link to="/company/faq">FAQ</Link>
+            </li>
           </ul>
         </Developers>
         <Company>
@@ -183,9 +186,6 @@ export default function Footer(): JSX.Element {
             </li>
             <li>
               <Link href="https://blog.toit.io/">Blog</Link>
-            </li>
-            <li>
-              <Link to="/company/faq">FAQ</Link>
             </li>
             <li>
               <Link href="mailto:contact@toit.io">Contact us</Link>
