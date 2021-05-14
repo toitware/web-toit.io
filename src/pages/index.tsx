@@ -4,15 +4,14 @@ import React from "react";
 import ConsoleSvg from "../assets/images/console.svg";
 import RobustSandboxingSvg from "../assets/images/icons/robust-sandboxing.inline.svg";
 import SecureCommunicationsSvg from "../assets/images/icons/secure-communications.inline.svg";
+import ArrowLeftSvg from "../assets/images/illustrations/arrow-left.inline.svg";
+import ArrowRightSvg from "../assets/images/illustrations/arrow-right.inline.svg";
 import BeltSvg from "../assets/images/illustrations/belt.svg";
 import ControlCenterSvg from "../assets/images/illustrations/control-center.svg";
-import ArrowRightSvg from "../assets/images/illustrations/arrow-right.inline.svg";
-import ArrowLeftSvg from "../assets/images/illustrations/arrow-left.inline.svg";
 import GreenhouseSvg from "../assets/images/illustrations/greenhouse.svg";
 import KeysSvg from "../assets/images/illustrations/keys.svg";
 import SymbolsSvg from "../assets/images/illustrations/symbols.svg";
 import ThermostatSvg from "../assets/images/illustrations/thermostat.svg";
-import WeatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
 import { ButtonLink } from "../components/button";
 import FeatureBox, { FeaturesContainer } from "../components/FeatureBox";
 import { breakpoints } from "../components/global-css";
@@ -22,6 +21,7 @@ import PageTitle from "../components/layout/PageTitle";
 import ParagraphHeader from "../components/layout/ParagraphHeader";
 import Section from "../components/layout/Section";
 import SideBySide from "../components/layout/SideBySide";
+// import WeatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
 import SignUpButton from "../components/sign-up-button";
 import { black, golden, white } from "../theme";
 
@@ -152,7 +152,7 @@ export function IndexPage(): JSX.Element {
         <SideBySide
           illustration={
             <video muted autoPlay loop playsInline>
-              <source src={WeatherBalloonMp4} type="video/mp4" />
+              <source src="https://github.com/enyo/testest/blob/main/weather-balloon.mp4?raw=true" type="video/mp4" />
             </video>
           }
           illustrationPosition="left"
