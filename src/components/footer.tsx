@@ -174,7 +174,7 @@ export default function Footer(): JSX.Element {
               <Link href="https://docs.toit.io/apis/api">API</Link>
             </li>
             <li>
-              <Link to="/company/faq">FAQ</Link>
+              <Link to="/developers/faq">FAQ</Link>
             </li>
           </ul>
         </Developers>
