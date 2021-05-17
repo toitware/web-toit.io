@@ -33,8 +33,10 @@ const Hero = styled.section`
   text-align: center;
   p {
     display: block;
-    max-width: 24em;
+    max-width: 26em;
     margin: 3rem auto;
+    padding-left: var(--contentPadding);
+    padding-right: var(--contentPadding);
   }
 `;
 
@@ -58,7 +60,9 @@ export function IndexPage(): JSX.Element {
             border-bottom: 2px solid ${black.string()};
           `}
         />
-        <p css={bigFont}>We make it as easy to create software for microcontrollers as it is to build a mobile app.</p>
+        <p css={[bigFont]}>
+          We make it as easy to create software for microcontrollers as it is to build a mobile app.
+        </p>
         <p>
           <SignUpButton />
         </p>
