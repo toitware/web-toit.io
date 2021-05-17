@@ -110,7 +110,7 @@ export function CloudPage(): JSX.Element {
 
       <Section>
         <SideBySide illustration={securityGateSvg} illustrationPosition="left">
-          <h1>Secure Communication</h1>
+          <h1>Secure communication</h1>
           All communication between the device and the cloud is end-to-end encrypted using modern public-key encryption.
           Each device has its own cryptographically secure identity, so you know exactly where all collected data stems
           from.
