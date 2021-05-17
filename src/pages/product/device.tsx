@@ -76,7 +76,7 @@ export function DevicePage(): JSX.Element {
 
       <Section>
         <SideBySide illustration={boxesSvg} illustrationPosition="left">
-          <h1>Out of the box drivers</h1>
+          <h1>Out-of-the-box drivers</h1>
 
           <p>
             The Toit ecosystem comes with ready-to-use drivers for many of the commonly used peripherals, including GSM
