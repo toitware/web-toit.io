@@ -145,7 +145,7 @@ export default function Footer(): JSX.Element {
             <Link href="https://www.linkedin.com/company/toitio">
               <LinkedInIcon />
             </Link>
-            <Link href="https://www.reddit.com/user/toit-io">
+            <Link href="https://www.reddit.com/r/toit/">
               <RedditIcon />
             </Link>
           </div>
