@@ -33,7 +33,7 @@ items:
   - path: /company
     title: Company
     description: >
-      Toit strives to provide technology start ups with the tools to create effortlessly.
+      Toit strives to provide technology startups the very best foundation for their IoT solutions.
     subpages:
       - path: /about
         title: About
