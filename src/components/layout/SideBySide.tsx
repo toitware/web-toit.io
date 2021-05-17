@@ -7,10 +7,10 @@ const Wrapper = styled.section`
   justify-content: center;
   padding-top: 3rem;
   padding-bottom: 3rem;
+  gap: clamp(3rem, 6vw, 4.5rem);
 
   ${breakpoints.small} {
     grid-template-columns: 1fr 1fr;
-    gap: 4.5rem;
   }
 `;
 
@@ -27,6 +27,9 @@ const Content = styled.div`
   h2:first-of-type,
   p:first-of-type {
     margin-top: 0;
+  }
+  p:last-of-type {
+    margin-bottom: 0;
   }
 `;
 
