@@ -42,6 +42,11 @@ const Illustration = styled.div`
     max-width: 32rem;
   }
 
+  /* Prevent the Chromecast icon from appearing on android devices */
+  video::-internal-media-controls-overlay-cast-button {
+    display: none;
+  }
+
   ${breakpoints.small} {
     &.left {
       grid-row: 1;

@@ -47,7 +47,11 @@ const H1 = styled.h1`
 export function IndexPage(): JSX.Element {
   return (
     <Layout>
-      <Hero>
+      <Hero
+        css={css`
+          overflow: hidden;
+        `}
+      >
         <PageTitle
           title="The best software platform for IoT"
           css={css`
@@ -61,13 +65,8 @@ export function IndexPage(): JSX.Element {
 
         <div
           css={css`
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            pointer-events: none;
-            overflow: hidden;
+            position: relative;
+            height: 0;
           `}
         >
           <ArrowLeftSvg
@@ -75,7 +74,7 @@ export function IndexPage(): JSX.Element {
               position: absolute;
               right: 50%;
               margin-right: -36rem;
-              bottom: 21rem;
+              bottom: 2rem;
             `}
           />
           <ArrowRightSvg
@@ -83,7 +82,7 @@ export function IndexPage(): JSX.Element {
               position: absolute;
               left: 50%;
               margin-left: -40rem;
-              bottom: 20rem;
+              bottom: 1rem;
             `}
           />
         </div>
