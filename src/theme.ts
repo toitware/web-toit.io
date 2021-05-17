@@ -15,7 +15,7 @@ export const tiger = Color("#53978E");
 export const blackSecondary = black.alpha(0.3);
 export const passionSecondary = Color("#FFB5B5");
 export const goldenSecondary = Color("#FFE598");
-export const dartSecondary = Color("#B0B8ED");
+export const dartSecondary = Color("#C1C9FF");
 export const pythonSecondary = Color("#BDDCD8");
 export const tigerSecondary = Color("#FFDBC0");
 

@@ -1,6 +1,7 @@
-import { Button, createStyles, DialogActions, DialogContent, makeStyles, Theme, Typography } from "@material-ui/core";
+import { createStyles, DialogActions, DialogContent, makeStyles, Theme, Typography } from "@material-ui/core";
 import React from "react";
 import { FiCheckCircle } from "react-icons/fi";
+import Button from "../button";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -38,8 +39,8 @@ export function SignUpSuccess({ handleClose }: SignUpSuccessProps): JSX.Element 
         </Typography>
       </DialogContent>
       <DialogActions className={classes.actions}>
-        <Button autoFocus onClick={handleClose} color="primary">
-          Close Window
+        <Button autoFocus onClick={handleClose}>
+          Close
         </Button>
       </DialogActions>
     </>

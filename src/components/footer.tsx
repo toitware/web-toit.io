@@ -14,8 +14,7 @@ import { Link } from "./link";
 const Root = styled.footer`
   width: 100%;
   margin: 0 auto;
-  box-sizing: content-box;
-  max-width: var(--maxPageWidth);
+  max-width: calc(var(--maxPageWidth) + var(--contentPadding) * 2);
   padding: 3rem var(--contentPadding);
   background: ${black.string()};
   color: ${white.string()};
