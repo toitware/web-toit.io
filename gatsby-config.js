@@ -14,6 +14,8 @@ module.exports = {
     },
     "gatsby-plugin-eslint",
     "gatsby-plugin-remove-trailing-slashes",
+    "gatsby-plugin-react-helmet",
+
     "gatsby-plugin-sitemap",
     "gatsby-plugin-typescript-checker",
     "gatsby-plugin-material-ui",

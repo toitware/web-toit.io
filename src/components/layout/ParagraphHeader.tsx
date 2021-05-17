@@ -3,21 +3,18 @@ import React, { ReactNode } from "react";
 import { breakpoints } from "../global-css";
 
 const Wrapper = styled.div`
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-
   ${breakpoints.small} {
     display: flex;
   }
 
   text-align: left;
 
-  margin-bottom: 4.5rem;
+  margin: 1.5rem 0;
 `;
 
 const Titles = styled.div`
   flex: 1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
   ${breakpoints.medium} {
     margin-right: 1.5rem;
   }

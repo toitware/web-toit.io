@@ -5,12 +5,10 @@ import { breakpoints } from "../global-css";
 const Wrapper = styled.section`
   display: grid;
   justify-content: center;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  gap: clamp(3rem, 6vw, 4.5rem);
 
   ${breakpoints.small} {
     grid-template-columns: 1fr 1fr;
-    gap: 4.5rem;
   }
 `;
 
@@ -28,6 +26,9 @@ const Content = styled.div`
   p:first-of-type {
     margin-top: 0;
   }
+  p:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const Illustration = styled.div`
@@ -37,7 +38,13 @@ const Illustration = styled.div`
 
   img,
   video {
-    max-width: min(24rem, 100%);
+    width: 100%;
+    max-width: 32rem;
+  }
+
+  /* Prevent the Chromecast icon from appearing on android devices */
+  video::-internal-media-controls-overlay-cast-button {
+    display: none;
   }
 
   ${breakpoints.small} {

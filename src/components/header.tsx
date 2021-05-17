@@ -60,6 +60,7 @@ const Mask = styled.div`
 
 const Content = styled.div`
   margin: 0 auto;
+  box-sizing: content-box;
   max-width: var(--maxPageWidth);
   padding: 0 var(--contentPadding);
 
