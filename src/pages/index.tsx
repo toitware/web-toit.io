@@ -7,21 +7,23 @@ import SecureCommunicationsSvg from "../assets/images/icons/secure-communication
 import ArrowLeftSvg from "../assets/images/illustrations/arrow-left.inline.svg";
 import ArrowRightSvg from "../assets/images/illustrations/arrow-right.inline.svg";
 import BeltSvg from "../assets/images/illustrations/belt.svg";
+import BeltOnlySvg from "../assets/images/illustrations/belt-only.svg";
 import ControlCenterSvg from "../assets/images/illustrations/control-center.svg";
 import GreenhouseSvg from "../assets/images/illustrations/greenhouse.svg";
 import KeysSvg from "../assets/images/illustrations/keys.svg";
 import SymbolsSvg from "../assets/images/illustrations/symbols.svg";
 import ThermostatSvg from "../assets/images/illustrations/thermostat.svg";
 import { ButtonLink } from "../components/button";
+import ContentSpacer from "../components/ContentSpacer";
 import FeatureBox, { FeaturesContainer } from "../components/FeatureBox";
-import { breakpoints } from "../components/global-css";
+import { breakpoints, clampBuilder, bigFont } from "../components/global-css";
 import Layout from "../components/layout";
 import CenteredBlock from "../components/layout/CenteredBlock";
 import PageTitle from "../components/layout/PageTitle";
 import ParagraphHeader from "../components/layout/ParagraphHeader";
 import Section from "../components/layout/Section";
 import SideBySide from "../components/layout/SideBySide";
-import WeatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
+// import WeatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
 import SignUpButton from "../components/sign-up-button";
 import { black, golden, white } from "../theme";
 
@@ -38,36 +40,21 @@ const Hero = styled.section`
 
 const H1 = styled.h1`
   display: block;
-  max-width: 14em;
+  max-width: 16em;
   margin: 3rem 0;
-  &.centered {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
 `;
 
 export function IndexPage(): JSX.Element {
   return (
     <Layout>
-      <Hero
-        css={css`
-          background-image: url("${ConsoleSvg}");
-          background-repeat: no-repeat;
-          background-position: center 200%;
-          padding-bottom: 16rem;
-          ${breakpoints.mediumDown} {
-            background-position: 2rem 200%;
-          }
-        `}
-      >
+      <Hero>
         <PageTitle
           title="The best software platform for IoT"
           css={css`
             border-bottom: 2px solid ${black.string()};
           `}
         />
-        <p>We make it as easy to create software for microcontrollers as it is to build a mobile app.</p>
+        <p css={bigFont}>We make it as easy to create software for microcontrollers as it is to build a mobile app.</p>
         <p>
           <SignUpButton />
         </p>
@@ -88,7 +75,7 @@ export function IndexPage(): JSX.Element {
               position: absolute;
               right: 50%;
               margin-right: -36rem;
-              bottom: 17rem;
+              bottom: 21rem;
             `}
           />
           <ArrowRightSvg
@@ -96,15 +83,45 @@ export function IndexPage(): JSX.Element {
               position: absolute;
               left: 50%;
               margin-left: -40rem;
-              bottom: 16rem;
+              bottom: 20rem;
             `}
+          />
+        </div>
+        <div
+          css={css`
+            display: block;
+            position: relative;
+            overflow: hidden;
+            height: 20rem;
+            padding: 0 var(--contentPadding);
+          `}
+        >
+          <img
+            css={css`
+              width: 979px;
+              max-width: none !important;
+            `}
+            src={ConsoleSvg}
           />
         </div>
       </Hero>
       <Section>
-        <H1 className="centered">Continuous firmware delivery</H1>
+        <H1
+          css={css`
+            @media (min-width: 600px) {
+              text-align: center;
+              margin-left: auto;
+              margin-right: auto;
+            }
+
+            margin-bottom: ${clampBuilder("tiny", "large", 3, 12)};
+          `}
+        >
+          Continuous firmware delivery
+        </H1>
+
         <SideBySide illustration={GreenhouseSvg}>
-          <p>
+          <p css={bigFont}>
             Continuously update the code on your microcontrollers even over cellular connections. Monitor and securely
             service your devices in production; all through the Toit API.
           </p>
@@ -125,14 +142,25 @@ export function IndexPage(): JSX.Element {
         <div
           css={css`
             text-align: center;
-            padding: 1.5rem 0;
           `}
         >
           <img
+            src={BeltOnlySvg}
             css={css`
-              margin-bottom: 3rem;
+              margin: ${clampBuilder("small", "huge", 4.5, 12)} 0;
+              ${breakpoints.tiny} {
+                display: none;
+              }
             `}
+          />
+          <img
             src={BeltSvg}
+            css={css`
+              margin: ${clampBuilder("small", "huge", 4.5, 12)} 0;
+              ${breakpoints.tinyDown} {
+                display: none;
+              }
+            `}
           />
 
           <FeaturesContainer>
@@ -157,10 +185,11 @@ export function IndexPage(): JSX.Element {
             system, share it with your customers. We just handle your microcontrollers.
           </p>
         </SideBySide>
+        <ContentSpacer />
         <SideBySide
           illustration={
             <video muted autoPlay loop playsInline>
-              <source src={WeatherBalloonMp4} type="video/mp4" />
+              <source src="https://github.com/enyo/testest/blob/main/weather-balloon.mp4?raw=true" type="video/mp4" />
             </video>
           }
           illustrationPosition="left"
@@ -182,6 +211,7 @@ export function IndexPage(): JSX.Element {
             </ButtonLink>
           </p>
         </SideBySide>
+        <ContentSpacer />
         <SideBySide illustration={ThermostatSvg}>
           <h2>Monitor and service your devices in production</h2>
           <p>
@@ -208,7 +238,7 @@ export function IndexPage(): JSX.Element {
       >
         <CenteredBlock>
           <H1>Built for software developers</H1>
-          <p>
+          <p css={bigFont}>
             If you have ever tried to write code for microcontrollers you know that it’s not a nice experience. You code
             in C, and a simple code change takes minutes to re-deploy.
           </p>
@@ -238,6 +268,7 @@ main:\n\
   ]}
 /> */}
 
+        <ContentSpacer />
         <SideBySide illustration={SymbolsSvg} illustrationPosition="left">
           <p>
             Toit gives you a modern, memory-safe language with state-of-the-art editor integrations that include syntax
@@ -249,6 +280,8 @@ main:\n\
             not minutes like you normally see for microcontrollers.
           </p>
         </SideBySide>
+
+        <ContentSpacer />
 
         <SideBySide illustration={ControlCenterSvg}>
           <h2>Control everything with our API</h2>

@@ -3,6 +3,8 @@ import React from "react";
 import fleetSvg from "../../assets/images/illustrations/fleet.svg";
 import securityGateSvg from "../../assets/images/illustrations/security-gate.svg";
 import { ButtonLink } from "../../components/button";
+import ContentSpacer from "../../components/ContentSpacer";
+import { bigFont } from "../../components/global-css";
 import Layout from "../../components/layout";
 import PageTitle from "../../components/layout/PageTitle";
 import Section from "../../components/layout/Section";
@@ -76,11 +78,17 @@ const ApiCalls: React.FC = () => (
 export function CloudPage(): JSX.Element {
   return (
     <Layout title="Cloud">
-      <PageTitle title="Fleet orchestration" subTitle="Cloud" />
+      <PageTitle
+        title="Fleet orchestration"
+        subTitle="Cloud"
+        css={css`
+          background: ${dartSecondary.string()};
+        `}
+      />
 
       <Section>
         <SideBySide illustration={fleetSvg}>
-          <p>
+          <p css={bigFont}>
             Our fleet orchestration gives you both a clear overview and detailed information about the health of your
             device fleet.
           </p>
@@ -88,11 +96,13 @@ export function CloudPage(): JSX.Element {
           <SignUpButton />
         </SideBySide>
 
+        <ContentSpacer />
+
         <div
           css={css`
             display: grid;
             grid-gap: var(--contentPadding);
-            grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
             text-align: left;
           `}
         >
@@ -134,8 +144,8 @@ export function CloudPage(): JSX.Element {
         >
           <div
             css={css`
-              padding-top: 6rem;
-              padding-bottom: 6rem;
+              padding-top: var(--sectionVerticalPadding);
+              padding-bottom: var(--sectionVerticalPadding);
             `}
           >
             <h1>Fully programmable</h1>

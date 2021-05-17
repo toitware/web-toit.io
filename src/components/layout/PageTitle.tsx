@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: clamp(2.75rem, 4.5vw, 3.75rem);
+  font-size: clamp(2.75rem, 4.5vw, 4.375rem);
   max-width: 11em;
   margin: 0 auto;
 `;

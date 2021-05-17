@@ -1,6 +1,8 @@
 import { css } from "@emotion/react";
 import React from "react";
 import ToitLogo from "../../assets/images/toit-logo.inline.svg";
+import ContentSpacer from "../../components/ContentSpacer";
+import { bigFont } from "../../components/global-css";
 import Layout from "../../components/layout";
 import CenteredBlock from "../../components/layout/CenteredBlock";
 import PageTitle from "../../components/layout/PageTitle";
@@ -22,7 +24,7 @@ export function AboutPage(): JSX.Element {
 
       <Section centered>
         <h2>Microcontrollers are everywhere</h2>
-        <CenteredBlock>
+        <CenteredBlock css={bigFont}>
           They sit inside most modern industrial applications and home appliances. A modern car has more than 30, and
           over 30 billion are sold each year. They cost just a few dollars or less, are the size of a fingernail, and
           can run for years on batteries.
@@ -60,6 +62,8 @@ export function AboutPage(): JSX.Element {
           </p>
         </CenteredBlock>
 
+        <ContentSpacer />
+
         <h1>What&apos;s changed?</h1>
 
         <CenteredBlock
@@ -76,6 +80,8 @@ export function AboutPage(): JSX.Element {
             groundbreaking products that touch the physical world.
           </p>
         </CenteredBlock>
+
+        <ContentSpacer />
 
         <CenteredBlock
           css={css`
