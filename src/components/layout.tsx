@@ -9,6 +9,7 @@ import EspressifSvg from "../assets/images/logos/espressif.svg";
 import OnomondoSvg from "../assets/images/logos/onomondo.svg";
 import SoracomSvg from "../assets/images/logos/soracom.svg";
 import UbloxSvg from "../assets/images/logos/ublox.svg";
+import opengraphPng from "../assets/images/opengraph.png";
 import { components, shorthands } from "../mdx-components";
 import { golden, primaryTheme, white } from "../theme";
 import Footer from "./footer";
@@ -107,7 +108,9 @@ export default function Layout({ title, children }: LayoutProps): JSX.Element {
   return (
     <>
       <GlobalCss />
-      <Helmet title={titleWithSuffix}></Helmet>
+      <Helmet title={titleWithSuffix}>
+        <meta property="og:image" content={opengraphPng} />
+      </Helmet>
       <MDXProvider components={{ ...shorthands, ...components }}>
         <MuiThemeProvider theme={primaryTheme}>
           <ThemeProvider theme={primaryTheme}>

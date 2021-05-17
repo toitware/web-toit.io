@@ -7258,6 +7258,13 @@ gatsby-plugin-page-creator@^3.5.0:
     globby "^11.0.3"
     lodash "^4.17.21"
 
+gatsby-plugin-react-helmet@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-4.5.0.tgz#2e4630009aab5c13aff9f67a2e3dd80d0df03336"
+  integrity sha512-QDddKLz2aVDVIAttdQot4S/5H+KP6yUTkZySWyNsvClPovZ+XXgsrmav/Dt0w/6dAzIJA7RXqGvFwOJRHIKncQ==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+
 gatsby-plugin-remove-trailing-slashes@^3.4.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-remove-trailing-slashes/-/gatsby-plugin-remove-trailing-slashes-3.5.0.tgz#f04eef2f56b7b2be298c9439adcc346f418f6ba7"
