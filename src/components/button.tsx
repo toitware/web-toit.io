@@ -16,6 +16,15 @@ const base = css`
   border-radius: var(--borderRadius);
   text-decoration: none;
   cursor: pointer;
+  border: 2px solid ${black.string()};
+
+  &:hover {
+    border: 2px solid ${black.string()};
+    color: ${black.string()};
+    background: transparent;
+  }
+
+  transition: all 150ms linear;
 `;
 
 const small = css`
@@ -24,15 +33,28 @@ const small = css`
 `;
 
 const outlined = css`
-  border: 2px solid ${black.string()};
+  color: ${black.string()};
+  background: ${white.string()};
+  &:hover {
+    color: white;
+    background: black;
+  }
+`;
+
+const text = css`
+  border-color: transparent;
   color: ${black.string()};
   background: transparent;
+  &:hover {
+    border-color: black;
+    /* background: ; */
+  }
 `;
 
 type BaseProps = {
   children: React.ReactNode;
   size?: "small" | "medium";
-  variant?: "contained" | "outlined";
+  variant?: "contained" | "outlined" | "text";
   className?: string;
 };
 
@@ -42,7 +64,10 @@ export type ButtonProps = Pick<React.ComponentProps<"button">, "onClick" | "type
 export function Button(props: ButtonProps): JSX.Element {
   const { children, size = "medium", variant = "contained" } = props;
   return (
-    <button {...props} css={[base, size == "small" && small, variant == "outlined" && outlined]}>
+    <button
+      {...props}
+      css={[base, size == "small" && small, variant == "outlined" && outlined, variant == "text" && text]}
+    >
       {children}
     </button>
   );
@@ -66,7 +91,7 @@ export function ButtonLink({
       to={to}
       href={href}
       className={className}
-      css={[base, size == "small" && small, variant == "outlined" && outlined]}
+      css={[base, size == "small" && small, variant == "outlined" && outlined, variant == "text" && text]}
     >
       {children}
     </Link>

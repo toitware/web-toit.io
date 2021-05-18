@@ -154,7 +154,7 @@ function Menu(): JSX.Element {
         </Link>
       </MenuItem>
       <MenuItem css={actionsCss}>
-        <ButtonLink css={actionButtonCss} href="http://console.toit.io/login" variant="outlined">
+        <ButtonLink css={actionButtonCss} href="http://console.toit.io/login" variant="text">
           Sign in
         </ButtonLink>
         <SignUpButton css={actionButtonCss} />

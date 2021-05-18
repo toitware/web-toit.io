@@ -26,6 +26,7 @@ import SideBySide from "../components/layout/SideBySide";
 // import WeatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
 import SignUpButton from "../components/sign-up-button";
 import { black, golden, white } from "../theme";
+import HeroImage from "../components/HeroImage";
 
 const Hero = styled.section`
   position: relative;
@@ -90,23 +91,7 @@ export function IndexPage(): JSX.Element {
             `}
           />
         </div>
-        <div
-          css={css`
-            display: block;
-            position: relative;
-            overflow: hidden;
-            height: 20rem;
-            padding: 0 var(--contentPadding);
-          `}
-        >
-          <img
-            css={css`
-              width: 979px;
-              max-width: none !important;
-            `}
-            src={ConsoleSvg}
-          />
-        </div>
+        <HeroImage image={ConsoleSvg} imageWidth={979} />
       </Hero>
       <Section>
         <H1

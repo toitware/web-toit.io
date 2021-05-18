@@ -176,7 +176,7 @@ function Header(): JSX.Element {
             <ButtonLink
               href="http://console.toit.io/login"
               size="small"
-              variant="outlined"
+              variant="text"
               css={css`
                 margin-right: 1.5rem;
               `}

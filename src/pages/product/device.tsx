@@ -8,6 +8,7 @@ import microcontrollersSvg from "../../assets/images/illustrations/microcontroll
 import overTheAirUpdatesSvg from "../../assets/images/illustrations/over-the-air-updates.svg";
 import ContentSpacer from "../../components/ContentSpacer";
 import { bigFont } from "../../components/global-css";
+import HeroImage from "../../components/HeroImage";
 import Layout from "../../components/layout";
 import CenteredBlock from "../../components/layout/CenteredBlock";
 import PageTitle from "../../components/layout/PageTitle";
@@ -30,22 +31,20 @@ export function DevicePage(): JSX.Element {
 
       <Section
         css={css`
-          padding-top: 4.5rem;
-          padding-bottom: 0;
+          padding: 4.5rem 0 0;
         `}
       >
-        <CenteredBlock>
+        <CenteredBlock
+          css={css`
+            padding-left: var(--contentPadding);
+            padding-right: var(--contentPadding);
+          `}
+        >
           <p css={bigFont}>Toit applications are written in the Toit language.</p>
           <SignUpButton />
         </CenteredBlock>
 
-        <img
-          css={css`
-            display: block;
-            margin-top: 4.5rem;
-          `}
-          src={editorPng}
-        />
+        <HeroImage containerHeightRem={18} image={editorPng} imageWidth={979} />
       </Section>
       <Section centered>
         <h1>Why create a new language?</h1>
