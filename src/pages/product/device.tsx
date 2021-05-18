@@ -126,11 +126,13 @@ export function DevicePage(): JSX.Element {
         </CenteredBlock>
 
         <p>
-          You can buy them{" "}
-          <Link href="https://www.digikey.com/en/products/detail/espressif-systems/ESP32-DEVKITC-32D/9356990">
-            here
-          </Link>
-          .
+          <strong>
+            You can buy them{" "}
+            <Link href="https://www.digikey.com/en/products/detail/espressif-systems/ESP32-DEVKITC-32D/9356990">
+              here
+            </Link>
+            .
+          </strong>
         </p>
 
         <ContentSpacer />

@@ -259,13 +259,13 @@ main:\n\
         <ContentSpacer />
         <SideBySide illustration={SymbolsSvg} illustrationPosition="left">
           <p>
-            Toit gives you a modern, memory-safe language with state-of-the-art editor integrations that include syntax
-            highlighting, goto definition, and auto completions among other things.
+            <strong>Toit gives you a modern, memory-safe language.</strong> It includes state of the art editor
+            integration including syntax highlighting, goto-definitions, and auto completions.
           </p>
 
           <p>
-            Equally important, deploying code to your device takes just a second with no need to flash the device, and
-            not minutes like you normally see for microcontrollers.
+            Deploying code on your device takes just a second, with no need to flash the device, not minutes like you
+            normally see for microcontrollers.
           </p>
         </SideBySide>
 
@@ -273,10 +273,14 @@ main:\n\
 
         <SideBySide illustration={ControlCenterSvg}>
           <h2>Control everything with our API</h2>
+
           <p>
-            We don’t want to lock you into using our console. We don&apos;t want you to feel constrained by our command
-            line tools. You are in full control of your devices and everything you can do with the Toit platform, you
-            can do through our powerful API.
+            We don&apos;t want to lock you into using our console. We don&apos;t want you to feel constrained by our
+            command line tools.{" "}
+            <strong>
+              You are in full control of your devices and everything you can do with the Toit platform, you can do
+              through our powerful API.
+            </strong>
           </p>
 
           <p>

@@ -62,6 +62,11 @@ const Content = styled.div`
 
   font-size: ${clampBuilder("small", "large", 1, 1.25)};
   line-height: 1.5em;
+
+  strong {
+    font-weight: normal;
+    background-color: var(--highlightColor);
+  }
 `;
 
 const ThirdPartyLogos = styled.div`

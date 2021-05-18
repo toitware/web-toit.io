@@ -74,8 +74,8 @@ export function AboutPage(): JSX.Element {
           <p>
             <strong>
               With our platform, developers can easily build applications while our platform ensures that the device
-              keeps functioning no matter what.{" "}
-            </strong>
+              keeps functioning no matter what.
+            </strong>{" "}
             This is unleashing the creativity of software developers building with microcontrollers, letting them create
             groundbreaking products that touch the physical world.
           </p>
