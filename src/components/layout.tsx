@@ -13,7 +13,7 @@ import opengraphPng from "../assets/images/opengraph.png";
 import { components, shorthands } from "../mdx-components";
 import { golden, primaryTheme, white } from "../theme";
 import Footer from "./footer";
-import GlobalCss, { breakpoints } from "./global-css";
+import GlobalCss, { clampBuilder } from "./global-css";
 import Header from "./header";
 import Section from "./layout/Section";
 import SignUpButton from "./sign-up-button";
@@ -60,14 +60,8 @@ const Content = styled.div`
     max-width: 100%;
   }
 
-  ${breakpoints.medium} {
-    font-size: 1.125rem;
-    line-height: 1.5em;
-  }
-  ${breakpoints.large} {
-    font-size: 1.25rem;
-    line-height: 1.5em;
-  }
+  font-size: ${clampBuilder("small", "large", 1, 1.25)};
+  line-height: 1.5em;
 `;
 
 const ThirdPartyLogos = styled.div`
