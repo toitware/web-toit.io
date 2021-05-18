@@ -10,6 +10,7 @@ const base = css`
   border: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   line-height: 1.5rem;
   height: 3.25rem;
   padding: 0 1.875rem;
