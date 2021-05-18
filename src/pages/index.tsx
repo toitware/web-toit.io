@@ -251,7 +251,7 @@ export function IndexPage(): JSX.Element {
               max-width: 20em;
               margin: 0 auto 3rem;
               ${breakpoints.medium} {
-                width: 45%;
+                width: 55%;
                 font-family: "ClashDisplay", Verdana, sans-serif;
                 font-size: 2.5rem;
                 line-height: 1.5;
@@ -265,7 +265,7 @@ export function IndexPage(): JSX.Element {
           <img
             css={css`
               ${breakpoints.medium} {
-                width: 55%;
+                width: 45%;
               }
               /* flex: 1; */
             `}
