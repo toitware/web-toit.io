@@ -21,7 +21,7 @@ const base = css`
   &:hover {
     border: 2px solid ${black.string()};
     color: ${black.string()};
-    background: transparent;
+    background: ${white.string()};
   }
 
   transition: all 150ms linear;
@@ -36,8 +36,8 @@ const outlined = css`
   color: ${black.string()};
   background: ${white.string()};
   &:hover {
-    color: white;
-    background: black;
+    color: ${white.string()};
+    background: ${black.string()};
   }
 `;
 
@@ -46,7 +46,7 @@ const text = css`
   color: ${black.string()};
   background: transparent;
   &:hover {
-    border-color: black;
+    border-color: ${black.string()};
     /* background: ; */
   }
 `;

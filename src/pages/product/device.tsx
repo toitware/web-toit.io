@@ -111,7 +111,11 @@ export function DevicePage(): JSX.Element {
           color: ${white.string()};
         `}
       >
-        <h1>Microcontrollers</h1>
+        <h1>
+          Micro
+          <wbr />
+          controllers
+        </h1>
 
         <CenteredBlock>
           <p>

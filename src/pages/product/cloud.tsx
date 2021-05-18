@@ -98,7 +98,7 @@ export function CloudPage(): JSX.Element {
           <SignUpButton />
         </SideBySide>
 
-        <ContentSpacer />
+        <ContentSpacer preventLine />
 
         <div
           css={css`
