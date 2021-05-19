@@ -61,14 +61,12 @@ The deep-sleep mode of the ESP32 allows for extremely low power usage and
 you can run on a couple of AA batteries for years. All this at a price that is a
 fraction of that for comparable or even inferior chips.
 
-At the moment, we only support the ESP32 hardware model with 4 MB of flash.
-
 </FaqEntry>
 <FaqEntry question="How do my devices communicate with each other using Toit?">
 
 Toit offers easy, out-of-the-box device communication using the publish/subscribe pattern.
 
-Publish/subscribe is an asynchronous messaging service that decouples services that produces messages from the services processing them.
+Publish/subscribe is an asynchronous messaging service that decouples the services generating messages from the services processing them.
 
 The applications running on your devices can communicate with each other either directly, if they run on the same device, or via the Toit cloud
 if they are installed and running on different devices.
@@ -76,12 +74,12 @@ if they are installed and running on different devices.
 An application can publish serializable data on a topic which is sent to all subscribers. Another application can then subscribe to the same
 topic to receive the published data.
 
-All this can be achived with only few lines of code in your applications.
+All this can be achieved with only a few lines of code in your applications.
 
 </FaqEntry>
 <FaqEntry question="How do I write my own driver in Toit?">
 
-With Toit, you get build-in access to IoT procotols such as I2C and SPI, as well as GPIO support, which makes it possible to write drivers directly in the Toit language.
+With Toit, you get build-in access to embedded procotols such as I2C and SPI, as well as GPIO support, which makes it possible to write drivers directly in the Toit language.
 The [documentation](https://docs.toit.io/sensors/drivers/sparkfun_joystick/) contains a tutorial on how to write drivers.
 Furthermore, we have published drivers for some common peripherals on Github. These are often good starting points for your own drivers.
 
@@ -91,20 +89,17 @@ or by writing to developers@toit.io
 </FaqEntry>
 <FaqEntry question="How can I get the device data into my own backend?">
 
-All the functionality of the Toit cloud is also available using the Toit APIs
-directly.
-
 Toit offers publicly available APIs, which are designed to make it easy to ingest collected device data into your own IoT backend.
 
 Toit provides a GRPC API for communicating with the Toit console from your client application.
 We have example implementations of client applications written in Java, Python, Dart/Flutter and NodeJS.
 
-Toit also offers a Data API where data to be ingested is grouped into two groups: Metrics and Logs.
+Toit also offers high-level APIs for metrics and logs, that are optimized for size.
 
 </FaqEntry>
 <FaqEntry question="How fast can I get started using Toit on my hardware?">
 
-There are only a few steps required to get started wiht Toit. First, you need a Toit account.
+There are only a few steps required to get started with Toit. First, you need a Toit account.
 
 Then, provision your hardware, thereby installing the latest released Toit firmware and adding initial WiFi connection settings.
 This step links your hardware to your Toit account.
@@ -112,20 +107,18 @@ This step links your hardware to your Toit account.
 At this point you can push code to your hardware, either by using the web-based Toit console, or by using the Toit CLI.
 
 </FaqEntry>
-<FaqEntry question="How fast is over-the-air firmware updates of my devices?">
+<FaqEntry question="How fast are over-the-air firmware updates of my devices?">
 
 We have designed the over-the-air firmware updates to only transfer the changes in each update, not the entire bundle.
-If your connection to your hardware is unstable, the update will eventually succeed, so you don't need to worry about the state of your device.
-
-The same approach is applicable to the over-the-air updates of your apps to your devices.
+If the connection to your hardware is unstable, the update will eventually succeed, so you don't need to worry about placing Toit devices in poorly covered areas.
 
 </FaqEntry>
-<FaqEntry question="Which types of connectivity does Toit offer?">
+<FaqEntry question="Which types of connectivity do Toit offer?">
 
 The ESP32 and Toit offer out-of-the-box WiFi connectivity. It is also possible
 to add Cellular connectivity with the operator of your choice.
 
-At the moment, we are prototyping with ethernet connectivity, which soon will be an option as well.
+We're also working on bringing Ethernet support to the platform.
 
 </FaqEntry>
 <FaqEntry question="How is Toit different from other IoT platforms?">
@@ -155,7 +148,7 @@ Because of the resource constraints on embedded microchips, an IoT computing
 platform needs to be tight in order to work.
 Previous IoT languages (such as Java SE Embedded and MicroPython) were generated
 as a limited version of the corresponding standard language by removing classes
-and other tools. At Toit, we wanted to create a high-level language that
+and other tools. With Toit, we wanted to create a high-level language that
 would avoid the limitations of the existing languages used in IoT development.
 On top of this, the Toit language had to be intuitive to learn and safe to use.
 
@@ -193,7 +186,7 @@ don't need to.
 <FaqEntry question="Why use Toit over MicroPython?">
 
 MicroPython is a stripped-down version of Python that was not tailor-made for
-IoT. It is high-level, but it does not really behave as Python does, so that the
+IoT. It is high-level, but it does not really behave as Python does, so the
 switch from Python to MicroPython requires adjustments similar to the ones
 needed to switch from Python to Toit.
 
