@@ -108,7 +108,6 @@ export const HeroImage: React.FC<Props> = ({ image, imageWidth, containerHeightR
           @media (min-width: ${imageWidth + 120}px) {
             transform-origin: center top;
           }
-          /* transition: transform 50ms linear ; */
         `}
         src={image}
       />

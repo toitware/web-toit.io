@@ -48,7 +48,6 @@ const text = css`
   background: transparent;
   &:hover {
     border-color: ${black.string()};
-    /* background: ; */
   }
 `;
 
