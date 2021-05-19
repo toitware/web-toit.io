@@ -30,8 +30,10 @@ const ApiCalls: React.FC = () => (
         background: linear-gradient(
           to bottom,
           ${dartSecondary.string()},
+          ${dartSecondary.alpha(0.5).string()} 5%,
           ${dartSecondary.alpha(0).string()} 30%,
           ${dartSecondary.alpha(0).string()} 70%,
+          ${dartSecondary.alpha(0.5).string()} 95%,
           ${dartSecondary.string()}
         );
       }
@@ -96,7 +98,7 @@ export function CloudPage(): JSX.Element {
           <SignUpButton />
         </SideBySide>
 
-        <ContentSpacer />
+        <ContentSpacer preventLine />
 
         <div
           css={css`

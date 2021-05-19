@@ -37,15 +37,15 @@ const groupTitle = css`
 `;
 
 const actionsCss = css`
-  margin-top: 3rem;
-  margin-bottom: 0;
+  margin: 3rem -0.5rem 0;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 `;
 
 const actionButtonCss = css`
-  margin-bottom: 1rem;
+  flex: 1;
+  margin: 0 0.5rem;
 `;
 
 const variants: Variants = {

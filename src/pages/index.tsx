@@ -1,13 +1,14 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React from "react";
+import codeSampleSvg from "../assets/images/code-sample.svg";
 import ConsoleSvg from "../assets/images/console.svg";
 import RobustSandboxingSvg from "../assets/images/icons/robust-sandboxing.inline.svg";
 import SecureCommunicationsSvg from "../assets/images/icons/secure-communications.inline.svg";
 import ArrowLeftSvg from "../assets/images/illustrations/arrow-left.inline.svg";
 import ArrowRightSvg from "../assets/images/illustrations/arrow-right.inline.svg";
-import BeltSvg from "../assets/images/illustrations/belt.svg";
 import BeltOnlySvg from "../assets/images/illustrations/belt-only.svg";
+import BeltSvg from "../assets/images/illustrations/belt.svg";
 import ControlCenterSvg from "../assets/images/illustrations/control-center.svg";
 import GreenhouseSvg from "../assets/images/illustrations/greenhouse.svg";
 import KeysSvg from "../assets/images/illustrations/keys.svg";
@@ -16,14 +17,15 @@ import ThermostatSvg from "../assets/images/illustrations/thermostat.svg";
 import { ButtonLink } from "../components/button";
 import ContentSpacer from "../components/ContentSpacer";
 import FeatureBox, { FeaturesContainer } from "../components/FeatureBox";
-import { breakpoints, clampBuilder, bigFont } from "../components/global-css";
+import { bigFont, breakpoints, clampBuilder } from "../components/global-css";
+import HeroImage from "../components/HeroImage";
 import Layout from "../components/layout";
 import CenteredBlock from "../components/layout/CenteredBlock";
 import PageTitle from "../components/layout/PageTitle";
 import ParagraphHeader from "../components/layout/ParagraphHeader";
 import Section from "../components/layout/Section";
 import SideBySide from "../components/layout/SideBySide";
-// import WeatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
+import weatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
 import SignUpButton from "../components/sign-up-button";
 import { black, golden, white } from "../theme";
 
@@ -90,23 +92,7 @@ export function IndexPage(): JSX.Element {
             `}
           />
         </div>
-        <div
-          css={css`
-            display: block;
-            position: relative;
-            overflow: hidden;
-            height: 20rem;
-            padding: 0 var(--contentPadding);
-          `}
-        >
-          <img
-            css={css`
-              width: 979px;
-              max-width: none !important;
-            `}
-            src={ConsoleSvg}
-          />
-        </div>
+        <HeroImage image={ConsoleSvg} imageWidth={979} />
       </Hero>
       <Section>
         <H1
@@ -192,7 +178,7 @@ export function IndexPage(): JSX.Element {
         <SideBySide
           illustration={
             <video muted autoPlay loop playsInline>
-              <source src="https://github.com/enyo/testest/blob/main/weather-balloon.mp4?raw=true" type="video/mp4" />
+              <source src={weatherBalloonMp4} type="video/mp4" />
             </video>
           }
           illustrationPosition="left"
@@ -247,6 +233,44 @@ export function IndexPage(): JSX.Element {
           </p>
         </CenteredBlock>
 
+        <ContentSpacer preventLine />
+
+        <div
+          css={css`
+            text-align: center;
+            ${breakpoints.medium} {
+              text-align: left;
+              display: flex;
+              align-items: center;
+            }
+          `}
+        >
+          <p
+            css={css`
+              max-width: 20em;
+              margin: 0 auto 3rem;
+              ${breakpoints.medium} {
+                width: 55%;
+                font-family: "ClashDisplay", Verdana, sans-serif;
+                font-size: 2.5rem;
+                line-height: 1.5;
+                padding-right: 3rem;
+                margin-bottom: 0;
+              }
+            `}
+          >
+            Toit is a modern object-oriented language designed specifically for IoT.
+          </p>
+          <img
+            css={css`
+              ${breakpoints.medium} {
+                width: 45%;
+              }
+            `}
+            src={codeSampleSvg}
+          />
+        </div>
+
         {/* <Editor
   editor={
     'import gpio\n\
@@ -272,26 +296,33 @@ main:\n\
 /> */}
 
         <ContentSpacer />
+        <ContentSpacer />
+
         <SideBySide illustration={SymbolsSvg} illustrationPosition="left">
           <p>
-            Toit gives you a modern, memory-safe language with state-of-the-art editor integrations that include syntax
-            highlighting, goto definition, and auto completions among other things.
+            <strong>Toit gives you a modern, memory-safe language.</strong> It includes state of the art editor
+            integration including syntax highlighting, goto-definitions, and auto completions.
           </p>
 
           <p>
-            Equally important, deploying code to your device takes just a second with no need to flash the device, and
-            not minutes like you normally see for microcontrollers.
+            Deploying code on your device takes just a second, with no need to flash the device, not minutes like you
+            normally see for microcontrollers.
           </p>
         </SideBySide>
 
         <ContentSpacer />
+        <ContentSpacer />
 
         <SideBySide illustration={ControlCenterSvg}>
           <h2>Control everything with our API</h2>
+
           <p>
-            We don’t want to lock you into using our console. We don&apos;t want you to feel constrained by our command
-            line tools. You are in full control of your devices and everything you can do with the Toit platform, you
-            can do through our powerful API.
+            We don&apos;t want to lock you into using our console. We don&apos;t want you to feel constrained by our
+            command line tools.{" "}
+            <strong>
+              You are in full control of your devices and everything you can do with the Toit platform, you can do
+              through our powerful API.
+            </strong>
           </p>
 
           <p>

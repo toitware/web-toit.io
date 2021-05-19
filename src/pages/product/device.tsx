@@ -1,13 +1,14 @@
 import { css } from "@emotion/react";
 import React from "react";
 import editorPng from "../../assets/images/editor.png";
-import blocksSvg from "../../assets/images/illustrations/blocks.svg";
+import blocksVideo from "../../assets/images/illustrations/blocks.mp4";
 import boxesSvg from "../../assets/images/illustrations/boxes.svg";
 import chipSvg from "../../assets/images/illustrations/chip.svg";
 import microcontrollersSvg from "../../assets/images/illustrations/microcontrollers.svg";
 import overTheAirUpdatesSvg from "../../assets/images/illustrations/over-the-air-updates.svg";
 import ContentSpacer from "../../components/ContentSpacer";
 import { bigFont } from "../../components/global-css";
+import HeroImage from "../../components/HeroImage";
 import Layout from "../../components/layout";
 import CenteredBlock from "../../components/layout/CenteredBlock";
 import PageTitle from "../../components/layout/PageTitle";
@@ -15,6 +16,7 @@ import Section from "../../components/layout/Section";
 import SideBySide from "../../components/layout/SideBySide";
 import Link from "../../components/link";
 import SignUpButton from "../../components/sign-up-button";
+import VideoAutoPlay from "../../components/VideoAutoPlay";
 import { black, pythonSecondary, white } from "../../theme";
 
 export function DevicePage(): JSX.Element {
@@ -30,22 +32,20 @@ export function DevicePage(): JSX.Element {
 
       <Section
         css={css`
-          padding-top: 4.5rem;
-          padding-bottom: 0;
+          padding: 4.5rem 0 0;
         `}
       >
-        <CenteredBlock>
+        <CenteredBlock
+          css={css`
+            padding-left: var(--contentPadding);
+            padding-right: var(--contentPadding);
+          `}
+        >
           <p css={bigFont}>Toit applications are written in the Toit language.</p>
           <SignUpButton />
         </CenteredBlock>
 
-        <img
-          css={css`
-            display: block;
-            margin-top: 4.5rem;
-          `}
-          src={editorPng}
-        />
+        <HeroImage containerHeightRem={18} image={editorPng} imageWidth={979} />
       </Section>
       <Section centered>
         <h1>Why create a new language?</h1>
@@ -61,7 +61,7 @@ export function DevicePage(): JSX.Element {
 
         <ContentSpacer />
 
-        <SideBySide illustrationPosition="left" illustration={blocksSvg} css={bigFont}>
+        <SideBySide illustrationPosition="left" illustration={<VideoAutoPlay videoUrl={blocksVideo} />} css={bigFont}>
           Toit language is a high-level language that’s made to have a syntax very close to Python. As it’s built from
           first principles for microcontrollers, it’s at least 20x faster than MicroPython. We’ve also built a slick IDE
           integration.
@@ -112,7 +112,11 @@ export function DevicePage(): JSX.Element {
           color: ${white.string()};
         `}
       >
-        <h1>Microcontrollers</h1>
+        <h1>
+          Micro
+          <wbr />
+          controllers
+        </h1>
 
         <CenteredBlock>
           <p>
@@ -123,11 +127,13 @@ export function DevicePage(): JSX.Element {
         </CenteredBlock>
 
         <p>
-          You can buy them{" "}
-          <Link href="https://www.digikey.com/en/products/detail/espressif-systems/ESP32-DEVKITC-32D/9356990">
-            here
-          </Link>
-          .
+          <strong>
+            You can buy them{" "}
+            <Link href="https://www.digikey.com/en/products/detail/espressif-systems/ESP32-DEVKITC-32D/9356990">
+              here
+            </Link>
+            .
+          </strong>
         </p>
 
         <ContentSpacer />

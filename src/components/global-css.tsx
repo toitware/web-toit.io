@@ -1,6 +1,6 @@
 import { css, Global } from "@emotion/react";
 import React from "react";
-import { black } from "../theme";
+import { black, dart } from "../theme";
 
 type breakpointName = "tiny" | "small" | "medium" | "large" | "huge";
 
@@ -74,6 +74,8 @@ export function GlobalCss(): JSX.Element {
           --calculatedContentPadding: max(var(--contentPadding), calc((100vw - var(--maxContentWidth)) / 2));
 
           --centeredBlockWidth: ${clampBuilder("tiny", "huge", 30, 40)};
+
+          --highlightColor: ${dart.string()};
         }
         html {
           // Make sure the scrollbar is always visible (on the devices that don't
