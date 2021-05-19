@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 const Wrapper = styled.div`
   display: block;
@@ -17,39 +17,42 @@ export type Props = {
 };
 
 export const HeroImage: React.FC<Props> = ({ image, imageWidth, containerHeightRem = 20 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const [scale, setScale] = useState(1.0);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
 
   const maxScale = 1.3;
 
   useEffect(() => {
-    if (!ref.current) return;
+    let scale = 1.0;
 
-    const element = ref.current;
-    const elementBottom = element.getBoundingClientRect().bottom;
+    if (!wrapperRef.current) return;
 
+    const wrapperElement = wrapperRef.current;
     const eventListener = () => {
-      if (window.scrollY > elementBottom) {
-        setScale(maxScale);
-        return;
+      if (imageRef.current) {
+        const rect = wrapperElement.getBoundingClientRect();
+        const start = rect.top + window.scrollY;
+        const end = -rect.height;
+
+        scale = Math.max(1.0, Math.min(maxScale, 1.0 + ((rect.top - start) / (end - start)) * (maxScale - 1)));
+        imageRef.current.style.transform = `scale(${scale})`;
       }
-      setScale(1.0 + (window.scrollY / elementBottom) * (maxScale - 1.0));
     };
 
     window.addEventListener("scroll", eventListener);
 
     return () => window.removeEventListener("scroll", eventListener);
-  }, [ref.current]);
+  }, [wrapperRef.current, imageRef]);
 
   return (
     <Wrapper
-      ref={ref}
+      ref={wrapperRef}
       css={css`
         height: ${containerHeightRem}rem;
       `}
     >
       <img
+        ref={imageRef}
         css={css`
           width: ${imageWidth}px;
           max-width: none !important;
@@ -59,7 +62,6 @@ export const HeroImage: React.FC<Props> = ({ image, imageWidth, containerHeightR
           }
           /* transition: transform 50ms linear ; */
         `}
-        style={{ transform: `scale(${scale})` }}
         src={image}
       />
     </Wrapper>

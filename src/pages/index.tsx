@@ -25,7 +25,7 @@ import PageTitle from "../components/layout/PageTitle";
 import ParagraphHeader from "../components/layout/ParagraphHeader";
 import Section from "../components/layout/Section";
 import SideBySide from "../components/layout/SideBySide";
-// import WeatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
+import weatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
 import SignUpButton from "../components/sign-up-button";
 import { black, golden, white } from "../theme";
 
@@ -178,7 +178,7 @@ export function IndexPage(): JSX.Element {
         <SideBySide
           illustration={
             <video muted autoPlay loop playsInline>
-              <source src="https://github.com/enyo/testest/blob/main/weather-balloon.mp4?raw=true" type="video/mp4" />
+              <source src={weatherBalloonMp4} type="video/mp4" />
             </video>
           }
           illustrationPosition="left"
@@ -247,7 +247,6 @@ export function IndexPage(): JSX.Element {
         >
           <p
             css={css`
-              /* flex: 1; */
               max-width: 20em;
               margin: 0 auto 3rem;
               ${breakpoints.medium} {
@@ -267,7 +266,6 @@ export function IndexPage(): JSX.Element {
               ${breakpoints.medium} {
                 width: 45%;
               }
-              /* flex: 1; */
             `}
             src={codeSampleSvg}
           />

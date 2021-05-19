@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import React from "react";
 import editorPng from "../../assets/images/editor.png";
-import blocksSvg from "../../assets/images/illustrations/blocks.svg";
+import blocksVideo from "../../assets/images/illustrations/blocks.mp4";
 import boxesSvg from "../../assets/images/illustrations/boxes.svg";
 import chipSvg from "../../assets/images/illustrations/chip.svg";
 import microcontrollersSvg from "../../assets/images/illustrations/microcontrollers.svg";
@@ -16,6 +16,7 @@ import Section from "../../components/layout/Section";
 import SideBySide from "../../components/layout/SideBySide";
 import Link from "../../components/link";
 import SignUpButton from "../../components/sign-up-button";
+import VideoAutoPlay from "../../components/VideoAutoPlay";
 import { black, pythonSecondary, white } from "../../theme";
 
 export function DevicePage(): JSX.Element {
@@ -60,7 +61,7 @@ export function DevicePage(): JSX.Element {
 
         <ContentSpacer />
 
-        <SideBySide illustrationPosition="left" illustration={blocksSvg} css={bigFont}>
+        <SideBySide illustrationPosition="left" illustration={<VideoAutoPlay videoUrl={blocksVideo} />} css={bigFont}>
           Toit language is a high-level language that’s made to have a syntax very close to Python. As it’s built from
           first principles for microcontrollers, it’s at least 20x faster than MicroPython. We’ve also built a slick IDE
           integration.
