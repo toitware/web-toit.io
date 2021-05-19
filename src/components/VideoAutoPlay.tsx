@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { getViewportPosition } from "../helper";
 
 export type Props = {
   videoUrl: string;
@@ -51,11 +52,7 @@ export const VideoAutoPlay: React.FC<Props> = ({ videoUrl, autoRewind = false })
 
     const positionCallback = () => {
       if (!wrapperRef.current) return;
-      const clientRect = wrapperRef.current.getBoundingClientRect();
-      const elementTop = clientRect.top;
-      const start = window.innerHeight;
-      const end = -clientRect.height;
-      const position = Math.max(0.0, Math.min(1.0, (elementTop - start) / (end - start)));
+      const position = getViewportPosition(wrapperRef.current);
 
       const offset = maxOffset * ((position - 0.5) * 2);
 

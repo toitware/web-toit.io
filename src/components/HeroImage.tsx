@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React, { useEffect, useRef } from "react";
+import { getViewportPosition } from "../helper";
 
 const Wrapper = styled.div`
   display: block;
@@ -30,11 +31,8 @@ export const HeroImage: React.FC<Props> = ({ image, imageWidth, containerHeightR
     const wrapperElement = wrapperRef.current;
     const eventListener = () => {
       if (imageRef.current) {
-        const rect = wrapperElement.getBoundingClientRect();
-        const start = rect.top + window.scrollY;
-        const end = -rect.height;
-
-        scale = Math.max(1.0, Math.min(maxScale, 1.0 + ((rect.top - start) / (end - start)) * (maxScale - 1)));
+        const position = getViewportPosition(wrapperElement);
+        scale = 1.0 + position * (maxScale - 1);
         imageRef.current.style.transform = `scale(${scale})`;
       }
     };
