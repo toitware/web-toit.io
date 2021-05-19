@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
+import { useViewportPosition } from "../helper";
 
 const Wrapper = styled.div`
   display: block;
@@ -22,75 +23,12 @@ export const HeroImage: React.FC<Props> = ({ image, imageWidth, containerHeightR
 
   const maxScale = 1.2;
 
-  useEffect(() => {
-    if (!wrapperRef.current || !imageRef.current) return;
-    const wrapperElement = wrapperRef.current;
-    const imageElement = imageRef.current;
+  useViewportPosition(wrapperRef, (position) => {
+    if (!imageRef.current) return;
 
-    let scale = 1.0;
-    let isAnimating = false;
-
-    const startAnimating = () => {
-      if (!isAnimating) {
-        isAnimating = true;
-        loopCycle();
-      }
-    };
-    const stopAnimating = () => {
-      isAnimating = false;
-    };
-
-    let prevPosition = 0.0;
-
-    // The maximumg amount of steps that should be jumped from one position to
-    // the next. This allows for a smooth animation even when scrolling with
-    // the mouse.
-    const maxStep = 0.03;
-
-    // Using a loop cycle with animation frame instead of a scroll listener
-    // so we can interpolate between different positions.
-    const loopCycle = () => {
-      const bottom = wrapperElement.getBoundingClientRect().bottom + window.scrollY;
-
-      let position = window.scrollY / bottom;
-
-      // Add some linear interpolation between the steps.
-      if (Math.abs(position - prevPosition) > maxStep) {
-        if (position > prevPosition) {
-          position = prevPosition + maxStep;
-        } else {
-          position = prevPosition - maxStep;
-        }
-      }
-
-      prevPosition = position;
-      scale = 1.0 + position * (maxScale - 1);
-      imageElement.style.transform = `scale(${scale})`;
-      if (isAnimating) {
-        window.requestAnimationFrame(loopCycle);
-      }
-    };
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          startAnimating();
-        } else {
-          stopAnimating();
-        }
-      },
-      {
-        rootMargin: "0px",
-        threshold: 0,
-      }
-    );
-    observer.observe(wrapperRef.current);
-
-    return () => {
-      observer.disconnect();
-      stopAnimating();
-    };
-  }, [wrapperRef.current, imageRef]);
+    const scale = 1.0 + position * (maxScale - 1);
+    imageRef.current.style.transform = `scale(${scale})`;
+  });
 
   return (
     <Wrapper
