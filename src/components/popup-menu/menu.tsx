@@ -1,46 +1,54 @@
 import { css } from "@emotion/react";
-import { motion, Variants } from "framer-motion";
-import { Link } from "../link";
+import styled from "@emotion/styled";
 import * as React from "react";
 import * as menu from "../../content/menu.yaml";
+import { white } from "../../theme";
 import { ButtonLink } from "../button";
+import { Link } from "../link";
 import SignUpButton from "../sign-up-button";
 import MenuItem from "./menu-item";
-import { useState } from "react";
-import CaretSvg from "../../assets/images/icons/caret.inline.svg";
+import { linkCss } from "./shared-styles";
 
-const menuCss = css`
-  list-style: none;
+const Wrapper = styled.div`
+  display: none;
+  position: fixed;
+  top: 4.5rem;
+  height: calc(100% - 4.5rem);
+  left: 0;
+  right: 0;
+  background: ${white.string()};
+
+  z-index: 1000;
+
+  padding: var(--calculatedContentPadding);
+
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  font-size: 1.25rem;
+`;
+
+const Root = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  overflow-y: auto;
+`;
+
+const Separator = styled.hr`
+  flex-shrink: 0;
+  margin: 1rem 0;
+  padding: 0;
+  border: none;
+  height: 1px;
+  background: #b3b3b3;
+`;
+
+const MenuGroup = styled.div`
   color: black;
-  padding: 0 calc(8vw - 3rem);
-  z-index: 100;
   pointer-events: auto;
-  width: 100%;
-  margin: 0;
-`;
-
-const linkCss = css`
-  cursor: pointer;
-  display: block;
-  padding: 0.5rem 0;
-  text-decoration: none;
-`;
-
-const subPageLinkCss = css`
-  font-size: 1rem;
-  padding-left: 1.5rem;
-`;
-
-const groupTitle = css`
-  display: flex;
-  align-items: center;
-`;
-
-const actionsCss = css`
-  margin: 3rem -0.5rem 0;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
 `;
 
 const actionButtonCss = css`
@@ -48,119 +56,51 @@ const actionButtonCss = css`
   margin: 0 0.5rem;
 `;
 
-const variants: Variants = {
-  open: {
-    pointerEvents: "auto",
-    transition: { staggerChildren: 0.05, delayChildren: 0 },
-  },
-  closed: {
-    pointerEvents: "none",
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
-  },
+const AccountButtons = styled.div`
+  margin: 3rem -0.5rem 0;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+`;
+
+type Props = {
+  isOpen: boolean;
+  className?: string;
 };
 
-function MenuLink({ item }: { item: menu.MenuItem }): JSX.Element {
-  if (item.href != undefined) {
-    return (
-      <a href={item.href} css={linkCss}>
-        {item.title}
-      </a>
-    );
-  } else if (item.path != undefined) {
-    const to = item.path;
-    if (item.subpages && item.subpages.length > 0) {
-      const [isOpen, setIsOpen] = useState(false);
-
-      return (
-        <div>
-          <span css={[linkCss, groupTitle]} onClick={() => setIsOpen(!isOpen)}>
-            {item.title} &nbsp;{" "}
-            <CaretSvg
-              css={
-                isOpen &&
-                css`
-                  transform: rotate(180deg);
-                `
-              }
-            />
-          </span>
-          <ul
-            css={[
-              css`
-                display: none;
-                margin: 0;
-                padding: 0;
-              `,
-              isOpen &&
-                css`
-                  display: block;
-                `,
-            ]}
-          >
-            {item.subpages.map((subPage) => (
-              <li
-                key={subPage.title}
-                css={css`
-                  margin: 0;
-                  padding: 0;
-                  list-style: none;
-                `}
-              >
-                <Link to={`${to}${subPage.path ?? ""}`} href={subPage.href} css={[linkCss, subPageLinkCss]}>
-                  {subPage.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
-    } else {
-      return (
-        <Link to={to} css={linkCss}>
-          {item.title}
-        </Link>
-      );
-    }
-  } else {
-    return <span>Error: no path or to specified</span>;
-  }
-}
-
-function Menu(): JSX.Element {
+export const Menu: React.FC<Props> = ({ className, isOpen }) => {
   // Make sure you also update the main menu when you make changes here.
   return (
-    <motion.ul variants={variants} css={menuCss}>
-      {menu.default.items.map((item) => (
-        <MenuItem key={item.path}>
-          <MenuLink item={item} />
-        </MenuItem>
-      ))}
-      <MenuItem
-        css={css`
-          height: 1px;
-          background: black;
-          margin: 1.5rem 0;
-        `}
-      ></MenuItem>
-      <MenuItem>
-        <Link css={linkCss} to="/terms-of-service">
-          Terms of service
-        </Link>
-        <Link css={linkCss} to="/privacy-policy">
-          Privacy policy
-        </Link>
-        <Link css={linkCss} to="/cookies-policy">
-          Cookies policy
-        </Link>
-      </MenuItem>
-      <MenuItem css={actionsCss}>
+    <Wrapper className={className} style={{ display: isOpen ? "flex" : "none" }}>
+      <Root>
+        {menu.default.items.map((item) => (
+          <>
+            <MenuGroup key={`${item.title}-group`}>
+              <MenuItem item={item} />
+            </MenuGroup>
+            <Separator key={`${item.title}-separator`} />
+          </>
+        ))}
+        <MenuGroup>
+          <Link css={linkCss} to="/terms-of-service">
+            Terms of service
+          </Link>
+          <Link css={linkCss} to="/privacy-policy">
+            Privacy policy
+          </Link>
+          <Link css={linkCss} to="/cookies-policy">
+            Cookies policy
+          </Link>
+        </MenuGroup>
+      </Root>
+      <AccountButtons>
         <ButtonLink css={actionButtonCss} href="http://console.toit.io/login" variant="outlined">
           Sign in
         </ButtonLink>
         <SignUpButton css={actionButtonCss} />
-      </MenuItem>
-    </motion.ul>
+      </AccountButtons>
+    </Wrapper>
   );
-}
+};
 
 export default Menu;

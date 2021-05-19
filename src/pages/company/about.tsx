@@ -37,6 +37,10 @@ export function AboutPage(): JSX.Element {
           background-color: ${black.string()};
           color: ${white.string()};
           --centeredBlockWidth: 43rem;
+          strong {
+            font-weight: normal;
+            background-color: var(--highlightColor);
+          }
         `}
       >
         <h1>The current climate</h1>

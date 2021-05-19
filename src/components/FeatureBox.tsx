@@ -1,5 +1,7 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import React from "react";
+import React, { useRef } from "react";
+import { useViewportPosition } from "../helper";
 
 export const FeaturesContainer = styled.div`
   display: flex;
@@ -16,10 +18,6 @@ const Wrapper = styled.div`
   display: flex;
 
   padding: max(2%, 1rem) max(1rem, 4%);
-
-  &:nth-of-type(even) {
-    align-self: flex-end;
-  }
 `;
 
 const Icon = styled.div`
@@ -49,11 +47,38 @@ type Props = {
   title: string;
   children: React.ReactNode;
   className?: string;
+  position: "left" | "right";
 };
 
-export function FeatureBox({ children, icon, title, className }: Props): JSX.Element {
+export function FeatureBox({ children, icon, title, className, position }: Props): JSX.Element {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const maxOffset = 80;
+
+  useViewportPosition(ref, (pos) => {
+    if (!ref.current) return;
+
+    pos = 1 - Math.min(1.0, pos * 3);
+
+    if (position == "left") {
+      pos = 0 - pos;
+    }
+
+    const offset = maxOffset * pos;
+    ref.current.style.transform = `translateX(${offset}px)`;
+  });
+
   return (
-    <Wrapper className={className}>
+    <Wrapper
+      ref={ref}
+      className={className}
+      css={
+        position == "right" &&
+        css`
+          align-self: flex-end;
+        `
+      }
+    >
       <Icon>{icon}</Icon>
 
       <Text>

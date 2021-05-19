@@ -14,6 +14,7 @@ export const VideoAutoPlay: React.FC<Props> = ({ videoUrl, autoRewind = false })
     if (!ref.current) return;
 
     const videoElement = ref.current;
+    videoElement.addEventListener("canplay", () => videoElement.pause());
 
     videoElement.playbackRate = 1.5;
 
@@ -48,7 +49,7 @@ export const VideoAutoPlay: React.FC<Props> = ({ videoUrl, autoRewind = false })
     );
     if (autoRewind) rewindObserver.observe(videoElement);
 
-    const maxOffset = 100;
+    const maxOffset = 20;
 
     const positionCallback = () => {
       if (!wrapperRef.current) return;
@@ -70,7 +71,7 @@ export const VideoAutoPlay: React.FC<Props> = ({ videoUrl, autoRewind = false })
 
   return (
     <div ref={wrapperRef}>
-      <video ref={ref} muted playsInline>
+      <video ref={ref} muted autoPlay playsInline>
         <source src={videoUrl} type="video/mp4" />
       </video>
     </div>

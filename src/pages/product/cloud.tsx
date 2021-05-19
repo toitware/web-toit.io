@@ -2,6 +2,7 @@ import { css } from "@emotion/react";
 import React from "react";
 import fleetSvg from "../../assets/images/illustrations/fleet.svg";
 import securityGateSvg from "../../assets/images/illustrations/security-gate.svg";
+import ApiCalls from "../../components/ApiCalls";
 import { ButtonLink } from "../../components/button";
 import ContentSpacer from "../../components/ContentSpacer";
 import { bigFont } from "../../components/global-css";
@@ -11,71 +12,6 @@ import Section from "../../components/layout/Section";
 import SideBySide from "../../components/layout/SideBySide";
 import SignUpButton from "../../components/sign-up-button";
 import { dartSecondary } from "../../theme";
-
-const ApiCalls: React.FC = () => (
-  <div
-    css={css`
-      height: 100%;
-      width: 100%;
-      min-height: 30rem;
-      position: relative;
-      overflow: hidden;
-      ::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(
-          to bottom,
-          ${dartSecondary.string()},
-          ${dartSecondary.alpha(0.5).string()} 5%,
-          ${dartSecondary.alpha(0).string()} 30%,
-          ${dartSecondary.alpha(0).string()} 70%,
-          ${dartSecondary.alpha(0.5).string()} 95%,
-          ${dartSecondary.string()}
-        );
-      }
-    `}
-  >
-    <ul
-      css={css`
-        position: absolute;
-        top: -0.5rem;
-        bottom: -0.5rem;
-        margin: 0;
-        padding: 0;
-        font-family: "Roboto Mono", monospace;
-        font-size: 2em;
-        font-weight: bold;
-        color: white;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        li {
-          list-style: none;
-        }
-      `}
-    >
-      {[
-        "lookupDevices",
-        "login",
-        "listJobs",
-        "createApiKey",
-        "healthCheck",
-        "listUsers",
-        "configureJob",
-        "rebootDevice",
-        "lookupDevice",
-      ].map((apiCall) => (
-        <li key={apiCall}>{apiCall}</li>
-      ))}
-    </ul>
-  </div>
-);
 
 export function CloudPage(): JSX.Element {
   return (
