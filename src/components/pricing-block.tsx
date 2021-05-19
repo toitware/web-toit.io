@@ -85,6 +85,7 @@ const PricingBlock: React.FC<Props> = ({ className }) => (
           strong {
             color: ${dart.string()};
             font-weight: inherit;
+            background: none;
           }
         `}
       >

@@ -110,6 +110,10 @@ export function DevicePage(): JSX.Element {
         css={css`
           background-color: ${black.string()};
           color: ${white.string()};
+          strong {
+            font-weight: normal;
+            background-color: var(--highlightColor);
+          }
         `}
       >
         <h1>

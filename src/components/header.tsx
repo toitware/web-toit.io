@@ -1,4 +1,5 @@
-import { css } from "@emotion/react";
+import { globalHistory } from "@reach/router";
+import { css, Global } from "@emotion/react";
 import styled from "@emotion/styled";
 import clsx from "clsx";
 import * as React from "react";
@@ -11,7 +12,9 @@ import { ButtonLink } from "./button";
 import { breakpoints } from "./global-css";
 import Link from "./link";
 import SubmenuContainer from "./Menu/SubmenuContainer";
-import PopupMenu from "./popup-menu";
+
+import MenuToggle from "./popup-menu/menu-toggle";
+import { Menu as PopupMenu } from "./popup-menu/menu";
 import SignUpButton from "./sign-up-button";
 
 const Wrapper = styled.div`
@@ -31,6 +34,10 @@ const Container = styled.header`
   }
 `;
 
+const openedContainerCss = css`
+  background: ${white.string()};
+`;
+
 const desktopCss = css`
   ${breakpoints.mediumDown} {
     display: none;
@@ -38,7 +45,7 @@ const desktopCss = css`
 `;
 const mobileCss = css`
   ${breakpoints.medium} {
-    display: none;
+    display: none !important;
   }
 `;
 
@@ -94,6 +101,8 @@ const menuLinkCss = css`
 function Header(): JSX.Element {
   const [submenuVisible, setSubmenuVisible] = useState(false);
 
+  const [popupVisible, setPopupVisible] = useState(false);
+
   const [visibleSubmenu, setVisibleSubmenu] = useState<string | undefined>();
 
   // Whether the user scrolled down a bit. This is used to either set a
@@ -130,9 +139,24 @@ function Header(): JSX.Element {
 
   const containerRef = useRef<HTMLElement>(null);
 
+  useEffect(() => {
+    return globalHistory.listen(({ action }) => {
+      if (action === "PUSH") setSubmenuVisible(false);
+    });
+  }, [setSubmenuVisible]);
+
   return (
-    <Wrapper>
-      <Container ref={containerRef} onMouseLeave={closeSubmenu} css={isScrolledDown && scrolledDown}>
+    <Wrapper onMouseLeave={closeSubmenu}>
+      {submenuVisible && (
+        <Global
+          styles={css`
+            html {
+              overflow: hidden;
+            }
+          `}
+        />
+      )}
+      <Container ref={containerRef} css={[isScrolledDown && scrolledDown, popupVisible && openedContainerCss]}>
         <Content>
           <Link to="/">
             <ToitLogo
@@ -185,7 +209,7 @@ function Header(): JSX.Element {
             </ButtonLink>
             <SignUpButton size="small" />
           </AccountButtons>
-          <PopupMenu css={mobileCss} />
+          <MenuToggle css={mobileCss} toggle={() => setPopupVisible(!popupVisible)} isOpen={popupVisible} />
         </Content>
         <SubmenuContainer isVisible={submenuVisible} visibleSubmenu={visibleSubmenu} />
       </Container>
@@ -197,6 +221,7 @@ function Header(): JSX.Element {
           `
         }
       />
+      <PopupMenu css={mobileCss} isOpen={popupVisible} />
     </Wrapper>
   );
 }

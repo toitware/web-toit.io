@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React from "react";
 import codeSampleSvg from "../assets/images/code-sample.svg";
-import ConsoleSvg from "../assets/images/console.svg";
+import consolePng from "../assets/images/console.png";
 import RobustSandboxingSvg from "../assets/images/icons/robust-sandboxing.inline.svg";
 import SecureCommunicationsSvg from "../assets/images/icons/secure-communications.inline.svg";
 import ArrowLeftSvg from "../assets/images/illustrations/arrow-left.inline.svg";
@@ -92,7 +92,7 @@ export function IndexPage(): JSX.Element {
             `}
           />
         </div>
-        <HeroImage image={ConsoleSvg} imageWidth={979} />
+        <HeroImage image={consolePng} imageWidth={979} />
       </Hero>
       <Section>
         <H1
@@ -224,6 +224,10 @@ export function IndexPage(): JSX.Element {
         css={css`
           background: ${black.string()};
           color: ${white.string()};
+          strong {
+            font-weight: normal;
+            background-color: var(--highlightColor);
+          }
         `}
       >
         <CenteredBlock>
