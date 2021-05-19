@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import * as React from "react";
 import * as menu from "../../content/menu.yaml";
 import { Link } from "../link";
-import { linkCss } from "./menu";
+import { linkCss } from "./shared-styles";
 
 const LinkList = styled.ul`
   margin: 0;

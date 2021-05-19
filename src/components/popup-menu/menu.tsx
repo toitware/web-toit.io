@@ -7,6 +7,7 @@ import { ButtonLink } from "../button";
 import { Link } from "../link";
 import SignUpButton from "../sign-up-button";
 import MenuItem from "./menu-item";
+import { linkCss } from "./shared-styles";
 
 const Wrapper = styled.div`
   display: none;
@@ -48,14 +49,6 @@ const Separator = styled.hr`
 const MenuGroup = styled.div`
   color: black;
   pointer-events: auto;
-`;
-
-export const linkCss = css`
-  cursor: pointer;
-  display: block;
-  padding: 0.5rem 0;
-  text-decoration: none;
-  line-height: 2rem;
 `;
 
 const actionButtonCss = css`
