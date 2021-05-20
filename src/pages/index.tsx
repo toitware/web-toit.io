@@ -292,8 +292,7 @@ main:\n\
   ]}
 /> */}
 
-        <ContentSpacer />
-        <ContentSpacer />
+        <ContentSpacer preventLine large />
 
         <SideBySide illustration={SymbolsSvg} illustrationPosition="left">
           <p>
@@ -307,8 +306,7 @@ main:\n\
           </p>
         </SideBySide>
 
-        <ContentSpacer />
-        <ContentSpacer />
+        <ContentSpacer preventLine large />
 
         <SideBySide illustration={ControlCenterSvg}>
           <h2>Control everything with our API</h2>
