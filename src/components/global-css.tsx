@@ -1,6 +1,6 @@
 import { css, Global } from "@emotion/react";
 import React from "react";
-import { black, dart } from "../theme";
+import { black, dart, white } from "../theme";
 
 type breakpointName = "tiny" | "small" | "medium" | "large" | "huge";
 
@@ -55,6 +55,15 @@ export function clampBuilder(
 
   return `clamp(${minFontSize}${unit}, ${yAxisIntersection}${unit} + ${slope * 100}vw, ${maxFontSize}${unit})`;
 }
+
+export const darkSection = css`
+  background: ${black.string()};
+  color: ${white.string()};
+  strong {
+    font-weight: normal;
+    background-color: var(--highlightColor);
+  }
+`;
 
 export function GlobalCss(): JSX.Element {
   return (

@@ -14,10 +14,11 @@ import GreenhouseSvg from "../assets/images/illustrations/greenhouse.svg";
 import KeysSvg from "../assets/images/illustrations/keys.svg";
 import SymbolsSvg from "../assets/images/illustrations/symbols.svg";
 import ThermostatSvg from "../assets/images/illustrations/thermostat.svg";
+import weatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
 import { ButtonLink } from "../components/button";
 import ContentSpacer from "../components/ContentSpacer";
 import FeatureBox, { FeaturesContainer } from "../components/FeatureBox";
-import { bigFont, breakpoints, clampBuilder } from "../components/global-css";
+import { bigFont, breakpoints, clampBuilder, darkSection } from "../components/global-css";
 import HeroImage from "../components/HeroImage";
 import Layout from "../components/layout";
 import CenteredBlock from "../components/layout/CenteredBlock";
@@ -25,9 +26,8 @@ import PageTitle from "../components/layout/PageTitle";
 import ParagraphHeader from "../components/layout/ParagraphHeader";
 import Section from "../components/layout/Section";
 import SideBySide from "../components/layout/SideBySide";
-import weatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
 import SignUpButton from "../components/sign-up-button";
-import { black, golden, white } from "../theme";
+import { black, golden } from "../theme";
 
 const Hero = styled.section`
   position: relative;
@@ -118,11 +118,12 @@ export function IndexPage(): JSX.Element {
         </SideBySide>
       </Section>
       <Section
-        css={css`
-          background: ${black.string()};
-          color: ${white.string()};
-          overflow: hidden;
-        `}
+        css={[
+          darkSection,
+          css`
+            overflow: hidden;
+          `,
+        ]}
       >
         <ParagraphHeader title="Fast and safe" subtitle="Modular applications for embedded devices">
           Write your applications in our high-level, memory-safe language and let our battery-optimized virtual machine
@@ -220,16 +221,7 @@ export function IndexPage(): JSX.Element {
           </p>
         </SideBySide>
       </Section>
-      <Section
-        css={css`
-          background: ${black.string()};
-          color: ${white.string()};
-          strong {
-            font-weight: normal;
-            background-color: var(--highlightColor);
-          }
-        `}
-      >
+      <Section css={darkSection}>
         <CenteredBlock>
           <H1>Built for software developers</H1>
           <p css={bigFont}>

@@ -2,12 +2,12 @@ import { css } from "@emotion/react";
 import React from "react";
 import ToitLogo from "../../assets/images/toit-logo.inline.svg";
 import ContentSpacer from "../../components/ContentSpacer";
-import { bigFont } from "../../components/global-css";
+import { bigFont, darkSection } from "../../components/global-css";
 import Layout from "../../components/layout";
 import CenteredBlock from "../../components/layout/CenteredBlock";
 import PageTitle from "../../components/layout/PageTitle";
 import Section from "../../components/layout/Section";
-import { black, dart, golden, passion, python, white } from "../../theme";
+import { dart, golden, passion, python } from "../../theme";
 
 export function AboutPage(): JSX.Element {
   return (
@@ -33,15 +33,12 @@ export function AboutPage(): JSX.Element {
 
       <Section
         centered
-        css={css`
-          background-color: ${black.string()};
-          color: ${white.string()};
-          --centeredBlockWidth: 43rem;
-          strong {
-            font-weight: normal;
-            background-color: var(--highlightColor);
-          }
-        `}
+        css={[
+          darkSection,
+          css`
+            --centeredBlockWidth: 43rem;
+          `,
+        ]}
       >
         <h1>The current climate</h1>
 
