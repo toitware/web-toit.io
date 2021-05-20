@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import React from "react";
-import editorPng from "../../assets/images/editor.png";
+import editorSvg from "../../assets/images/editor.svg";
 import blocksVideo from "../../assets/images/illustrations/blocks.mp4";
 import boxesSvg from "../../assets/images/illustrations/boxes.svg";
 import chipSvg from "../../assets/images/illustrations/chip.svg";
@@ -45,7 +45,7 @@ export function DevicePage(): JSX.Element {
           <SignUpButton />
         </CenteredBlock>
 
-        <HeroImage containerHeightRem={18} image={editorPng} imageWidth={979} />
+        <HeroImage containerHeightRem={18} image={editorSvg} imageWidth={979} />
       </Section>
       <Section centered>
         <h1>Why create a new language?</h1>
