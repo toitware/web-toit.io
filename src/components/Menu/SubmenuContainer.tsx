@@ -1,4 +1,3 @@
-import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import * as React from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -20,9 +19,6 @@ const Wrapper = styled.div`
   top: 4.5rem;
   left: 0;
   width: 100%;
-`;
-const visibleWrapper = css`
-  display: block;
 `;
 
 const Backdrop = styled.div`
@@ -87,7 +83,7 @@ export const SubmenuContainer: React.FC<SubmenuContainerProps> = ({ visibleSubme
   }, [updateBackgdropHeight]);
 
   return (
-    <Wrapper css={isVisible && visibleWrapper}>
+    <Wrapper>
       <Backdrop style={{ height: `${submenuBackgroundHeight}px`, opacity: isVisible ? 1 : 0 }}></Backdrop>
       {menu.items.map((menuItem) => {
         if (menuItem.subpages) {

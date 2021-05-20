@@ -7,7 +7,7 @@ import chipSvg from "../../assets/images/illustrations/chip.svg";
 import microcontrollersSvg from "../../assets/images/illustrations/microcontrollers.svg";
 import overTheAirUpdatesSvg from "../../assets/images/illustrations/over-the-air-updates.svg";
 import ContentSpacer from "../../components/ContentSpacer";
-import { bigFont } from "../../components/global-css";
+import { bigFont, darkSection } from "../../components/global-css";
 import HeroImage from "../../components/HeroImage";
 import Layout from "../../components/layout";
 import CenteredBlock from "../../components/layout/CenteredBlock";
@@ -17,7 +17,7 @@ import SideBySide from "../../components/layout/SideBySide";
 import Link from "../../components/link";
 import SignUpButton from "../../components/sign-up-button";
 import VideoAutoPlay from "../../components/VideoAutoPlay";
-import { black, pythonSecondary, white } from "../../theme";
+import { pythonSecondary } from "../../theme";
 
 export function DevicePage(): JSX.Element {
   return (
@@ -105,22 +105,8 @@ export function DevicePage(): JSX.Element {
         </SideBySide>
       </Section>
 
-      <Section
-        centered
-        css={css`
-          background-color: ${black.string()};
-          color: ${white.string()};
-          strong {
-            font-weight: normal;
-            background-color: var(--highlightColor);
-          }
-        `}
-      >
-        <h1>
-          Micro
-          <wbr />
-          controllers
-        </h1>
+      <Section centered css={darkSection}>
+        <h1>Micro&shy;controllers</h1>
 
         <CenteredBlock>
           <p>

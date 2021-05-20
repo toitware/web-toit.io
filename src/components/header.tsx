@@ -141,13 +141,16 @@ function Header(): JSX.Element {
 
   useEffect(() => {
     return globalHistory.listen(({ action }) => {
-      if (action === "PUSH") setSubmenuVisible(false);
+      if (action === "PUSH") {
+        closeSubmenu();
+        setPopupVisible(false);
+      }
     });
-  }, [setSubmenuVisible]);
+  }, [closeSubmenu, setPopupVisible]);
 
   return (
     <Wrapper onMouseLeave={closeSubmenu}>
-      {submenuVisible && (
+      {popupVisible && (
         <Global
           styles={css`
             html {
