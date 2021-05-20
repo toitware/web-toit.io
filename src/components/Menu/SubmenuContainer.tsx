@@ -21,9 +21,6 @@ const Wrapper = styled.div`
   left: 0;
   width: 100%;
 `;
-const visibleWrapper = css`
-  display: block;
-`;
 
 const Backdrop = styled.div`
   position: absolute;
@@ -87,7 +84,7 @@ export const SubmenuContainer: React.FC<SubmenuContainerProps> = ({ visibleSubme
   }, [updateBackgdropHeight]);
 
   return (
-    <Wrapper css={isVisible && visibleWrapper}>
+    <Wrapper>
       <Backdrop style={{ height: `${submenuBackgroundHeight}px`, opacity: isVisible ? 1 : 0 }}></Backdrop>
       {menu.items.map((menuItem) => {
         if (menuItem.subpages) {
