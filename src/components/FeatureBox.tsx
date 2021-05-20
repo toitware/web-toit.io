@@ -59,7 +59,6 @@ export function FeatureBox({ children, icon, title, className, position }: Props
     if (!ref.current) return;
 
     pos = 1 - easeOut(Math.min(1.0, pos * 3));
-    // pos = 1 - Math.cbrt(Math.min(1.0, pos * 3));
 
     if (position == "left") {
       pos = 0 - pos;
