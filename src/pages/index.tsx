@@ -57,7 +57,11 @@ export function IndexPage(): JSX.Element {
         `}
       >
         <PageTitle
-          title="The best software platform for IoT"
+          title={
+            <span>
+              The best software platform for I<span style={{ letterSpacing: "-0.19em" }}>oT</span>
+            </span>
+          }
           css={css`
             border-bottom: 2px solid ${black.string()};
           `}
@@ -292,8 +296,7 @@ main:\n\
   ]}
 /> */}
 
-        <ContentSpacer />
-        <ContentSpacer />
+        <ContentSpacer preventLine large />
 
         <SideBySide illustration={SymbolsSvg} illustrationPosition="left">
           <p>
@@ -307,8 +310,7 @@ main:\n\
           </p>
         </SideBySide>
 
-        <ContentSpacer />
-        <ContentSpacer />
+        <ContentSpacer preventLine large />
 
         <SideBySide illustration={ControlCenterSvg}>
           <h2>Control everything with our API</h2>

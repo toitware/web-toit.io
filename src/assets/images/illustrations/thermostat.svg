@@ -30,21 +30,24 @@
 }
 #hoover-legend-line1 {
   font-size: 15px;
-  animation: 3s ease-in-out 0ms infinite alternate line-animation;
+  animation: 2s ease-in-out 0ms infinite alternate line-animation;
 }
 #hoover-legend-line2 {
   font-size: 15px;
-  animation: 2s ease-in-out 1000ms infinite alternate line-animation;
+  animation: 1.5s ease-in-out 1000ms infinite alternate line-animation;
 }
 #thermostat-legend-line1 {
   font-size: 15px;
-  animation: 3s ease-in-out 100ms infinite alternate line-animation;
+  animation: 2s ease-in-out 100ms infinite alternate line-animation;
 }
 #thermostat-legend-line2 {
   font-size: 15px;
-  animation: 2s ease-in-out 1300ms infinite alternate line-animation;
+  animation: 1.5s ease-in-out 1300ms infinite alternate line-animation;
 }
 </style>
+
+<!-- Beware when switching this SVG. The 4 lines have custom changes to them
+that need to be adapted. -->
 
 <g id="monitor-and-service-your-devices">
 <rect id="backdrop" x="21.3789" y="0.389542" width="473.184" height="650.628" rx="17.7444" fill="#B2E0DA"/>
@@ -81,7 +84,7 @@
 <g id="thermostat">
 <g id="thermostat-legend">
 <path id="Vector 77_2" d="M186.449 387.085L129.587 343.29V298.841" stroke="black" stroke-width="0.709776"/>
-<rect id="thermostat-legend-line1" x="calc(117px - 4em)" y="300" width="4em" height="15.8517" fill="#53978E" stroke="black" stroke-width="0.709776"/>
+<rect id="thermostat-legend-line1" x="calc(117px - 7em)" y="300" width="7em" height="15.8517" fill="#53978E" stroke="black" stroke-width="0.709776"/>
 <rect id="thermostat-legend-line2" x="calc(117px - 5em)" y="326" width="5em" height="11.0561" fill="#FFE598" stroke="black" stroke-width="0.709776"/>
 </g>
 <g id="blinking-lines">

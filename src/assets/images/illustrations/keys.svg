@@ -8,6 +8,14 @@
   0% { transform: scale(1); }
   100% { transform: scale(1.05); }
 }
+@keyframes key-rotate {
+  0% { transform: rotate(-15deg) translate(15px, 5px); }
+  100% { transform: rotate(-25deg) translate(15px, 5px); }
+}
+@keyframes key-tag-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(3deg); }
+}
 
 #hand-with-keys {
   animation: 1s ease-in-out 0ms infinite alternate float;
@@ -15,6 +23,14 @@
 #shadow {
   animation: 1s ease-in-out 0ms infinite alternate grow;
   transform-origin: 201px 547px;
+}
+#key {
+  animation: 1s ease-in-out 500ms infinite alternate key-rotate;
+  transform-origin: 190px 344px;
+}
+#key-tag {
+  animation: 1s ease-in-out 500ms infinite alternate key-tag-rotate;
+  transform-origin: 186px 343px;
 }
 </style>
 
