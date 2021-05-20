@@ -20,7 +20,7 @@ const SubTitle = styled.h3`
 `;
 
 type Props = {
-  title: string;
+  title: string | JSX.Element;
   subTitle?: string;
   className?: string;
 };

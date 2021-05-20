@@ -57,7 +57,11 @@ export function IndexPage(): JSX.Element {
         `}
       >
         <PageTitle
-          title="The best software platform for IoT"
+          title={
+            <span>
+              The best software platform for I<span style={{ letterSpacing: "-0.19em" }}>oT</span>
+            </span>
+          }
           css={css`
             border-bottom: 2px solid ${black.string()};
           `}
