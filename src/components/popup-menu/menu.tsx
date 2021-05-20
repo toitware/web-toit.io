@@ -73,14 +73,12 @@ export const Menu: React.FC<Props> = ({ className, isOpen }) => {
   return (
     <Wrapper className={className} style={{ display: isOpen ? "flex" : "none" }}>
       <Root>
-        {menu.default.items.map((item) => (
-          <>
-            <MenuGroup key={`${item.title}-group`}>
-              <MenuItem item={item} />
-            </MenuGroup>
-            <Separator key={`${item.title}-separator`} />
-          </>
-        ))}
+        {menu.default.items.map((item) => [
+          <MenuGroup key={`${item.title}-group`}>
+            <MenuItem item={item} />
+          </MenuGroup>,
+          <Separator key={`${item.title}-separator`} />,
+        ])}
         <MenuGroup>
           <Link css={linkCss} to="/terms-of-service">
             Terms of service
