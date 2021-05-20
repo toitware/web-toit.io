@@ -157,6 +157,8 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
             label="I want to receive the Toit newsletter."
             labelPlacement="end"
           />
+          <br />
+          <small>We issue around 4 newsletters a year.</small>
         </DialogContentText>
       </DialogContent>
       <DialogActions className={classes.actions}>
