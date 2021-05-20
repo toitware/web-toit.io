@@ -5,12 +5,12 @@
   0% { transform: translate(0, 0); }
   20% { transform: translate(40px, 40px); }
   30% { transform: translate(40px, 40px); }
-  40% { transform: translate(20px, 20px); }
-  50% { transform: translate(20px, 20px); }
+  40% { transform: translate(96px, 96px); }
+  50% { transform: translate(96px, 96px); }
   60% { transform: translate(80px, 80px); }
   70% { transform: translate(80px, 80px); }
   80% { transform: translate(60px, 60px); }
-  100% { transform: translate(95px, 95px); }
+  100% { transform: translate(20px, 20px); }
 }
 
 #lever1 {
@@ -20,7 +20,7 @@
   animation: 7.5s ease-in-out 150ms infinite alternate-reverse float;
 }
 #lever3 {
-  animation: 5.5s ease-in-out 300ms infinite alternate float;
+  animation: 8.5s ease-in-out 300ms infinite alternate float;
 }
 </style>
 
