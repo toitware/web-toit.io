@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React, { useRef } from "react";
-import { useViewportPosition } from "../helper";
+import { easeOut, useViewportPosition } from "../helper";
 
 export const FeaturesContainer = styled.div`
   display: flex;
@@ -58,7 +58,8 @@ export function FeatureBox({ children, icon, title, className, position }: Props
   useViewportPosition(ref, (pos) => {
     if (!ref.current) return;
 
-    pos = 1 - Math.min(1.0, pos * 3);
+    pos = 1 - easeOut(Math.min(1.0, pos * 3));
+    // pos = 1 - Math.cbrt(Math.min(1.0, pos * 3));
 
     if (position == "left") {
       pos = 0 - pos;
