@@ -46,6 +46,9 @@
 }
 </style>
 
+<!-- Beware when switching this SVG. The 4 lines have custom changes to them
+that need to be adapted. -->
+
 <g id="monitor-and-service-your-devices">
 <rect id="backdrop" x="21.3789" y="0.389542" width="473.184" height="650.628" rx="17.7444" fill="#B2E0DA"/>
 <ellipse id="hoover-shadow" cx="302.788" cy="289.69" rx="37.908" ry="10.4586" fill="black" fill-opacity="0.5"/>
