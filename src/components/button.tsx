@@ -1,7 +1,6 @@
 import { css } from "@emotion/react";
-import { Link } from "./link";
 import React from "react";
-import { black, white } from "../theme";
+import { Link } from "./link";
 
 const base = css`
   background: var(--buttonColor);
