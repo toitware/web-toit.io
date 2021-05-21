@@ -27,7 +27,7 @@ import ParagraphHeader from "../components/layout/ParagraphHeader";
 import Section from "../components/layout/Section";
 import SideBySide from "../components/layout/SideBySide";
 import SignUpButton from "../components/sign-up-button";
-import { black, golden } from "../theme";
+import { black, golden, white } from "../theme";
 
 const Hero = styled.section`
   position: relative;
@@ -307,6 +307,19 @@ main:\n\
           <p>
             Deploying code on your device takes just a second, with no need to flash the device, not minutes like you
             normally see for microcontrollers.
+          </p>
+
+          <p>
+            <ButtonLink
+              css={css`
+                --buttonColor: ${white.string()};
+                --buttonContrastColor: ${black.string()};
+              `}
+              href="https://docs.toit.io/language/language"
+              variant="outlined"
+            >
+              Learn more
+            </ButtonLink>
           </p>
         </SideBySide>
 
