@@ -85,6 +85,9 @@ export function GlobalCss(): JSX.Element {
           --centeredBlockWidth: ${clampBuilder("tiny", "huge", 30, 40)};
 
           --highlightColor: ${dart.string()};
+
+          --buttonColor: ${black.string()};
+          --buttonContrastColor: ${white.string()};
         }
         html {
           // Make sure the scrollbar is always visible (on the devices that don't

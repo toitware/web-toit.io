@@ -1,11 +1,10 @@
 import { css } from "@emotion/react";
-import { Link } from "./link";
 import React from "react";
-import { black, white } from "../theme";
+import { Link } from "./link";
 
 const base = css`
-  background: ${black.string()};
-  color: ${white.string()};
+  background: var(--buttonColor);
+  color: var(--buttonContrastColor);
   font-size: inherit;
   border: none;
   display: inline-flex;
@@ -17,12 +16,11 @@ const base = css`
   border-radius: var(--borderRadius);
   text-decoration: none;
   cursor: pointer;
-  border: 2px solid ${black.string()};
+  border: 2px solid var(--buttonColor);
 
   &:hover {
-    border: 2px solid ${black.string()};
-    color: ${black.string()};
-    background: ${white.string()};
+    color: var(--buttonColor);
+    background: var(--buttonContrastColor);
   }
 
   transition: all 150ms linear;
@@ -34,20 +32,20 @@ const small = css`
 `;
 
 const outlined = css`
-  color: ${black.string()};
-  background: ${white.string()};
+  color: var(--buttonColor);
+  background: var(--buttonContrastColor);
   &:hover {
-    color: ${white.string()};
-    background: ${black.string()};
+    color: var(--buttonContrastColor);
+    background: var(--buttonColor);
   }
 `;
 
 const text = css`
   border-color: transparent;
-  color: ${black.string()};
+  color: var(--buttonColor);
   background: transparent;
   &:hover {
-    border-color: ${black.string()};
+    border-color: var(--buttonColor);
   }
 `;
 
