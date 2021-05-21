@@ -13,13 +13,18 @@ const centeredCss = css`
   text-align: center;
 `;
 
+const smallPaddingTopCss = css`
+  padding-top: 1.5rem;
+`;
+
 type Props = {
   className?: string;
   centered?: boolean;
+  paddingTop?: "default" | "small";
 };
 
-const Section: React.FC<Props> = ({ children, className, centered = false }) => (
-  <SectionWrapper className={className} css={centered && centeredCss}>
+const Section: React.FC<Props> = ({ children, className, centered = false, paddingTop = "default" }) => (
+  <SectionWrapper className={className} css={[centered && centeredCss, paddingTop == "small" && smallPaddingTopCss]}>
     {children}
   </SectionWrapper>
 );
