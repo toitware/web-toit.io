@@ -159,11 +159,11 @@ export function IndexPage(): JSX.Element {
           />
 
           <FeaturesContainer>
-            <FeatureBox title="Container isolation" icon={<RobustSandboxingSvg />} position="left">
-              Your applications run in containers, isolated from other application on the microcontroller.
+            <FeatureBox title="Robust sandboxing" icon={<RobustSandboxingSvg />} position="left">
+              Your applications run isolated from the system, and each other, on the devices.
             </FeatureBox>
             <FeatureBox title="Secure communications" icon={<SecureCommunicationsSvg />} position="right">
-              Communication is encrypted all the way from cloud-to-edge - your microcontroller is a single API-call away.
+              Communicate with our cloud through a simple API, we take care of the rest.
             </FeatureBox>
           </FeaturesContainer>
         </div>
@@ -173,11 +173,11 @@ export function IndexPage(): JSX.Element {
           <H1>You control your data</H1>
           <p>
             You own your data and you get to store it wherever you want. We help you get your data to and from your
-            microcontrollers. It is as simple as that.
+            devices. It is as simple as that.
           </p>
           <p>
             Deploy code, access logs, update firmware, and collect data from your microcontrollers. Use the data in your own
-            system, share it with your customers. We just handle your microcontrollers.
+            system, share it with your customers. We just handle your devices.
           </p>
         </SideBySide>
         <ContentSpacer />
