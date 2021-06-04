@@ -163,7 +163,7 @@ export function IndexPage(): JSX.Element {
               Your applications run in containers, isolated from other application on the microcontroller.
             </FeatureBox>
             <FeatureBox title="Secure communications" icon={<SecureCommunicationsSvg />} position="right">
-              Communication is encrypted all the way from cloud-to-edge - your microcontroller is a signle API-call away.
+              Communication is encrypted all the way from cloud-to-edge - your microcontroller is a single API-call away.
             </FeatureBox>
           </FeaturesContainer>
         </div>
