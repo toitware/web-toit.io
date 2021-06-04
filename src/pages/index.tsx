@@ -59,7 +59,7 @@ export function IndexPage(): JSX.Element {
         <PageTitle
           title={
             <span>
-              Cloud-managed containers on MCUs
+              Cloud-managed containers on microcontrollers
             </span>
           }
           css={css`
@@ -67,7 +67,7 @@ export function IndexPage(): JSX.Element {
           `}
         />
         <p css={[bigFont]}>
-          Secure your microcontroller code with our lightweight containers and orchestrate them through our cloud-based API.
+          Secure your microcontroller code with our lightweight containers and orchestrate them through our cloud API.
         </p>
         <p>
           <SignUpButton />
@@ -159,24 +159,24 @@ export function IndexPage(): JSX.Element {
           />
 
           <FeaturesContainer>
-            <FeatureBox title="Robust sandboxing" icon={<RobustSandboxingSvg />} position="left">
-              Your applications run isolated from the system, and each other, on the devices.
+            <FeatureBox title="Container isolation" icon={<RobustSandboxingSvg />} position="left">
+              Your applications run in containers, isolated from other application on the microcontroller.
             </FeatureBox>
             <FeatureBox title="Secure communications" icon={<SecureCommunicationsSvg />} position="right">
-              Communicate with our cloud through a simple API, we take care of the rest.
+              Communication is encrypted all the way from cloud-to-edge - your microcontroller is a signle API-call away.
             </FeatureBox>
           </FeaturesContainer>
         </div>
       </Section>
       <Section>
         <SideBySide illustration={KeysSvg}>
-          <H1>Keep your keys</H1>
+          <H1>You control your data</H1>
           <p>
             You own your data and you get to store it wherever you want. We help you get your data to and from your
-            devices. It is as simple as that.
+            microcontrollers. It is as simple as that.
           </p>
           <p>
-            Deploy code, access logs, update firmware, and collect data from your devices. Use the data in your own
+            Deploy code, access logs, update firmware, and collect data from your microcontrollers. Use the data in your own
             system, share it with your customers. We just handle your microcontrollers.
           </p>
         </SideBySide>
