@@ -159,7 +159,7 @@ export function IndexPage(): JSX.Element {
           />
 
           <FeaturesContainer>
-            <FeatureBox title="Robust sandboxing" icon={<RobustSandboxingSvg />} position="left">
+            <FeatureBox title="Isolated containers" icon={<RobustSandboxingSvg />} position="left">
               Your applications run isolated from the system, and each other, on the devices.
             </FeatureBox>
             <FeatureBox title="Secure communications" icon={<SecureCommunicationsSvg />} position="right">
