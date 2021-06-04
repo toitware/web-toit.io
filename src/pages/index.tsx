@@ -57,9 +57,7 @@ export function IndexPage(): JSX.Element {
         `}
       >
         <PageTitle
-          title={
-            <span>Cloud-managed containers on microcontrollers</span>
-          }
+          title={<span>Cloud-managed containers on microcontrollers</span>}
           css={css`
             border-bottom: 2px solid ${black.string()};
           `}
