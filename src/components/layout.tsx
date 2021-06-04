@@ -44,6 +44,16 @@ const setupRedditTracking = () => {
 };
 setupRedditTracking();
 
+const setupCrispChat = () => {
+  window.$crisp = [];
+  window.CRISP_WEBSITE_ID = "d7358065-35d6-43ee-bcd9-608d223d7aab";
+  const s = document.createElement("script");
+  s.src = "https://client.crisp.chat/l.js";
+  s.async = true;
+  document.getElementsByTagName("head")[0].appendChild(s);
+};
+setupCrispChat();
+
 const Root = styled.div`
   min-height: 100vh;
   display: flex;
