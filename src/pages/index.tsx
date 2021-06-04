@@ -176,8 +176,8 @@ export function IndexPage(): JSX.Element {
             devices. It is as simple as that.
           </p>
           <p>
-            Deploy code, access logs, update firmware, and collect data from your microcontrollers. Use the data in your own
-            system, share it with your customers. We just handle your devices.
+            Deploy code, access logs, update firmware, and collect data from your devices. Use the data in your own
+            system, share it with your customers. We just handle your microcontrollers.
           </p>
         </SideBySide>
         <ContentSpacer />
