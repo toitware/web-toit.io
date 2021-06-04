@@ -57,17 +57,13 @@ export function IndexPage(): JSX.Element {
         `}
       >
         <PageTitle
-          title={
-            <span>
-              The best software platform for I<span style={{ letterSpacing: "-0.19em" }}>oT</span>
-            </span>
-          }
+          title={<span>Cloud-managed containers on microcontrollers</span>}
           css={css`
             border-bottom: 2px solid ${black.string()};
           `}
         />
         <p css={[bigFont]}>
-          We make it as easy to create software for microcontrollers as it is to build a mobile app.
+          Secure your microcontroller code with our lightweight containers and orchestrate them through our cloud API.
         </p>
         <p>
           <SignUpButton />
@@ -110,13 +106,13 @@ export function IndexPage(): JSX.Element {
             margin-bottom: ${clampBuilder("tiny", "large", 3, 12)};
           `}
         >
-          Continuous firmware delivery
+          Full serviceability for your fleet
         </H1>
 
         <SideBySide illustration={GreenhouseSvg}>
           <p css={bigFont}>
             Continuously update the code on your microcontrollers even over cellular connections. Monitor and securely
-            service your devices in production; all through the Toit API.
+            service your entire device fleet in production; all through the Toit API.
           </p>
           <SignUpButton />
         </SideBySide>
@@ -131,7 +127,7 @@ export function IndexPage(): JSX.Element {
       >
         <ParagraphHeader title="Fast and safe" subtitle="Modular applications for embedded devices">
           Write your applications in our high-level, memory-safe language and let our battery-optimized virtual machine
-          execute them efficiently on your microcontrollers. Fast to develop, safe to run.
+          execute them efficiently on microcontrollers like the ESP32. Fast to develop, safe to run.
         </ParagraphHeader>
 
         <div
@@ -159,7 +155,7 @@ export function IndexPage(): JSX.Element {
           />
 
           <FeaturesContainer>
-            <FeatureBox title="Robust sandboxing" icon={<RobustSandboxingSvg />} position="left">
+            <FeatureBox title="Isolated containers" icon={<RobustSandboxingSvg />} position="left">
               Your applications run isolated from the system, and each other, on the devices.
             </FeatureBox>
             <FeatureBox title="Secure communications" icon={<SecureCommunicationsSvg />} position="right">
@@ -170,7 +166,7 @@ export function IndexPage(): JSX.Element {
       </Section>
       <Section>
         <SideBySide illustration={KeysSvg}>
-          <H1>Keep your keys</H1>
+          <H1>You control your data</H1>
           <p>
             You own your data and you get to store it wherever you want. We help you get your data to and from your
             devices. It is as simple as that.
