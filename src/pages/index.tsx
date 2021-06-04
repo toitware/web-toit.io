@@ -59,7 +59,7 @@ export function IndexPage(): JSX.Element {
         <PageTitle
           title={
             <span>
-              The best software platform for I<span style={{ letterSpacing: "-0.19em" }}>oT</span>
+              Cloud-managed containers on MCUs
             </span>
           }
           css={css`
@@ -67,7 +67,7 @@ export function IndexPage(): JSX.Element {
           `}
         />
         <p css={[bigFont]}>
-          We make it as easy to create software for microcontrollers as it is to build a mobile app.
+          Secure your microcontroller code with our lightweight containers and orchestrate them through our cloud-based API.
         </p>
         <p>
           <SignUpButton />
@@ -110,13 +110,13 @@ export function IndexPage(): JSX.Element {
             margin-bottom: ${clampBuilder("tiny", "large", 3, 12)};
           `}
         >
-          Continuous firmware delivery
+          Full serviceability for your fleet
         </H1>
 
         <SideBySide illustration={GreenhouseSvg}>
           <p css={bigFont}>
             Continuously update the code on your microcontrollers even over cellular connections. Monitor and securely
-            service your devices in production; all through the Toit API.
+            service your entire device fleet in production; all through the Toit API.
           </p>
           <SignUpButton />
         </SideBySide>
@@ -131,7 +131,7 @@ export function IndexPage(): JSX.Element {
       >
         <ParagraphHeader title="Fast and safe" subtitle="Modular applications for embedded devices">
           Write your applications in our high-level, memory-safe language and let our battery-optimized virtual machine
-          execute them efficiently on your microcontrollers. Fast to develop, safe to run.
+          execute them efficiently on microcontrollers like the ESP32. Fast to develop, safe to run.
         </ParagraphHeader>
 
         <div
