@@ -166,7 +166,7 @@ export function IndexPage(): JSX.Element {
       </Section>
       <Section>
         <SideBySide illustration={KeysSvg}>
-          <H1>You control your data</H1>
+          <H1>Control your data</H1>
           <p>
             You own your data and you get to store it wherever you want. We help you get your data to and from your
             devices. It is as simple as that.
