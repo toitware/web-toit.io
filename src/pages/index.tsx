@@ -63,7 +63,7 @@ export function IndexPage(): JSX.Element {
           `}
         />
         <p css={[bigFont]}>
-          Secure your microcontroller code with our lightweight containers and orchestrate them through our cloud API.
+          Secure your microcontroller code with lightweight containers and orchestrate them through our cloud API.
         </p>
         <p>
           <SignUpButton />
