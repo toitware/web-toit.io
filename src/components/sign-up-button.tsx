@@ -1,16 +1,15 @@
-import { Button, ButtonProps } from "./button";
 import React from "react";
-import { useSignUp } from "./sign-up/context";
+import { Button, ButtonProps } from "./button";
 
 type SignUpButtonProps = Pick<ButtonProps, "size"> & {
   className?: string;
 };
 
-function SignUpButton({ size, className }: SignUpButtonProps): JSX.Element {
-  const { dispatch } = useSignUp();
+const signupLink = "https://auth.toit.io/signup";
 
+function SignUpButton({ size, className }: SignUpButtonProps): JSX.Element {
   return (
-    <Button variant="contained" size={size} className={className} onClick={() => dispatch("open")}>
+    <Button variant="contained" size={size} className={className} onClick={() => (window.location.href = signupLink)}>
       Start now
     </Button>
   );
