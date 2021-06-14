@@ -15,6 +15,12 @@ import KeysSvg from "../assets/images/illustrations/keys.svg";
 import SymbolsSvg from "../assets/images/illustrations/symbols.svg";
 import ThermostatSvg from "../assets/images/illustrations/thermostat.svg";
 import weatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
+import consibioSvg from "../assets/images/teams/consibio.svg";
+import cosesySvg from "../assets/images/teams/cosesy.svg";
+import farrowTechSvg from "../assets/images/teams/farrowtech.svg";
+import sensohiveSvg from "../assets/images/teams/sensohive.svg";
+import synapSvg from "../assets/images/teams/synap.svg";
+import triforkSvg from "../assets/images/teams/trifork.svg";
 import { ButtonLink } from "../components/button";
 import ContentSpacer from "../components/ContentSpacer";
 import FeatureBox, { FeaturesContainer } from "../components/FeatureBox";
@@ -46,6 +52,25 @@ const H1 = styled.h1`
   display: block;
   max-width: 16em;
   margin: 3rem 0;
+`;
+
+const greySection = css`
+  background: #f9f9f9;
+`;
+
+const TeamGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 4.5rem;
+
+  ${breakpoints.small} {
+    grid-template-columns: repeat(3, 1fr);
+  }
+`;
+
+const TeamCell = styled.div`
+  display: flex;
+  place-content: center;
 `;
 
 export function IndexPage(): JSX.Element {
@@ -116,6 +141,44 @@ export function IndexPage(): JSX.Element {
           </p>
           <SignUpButton />
         </SideBySide>
+      </Section>
+      <Section
+        css={css`
+          ${greySection}
+          border-top: none;
+        `}
+      >
+        <h1
+          css={css`
+            font-family: inherit;
+            font-size: 1.875rem;
+            text-align: center;
+            margin-bottom: var(--sectionVerticalPadding);
+          `}
+        >
+          Great teams use Toit
+        </h1>
+
+        <TeamGrid>
+          <TeamCell>
+            <img src={synapSvg} alt="Synap IoT" />
+          </TeamCell>
+          <TeamCell>
+            <img src={triforkSvg} alt="Trifork" />
+          </TeamCell>
+          <TeamCell>
+            <img src={cosesySvg} alt="Cosesy" />
+          </TeamCell>
+          <TeamCell>
+            <img src={sensohiveSvg} alt="Sensohive" />
+          </TeamCell>
+          <TeamCell>
+            <img src={farrowTechSvg} alt="Farrow Tech" />
+          </TeamCell>
+          <TeamCell>
+            <img src={consibioSvg} alt="Consibio" />
+          </TeamCell>
+        </TeamGrid>
       </Section>
       <Section
         css={[
