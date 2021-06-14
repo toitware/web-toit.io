@@ -22,55 +22,21 @@ export const tigerSecondary = Color("#FFDBC0");
 export const errorColor = Color("#f00");
 export const successColor = Color("#0f0");
 
-// The (outdated) color definitions provided by our corporate identity.
-export const primaryRed = Color.hsl(0, 100, 76);
-export const primaryBlue = Color.hsl(213, 29, 30);
-
-// A very light shade of the primary blue. The naming is based on color systems
-// like tailwindcss
-// (https://tailwindcss.com/docs/customizing-colors#color-palette-reference) or
-// material ui
-const primaryBlue100 = primaryBlue.lightness(86);
-
 export const secondaryGold = Color.hsl(40, 94, 69);
 export const secondaryBlack = Color.hsl(0, 0, 16);
 export const secondaryRed = Color.hsl(0, 100, 70);
 export const primaryGreen = Color.hsl(109, 100, 32);
 export const secondaryGreen = Color.hsl(135, 65, 33);
 
-// The different themes used throughout the website.
-export const whiteTheme = createTheme({
+// This is only really used in external libraries.
+// Internally we use css vars.
+export const primaryTheme = createTheme({
   type: "light",
   background: white,
   text: black,
-  errorColor: errorColor,
   primary: dart,
   primaryContrast: black,
 });
-
-// The different themes used throughout the website.
-export const blackTheme = createTheme({
-  type: "dark",
-  background: black,
-  text: white,
-  errorColor: errorColor,
-  primary: Color("white"),
-  primaryContrast: primaryRed,
-});
-
-// The different themes used throughout the website.
-
-export const greyBlueTheme = createTheme({
-  background: primaryBlue100,
-  text: primaryBlue,
-});
-export const whiteBlueTheme = createTheme({
-  background: Color("white"),
-  text: primaryBlue,
-});
-
-export const primaryTheme = whiteTheme;
-export const secondaryTheme = greyBlueTheme;
 
 type CreateThemeParameters = {
   type?: PaletteType;
@@ -80,7 +46,7 @@ type CreateThemeParameters = {
   primaryContrast?: Color;
   secondary?: Color;
   secondaryContrast?: Color;
-  errorColor?: Color;
+  error?: Color;
   spacing?: number;
 };
 
@@ -88,8 +54,7 @@ export function createTheme({
   type = "light",
   background,
   text,
-  errorColor = primaryRed,
-  primary = primaryBlue,
+  primary = dart,
   primaryContrast = Color("white"),
   secondary = secondaryRed,
   secondaryContrast = Color("white"),
