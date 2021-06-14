@@ -82,9 +82,12 @@ export function IndexPage(): JSX.Element {
         `}
       >
         <PageTitle
-          title={<span>Cloud-managed containers on microcontrollers</span>}
+          title={<span>Cloud-managed containers on micro&shy;controllers</span>}
           css={css`
             border-bottom: 2px solid ${black.string()};
+            h1 {
+              max-width: 10em;
+            }
           `}
         />
         <p css={[bigFont]}>
