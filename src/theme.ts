@@ -60,15 +60,6 @@ export const blackTheme = createTheme({
 
 // The different themes used throughout the website.
 
-// Can and should be removed.
-export const pinkWhiteTheme = createTheme({
-  type: "dark",
-  background: primaryRed,
-  text: Color("white"),
-  errorColor: primaryBlue,
-  primary: Color("white"),
-  primaryContrast: primaryRed,
-});
 export const greyBlueTheme = createTheme({
   background: primaryBlue100,
   text: primaryBlue,
@@ -77,14 +68,9 @@ export const whiteBlueTheme = createTheme({
   background: Color("white"),
   text: primaryBlue,
 });
-export const darkBlueWhiteTheme = createTheme({
-  background: primaryBlue,
-  text: primaryBlue100,
-});
 
 export const primaryTheme = whiteTheme;
 export const secondaryTheme = greyBlueTheme;
-export const menuTheme = pinkWhiteTheme;
 
 type CreateThemeParameters = {
   type?: PaletteType;
