@@ -4,7 +4,6 @@ import { MDXProviderComponentsProp } from "@mdx-js/react";
 import React from "react";
 // import Editor from "./components/editor";
 import { HighLight, HighLights } from "./components/highlights";
-import { CodeIcon, ConnectionIcon } from "./components/icons";
 import CenteredBlock from "./components/layout/CenteredBlock";
 import PageTitle from "./components/layout/PageTitle";
 import SideBySide from "./components/layout/SideBySide";
@@ -25,8 +24,6 @@ export const shorthands = {
   HighLights,
   HighLight,
   Section,
-  CodeIcon,
-  ConnectionIcon,
   PageTitle,
   SideBySide,
   CenteredBlock,
