@@ -22,7 +22,7 @@ export const tigerSecondary = Color("#FFDBC0");
 export const errorColor = Color("#f00");
 export const successColor = Color("#0f0");
 
-// The color definitions provided by our corporate identity.
+// The (outdated) color definitions provided by our corporate identity.
 export const primaryRed = Color.hsl(0, 100, 76);
 export const primaryBlue = Color.hsl(213, 29, 30);
 
@@ -59,6 +59,8 @@ export const blackTheme = createTheme({
 });
 
 // The different themes used throughout the website.
+
+// Can and should be removed.
 export const pinkWhiteTheme = createTheme({
   type: "dark",
   background: primaryRed,
