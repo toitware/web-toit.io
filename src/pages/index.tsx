@@ -17,7 +17,7 @@ import ThermostatSvg from "../assets/images/illustrations/thermostat.svg";
 import weatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
 import consibioSvg from "../assets/images/teams/consibio.svg";
 import cosesySvg from "../assets/images/teams/cosesy.svg";
-import farrowTechSvg from "../assets/images/teams/farrowtech.svg";
+// import farrowTechSvg from "../assets/images/teams/farrowtech.svg";
 import sensohiveSvg from "../assets/images/teams/sensohive.svg";
 import synapSvg from "../assets/images/teams/synap.svg";
 import triforkSvg from "../assets/images/teams/trifork.svg";
@@ -175,9 +175,9 @@ export function IndexPage(): JSX.Element {
           <TeamCell>
             <img src={sensohiveSvg} alt="Sensohive" />
           </TeamCell>
-          <TeamCell>
+          {/* <TeamCell>
             <img src={farrowTechSvg} alt="Farrow Tech" />
-          </TeamCell>
+          </TeamCell> */}
           <TeamCell>
             <img src={consibioSvg} alt="Consibio" />
           </TeamCell>
