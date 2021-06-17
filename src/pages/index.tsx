@@ -24,7 +24,7 @@ import triforkSvg from "../assets/images/teams/trifork.svg";
 import { ButtonLink } from "../components/button";
 import ContentSpacer from "../components/ContentSpacer";
 import FeatureBox, { FeaturesContainer } from "../components/FeatureBox";
-import { bigFont, breakpoints, clampBuilder, darkSection } from "../components/global-css";
+import { bigFont, breakpoints, clampBuilder, darkSection, greySection } from "../components/global-css";
 import HeroImage from "../components/HeroImage";
 import Layout from "../components/layout";
 import CenteredBlock from "../components/layout/CenteredBlock";
@@ -52,10 +52,6 @@ const H1 = styled.h1`
   display: block;
   max-width: 16em;
   margin: 3rem 0;
-`;
-
-const greySection = css`
-  background: #f9f9f9;
 `;
 
 const TeamGrid = styled.div`
