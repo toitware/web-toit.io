@@ -149,6 +149,8 @@ export default function Footer({ simplified = false }: Props): JSX.Element {
               `}
             />
           </Link>
+          {simplified && <Copyright>&copy; Toitware ApS</Copyright>}
+
           {!simplified && (
             <div
               css={css`
@@ -234,7 +236,7 @@ export default function Footer({ simplified = false }: Props): JSX.Element {
                 </li>
               </ul>
             </Legal>
-            <Copyright>&copy; Toit</Copyright>
+            <Copyright>&copy; Toitware ApS</Copyright>
             <Design>
               Design by <Link href="https://jacktheobald.com/">Jack Theobald</Link>
             </Design>
