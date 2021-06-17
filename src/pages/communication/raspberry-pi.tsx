@@ -14,6 +14,7 @@ import { bigFont, clampBuilder, darkSection } from "../../components/global-css"
 import SignUpButton from "../../components/sign-up-button";
 import CenteredBlock from "../../components/layout/CenteredBlock";
 import ContentSpacer from "../../components/ContentSpacer";
+import TeamsSection from "../../components/sections/teams";
 
 export function RaspberryPage(): JSX.Element {
   return (
@@ -103,6 +104,7 @@ export function RaspberryPage(): JSX.Element {
           </p>
         </SideBySide>
       </Section>
+      <TeamsSection />
     </Layout>
   );
 }
