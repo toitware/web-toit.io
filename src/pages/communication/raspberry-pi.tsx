@@ -67,8 +67,8 @@ export function RaspberryPage(): JSX.Element {
         <SideBySide illustration={greenhouseSvg}>
           <p>
             Update your code over a low-bandwidth cellular connection in 2 seconds instead of 10 minutes. Code updates
-            on Toit are 20kB or less, and they never fail. Even if connection drops, the update resumes from where it
-            left off.
+            on Toit are 20kB or less, and they never fail. Even if the connection drops, the updates resume from where
+            they left off.
           </p>
           <SignUpButton />
         </SideBySide>
