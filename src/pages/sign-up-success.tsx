@@ -1,6 +1,5 @@
 import { css } from "@emotion/react";
 import React, { useEffect } from "react";
-import { clampBuilder } from "../components/global-css";
 import Layout from "../components/layout";
 import CenteredBlock from "../components/layout/CenteredBlock";
 import Section from "../components/layout/Section";
@@ -35,7 +34,6 @@ export function SignUpSuccessPage(): JSX.Element {
         css={css`
           min-height: 100vh;
           border-top: none;
-          padding-top: ${clampBuilder("small", "large", 0, 3)};
           background: ${pythonSecondary.string()};
 
           display: flex;
