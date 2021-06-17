@@ -17,7 +17,6 @@ import GlobalCss, { clampBuilder } from "./global-css";
 import Header from "./header";
 import Section from "./layout/Section";
 import SignUpButton from "./sign-up-button";
-import { SignUpProvider } from "./sign-up/context";
 
 let RedditTrackingSetup = false;
 const setupRedditTracking = () => {
@@ -108,49 +107,47 @@ export default function Layout({ title, children }: LayoutProps): JSX.Element {
       <MDXProvider components={{ ...shorthands, ...components }}>
         <MuiThemeProvider theme={primaryTheme}>
           <ThemeProvider theme={primaryTheme}>
-            <SignUpProvider>
-              <Root>
-                <Header />
-                <Content>
-                  {children}
+            <Root>
+              <Header />
+              <Content>
+                {children}
 
-                  <Section
-                    centered
+                <Section
+                  centered
+                  css={css`
+                    background: ${golden.string()};
+                  `}
+                >
+                  <h2>Ready to get started?</h2>
+                  <p
                     css={css`
-                      background: ${golden.string()};
+                      max-width: 18em;
+                      margin: 3rem auto;
                     `}
                   >
-                    <h2>Ready to get started?</h2>
-                    <p
-                      css={css`
-                        max-width: 18em;
-                        margin: 3rem auto;
-                      `}
-                    >
-                      Get access to our platform and start your journey to invent the future.
-                    </p>
-                    <SignUpButton />
-                  </Section>
-                  <Section centered>
-                    <p
-                      css={css`
-                        margin: 0 0 3rem;
-                      `}
-                    >
-                      Official platform partners:
-                    </p>
+                    Get access to our platform and start your journey to invent the future.
+                  </p>
+                  <SignUpButton />
+                </Section>
+                <Section centered>
+                  <p
+                    css={css`
+                      margin: 0 0 3rem;
+                    `}
+                  >
+                    Official platform partners:
+                  </p>
 
-                    <ThirdPartyLogos>
-                      <img src={EspressifSvg} />
-                      <img src={OnomondoSvg} />
-                      <img src={SoracomSvg} />
-                      <img src={UbloxSvg} />
-                    </ThirdPartyLogos>
-                  </Section>
-                </Content>
-                <Footer />
-              </Root>
-            </SignUpProvider>
+                  <ThirdPartyLogos>
+                    <img src={EspressifSvg} />
+                    <img src={OnomondoSvg} />
+                    <img src={SoracomSvg} />
+                    <img src={UbloxSvg} />
+                  </ThirdPartyLogos>
+                </Section>
+              </Content>
+              <Footer />
+            </Root>
           </ThemeProvider>
         </MuiThemeProvider>
       </MDXProvider>

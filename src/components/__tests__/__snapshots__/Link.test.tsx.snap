@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Block uses GatsbyLink if 'to' 1`] = `
+<a
+  href="/home"
+>
+  foobar
+</a>
+`;
+
+exports[`Block uses a element if href is provided 1`] = `
+<a
+  href="https://foobar"
+  rel="noreferrer"
+  target="_blank"
+>
+  foobar
+</a>
+`;
