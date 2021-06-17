@@ -65,6 +65,10 @@ export const darkSection = css`
   }
 `;
 
+export const greySection = css`
+  background: #f9f9f9;
+`;
+
 export function GlobalCss(): JSX.Element {
   return (
     <Global

@@ -2,32 +2,25 @@ import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import { StableClassNames } from "@toitware/testing-utils";
 import React from "react";
-import { primaryTheme } from "../../theme";
-import Block from "../block";
+import Link from "../link";
 
 describe("Block", () => {
-  it("renders correctly", () => {
+  it("uses GatsbyLink if 'to'", () => {
     const result = render(
       <StableClassNames>
-        <Block theme={primaryTheme}>foobar</Block>
+        <Link to="/home">foobar</Link>
       </StableClassNames>
     );
 
     expect(result.container.firstChild).toMatchSnapshot();
   });
-  it("uses paddingBottom", () => {
+  it("uses a element if href is provided", () => {
     const result = render(
       <StableClassNames>
-        <Block paddingBottom={2} theme={primaryTheme}>
-          foobar
-        </Block>
+        <Link href="https://foobar">foobar</Link>
       </StableClassNames>
     );
 
-    const contentDiv = result.getByText("foobar") as HTMLDivElement;
-
     expect(result.container.firstChild).toMatchSnapshot();
-
-    expect(contentDiv).toHaveStyle("padding-bottom: 16px");
   });
 });

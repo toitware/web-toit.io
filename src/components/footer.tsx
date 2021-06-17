@@ -7,7 +7,7 @@ import LinkedInIcon from "../assets/images/social/linked-in.inline.svg";
 import RedditIcon from "../assets/images/social/reddit.inline.svg";
 import TwitterIcon from "../assets/images/social/twitter.inline.svg";
 import ToitLogo from "../assets/images/toit-logo.inline.svg";
-import { black, secondaryTheme, white } from "../theme";
+import { black, primaryTheme, white } from "../theme";
 import { breakpoints } from "./global-css";
 import { Link } from "./link";
 
@@ -123,7 +123,7 @@ export default function Footer({ simplified = false }: Props): JSX.Element {
 
   return (
     <>
-      <ThemeProvider theme={secondaryTheme}>
+      <ThemeProvider theme={primaryTheme}>
         <CookieConsent
           show={true}
           segmentKey={segmentAPIKey || "no-key"}

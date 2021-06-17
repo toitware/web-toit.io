@@ -2,11 +2,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { MDXProviderComponentsProp } from "@mdx-js/react";
 import React from "react";
-import Block from "./components/block";
 // import Editor from "./components/editor";
 import { HighLight, HighLights } from "./components/highlights";
-import { HorizontalBlock, HorizontalBlockItem } from "./components/horizontal-block";
-import { CodeIcon, ConnectionIcon } from "./components/icons";
 import CenteredBlock from "./components/layout/CenteredBlock";
 import PageTitle from "./components/layout/PageTitle";
 import SideBySide from "./components/layout/SideBySide";
@@ -23,15 +20,10 @@ export const components: MDXProviderComponentsProp = {
 };
 
 export const shorthands = {
-  Block,
-  HorizontalBlock,
-  HorizontalBlockItem,
   // Editor,
   HighLights,
   HighLight,
   Section,
-  CodeIcon,
-  ConnectionIcon,
   PageTitle,
   SideBySide,
   CenteredBlock,
