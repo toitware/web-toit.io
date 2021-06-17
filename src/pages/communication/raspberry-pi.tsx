@@ -15,7 +15,7 @@ import SignUpButton from "../../components/sign-up-button";
 import CenteredBlock from "../../components/layout/CenteredBlock";
 import ContentSpacer from "../../components/ContentSpacer";
 
-export function PricingPage(): JSX.Element {
+export function RaspberryPage(): JSX.Element {
   return (
     <Layout title="Raspberry Pi" communicationPage>
       <Section
@@ -107,4 +107,4 @@ export function PricingPage(): JSX.Element {
   );
 }
 
-export default PricingPage;
+export default RaspberryPage;
