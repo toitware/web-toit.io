@@ -18,7 +18,7 @@ import TeamsSection from "../../components/sections/teams";
 
 export function RaspberryPage(): JSX.Element {
   return (
-    <Layout title="Raspberry Pi" communicationPage>
+    <Layout title="Raspberry Pi" simplified>
       <Section
         css={css`
           border-top: none;

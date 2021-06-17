@@ -29,7 +29,7 @@ export function SignUpSuccessPage(): JSX.Element {
   }, []);
 
   return (
-    <Layout title="Sign Up Successful" communicationPage>
+    <Layout title="Sign Up Successful" simplified>
       <Section
         css={css`
           min-height: 100vh;
