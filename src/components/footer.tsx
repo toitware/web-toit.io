@@ -11,13 +11,14 @@ import { black, primaryTheme, white } from "../theme";
 import { breakpoints } from "./global-css";
 import { Link } from "./link";
 
-const Root = styled.footer`
-  width: 100%;
-  margin: 0 auto;
-  max-width: calc(var(--maxPageWidth) + var(--contentPadding) * 2);
-  padding: 3rem var(--contentPadding);
+const baseFooterStyle = css`
+  padding: 3rem var(--calculatedContentPadding);
   background: ${black.string()};
   color: ${white.string()};
+`;
+
+const Root = styled.footer`
+  ${baseFooterStyle}
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -38,6 +39,10 @@ const Root = styled.footer`
       "contact   product   developers company legal"
       "copyright copyright copyright  design  design";
   }
+`;
+
+const SimplifiedRoot = styled.footer`
+  ${baseFooterStyle}
 `;
 
 const Contact = styled.div`
@@ -95,7 +100,21 @@ const Design = styled.div`
   }
 `;
 
-export default function Footer(): JSX.Element {
+const toitLogoCss = css`
+  height: 1.5rem;
+  width: auto;
+  margin-right: 8rem;
+  margin-bottom: 1.5rem;
+  path {
+    fill: currentColor;
+  }
+`;
+
+type Props = {
+  simplified?: boolean;
+};
+
+export default function Footer({ simplified = false }: Props): JSX.Element {
   const [changeConsent, setChangeConsent] = useState(false);
 
   let segmentAPIKey = process.env.GATSBY_SEGMENT_WRITE_KEY;
@@ -130,104 +149,139 @@ export default function Footer(): JSX.Element {
           }}
         />
       </ThemeProvider>
-      <Root>
-        <Contact>
+      {!simplified && <FooterContent setChangeConsent={setChangeConsent} />}
+      {simplified && <SimplifiedFooterContent />}
+    </>
+  );
+}
+
+function FooterContent({
+  setChangeConsent,
+}: {
+  setChangeConsent: React.Dispatch<React.SetStateAction<boolean>>;
+}): JSX.Element {
+  return (
+    <Root>
+      <Contact>
+        <Link to="/">
+          <ToitLogo css={toitLogoCss} />
+        </Link>
+
+        <div
+          css={css`
+            margin-top: 1.5rem;
+            a {
+              margin-right: 0.5rem;
+            }
+          `}
+        >
+          <Link href="https://twitter.com/toitware">
+            <TwitterIcon />
+          </Link>
+          <Link href="https://www.linkedin.com/company/toitio">
+            <LinkedInIcon />
+          </Link>
+          <Link href="https://www.reddit.com/r/toit/">
+            <RedditIcon />
+          </Link>
+        </div>
+      </Contact>
+
+      <Product>
+        <header>Product</header>
+        <ul>
+          <li>
+            <Link to="/product/device">Device</Link>
+          </li>
+          <li>
+            <Link to="/product/cloud">Cloud</Link>
+          </li>
+          <li>
+            <Link to="/pricing">Pricing</Link>
+          </li>
+        </ul>
+      </Product>
+      <Developers>
+        <header>Developers</header>
+        <ul>
+          <li>
+            <Link href="https://docs.toit.io/">Documentation</Link>
+          </li>
+          <li>
+            <Link href="https://docs.toit.io/apis/api">API</Link>
+          </li>
+          <li>
+            <Link to="/developers/faq">FAQ</Link>
+          </li>
+        </ul>
+      </Developers>
+      <Company>
+        <header>Company</header>
+        <ul>
+          <li>
+            <Link to="/company/about">About</Link>
+          </li>
+          <li>
+            <Link href="https://blog.toit.io/">Blog</Link>
+          </li>
+          <li>
+            <Link href="mailto:contact@toit.io">Contact us</Link>
+          </li>
+        </ul>
+      </Company>
+      <Legal>
+        <header>Legal</header>
+        <ul>
+          <li>
+            <Link to="/terms-of-service">Terms of service</Link>
+          </li>
+          <li>
+            <Link to="/privacy-policy">Privacy policy</Link>
+          </li>
+          <li>
+            <Link to="/cookies-policy">Cookies policy</Link>
+          </li>
+          <li>
+            <a href="#" onClick={() => setChangeConsent(true)}>
+              Change cookie consent
+            </a>
+          </li>
+        </ul>
+      </Legal>
+      <Copyright>&copy; Toitware ApS</Copyright>
+      <Design>
+        Design by <Link href="https://jacktheobald.com/">Jack Theobald</Link>
+      </Design>
+    </Root>
+  );
+}
+
+function SimplifiedFooterContent(): JSX.Element {
+  return (
+    <SimplifiedRoot>
+      <Contact
+        css={css`
+          display: flex;
+          justify-content: space-between;
+        `}
+      >
+        <Link to="/">
           <ToitLogo
             css={css`
-              height: 1.5rem;
-              width: auto;
-              margin-right: 8rem;
-              margin-bottom: 1.5rem;
-              path {
-                fill: currentColor;
-              }
+              ${toitLogoCss}
+
+              margin-right: 0;
             `}
           />
-          <div
-            css={css`
-              margin-top: 1.5rem;
-              a {
-                margin-right: 0.5rem;
-              }
-            `}
-          >
-            <Link href="https://twitter.com/toitware">
-              <TwitterIcon />
-            </Link>
-            <Link href="https://www.linkedin.com/company/toitio">
-              <LinkedInIcon />
-            </Link>
-            <Link href="https://www.reddit.com/r/toit/">
-              <RedditIcon />
-            </Link>
-          </div>
-        </Contact>
-        <Product>
-          <header>Product</header>
-          <ul>
-            <li>
-              <Link to="/product/device">Device</Link>
-            </li>
-            <li>
-              <Link to="/product/cloud">Cloud</Link>
-            </li>
-            <li>
-              <Link to="/pricing">Pricing</Link>
-            </li>
-          </ul>
-        </Product>
-        <Developers>
-          <header>Developers</header>
-          <ul>
-            <li>
-              <Link href="https://docs.toit.io/">Documentation</Link>
-            </li>
-            <li>
-              <Link href="https://docs.toit.io/apis/api">API</Link>
-            </li>
-            <li>
-              <Link to="/developers/faq">FAQ</Link>
-            </li>
-          </ul>
-        </Developers>
-        <Company>
-          <header>Company</header>
-          <ul>
-            <li>
-              <Link to="/company/about">About</Link>
-            </li>
-            <li>
-              <Link href="https://blog.toit.io/">Blog</Link>
-            </li>
-            <li>
-              <Link href="mailto:contact@toit.io">Contact us</Link>
-            </li>
-          </ul>
-        </Company>
-        <Legal>
-          <header>Legal</header>
-          <ul>
-            <li>
-              <Link to="/terms-of-service">Terms of service</Link>
-            </li>
-            <li>
-              <Link to="/privacy-policy">Privacy policy</Link>
-            </li>
-            <li>
-              <Link to="/cookies-policy">Cookies policy</Link>
-            </li>
-            <li>
-              <a href="#" onClick={() => setChangeConsent(true)}>
-                Change cookie consent
-              </a>
-            </li>
-          </ul>
-        </Legal>
-        <Copyright>&copy; Toit</Copyright>
-        <Design>
-          Design by <Link href="https://jacktheobald.com/">Jack Theobald</Link>
-        </Design>
-      </Root>
-    </>
+        </Link>
+        <Copyright
+          css={css`
+            padding-top: 0rem;
+          `}
+        >
+          &copy; Toitware ApS
+        </Copyright>
+      </Contact>
+    </SimplifiedRoot>
   );
 }

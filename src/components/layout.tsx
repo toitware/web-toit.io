@@ -83,9 +83,10 @@ interface GraphType {
 interface LayoutProps {
   children: React.ReactNode;
   title?: string;
+  communicationPage?: boolean;
 }
 
-export default function Layout({ title, children }: LayoutProps): JSX.Element {
+export default function Layout({ title, children, communicationPage = false }: LayoutProps): JSX.Element {
   const data: GraphType = useStaticQuery(graphql`
     query LayoutTitleQuery {
       site {
@@ -108,45 +109,50 @@ export default function Layout({ title, children }: LayoutProps): JSX.Element {
         <MuiThemeProvider theme={primaryTheme}>
           <ThemeProvider theme={primaryTheme}>
             <Root>
-              <Header />
-              <Content>
-                {children}
+              {communicationPage && <Content>{children}</Content>}
+              {!communicationPage && (
+                <>
+                  <Header />
+                  <Content>
+                    {children}
 
-                <Section
-                  centered
-                  css={css`
-                    background: ${golden.string()};
-                  `}
-                >
-                  <h2>Ready to get started?</h2>
-                  <p
-                    css={css`
-                      max-width: 18em;
-                      margin: 3rem auto;
-                    `}
-                  >
-                    Get access to our platform and start your journey to invent the future.
-                  </p>
-                  <SignUpButton />
-                </Section>
-                <Section centered>
-                  <p
-                    css={css`
-                      margin: 0 0 3rem;
-                    `}
-                  >
-                    Official platform partners:
-                  </p>
+                    <Section
+                      centered
+                      css={css`
+                        background: ${golden.string()};
+                      `}
+                    >
+                      <h2>Ready to get started?</h2>
+                      <p
+                        css={css`
+                          max-width: 18em;
+                          margin: 3rem auto;
+                        `}
+                      >
+                        Get access to our platform and start your journey to invent the future.
+                      </p>
+                      <SignUpButton />
+                    </Section>
+                    <Section centered>
+                      <p
+                        css={css`
+                          margin: 0 0 3rem;
+                        `}
+                      >
+                        Official platform partners:
+                      </p>
 
-                  <ThirdPartyLogos>
-                    <img src={EspressifSvg} />
-                    <img src={OnomondoSvg} />
-                    <img src={SoracomSvg} />
-                    <img src={UbloxSvg} />
-                  </ThirdPartyLogos>
-                </Section>
-              </Content>
-              <Footer />
+                      <ThirdPartyLogos>
+                        <img src={EspressifSvg} />
+                        <img src={OnomondoSvg} />
+                        <img src={SoracomSvg} />
+                        <img src={UbloxSvg} />
+                      </ThirdPartyLogos>
+                    </Section>
+                  </Content>
+                </>
+              )}
+              <Footer simplified={communicationPage} />
             </Root>
           </ThemeProvider>
         </MuiThemeProvider>
