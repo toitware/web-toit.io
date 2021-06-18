@@ -39,9 +39,16 @@ function SignUpDialog(): JSX.Element {
       classes={{ paper: classes.dialog }}
     >
       <DialogTitle id="responsive-dialog-title" disableTypography>
-        <h2 className={classes.title}>Start now</h2>
-      </DialogTitle>{" "}
-      {!state.sentSuccessfully && <SignUpForm handleClose={handleClose} handleSuccess={handleSuccess} />}
+        <h2 className={classes.title}>{state.dialogTitle}</h2>
+      </DialogTitle>
+      {!state.sentSuccessfully && (
+        <SignUpForm
+          targetUrl={state.targetUrl}
+          campaign={state.campaign}
+          handleClose={handleClose}
+          handleSuccess={handleSuccess}
+        />
+      )}
       {state.sentSuccessfully && <SignUpSuccess handleClose={handleClose} />}
     </Dialog>
   );

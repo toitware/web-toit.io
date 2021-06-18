@@ -1,4 +1,4 @@
-import { createStyles, DialogActions, DialogContent, makeStyles, Theme, Typography } from "@material-ui/core";
+import { createStyles, DialogActions, DialogContent, Link, makeStyles, Theme, Typography } from "@material-ui/core";
 import React from "react";
 import { FiCheckCircle } from "react-icons/fi";
 import Button from "../button";
@@ -28,14 +28,9 @@ export function SignUpSuccess({ handleClose }: SignUpSuccessProps): JSX.Element 
       <DialogContent>
         <FiCheckCircle className={classes.successCheckmark} />
         <Typography>
-          Welcome aboard! Please check your email, and follow the instructions to finalize your account.
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            alt=""
-            src="https://px.ads.linkedin.com/collect/?pid=3155756&conversionId=4095170&fmt=gif"
-          />
+          Thanks for the interest.
+          <br /> If you want to experience Toit today, you can{" "}
+          <Link href="https://auth.toit.io/signup">sign up here</Link>.
         </Typography>
       </DialogContent>
       <DialogActions className={classes.actions}>

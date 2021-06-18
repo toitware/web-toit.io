@@ -20,7 +20,11 @@ import { dartSecondary, pythonSecondary } from "../../theme";
 export function RaspberryPage(): JSX.Element {
   return (
     <Layout title="Raspberry Pi" simplified>
-      <SignUpProvider>
+      <SignUpProvider
+        dialogTitle="Sign up for the Raspberry Pi beta"
+        campaign="RasberryPi"
+        targetUrl="https://console.toit.io/forms/raspberry_pi"
+      >
         <Section
           css={css`
             border-top: none;

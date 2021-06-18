@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     actions: {
       flexWrap: "wrap",
+      marginTop: "3rem",
       padding: theme.spacing(2),
     },
     privacyPolicy: {
@@ -62,9 +63,11 @@ const validationSchema: yup.SchemaOf<SignUpValues> = yup
 type SignUpFormProps = {
   handleClose: () => void;
   handleSuccess: () => void;
+  targetUrl: string;
+  campaign: string;
 };
 
-function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Element {
+function SignUpForm({ handleClose, handleSuccess, targetUrl, campaign }: SignUpFormProps): JSX.Element {
   const classes = useStyles();
 
   const [isSending, setIsSending] = useState(false);
@@ -75,8 +78,7 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
     let error = "";
     try {
       const body = JSON.stringify(values);
-      // const response = await fetch("https://console.toit.io/forms/raspberry_pi", {
-      const response = await fetch("/", {
+      const response = await fetch(targetUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: body,
@@ -96,10 +98,9 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
       setIsSending(false);
     } finally {
       if (error !== "") {
-        analytics.track("Signup Form Failed", { values, error: error });
+        analytics.track(`Signup ${campaign} Failed`, { values, error: error });
       } else {
-        analytics.track("Signup Form Succeeded", values);
-        analytics.track("SignUp", {}, { integrations: { All: false, Reddit: true } });
+        analytics.track(`Signup ${campaign} Succeeded`, values);
       }
     }
   }
@@ -120,13 +121,6 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
     // good.
     <form onSubmit={formik.handleSubmit} noValidate>
       <DialogContent>
-        <DialogContentText>
-          After submitting this form, you&apos;ll receive an email with the instructions to set your password and get
-          access to the platform.
-          <br />
-          <br />
-        </DialogContentText>
-
         {error && <DialogContentText className={classes.errorMessage}>{error}</DialogContentText>}
 
         <Grid container spacing={2}>
@@ -193,8 +187,9 @@ function SignUpForm({ handleClose, handleSuccess }: SignUpFormProps): JSX.Elemen
         </Button>
         <Typography className={classes.privacyPolicy} component="div">
           <div>
-            By clicking the “Sign up” button, you are creating a Toit account, and you agree to our{" "}
-            <Link to="/terms-of-service">terms of service</Link> and <Link to="/privacy-policy">privacy policy</Link>.
+            By clicking the “Sign up” button, you agree to our
+            <br /> <Link to="/terms-of-service">terms of service</Link> and{" "}
+            <Link to="/privacy-policy">privacy policy</Link>.
           </div>
         </Typography>
       </DialogActions>
