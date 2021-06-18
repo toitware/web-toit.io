@@ -83,10 +83,10 @@ interface GraphType {
 interface LayoutProps {
   children: React.ReactNode;
   title?: string;
-  communicationPage?: boolean;
+  simplified?: boolean;
 }
 
-export default function Layout({ title, children, communicationPage = false }: LayoutProps): JSX.Element {
+export default function Layout({ title, children, simplified = false }: LayoutProps): JSX.Element {
   const data: GraphType = useStaticQuery(graphql`
     query LayoutTitleQuery {
       site {
@@ -109,8 +109,8 @@ export default function Layout({ title, children, communicationPage = false }: L
         <MuiThemeProvider theme={primaryTheme}>
           <ThemeProvider theme={primaryTheme}>
             <Root>
-              {communicationPage && <Content>{children}</Content>}
-              {!communicationPage && (
+              {simplified && <Content>{children}</Content>}
+              {!simplified && (
                 <>
                   <Header />
                   <Content>
@@ -152,7 +152,7 @@ export default function Layout({ title, children, communicationPage = false }: L
                   </Content>
                 </>
               )}
-              <Footer simplified={communicationPage} />
+              <Footer simplified={simplified} />
             </Root>
           </ThemeProvider>
         </MuiThemeProvider>
