@@ -1,4 +1,3 @@
-
 import { css } from "@emotion/react";
 import React, { useEffect } from "react";
 import Layout from "../components/layout";
