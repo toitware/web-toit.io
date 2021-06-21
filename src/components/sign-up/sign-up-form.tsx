@@ -77,7 +77,7 @@ function SignUpForm({ handleClose, handleSuccess, targetUrl, campaign }: SignUpF
     setIsSending(true);
     let error = "";
     try {
-      const body = JSON.stringify(values);
+      const body = JSON.stringify({ fields: values });
       const response = await fetch(targetUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -21,7 +21,7 @@ export function RaspberryPage(): JSX.Element {
   return (
     <Layout title="Raspberry Pi" simplified>
       <SignUpProvider
-        dialogTitle="Sign up for the Raspberry Pi beta"
+        dialogTitle="Join the Toit Raspberry Pi beta"
         campaign="RasberryPi"
         targetUrl="https://console.toit.io/forms/raspberry_pi"
       >
