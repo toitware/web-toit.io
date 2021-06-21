@@ -46,7 +46,7 @@ export function RaspberryPage(): JSX.Element {
             </Link>
           </div>
           <SideBySide illustration={microcontrollerSvg}>
-            <h1>20kB code updates on Raspberry Pi</h1>
+            <h1>20 KB code updates on Raspberry Pi</h1>
             <p>
               Connect your Raspberry Pi to the Toit cloud and build serviceable and reliable apps with the best
               high-level language for IoT. You get full fleet management and your code updates are small and nimble
@@ -73,7 +73,7 @@ export function RaspberryPage(): JSX.Element {
           <SideBySide illustration={greenhouseSvg}>
             <p>
               Update your code over a low-bandwidth cellular connection in 2 seconds instead of 10 minutes. Code updates
-              on Toit are 20kB or less, and they never fail. Even if the connection drops, the updates resume from where
+              on Toit are 20 KB or less, and they never fail. Even if the connection drops, the updates resume from where
               they left off.
             </p>
             <JoinTheBetaButton />
@@ -87,7 +87,7 @@ export function RaspberryPage(): JSX.Element {
           <SideBySide illustration={fleetSvg} illustrationPosition="left">
             <h1>Install on your existing fleet with zero risk</h1>
             <p>
-              The entire Toit platform is just 1MB. Install it on your existing devices next to the existing code.
+              The entire Toit platform is just 1 MB. Install it on your existing devices next to the existing code.
               Experience how robust it is, and gradually move over your infrastructure at your own pace. If you decide
               it’s not for you, simply remove it again.
             </p>
