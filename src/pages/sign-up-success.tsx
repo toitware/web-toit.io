@@ -8,9 +8,9 @@ import { pythonSecondary } from "../theme";
 export function SignUpSuccessPage(): JSX.Element {
   useEffect(() => {
     const redirectUrl = new URLSearchParams(window.location.search).get("redirect");
-    const redirect = () => (window.location.href = redirectUrl ?? "https://toit.io");
+    const redirect = () => (window.location.href = !!redirectUrl ? redirectUrl : "https://toit.io");
 
-    if (redirectUrl) {
+    if (!!redirectUrl) {
       analytics.ready(() => {
         analytics.track("OAuth2 Signup Succeeded", {});
         analytics.track("SignUp", {}, { integrations: { All: false, Reddit: true } });
@@ -45,6 +45,13 @@ export function SignUpSuccessPage(): JSX.Element {
           <h1>Sign up successful</h1>
 
           <p>You will be redirected shortly.</p>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            alt=""
+            src="https://px.ads.linkedin.com/collect/?pid=3155756&conversionId=4095170&fmt=gif"
+          />
         </CenteredBlock>
       </Section>
     </Layout>

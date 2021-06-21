@@ -111,7 +111,7 @@ export function DevicePage(): JSX.Element {
         <CenteredBlock>
           <p>
             Toit runs on the ESP32 chip from Espressif. We chose the ESP32 because it offers the best price /
-            performance out of all the microcontrollers out there. For $2 or less you get 512 kB RAM, built-in WiFi and
+            performance out of all the microcontrollers out there. For $2 or less you get 520 KB RAM, built-in WiFi and
             34 pins for peripherals that you can use in any way you want.
           </p>
         </CenteredBlock>
