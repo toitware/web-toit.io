@@ -46,7 +46,7 @@ export function RaspberryPage(): JSX.Element {
             </Link>
           </div>
           <SideBySide illustration={microcontrollerSvg}>
-            <h1>Ultra-compact code updates on Raspberry Pi</h1>
+            <h1>50 KB code updates on Raspberry Pi</h1>
             <p>
               Connect your Raspberry Pi to the Toit cloud and build serviceable and reliable apps with the best
               high-level language for IoT. You get full fleet management and your code updates are small and nimble
