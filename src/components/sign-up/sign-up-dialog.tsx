@@ -47,9 +47,10 @@ function SignUpDialog(): JSX.Element {
           campaign={state.campaign}
           handleClose={handleClose}
           handleSuccess={handleSuccess}
+          redditTrack={state.redditTrack}
         />
       )}
-      {state.sentSuccessfully && <SignUpSuccess handleClose={handleClose} />}
+      {state.sentSuccessfully && <SignUpSuccess handleClose={handleClose} trackingPixel={state.trackingPixel} />}
     </Dialog>
   );
 }

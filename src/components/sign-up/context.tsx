@@ -10,6 +10,8 @@ export type State = {
   dialogTitle: string;
   open: boolean;
   sentSuccessfully: boolean;
+  trackingPixel?: string;
+  redditTrack?: string;
 };
 
 export type ContextValue = {
@@ -47,6 +49,8 @@ type SignUpProviderProps = {
   targetUrl: string;
   dialogTitle: string;
   children: React.ReactNode;
+  trackingPixel?: string;
+  redditTrack?: string;
 };
 
 /**
@@ -54,13 +58,22 @@ type SignUpProviderProps = {
  *
  * This provider should only be used once in the app.
  */
-export function SignUpProvider({ children, campaign, targetUrl, dialogTitle }: SignUpProviderProps): JSX.Element {
+export function SignUpProvider({
+  children,
+  campaign,
+  targetUrl,
+  dialogTitle,
+  trackingPixel,
+  redditTrack,
+}: SignUpProviderProps): JSX.Element {
   const [state, dispatch] = React.useReducer(signUpReducer, {
     campaign: campaign,
     targetUrl: targetUrl,
     dialogTitle: dialogTitle,
     open: locationIncludesSignUp(),
     sentSuccessfully: false,
+    trackingPixel: trackingPixel,
+    redditTrack: redditTrack,
   });
 
   useLocationMapping(state, dispatch);
