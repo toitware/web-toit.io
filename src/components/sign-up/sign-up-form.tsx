@@ -65,9 +65,10 @@ type SignUpFormProps = {
   handleSuccess: () => void;
   targetUrl: string;
   campaign: string;
+  redditTrack?: string;
 };
 
-function SignUpForm({ handleClose, handleSuccess, targetUrl, campaign }: SignUpFormProps): JSX.Element {
+function SignUpForm({ handleClose, handleSuccess, targetUrl, campaign, redditTrack }: SignUpFormProps): JSX.Element {
   const classes = useStyles();
 
   const [isSending, setIsSending] = useState(false);
@@ -101,6 +102,9 @@ function SignUpForm({ handleClose, handleSuccess, targetUrl, campaign }: SignUpF
         analytics.track(`Signup ${campaign} Failed`, { values, error: error });
       } else {
         analytics.track(`Signup ${campaign} Succeeded`, values);
+        if (redditTrack !== undefined) {
+          analytics.track(redditTrack, {}, { integrations: { All: false, Reddit: true } });
+        }
       }
     }
   }

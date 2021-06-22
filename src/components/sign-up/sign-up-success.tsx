@@ -20,8 +20,9 @@ const useStyles = makeStyles((theme: Theme) =>
 
 type SignUpSuccessProps = {
   handleClose: () => void;
+  trackingPixel?: string;
 };
-export function SignUpSuccess({ handleClose }: SignUpSuccessProps): JSX.Element {
+export function SignUpSuccess({ handleClose, trackingPixel }: SignUpSuccessProps): JSX.Element {
   const classes = useStyles();
   return (
     <>
@@ -31,6 +32,9 @@ export function SignUpSuccess({ handleClose }: SignUpSuccessProps): JSX.Element 
           Thanks for the interest.
           <br /> If you want to experience Toit today, you can{" "}
           <Link href="https://auth.toit.io/signup">sign up here</Link>.
+          {trackingPixel !== undefined && (
+            <img height="1" width="1" style={{ display: "none" }} alt="" src={trackingPixel} />
+          )}
         </Typography>
       </DialogContent>
       <DialogActions className={classes.actions}>

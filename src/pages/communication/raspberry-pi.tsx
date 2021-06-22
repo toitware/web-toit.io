@@ -24,6 +24,8 @@ export function RaspberryPage(): JSX.Element {
         dialogTitle="Join the Toit Raspberry Pi beta"
         campaign="RasberryPi"
         targetUrl="https://console.toit.io/forms/raspberry_pi"
+        redditTrack="Lead"
+        trackingPixel="https://px.ads.linkedin.com/collect/?pid=3155756&conversionId=4472066&fmt=gif"
       >
         <Section
           css={css`
