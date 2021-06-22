@@ -5,15 +5,17 @@ import consibioSvg from "../../assets/images/teams/consibio.svg";
 import cosesySvg from "../../assets/images/teams/cosesy.svg";
 import synapSvg from "../../assets/images/teams/synap.svg";
 import triforkSvg from "../../assets/images/teams/trifork.svg";
-import { greySection } from "../../components/global-css";
+import { breakpoints, clampBuilder, greySection } from "../../components/global-css";
 import Section from "../../components/layout/Section";
 
 const TeamGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 4.5rem;
-  max-width: 34rem;
   margin: 0 auto;
+  ${breakpoints.small} {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;
 
 const TeamCell = styled.div`
@@ -26,6 +28,7 @@ export function TeamsSection(): JSX.Element {
     <Section
       css={css`
         ${greySection}
+        --sectionVerticalPadding: ${clampBuilder("tiny", "huge", 4.5, 7.5)};
         border-top: none;
       `}
     >
