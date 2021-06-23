@@ -97,12 +97,16 @@ export default function Layout({ title, children, simplified = false }: LayoutPr
     }
   `);
 
-  const titleWithSuffix = `${title ? `${title} - ` : ""}${data.site.siteMetadata?.title}`;
+  const siteTitle = data.site.siteMetadata?.title;
+
+  const titleWithSuffix = `${title ? `${title} - ` : ""}${siteTitle}`;
+  const ogTitle = `${siteTitle} - ` + (title ?? `Cloud-managed containers on micro­controllers`);
 
   return (
     <>
       <GlobalCss />
       <Helmet title={titleWithSuffix}>
+        <meta property="og:title" content={ogTitle} />
         <meta property="og:image" content={opengraphPng} />
       </Helmet>
       <MDXProvider components={{ ...shorthands, ...components }}>
