@@ -99,7 +99,7 @@ export default function Layout({ title, children, simplified = false }: LayoutPr
 
   const siteTitle = data.site.siteMetadata?.title;
 
-  const titleWithSuffix = `${title ? `${title} - ` : ""}${siteTitle}`;
+  const titleWithSuffix = (title ? `${title} - ` : "") + siteTitle;
   const ogTitle = `${siteTitle} - ` + (title ?? `Cloud-managed containers on micro­controllers`);
 
   return (
