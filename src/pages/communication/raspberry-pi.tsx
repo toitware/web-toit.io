@@ -76,8 +76,8 @@ export function RaspberryPage(): JSX.Element {
           <SideBySide illustration={greenhouseSvg}>
             <p>
               Update your code over a low-bandwidth cellular connection in 2 seconds instead of 10 minutes. Code updates
-              on Toit are typically 50 KB or less, and they never fail. Even if the connection drops, the updates resume
-              from where they left off.
+              via the Toit software platform are typically 50 KB or less, and they never fail. Even if the connection
+              drops, the updates resume from where they left off.
             </p>
             <JoinTheBetaButton />
           </SideBySide>
@@ -90,9 +90,9 @@ export function RaspberryPage(): JSX.Element {
           <SideBySide illustration={fleetSvg} illustrationPosition="left">
             <h1>Install on your existing fleet with zero risk</h1>
             <p>
-              The entire Toit platform is just 1 MB. Install it on your existing devices next to the existing code.
-              Experience how robust it is, and gradually move over your infrastructure at your own pace. If you decide
-              it’s not for you, simply remove it again.
+              The entire Toit installation is just 1 MB. Put it on your existing devices next to the existing
+              code. Experience how robust it is, and gradually move over your services at your own pace. If you
+              decide it’s not for you, simply remove it again.
             </p>
           </SideBySide>
         </Section>
@@ -100,7 +100,7 @@ export function RaspberryPage(): JSX.Element {
           <CenteredBlock>
             <h1>Easily manage your sensor data</h1>
             <p css={bigFont}>
-              Toit gives your Raspberry Pi direct access to peripherals through I2C, SPI, and UART. It is easy to gather 
+              Toit gives your Raspberry Pi direct access to peripherals through I2C, SPI, and UART. It is easy to gather
               data from sensors and access it through our cloud API from anywhere.
             </p>
           </CenteredBlock>
@@ -109,7 +109,7 @@ export function RaspberryPage(): JSX.Element {
             <h2>Use the same code across hardware platforms</h2>
             <p>
               Toit works just as great on the ESP32 microcontroller. If you want to swap your $30 Raspberry Pi with a $2
-              ESP32 that can run for 2 years on batteries, you can bring all your Toit code with you. Finally, a hardware 
+              ESP32 that can run for 2 years on batteries, you can bring all your Toit code with you. Finally, a hardware
               independent IoT platform!
             </p>
           </SideBySide>
