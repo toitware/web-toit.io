@@ -101,7 +101,7 @@ export function RaspberryPage(): JSX.Element {
             <h1>Easily manage your sensor data</h1>
             <p css={bigFont}>
               Toit gives your Raspberry Pi direct access to peripherals through I2C, SPI, and UART. It is easy to gather 
-              data from sensors and access it through our gRPC-based cloud API.
+              data from sensors and access it through our cloud API from anywhere.
             </p>
           </CenteredBlock>
           <ContentSpacer />
