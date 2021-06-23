@@ -50,10 +50,10 @@ export function RaspberryPage(): JSX.Element {
           <SideBySide illustration={microcontrollerSvg}>
             <h1>50 KB code updates on Raspberry Pi</h1>
             <p>
-              Tired of 200MB code updates on your Raspberry Pi IoT device? Connect your Raspberry Pi to the Toit 
-              cloud and build serviceable and reliable apps with the best high-level language for IoT. You get 
-              full fleet management and your code updates are small and nimble enough to be sent across 
-              low-bandwidth cellular connections like NB-IoT or Cat-M1.
+              Tired of 200 MB code updates on your Raspberry Pi IoT device? Connect your Raspberry Pi to the
+              Toit cloud and build serviceable and reliable apps with the best high-level language for IoT.
+              You get full fleet management and your code updates are small and nimble enough to be sent
+              across low-bandwidth cellular connections like NB-IoT or Cat-M1.
             </p>
             <p>
               <JoinTheBetaButton />
