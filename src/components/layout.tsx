@@ -76,6 +76,7 @@ interface GraphType {
   site: {
     siteMetadata: {
       title: string;
+      tagline: string;
     };
   };
 }
@@ -92,15 +93,17 @@ export default function Layout({ title, children, simplified = false }: LayoutPr
       site {
         siteMetadata {
           title
+          tagline
         }
       }
     }
   `);
 
   const siteTitle = data.site.siteMetadata?.title;
+  const siteTagline = data.site.siteMetadata?.tagline;
 
   const titleWithSuffix = (title ? `${title} - ` : "") + siteTitle;
-  const ogTitle = `${siteTitle} - ` + (title ?? `Cloud-managed containers on micro­controllers`);
+  const ogTitle = `${siteTitle} - ` + (title ?? siteTagline);
 
   return (
     <>
