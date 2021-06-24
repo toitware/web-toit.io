@@ -11,17 +11,17 @@
 }
 @keyframes right-paw {
   0% { transform: translateX(0px); }
-  85% { transform: translateX(0px); }
-  86% { transform: translateX(-32px); } 
-  87% { transform: translateX(-32px); } 
-  95%, 100% { transform: translateX(0px); }
+  85% { transform: translateX(0px) translateY(-33px); }
+  86% { transform: translateX(-50px) translateY(-33px); } 
+  87% { transform: translateX(-50px) translateY(-33px); } 
+  95%, 100% { transform: translateX(0px) translateY(-33px); }
 }
 
 #left-paw {
   animation: 20s ease-in-out 0ms infinite forwards left-paw;
 }
 #right-paw {
-  animation: 20s ease-in-out 0ms infinite forwards right-paw;
+  animation: 16s ease-in-out 0ms infinite forwards right-paw;
 }
 </style>
 
