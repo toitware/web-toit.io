@@ -47,16 +47,16 @@ const useStyles = makeStyles((theme: Theme) =>
 /** The values controlled by this form. */
 interface SignUpValues {
   email: string;
-  firstname: string;
-  lastname: string;
+  firstname?: string;
+  lastname?: string;
 }
 
 /** The schema used to validate the form values. */
 const validationSchema: yup.SchemaOf<SignUpValues> = yup
   .object({
     email: yup.string().email("Enter a valid email").required("Email is required"),
-    firstname: yup.string().required("First name is required"),
-    lastname: yup.string().required("Last name is required"),
+    firstname: yup.string(),
+    lastname: yup.string(),
   })
   .defined();
 
@@ -112,8 +112,6 @@ function SignUpForm({ handleClose, handleSuccess, targetUrl, campaign, redditTra
   const formik = useFormik<SignUpValues>({
     initialValues: {
       email: "",
-      firstname: "",
-      lastname: "",
     },
     validationSchema: validationSchema,
     onSubmit: submitForm,
@@ -131,13 +129,30 @@ function SignUpForm({ handleClose, handleSuccess, targetUrl, campaign, redditTra
           <Grid item xs={6}>
             <TextField
               autoFocus
+              id="email"
+              name="email"
+              autoComplete="email"
+              label="Email address"
+              type="email"
+              fullWidth
+              required
+              disabled={isSending}
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
+            />
+          </Grid>
+          <Grid item xs={6}></Grid>
+          <Grid item xs={6}>
+            <TextField
+              autoFocus
               id="firstname"
               name="firstname"
               autoComplete="firstname"
               label="First name"
               type="text"
               fullWidth
-              required
               disabled={isSending}
               value={formik.values.firstname}
               onChange={formik.handleChange}
@@ -154,29 +169,11 @@ function SignUpForm({ handleClose, handleSuccess, targetUrl, campaign, redditTra
               label="Last name"
               type="text"
               fullWidth
-              required
               disabled={isSending}
               value={formik.values.lastname}
               onChange={formik.handleChange}
               error={formik.touched.lastname && Boolean(formik.errors.lastname)}
               helperText={formik.touched.lastname && formik.errors.lastname}
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <TextField
-              autoFocus
-              id="email"
-              name="email"
-              autoComplete="email"
-              label="Email address"
-              type="email"
-              fullWidth
-              required
-              disabled={isSending}
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              error={formik.touched.email && Boolean(formik.errors.email)}
-              helperText={formik.touched.email && formik.errors.email}
             />
           </Grid>
         </Grid>
