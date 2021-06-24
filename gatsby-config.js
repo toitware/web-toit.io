@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Toit",
+    tagline: "Cloud-managed containers on micro­controllers",
     siteUrl: "https://toit.io",
   },
   plugins: [

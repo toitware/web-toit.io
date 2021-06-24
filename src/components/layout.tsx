@@ -76,6 +76,7 @@ interface GraphType {
   site: {
     siteMetadata: {
       title: string;
+      tagline: string;
     };
   };
 }
@@ -92,17 +93,23 @@ export default function Layout({ title, children, simplified = false }: LayoutPr
       site {
         siteMetadata {
           title
+          tagline
         }
       }
     }
   `);
 
-  const titleWithSuffix = `${title ? `${title} - ` : ""}${data.site.siteMetadata?.title}`;
+  const siteTitle = data.site.siteMetadata?.title;
+  const siteTagline = data.site.siteMetadata?.tagline;
+
+  const titleWithSuffix = (title ? `${title} - ` : "") + siteTitle;
+  const ogTitle = `${siteTitle} - ` + (title ?? siteTagline);
 
   return (
     <>
       <GlobalCss />
       <Helmet title={titleWithSuffix}>
+        <meta property="og:title" content={ogTitle} />
         <meta property="og:image" content={opengraphPng} />
       </Helmet>
       <MDXProvider components={{ ...shorthands, ...components }}>
