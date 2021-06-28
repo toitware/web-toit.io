@@ -36,10 +36,10 @@ const Hero = styled.section`
   text-align: center;
   p {
     display: block;
-    max-width: 26em;
+    max-width: 22em;
     margin: 3rem auto;
-    padding-left: var(--contentPadding);
-    padding-right: var(--contentPadding);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 `;
 
@@ -58,16 +58,17 @@ export function IndexPage(): JSX.Element {
         `}
       >
         <PageTitle
-          title={<span>Cloud-managed containers on micro&shy;controllers</span>}
+          title={<span>Cloud-managed containers on the ESP32</span>}
           css={css`
             border-bottom: 2px solid ${black.string()};
             h1 {
-              max-width: 10em;
+              max-width: 12em;
             }
           `}
         />
         <p css={[bigFont]}>
-          Secure your microcontroller code with lightweight containers and orchestrate them through our cloud API.
+          Secure the code on your ESP32 microcontrollers with lightweight containers and orchestrate them through our
+          cloud API.
         </p>
         <p>
           <SignUpButton />
@@ -115,8 +116,8 @@ export function IndexPage(): JSX.Element {
 
         <SideBySide illustration={GreenhouseSvg}>
           <p css={bigFont}>
-            Continuously update the code on your microcontrollers even over cellular connections. Monitor and securely
-            service your entire device fleet in production; all through the Toit API.
+            Continuously update the code on your ESP32 microcontrollers even over cellular connections. Monitor and
+            securely service your entire device fleet in production; all through the Toit API.
           </p>
           <SignUpButton />
         </SideBySide>
@@ -132,7 +133,7 @@ export function IndexPage(): JSX.Element {
       >
         <ParagraphHeader title="Fast and safe" subtitle="Modular applications for embedded devices">
           Write your applications in our high-level, memory-safe language and let our battery-optimized virtual machine
-          execute them efficiently on microcontrollers like the ESP32. Fast to develop, safe to run.
+          execute them efficiently on your ESP32s. Fast to develop, safe to run.
         </ParagraphHeader>
 
         <div
