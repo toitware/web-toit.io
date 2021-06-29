@@ -14,6 +14,7 @@ import GreenhouseSvg from "../assets/images/illustrations/greenhouse.svg";
 import KeysSvg from "../assets/images/illustrations/keys.svg";
 import SymbolsSvg from "../assets/images/illustrations/symbols.svg";
 import ThermostatSvg from "../assets/images/illustrations/thermostat.svg";
+import bme280Png from "../assets/images/illustrations/bme280.png";
 import weatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
 import { ButtonLink } from "../components/button";
 import ContentSpacer from "../components/ContentSpacer";
@@ -28,7 +29,7 @@ import Section from "../components/layout/Section";
 import SideBySide from "../components/layout/SideBySide";
 import TeamsSection from "../components/sections/teams";
 import SignUpButton from "../components/sign-up-button";
-import { black, golden, white } from "../theme";
+import { black, golden, dartSecondary, white } from "../theme";
 
 const Hero = styled.section`
   position: relative;
@@ -120,6 +121,32 @@ export function IndexPage(): JSX.Element {
             securely service your entire device fleet in production; all through the Toit API.
           </p>
           <SignUpButton />
+        </SideBySide>
+      </Section>
+      <Section
+        centered
+        css={css`
+          background-color: ${dartSecondary.string()};
+        `}
+      >
+        <h1>Connectivity and peripherals</h1>
+
+        <CenteredBlock>
+          <p>
+            Toit supports the ESP32’s built-in WiFi, but we also support the most common external communications
+            modules. Many of our customers connect to the cloud via cellular modems using NB-IoT or LTE-M.
+          </p>
+        </CenteredBlock>
+
+        <SideBySide illustrationPosition="left" illustration={bme280Png}>
+          <p>
+            We let you control any peripheral you plug into your ESP32 through the GPIO pins. You can connect using the
+            I2C, SPI, I2S or UART protocols.
+          </p>
+          <p>
+            Our package manager gives you access to drivers for many commonly used peripherals like sensors and motors,
+            and if you’re missing one, our engineering team is ready to help you write it.
+          </p>
         </SideBySide>
       </Section>
       <TeamsSection />

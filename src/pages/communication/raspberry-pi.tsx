@@ -114,7 +114,11 @@ export function RaspberryPage(): JSX.Element {
             </p>
           </SideBySide>
         </Section>
-        <TeamsSection />
+        <TeamsSection
+          css={css`
+            border-top: none;
+          `}
+        />
       </SignUpProvider>
     </Layout>
   );

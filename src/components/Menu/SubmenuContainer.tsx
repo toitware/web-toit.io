@@ -5,6 +5,8 @@ import AboutSvg from "../../assets/images/submenu-icons/about.inline.svg";
 import ApiSvg from "../../assets/images/submenu-icons/api.inline.svg";
 import BlogSvg from "../../assets/images/submenu-icons/blog.inline.svg";
 import CloudSvg from "../../assets/images/submenu-icons/cloud.inline.svg";
+import CodeSvg from "../../assets/images/submenu-icons/code.inline.svg";
+import CommunicationSvg from "../../assets/images/submenu-icons/communication.inline.svg";
 import DeviceSvg from "../../assets/images/submenu-icons/device.inline.svg";
 import DocumentSvg from "../../assets/images/submenu-icons/document.inline.svg";
 import FaqSvg from "../../assets/images/submenu-icons/faq.inline.svg";
@@ -39,8 +41,10 @@ type SubmenuContainerProps = {
 const iconMap: {
   [key: string]: JSX.Element;
 } = {
-  device: <DeviceSvg />,
-  cloud: <CloudSvg />,
+  "device software": <CodeSvg />,
+  "cloud orchestration": <CloudSvg />,
+  "supported hardware": <DeviceSvg />,
+  "connectivity options": <CommunicationSvg />,
   documentation: <DocumentSvg />,
   api: <ApiSvg />,
   about: <AboutSvg />,
