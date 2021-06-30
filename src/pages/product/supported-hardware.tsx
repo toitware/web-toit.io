@@ -38,7 +38,7 @@ export function CloudPage(): JSX.Element {
         <p>
           <strong>
             You can buy them{" "}
-            <Link href="https://www.digikey.com/en/products/detail/espressif-systems/ESP32-DEVKITC-32D/9356990">
+            <Link href="https://www.digikey.com/en/products/detail/espressif-systems/ESP32-DEVKITC-32E/12091810">
               here
             </Link>
             .
