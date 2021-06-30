@@ -15,7 +15,7 @@ import { dartSecondary } from "../../theme";
 
 export function CloudPage(): JSX.Element {
   return (
-    <Layout title="Cloud">
+    <Layout title="Cloud orchestration">
       <PageTitle
         title="Fleet orchestration"
         subTitle="Cloud"

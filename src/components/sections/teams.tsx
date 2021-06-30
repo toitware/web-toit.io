@@ -23,13 +23,17 @@ const TeamCell = styled.div`
   place-content: center;
 `;
 
-export function TeamsSection(): JSX.Element {
+type Props = {
+  className?: string;
+};
+
+export function TeamsSection({ className }: Props): JSX.Element {
   return (
     <Section
+      className={className}
       css={css`
         ${greySection}
         --sectionVerticalPadding: ${clampBuilder("tiny", "huge", 4.5, 7.5)};
-        border-top: none;
       `}
     >
       <h1

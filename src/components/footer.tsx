@@ -191,10 +191,16 @@ function FooterContent({
         <header>Product</header>
         <ul>
           <li>
-            <Link to="/product/device">Device</Link>
+            <Link to="/product/device-software">Device software</Link>
           </li>
           <li>
-            <Link to="/product/cloud">Cloud</Link>
+            <Link to="/product/cloud">Cloud orchestration</Link>
+          </li>
+          <li>
+            <Link to="/product/supported-hardware">Supported hardware</Link>
+          </li>
+          <li>
+            <Link to="/product/connectivity-options">Connectivity options</Link>
           </li>
           <li>
             <Link to="/pricing">Pricing</Link>

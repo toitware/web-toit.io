@@ -7,12 +7,18 @@ items:
       We make it as easy to create software for microcontrollers as it is to
       build a mobile app.
     subpages:
-      - path: /device
-        title: Device
+      - path: /device-software
+        title: Device software
         description: Maintain and update the firmware on your devices.
-      - path: /cloud
-        title: Cloud
+      - path: /cloud-orchestration
+        title: Cloud orchestration
         description: Manage orchestration across your device fleet.
+      - path: /supported-hardware
+        title: Supported hardware
+        description: See which hardware is compatible with Toit.
+      - path: /connectivity-options
+        title: Connectivity options
+        description: The different ways to communicate with your device.
   - path: /pricing
     title: Pricing
   - path: /developers
