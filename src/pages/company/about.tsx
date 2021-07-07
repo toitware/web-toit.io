@@ -15,6 +15,7 @@ import CenteredBlock from "../../components/layout/CenteredBlock";
 import PageTitle from "../../components/layout/PageTitle";
 import Section from "../../components/layout/Section";
 import SideBySide from "../../components/layout/SideBySide";
+import Link from "../../components/link";
 import ExternalBlogs from "../../components/sections/external-blogs";
 import QuotesSection from "../../components/sections/quotes";
 import ToitTeam from "../../components/sections/toit-team";
@@ -43,14 +44,16 @@ export function AboutPage(): JSX.Element {
           fixed that by building the V8 JavaScript engine for Google Chrome.
         </CenteredBlock>
         <CenteredBlock>
-          <img
-            css={css`
-              width: calc(472px / 2);
-              height: calc(732px / 2);
-            `}
-            src={comicPng}
-            alt="Comic Strip"
-          />
+          <Link href="https://www.google.com/googlebooks/chrome/big_12.html">
+            <img
+              css={css`
+                width: 236px;
+                height: 366px;
+              `}
+              src={comicPng}
+              alt="Comic Strip"
+            />
+          </Link>
         </CenteredBlock>
       </Section>
       <Section
@@ -71,8 +74,10 @@ export function AboutPage(): JSX.Element {
         />
         <CenteredBlock>
           Or do you remember when you had to write your app in 3 different languages so it would work on mobile,
-          desktop, and web? The founders from Toit fixed that by creating the Dart language, now used in Flutter - and
-          also the fastest-growing programming language in 2019.
+          desktop, and web? The founders from Toit fixed that by creating the{" "}
+          <Link href="https://dart.dev/">Dart language</Link>, now used in{" "}
+          <Link href="https://flutter.dev/">Flutter</Link> - and also the{" "}
+          <Link href="https://octoverse.github.com/2019/">fastest-growing programming language in 2019</Link>.
         </CenteredBlock>
 
         <ContentSpacer preventLine={true} />
@@ -90,26 +95,60 @@ export function AboutPage(): JSX.Element {
             {
               name: "Kasper Lund",
               image: kasperPng,
-              description:
-                "Kasper Lund spent 12 years at Google as a senior staff engineer and site lead. He co-founded the V8 and Dart projects, and led the team that brought adaptive optimizations to JavaScript, finally making the web fast.",
+              description: (
+                <div>
+                  Kasper Lund spent 12 years at Google as a senior staff engineer and site lead. He co-founded the{" "}
+                  <Link href="https://en.wikipedia.org/wiki/Chrome_V8%22">V8</Link>
+                  and <Link href="https://en.wikipedia.org/wiki/Dart_(programming_language)">Dart</Link> projects, and
+                  led the team that brought{" "}
+                  <Link href="https://blog.chromium.org/2010/12/new-crankshaft-for-v8.html">
+                    adaptive optimizations to JavaScript
+                  </Link>
+                  , finally making the web fast.
+                </div>
+              ),
             },
             {
               name: "Erik Corry",
               image: erikPng,
-              description:
-                "Erik Corry was one of the early Google engineers on V8, the engine behind Chrome and later Node.js. He is an expert on garbage collectors and the co-author of the fastest regular expression engine in the world.",
+              description: (
+                <div>
+                  Erik Corry was one of the early Google engineers on{" "}
+                  <Link href="https://en.wikipedia.org/wiki/Chrome_V8%22">V8</Link>, the engine behind Chrome and later
+                  <Link href="https://nodejs.org">Node.js</Link>. He is an expert on{" "}
+                  <Link href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">
+                    garbage collectors
+                  </Link>{" "}
+                  and the co-author of the{" "}
+                  <Link href="https://blog.chromium.org/2009/02/irregexp-google-chromes-new-regexp.html">
+                    fastest regular expression engine
+                  </Link>{" "}
+                  in the world.
+                </div>
+              ),
             },
             {
               name: "Florian Loitsch",
               image: florianPng,
-              description:
-                "Florian Loitsch is a programming language and compiler specialist. He was the tech lead for the business critical Dart-to-JavaScript compiler at Google and in charge of the evolution of the Dart language.",
+              description: (
+                <div>
+                  Florian Loitsch is a programming language and compiler specialist. He was the tech lead for the
+                  business critical{" "}
+                  <Link href="https://webdev.dartlang.org/tools/dart2js">Dart-to-JavaScript compiler</Link> at Google
+                  and in charge of the evolution of the{" "}
+                  <Link href="https://en.wikipedia.org/wiki/Dart_(programming_language)">Dart language</Link>.
+                </div>
+              ),
             },
             {
               name: "Anders Johnsen",
               image: andersPng,
-              description:
-                "Anders Johnsen is an infrastructure and scalability wizard. He was tech lead for Uber’s micro-service Dart at Google.",
+              description: (
+                <div>
+                  Anders Johnsen is an infrastructure and scalability wizard. He was tech lead for Uber’s micro-service
+                  <Link href="https://en.wikipedia.org/wiki/Dart_(programming_language)">Dart</Link> at Google.
+                </div>
+              ),
             },
           ]}
         />
@@ -184,6 +223,7 @@ export function AboutPage(): JSX.Element {
       />
       <Section
         css={css`
+          padding-top: 0;
           border-top: none;
         `}
         centered

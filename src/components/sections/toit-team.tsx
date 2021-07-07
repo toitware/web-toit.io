@@ -5,7 +5,7 @@ import CenteredBlock from "../../components/layout/CenteredBlock";
 export type Person = {
   name: string;
   image: string;
-  description: string;
+  description: JSX.Element;
 };
 
 export function ToitTeam({ people }: { people: Person[] }): JSX.Element {

@@ -52,12 +52,9 @@ function Blog({ logo, link, children }: { logo: string; link: string; children: 
     <div
       css={css`
         flex: 1;
-        max-width: 15rem;
-        min-width: 9rem;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        margin: 1.5rem 0;
       `}
     >
       <img

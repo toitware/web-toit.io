@@ -22,7 +22,7 @@ const quotes: Quote[] = [
     text: "Been dreaming about a Balena like service for ESP32 for a while. Think you guys just nailed it.",
   },
   {
-    author: "Revibe",
+    author: "ReVibe Energy",
     text: "I really appreciate your support and this Slack workspace, it's a big difference from spending days searching through cryptic and incomplete documentation which I've done quite a bit with STM",
   },
   {
