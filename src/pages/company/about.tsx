@@ -16,6 +16,7 @@ import PageTitle from "../../components/layout/PageTitle";
 import Section from "../../components/layout/Section";
 import SideBySide from "../../components/layout/SideBySide";
 import ExternalBlogs from "../../components/sections/external-blogs";
+import QuotesSection from "../../components/sections/quotes";
 import ToitTeam from "../../components/sections/toit-team";
 
 export function AboutPage(): JSX.Element {
@@ -173,6 +174,20 @@ export function AboutPage(): JSX.Element {
       </Section>
       <Section centered>
         <h1>What they say about us</h1>
+      </Section>
+      <QuotesSection
+        css={css`
+          border-top: none;
+          padding-top: 0;
+          padding-bottom: 0;
+        `}
+      />
+      <Section
+        css={css`
+          border-top: none;
+        `}
+        centered
+      >
         <ExternalBlogs
           css={css`
             margin-top: 6rem;
