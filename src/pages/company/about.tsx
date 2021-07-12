@@ -47,8 +47,8 @@ export function AboutPage(): JSX.Element {
           <Link href="https://www.google.com/googlebooks/chrome/big_12.html">
             <img
               css={css`
-                width: 236px;
-                height: 366px;
+                width: 284px;
+                height: 274px;
               `}
               src={comicPng}
               alt="Comic Strip"
@@ -98,9 +98,9 @@ export function AboutPage(): JSX.Element {
               description: (
                 <div>
                   Kasper Lund spent 12 years at Google as a senior staff engineer and site lead. He co-founded the{" "}
-                  <Link href="https://en.wikipedia.org/wiki/Chrome_V8%22">V8</Link>
-                  and <Link href="https://en.wikipedia.org/wiki/Dart_(programming_language)">Dart</Link> projects, and
-                  led the team that brought{" "}
+                  <Link href="https://en.wikipedia.org/wiki/Chrome_V8%22">V8</Link> and{" "}
+                  <Link href="https://en.wikipedia.org/wiki/Dart_(programming_language)">Dart</Link> projects, and led
+                  the team that brought{" "}
                   <Link href="https://blog.chromium.org/2010/12/new-crankshaft-for-v8.html">
                     adaptive optimizations to JavaScript
                   </Link>
@@ -114,7 +114,7 @@ export function AboutPage(): JSX.Element {
               description: (
                 <div>
                   Erik Corry was one of the early Google engineers on{" "}
-                  <Link href="https://en.wikipedia.org/wiki/Chrome_V8%22">V8</Link>, the engine behind Chrome and later
+                  <Link href="https://en.wikipedia.org/wiki/Chrome_V8%22">V8</Link>, the engine behind Chrome and later{" "}
                   <Link href="https://nodejs.org">Node.js</Link>. He is an expert on{" "}
                   <Link href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">
                     garbage collectors
@@ -145,7 +145,7 @@ export function AboutPage(): JSX.Element {
               image: andersPng,
               description: (
                 <div>
-                  Anders Johnsen is an infrastructure and scalability wizard. He was tech lead for Uber’s micro-service
+                  Anders Johnsen is an infrastructure and scalability wizard. He was tech lead for Uber’s micro-service{" "}
                   <Link href="https://en.wikipedia.org/wiki/Dart_(programming_language)">Dart</Link> at Google.
                 </div>
               ),
