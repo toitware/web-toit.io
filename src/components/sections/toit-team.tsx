@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
-import React, { useState } from "react";
-import CenteredBlock from "../../components/layout/CenteredBlock";
+import React from "react";
+import { breakpoints } from "../global-css";
 
 export type Person = {
   name: string;
@@ -8,46 +8,56 @@ export type Person = {
   description: JSX.Element;
 };
 
-export function ToitTeam({ people }: { people: Person[] }): JSX.Element {
-  const [selectedPerson, setSelectedPerson] = useState(0);
-
+export function ToitTeam({ people, className }: { people: Person[]; className?: string }): JSX.Element {
   return (
-    <div>
-      <div
-        css={css`
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1.5rem;
-        `}
-      >
-        {people.map((person, i) => {
-          return (
+    <div
+      className={className}
+      css={css`
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 6rem;
+        justify-items: center;
+        ${breakpoints.small} {
+          grid-template-columns: 1fr 1fr;
+        }
+      `}
+    >
+      {people.map((person) => {
+        return (
+          <div
+            key={person.name}
+            css={css`
+              flex: 1;
+              max-width: 24rem;
+            `}
+          >
             <div
-              key={person.name}
               css={css`
-                flex: 1;
-                text-align: center;
-                min-width: 170px;
+                margin-bottom: 1.5rem;
               `}
-              onMouseOver={() => setSelectedPerson(i)}
-              onClick={() => setSelectedPerson(i)}
             >
-              <img width="160" height="160" src={person.image} alt={person.name} />
-              <br />
-              <span
-                css={css`
-                  font-weight: bold;
-                `}
-              >
-                {person.name}
-              </span>
+              <img width="256" height="256" src={person.image} alt={person.name} />
             </div>
-          );
-        })}
-      </div>
-      <CenteredBlock>
-        <p>{people[selectedPerson].description}</p>
-      </CenteredBlock>
+            <span
+              css={css`
+                font-weight: bold;
+                font-size: 1.4em;
+                margin-bottom: 3rem;
+                display: block;
+              `}
+            >
+              {person.name}
+            </span>
+            <p
+              css={css`
+                text-align: left;
+              `}
+            >
+              {person.description}
+            </p>
+          </div>
+        );
+      })}
     </div>
   );
 }

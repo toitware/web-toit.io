@@ -19,7 +19,7 @@ const quotes: Quote[] = [
   { author: "JS", text: "What you created here is nothing else than an astonishing technical marvel!" },
   {
     author: "Twitter",
-    text: "Been dreaming about a Balena like service for ESP32 for a while. Think you guys just nailed it.",
+    text: "Been dreaming about a balena-like service for ESP32 for a while. Think you guys just nailed it.",
   },
   {
     author: "ReVibe Energy",
@@ -31,7 +31,7 @@ const quotes: Quote[] = [
   },
   {
     author: "Anonymous user",
-    text: "I saw Toit on linkedIn. seems like a kid of RTOS on steroids? (...) looks amazing. I have 10 000 hours in C on ESP32 and I'm wondering why I put in all that effort.",
+    text: "I saw Toit on linkedIn. It seems like a kind of RTOS on steroids? I have 10 000 hours in C on ESP32 and I’m wondering why I put in all that effort.",
   },
   {
     author: "Jasper Pons",
@@ -69,7 +69,7 @@ export function QuotesSection({ className }: Props): JSX.Element {
       `}
       className={className}
     >
-      <Swiper autoplay={{ delay: 10000 }}>
+      <Swiper autoplay={{ delay: 10000 }} loop>
         {quotes.map((quote, i) => {
           const color = colors[i % 3];
           return (

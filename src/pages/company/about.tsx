@@ -1,15 +1,15 @@
 import { css } from "@emotion/react";
 import React from "react";
 import comicPng from "../../assets/images/comic.png";
-import dartGraphSvg from "../../assets/images/dart-graph.svg";
 import controllerBigSvg from "../../assets/images/illustrations/controller-big.svg";
-import controllerSmallSvg from "../../assets/images/illustrations/controller-small.svg";
+import toitLogoSvg from "../../assets/images/illustrations/stylized-toit-logo.svg";
+import SymbolsSvg from "../../assets/images/illustrations/symbols.svg";
 import andersPng from "../../assets/images/team/anders.png";
 import erikPng from "../../assets/images/team/erik.png";
 import florianPng from "../../assets/images/team/florian.png";
 import kasperPng from "../../assets/images/team/kasper.png";
 import ContentSpacer from "../../components/ContentSpacer";
-import { bigFont, clampBuilder, darkSection } from "../../components/global-css";
+import { bigFont, darkSection } from "../../components/global-css";
 import Layout from "../../components/layout";
 import CenteredBlock from "../../components/layout/CenteredBlock";
 import PageTitle from "../../components/layout/PageTitle";
@@ -47,11 +47,11 @@ export function AboutPage(): JSX.Element {
           <Link href="https://www.google.com/googlebooks/chrome/big_12.html">
             <img
               css={css`
-                width: 284px;
-                height: 274px;
+                width: 320px;
+                height: 304px;
               `}
               src={comicPng}
-              alt="Comic Strip"
+              alt="Comic Strip - Words by the Google Chrome team, comics adaptation by Scott McCloud"
             />
           </Link>
         </CenteredBlock>
@@ -62,35 +62,34 @@ export function AboutPage(): JSX.Element {
           padding-top: 0;
         `}
       >
-        <img
-          css={css`
-            position: absolute;
-            top: ${clampBuilder(400, 1500, 8, -10)};
-            width: 100%;
-            left: 0;
-          `}
-          src={dartGraphSvg}
-          alt="Dart graph"
-        />
         <CenteredBlock>
-          Or do you remember when you had to write your app in 3 different languages so it would work on mobile,
+          Or do you remember when you had to write an app in three different languages so it would work on mobile,
           desktop, and web? The founders from Toit fixed that by creating the{" "}
-          <Link href="https://dart.dev/">Dart language</Link>, now used in{" "}
-          <Link href="https://flutter.dev/">Flutter</Link> - and also the{" "}
-          <Link href="https://octoverse.github.com/2019/">fastest-growing programming language in 2019</Link>.
+          <Link href="https://dart.dev/">Dart language</Link>, the{" "}
+          <Link href="https://octoverse.github.com/2019/">fastest-growing programming language in 2019</Link> because of
+          its adoption by <Link href="https://flutter.dev/">Flutter</Link>, Google’s UI toolkit for building
+          applications.
         </CenteredBlock>
 
         <ContentSpacer preventLine={true} />
 
-        <CenteredBlock>
-          Strong from their virtual machine and programming languages successes, these engineers - and the rest of the
-          ever-growing Toit team - have now built Toit, a cloud-managed container platform for IoT that allows
-          developers to say “Remember when we had to send the whole image of our firmware over-the-air at once?” or
-          “Remember when we could brick devices with just one typo in our code?”
-        </CenteredBlock>
+        <SideBySide illustration={toitLogoSvg}>
+          <p>
+            Strong from their virtual machine and programming languages successes, these engineers - and the rest of the
+            ever-growing Toit team - have now built Toit, a cloud-managed container platform for IoT.
+          </p>
+          <p>
+            So now developers can say “Remember when we had to send the whole image of our firmware over-the-air at
+            once?” or “Remember when we could brick devices with just one typo in our code?”
+          </p>
+        </SideBySide>
       </Section>
-      <Section>
+      <Section centered>
+        <h1>Meet the founders</h1>
         <ToitTeam
+          css={css`
+            margin-top: var(--sectionVerticalPadding);
+          `}
           people={[
             {
               name: "Kasper Lund",
@@ -171,7 +170,7 @@ export function AboutPage(): JSX.Element {
         >
           <p>
             The Toit team has built a software platform that lets you run containers on very small MCUs with as little
-            as 500 KB of RAM - and in particular on ESP32 microcontrollers because of their price and performance
+            as 500 KB of RAM - and in particular on ESP32 microcontrollers because we love their price/performance
             benefits.
           </p>
           <p>
@@ -184,7 +183,8 @@ export function AboutPage(): JSX.Element {
 
         <ContentSpacer />
 
-        <SideBySide illustration={controllerSmallSvg} illustrationPosition="right">
+        <SideBySide illustration={SymbolsSvg} illustrationPosition="right">
+          <h2>A new language designed for IoT</h2>
           <p>
             For this to work on microcontrollers, Toit brings you a new high-level language designed for IoT. You will
             use it to build apps that communicate with your low-level hardware and communicate with the cloud using the
@@ -199,9 +199,9 @@ export function AboutPage(): JSX.Element {
           </p>
 
           <p>
-            So when you sign up for Toit, you can start using our software on your own microcontroller-based hardware
-            and our extensive technical documentation tells you how to provision your microcontroller with the Toit
-            firmware, start writing apps with our high-level language and deploy them over-the-air on the device.
+            So when you sign up for Toit, you can start using our software on your own microcontroller-based hardware.
+            Our extensive technical documentation guides you from device provisioning with the Toit firmware, to writing
+            apps with our high-level language, to deploying them over-the-air on any device from your fleet.
           </p>
         </SideBySide>
 
