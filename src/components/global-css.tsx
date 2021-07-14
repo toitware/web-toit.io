@@ -1,6 +1,6 @@
 import { css, Global } from "@emotion/react";
 import React from "react";
-import { black, dart, white } from "../theme";
+import { black, dart, golden, white } from "../theme";
 
 type breakpointName = "tiny" | "small" | "medium" | "large" | "huge";
 
@@ -53,7 +53,10 @@ export function clampBuilder(
   const slope = (maxFontSize - minFontSize) / (maxWidth - minWidth);
   const yAxisIntersection = -minWidth * slope + minFontSize;
 
-  return `clamp(${minFontSize}${unit}, ${yAxisIntersection}${unit} + ${slope * 100}vw, ${maxFontSize}${unit})`;
+  const lowerBound = maxFontSize > minFontSize ? minFontSize : maxFontSize;
+  const upperBound = maxFontSize > minFontSize ? maxFontSize : minFontSize;
+
+  return `clamp(${lowerBound}${unit}, ${yAxisIntersection}${unit} + ${slope * 100}vw, ${upperBound}${unit})`;
 }
 
 export const darkSection = css`
@@ -106,7 +109,7 @@ export function GlobalCss(): JSX.Element {
         body {
           // Makes sure that the footer and the background when overscrolling
           // is black too.
-          background: ${black.string()};
+          background: ${golden.string()};
           margin: 0;
         }
 
