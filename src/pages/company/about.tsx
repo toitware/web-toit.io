@@ -36,14 +36,24 @@ export function AboutPage(): JSX.Element {
       <Section
         centered
         css={css`
+          padding-top: 4.5rem;
           padding-bottom: 0;
         `}
       >
-        <CenteredBlock css={bigFont}>
+        <CenteredBlock
+          css={css`
+            ${bigFont}
+            margin-top: 0;
+          `}
+        >
           Do you remember when your browser crashed because you had opened one too many tabs? The founders from Toit
           fixed that by building the V8 JavaScript engine for Google Chrome.
         </CenteredBlock>
-        <CenteredBlock>
+        <CenteredBlock
+          css={css`
+            margin-top: 4.5rem;
+          `}
+        >
           <Link href="https://www.google.com/googlebooks/chrome/big_12.html">
             <img
               css={css`
