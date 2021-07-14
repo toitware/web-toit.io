@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import React from "react";
 import comicPng from "../../assets/images/comic.png";
 import controllerBigSvg from "../../assets/images/illustrations/controller-big.svg";
-import toitLogoSvg from "../../assets/images/illustrations/stylized-toit-logo.svg";
+import dartLogoSvg from "../../assets/images/illustrations/dart-logo.svg";
 import SymbolsSvg from "../../assets/images/illustrations/symbols.svg";
 import andersPng from "../../assets/images/team/anders.png";
 import erikPng from "../../assets/images/team/erik.png";
@@ -83,7 +83,7 @@ export function AboutPage(): JSX.Element {
 
         <ContentSpacer preventLine={true} />
 
-        <SideBySide illustration={toitLogoSvg}>
+        <SideBySide illustration={dartLogoSvg}>
           <p>
             Strong from their virtual machine and programming languages successes, these engineers - and the rest of the
             ever-growing Toit team - have now built Toit, a cloud-managed container platform for IoT.
