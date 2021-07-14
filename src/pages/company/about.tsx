@@ -211,13 +211,18 @@ export function AboutPage(): JSX.Element {
           curious about what you want to do. Let’s talk!
         </CenteredBlock>
       </Section>
-      <Section centered>
+      <Section
+        centered
+        css={css`
+          padding-bottom: 0;
+        `}
+      >
         <h1>What they say about us</h1>
       </Section>
       <QuotesSection
         css={css`
           border-top: none;
-          padding-top: 0;
+          padding-top: 3rem;
           padding-bottom: 0;
         `}
       />
