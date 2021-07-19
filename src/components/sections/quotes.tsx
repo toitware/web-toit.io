@@ -18,9 +18,9 @@ export type Quote = {
 };
 
 const quotes: Quote[] = [
-  { author: "JS", text: "What you created here is nothing else than an astonishing technical marvel!" },
+  // { author: "JS", text: "What you created here is nothing else than an astonishing technical marvel!" },
   {
-    author: "Twitter",
+    author: "@jowvianna on Twitter",
     text: "Been dreaming about a balena-like service for ESP32 for a while. Think you guys just nailed it.",
   },
   {
@@ -29,16 +29,16 @@ const quotes: Quote[] = [
   },
   {
     author: "David from Mezrit",
-    text: "Discovery is pretty good, I have the necessary devices, find the tooling + console to be straightforward (onboarding is stunningly easy), and your team’s responsiveness on Slack is tremendous.",
+    text: "Toit is an elegant, powerful language and standard library, the tooling + console is straightforward (device onboarding is stunningly easy), and the teams responsiveness on Slack is tremendous.",
   },
-  {
-    author: "Anonymous user",
-    text: "I saw Toit on linkedIn. It seems like a kind of RTOS on steroids? I have 10 000 hours in C on ESP32 and I’m wondering why I put in all that effort.",
-  },
-  {
-    author: "Jasper Pons",
-    text: 'Finally the true power of the ESP has been unlocked, looking forward to getting on "to it".',
-  },
+  // {
+  //   author: "Jasper Pons",
+  //   text: "I saw Toit on linkedIn. It seems like a kind of RTOS on steroids? I have 10 000 hours in C on ESP32 and I’m wondering why I put in all that effort.",
+  // },
+  // {
+  //   author: "Jasper Pons",
+  //   text: 'Finally the true power of the ESP has been unlocked, looking forward to getting on "to it".',
+  // },
 ];
 
 type Props = {
