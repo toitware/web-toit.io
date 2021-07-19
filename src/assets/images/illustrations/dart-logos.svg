@@ -17,10 +17,10 @@
   transform-origin: 112px 201px;
 }
 #flutter-logo {
-  animation: 850ms ease-in-out 0ms infinite alternate float;
+  animation: 1s ease-in-out 200ms infinite alternate float;
 }
 #flutter-shadow {
-  animation: 850ms ease-in-out 0ms infinite alternate grow;
+  animation: 1s ease-in-out 200ms infinite alternate grow;
   transform-origin: 309px 201px;
 }
 </style> 
