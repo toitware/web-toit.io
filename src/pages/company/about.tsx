@@ -1,15 +1,15 @@
 import { css } from "@emotion/react";
 import React from "react";
-import comicPng from "../../assets/images/comic.png";
+import comicPng from "../../assets/images/illustrations/comic.png";
 import controllerBigSvg from "../../assets/images/illustrations/controller-big.svg";
-import dartLogoSvg from "../../assets/images/illustrations/dart-logo.svg";
+import dartLogoSvg from "../../assets/images/illustrations/dart-logos.svg";
 import SymbolsSvg from "../../assets/images/illustrations/symbols.svg";
 import andersPng from "../../assets/images/team/anders.png";
 import erikPng from "../../assets/images/team/erik.png";
 import florianPng from "../../assets/images/team/florian.png";
 import kasperPng from "../../assets/images/team/kasper.png";
 import ContentSpacer from "../../components/ContentSpacer";
-import { bigFont, darkSection } from "../../components/global-css";
+import { bigFont, breakpoints, darkSection } from "../../components/global-css";
 import Layout from "../../components/layout";
 import CenteredBlock from "../../components/layout/CenteredBlock";
 import PageTitle from "../../components/layout/PageTitle";
@@ -34,56 +34,62 @@ export function AboutPage(): JSX.Element {
       />
 
       <Section
-        centered
         css={css`
           padding-top: 4.5rem;
-          padding-bottom: 0;
         `}
       >
-        <CenteredBlock
-          css={css`
-            ${bigFont}
-            margin-top: 0;
-          `}
+        <SideBySide
+          illustration={
+            <div>
+              <Link href="https://www.google.com/googlebooks/chrome/big_12.html">
+                <img
+                  css={css`
+                    display: block;
+                  `}
+                  src={comicPng}
+                  alt="Comic Strip - Words by the Google Chrome team, comics adaptation by Scott McCloud"
+                />
+              </Link>
+              <small
+                css={css`
+                  display: block;
+                  text-align: center;
+                  opacity: 0.5;
+                `}
+              >
+                Words by the Google Chrome team / Comics adaptation by Scott McCloud
+              </small>
+            </div>
+          }
+          illustrationPosition="left"
         >
-          Do you remember when your browser crashed because you had opened one too many tabs? The founders from Toit
-          fixed that by building the V8 JavaScript engine for Google Chrome.
-        </CenteredBlock>
-        <CenteredBlock
-          css={css`
-            margin-top: 4.5rem;
-          `}
-        >
-          <Link href="https://www.google.com/googlebooks/chrome/big_12.html">
-            <img
-              css={css`
-                width: 320px;
-                height: 304px;
-              `}
-              src={comicPng}
-              alt="Comic Strip - Words by the Google Chrome team, comics adaptation by Scott McCloud"
-            />
-          </Link>
-        </CenteredBlock>
-      </Section>
-      <Section
-        css={css`
-          border-top: 0;
-          padding-top: 0;
-        `}
-      >
-        <CenteredBlock>
-          Or do you remember when you had to write an app in three different languages so it would work on mobile,
-          desktop, and web? The founders from Toit fixed that by creating the{" "}
-          <Link href="https://dart.dev/">Dart language</Link>, the{" "}
-          <Link href="https://octoverse.github.com/2019/">fastest-growing programming language in 2019</Link> because of
-          its adoption by <Link href="https://flutter.dev/">Flutter</Link>, Google’s UI toolkit for building
-          applications.
-        </CenteredBlock>
-
+          <p> Do you remember when your browser crashed because you had opened one too many tabs? </p>
+          <p> The founders from Toit fixed that by building the V8 JavaScript engine for Google Chrome.</p>
+        </SideBySide>
         <ContentSpacer preventLine={true} />
-
         <SideBySide illustration={dartLogoSvg}>
+          <p>
+            Or do you remember when you had to write an app in three different languages so it would work on mobile,
+            desktop, and web?
+          </p>
+
+          <p>
+            The founders from Toit fixed that by creating the <Link href="https://dart.dev/">Dart language</Link>, the{" "}
+            <Link href="https://octoverse.github.com/2019/">fastest-growing programming language in 2019</Link> because
+            of its adoption by <Link href="https://flutter.dev/">Flutter</Link>, Google’s UI toolkit for building
+            applications.
+          </p>
+        </SideBySide>
+        <ContentSpacer preventLine={true} />
+        <div
+          css={css`
+            ${breakpoints.small} {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: var(--columnSeparatorWidth);
+            }
+          `}
+        >
           <p>
             Strong from their virtual machine and programming languages successes, these engineers - and the rest of the
             ever-growing Toit team - have now built Toit, a cloud-managed container platform for IoT.
@@ -92,7 +98,7 @@ export function AboutPage(): JSX.Element {
             So now developers can say “Remember when we had to send the whole image of our firmware over-the-air at
             once?” or “Remember when we could brick devices with just one typo in our code?”
           </p>
-        </SideBySide>
+        </div>
       </Section>
       <Section centered>
         <h1>Meet the founders</h1>
