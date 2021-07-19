@@ -8,7 +8,7 @@ import LeftSvg from "../../assets/images/icons/left-arrow.inline.svg";
 import RightSvg from "../../assets/images/icons/right-arrow.inline.svg";
 import { breakpoints, clampBuilder } from "../../components/global-css";
 import Section from "../../components/layout/Section";
-import { dart, golden, python } from "../../theme";
+import { dart, golden, passion, python, tiger } from "../../theme";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -18,7 +18,7 @@ export type Quote = {
 };
 
 const quotes: Quote[] = [
-  // { author: "JS", text: "What you created here is nothing else than an astonishing technical marvel!" },
+  { author: "Jürgen Specht", text: "What you created here is nothing else than an astonishing technical marvel!" },
   {
     author: "@jowvianna on Twitter",
     text: "Been dreaming about a balena-like service for ESP32 for a while. Think you guys just nailed it.",
@@ -73,7 +73,7 @@ const arrowsCss = css`
   }
 `;
 
-const colors: Color[] = [golden, python, dart];
+const colors: Color[] = [golden, python, tiger, dart];
 export function QuotesSection({ className }: Props): JSX.Element {
   return (
     <Section
@@ -113,7 +113,7 @@ export function QuotesSection({ className }: Props): JSX.Element {
         `}
       >
         {quotes.map((quote, i) => {
-          const color = colors[i % 3];
+          const color = colors[i % colors.length];
           return (
             <SwiperSlide key={quote.author}>
               <QuoteContainer>

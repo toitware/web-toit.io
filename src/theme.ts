@@ -10,7 +10,7 @@ export const passion = Color("#FF8484");
 export const golden = Color("#FAC864");
 export const dart = Color("#5E6FDB");
 export const python = Color("#53978E");
-export const tiger = Color("#53978E");
+export const tiger = Color("#FFB37C");
 
 export const blackSecondary = black.alpha(0.3);
 export const passionSecondary = Color("#FFB5B5");
