@@ -39,11 +39,11 @@ items:
   - path: /company
     title: Company
     description: >
-      Toit provides technology startups wih the very best foundation for their IoT solutions.
+      Toit provides technology startups with the very best foundation for their IoT solutions.
     subpages:
       - path: /about
         title: About
         description: Learn more about us and why we started Toit.
       - href: https://blog.toit.io/
         title: Blog
-        description: Keep up to date with Toit and our projects.
+        description: Keep up to date with our technology and projects.
