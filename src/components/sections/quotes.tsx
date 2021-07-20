@@ -8,7 +8,7 @@ import LeftSvg from "../../assets/images/icons/left-arrow.inline.svg";
 import RightSvg from "../../assets/images/icons/right-arrow.inline.svg";
 import { breakpoints, clampBuilder } from "../../components/global-css";
 import Section from "../../components/layout/Section";
-import { dart, golden, passion, python, tiger } from "../../theme";
+import { dart, golden, python, tiger } from "../../theme";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
