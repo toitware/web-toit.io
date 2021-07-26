@@ -95,6 +95,8 @@ export function GlobalCss(): JSX.Element {
 
           --buttonColor: ${black.string()};
           --buttonContrastColor: ${white.string()};
+
+          --columnSeparatorWidth: clamp(3rem, 6vw, 4.5rem);
         }
         html {
           // Make sure the scrollbar is always visible (on the devices that don't
@@ -141,6 +143,10 @@ export function GlobalCss(): JSX.Element {
           height: 2px;
           background: ${black.string()};
           border: none;
+        }
+        small {
+          font-size: 0.65em;
+          line-height: 1.5;
         }
         video {
           // Hack to fix an issue in Safari to show borders around videos

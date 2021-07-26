@@ -5,7 +5,7 @@ import { breakpoints } from "../global-css";
 const Wrapper = styled.section`
   display: grid;
   justify-content: center;
-  gap: clamp(3rem, 6vw, 4.5rem);
+  gap: var(--columnSeparatorWidth);
 
   ${breakpoints.small} {
     grid-template-columns: 1fr 1fr;

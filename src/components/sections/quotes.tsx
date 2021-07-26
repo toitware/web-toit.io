@@ -8,7 +8,7 @@ import LeftSvg from "../../assets/images/icons/left-arrow.inline.svg";
 import RightSvg from "../../assets/images/icons/right-arrow.inline.svg";
 import { breakpoints, clampBuilder } from "../../components/global-css";
 import Section from "../../components/layout/Section";
-import { dart, golden, python } from "../../theme";
+import { dart, golden, python, tiger } from "../../theme";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -18,9 +18,9 @@ export type Quote = {
 };
 
 const quotes: Quote[] = [
-  { author: "JS", text: "What you created here is nothing else than an astonishing technical marvel!" },
+  { author: "Jürgen Specht", text: "What you created here is nothing else than an astonishing technical marvel!" },
   {
-    author: "Twitter",
+    author: "@jowvianna on Twitter",
     text: "Been dreaming about a balena-like service for ESP32 for a while. Think you guys just nailed it.",
   },
   {
@@ -29,16 +29,16 @@ const quotes: Quote[] = [
   },
   {
     author: "David from Mezrit",
-    text: "Discovery is pretty good, I have the necessary devices, find the tooling + console to be straightforward (onboarding is stunningly easy), and your team’s responsiveness on Slack is tremendous.",
+    text: "Toit is an elegant, powerful language and standard library, the tooling + console is straightforward (device onboarding is stunningly easy), and the teams responsiveness on Slack is tremendous.",
   },
-  {
-    author: "Anonymous user",
-    text: "I saw Toit on linkedIn. It seems like a kind of RTOS on steroids? I have 10 000 hours in C on ESP32 and I’m wondering why I put in all that effort.",
-  },
-  {
-    author: "Jasper Pons",
-    text: 'Finally the true power of the ESP has been unlocked, looking forward to getting on "to it".',
-  },
+  // {
+  //   author: "Jasper Pons",
+  //   text: "I saw Toit on linkedIn. It seems like a kind of RTOS on steroids? I have 10 000 hours in C on ESP32 and I’m wondering why I put in all that effort.",
+  // },
+  // {
+  //   author: "Jasper Pons",
+  //   text: 'Finally the true power of the ESP has been unlocked, looking forward to getting on "to it".',
+  // },
 ];
 
 type Props = {
@@ -73,7 +73,7 @@ const arrowsCss = css`
   }
 `;
 
-const colors: Color[] = [golden, python, dart];
+const colors: Color[] = [golden, python, tiger, dart];
 export function QuotesSection({ className }: Props): JSX.Element {
   return (
     <Section
@@ -113,7 +113,7 @@ export function QuotesSection({ className }: Props): JSX.Element {
         `}
       >
         {quotes.map((quote, i) => {
-          const color = colors[i % 3];
+          const color = colors[i % colors.length];
           return (
             <SwiperSlide key={quote.author}>
               <QuoteContainer>
