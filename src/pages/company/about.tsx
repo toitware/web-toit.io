@@ -65,19 +65,18 @@ export function AboutPage(): JSX.Element {
           }
           illustrationPosition="left"
         >
-          <h2>First the V8</h2>
+          <h2>First Chrome V8</h2>
+          <p>Do you remember when your browser crashed because you had opened one too many tabs?</p>
           <p>
-            The founders of Toit first came together at Google and forever changed what was possible on the internet, by
-            implementing a modern JavaScript VM for the Google Chrome browser.
+            The founders from Toit fixed that by building the <Link href="https://v8.dev/">V8 JavaScript engine</Link>{" "}
+            for Google Chrome.
           </p>
-          {/* <p> Do you remember when your browser crashed because you had opened one too many tabs? </p>
-          <p> The founders from Toit fixed that by building the V8 JavaScript engine for Google Chrome.</p> */}
         </SideBySide>
         <ContentSpacer preventLine={true} />
         <SideBySide illustration={dartPng}>
           <h2>Then Dart</h2>
           <p>
-            Do you remember when you had to write an app in three different languages so it would work on mobile,
+            Or do you remember when you had to write your app in 3 different languages so it would work on mobile,
             desktop, and web?
           </p>
 
@@ -171,7 +170,10 @@ export function AboutPage(): JSX.Element {
               image: andersPng,
               description: (
                 <div>
-                  Anders Johnsen is an infrastructure and scalability wizard. He was tech lead for Uber’s micro-service{" "}
+                  Anders Johnsen is an infrastructure and scalability wizard. He was tech lead for Uber’s micro-service
+                  scheduling platform and{" "}
+                  <Link href="https://eng.uber.com/schemaless-part-one/">scalable datastore</Link> and he worked on
+                  optimizing server-side{" "}
                   <Link href="https://en.wikipedia.org/wiki/Dart_(programming_language)">Dart</Link> at Google.
                 </div>
               ),
@@ -218,12 +220,13 @@ export function AboutPage(): JSX.Element {
         >
           <div>
             <p>
-              With this platform, you can <strong>update</strong> the firmware layer and/or all the apps that run on it
-              so that you will never need to flash an entire firmware image to a device anymore.
+              With this platform, you can <strong>update</strong> the firmware layer and all the apps that run on it so
+              that you will never need to flash an entire firmware image to a device anymore.
             </p>
             <p>
               The <strong>apps</strong> you run in your on-device containers work continuously and independently from
-              each other at all times, even when you update the firmware or transfer your data to the cloud.
+              each other at all times, even when you update the firmware or transfer your data to the cloud, and even
+              when your devices are offline - so you can run devices on batteries for a very long time.
             </p>
           </div>
           <div>
@@ -243,8 +246,8 @@ export function AboutPage(): JSX.Element {
                 `}
               />
               For this to work on microcontrollers, Toit brings you a new high-level <strong>language</strong> designed
-              for IoT. You will use it to build apps that communicate with your low-level hardware and communicate with
-              the cloud using the Toit API.
+              for IoT. You will use it to build apps that communicate with the hardware to generate data. Transfer of
+              the data to the cloud is handled out of the box using the Toit API.
             </p>
             <p>
               Finally, the team built an easy-to-use <strong>cloud-based management platform</strong> that takes care of
@@ -271,8 +274,8 @@ export function AboutPage(): JSX.Element {
           `}
         >
           <p css={bigFont}>
-            You can also always ask for help from our engineering team. We are proud of what we have designed, and we
-            are curious about what you want to do.
+            You can also always ask for help from our engineering team. We are proud of what we have built, and we are
+            curious about what you want to do.
           </p>
           <ButtonLink
             variant="outlined"
