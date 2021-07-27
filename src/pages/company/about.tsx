@@ -4,7 +4,7 @@ import ArrowColumn from "../../assets/images/illustrations/arrow-column.inline.s
 import comicPng from "../../assets/images/illustrations/comic.png";
 import controllerBigSvg from "../../assets/images/illustrations/controller-big.svg";
 import controllerSmallSvg from "../../assets/images/illustrations/controller-small.svg";
-import dartLogoSvg from "../../assets/images/illustrations/dart-logos.svg";
+import dartPng from "../../assets/images/illustrations/dart.png";
 import andersPng from "../../assets/images/team/anders.png";
 import erikPng from "../../assets/images/team/erik.png";
 import florianPng from "../../assets/images/team/florian.png";
@@ -19,7 +19,6 @@ import Section from "../../components/layout/Section";
 import SideBySide from "../../components/layout/SideBySide";
 import Link from "../../components/link";
 import ExternalBlogs from "../../components/sections/external-blogs";
-import QuotesSection from "../../components/sections/quotes";
 import ToitTeam from "../../components/sections/toit-team";
 import { black, white } from "../../theme";
 
@@ -60,21 +59,25 @@ export function AboutPage(): JSX.Element {
                   opacity: 0.5;
                 `}
               >
-                Words by the Google Chrome team / Comics adaptation by Scott McCloud
+                Words by the Google Chrome team. Comics adaptation by Scott McCloud.
               </small>
             </div>
           }
           illustrationPosition="left"
         >
-          <h2>First JavaScript...</h2>
-          <p> Do you remember when your browser crashed because you had opened one too many tabs? </p>
-          <p> The founders from Toit fixed that by building the V8 JavaScript engine for Google Chrome.</p>
+          <h2>First the V8</h2>
+          <p>
+            The founders of Toit first came together at Google and forever changed what was possible on the internet, by
+            implementing a modern JavaScript VM for the Google Chrome browser.
+          </p>
+          {/* <p> Do you remember when your browser crashed because you had opened one too many tabs? </p>
+          <p> The founders from Toit fixed that by building the V8 JavaScript engine for Google Chrome.</p> */}
         </SideBySide>
         <ContentSpacer preventLine={true} />
-        <SideBySide illustration={dartLogoSvg}>
-          <h2>...then Dart</h2>
+        <SideBySide illustration={dartPng}>
+          <h2>Then Dart</h2>
           <p>
-            Or do you remember when you had to write an app in three different languages so it would work on mobile,
+            Do you remember when you had to write an app in three different languages so it would work on mobile,
             desktop, and web?
           </p>
 
@@ -291,13 +294,6 @@ export function AboutPage(): JSX.Element {
       >
         <h1>What they say about us</h1>
       </Section>
-      <QuotesSection
-        css={css`
-          border-top: none;
-          padding-top: 3rem;
-          padding-bottom: 0;
-        `}
-      />
       <Section
         css={css`
           padding-top: 0;
