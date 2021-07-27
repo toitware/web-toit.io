@@ -131,7 +131,7 @@ export function QuotesSection({ className }: Props): JSX.Element {
                   >
                     {quote.author}
                   </div>
-                  {quote.text}
+                  “{quote.text}”
                 </Quote>
               </QuoteContainer>
             </SwiperSlide>
