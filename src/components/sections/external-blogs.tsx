@@ -25,17 +25,19 @@ export function ExternalBlogs({ className }: { className?: string }): JSX.Elemen
       `}
     >
       <Blog
+        name="Adafruit"
         logo={adafruitSvg}
         link="https://blog.adafruit.com/2021/06/02/create-and-continuously-update-the-code-on-your-microcontrollers-with-toit-iot-internetofthings/"
       >
-        Create and continuously update the code on your microcontrollers with Toit. Kasper Lund discusses a new way of
-        building applications for the internet of things using a virtual machine and Toit.
+        “Create and continuously update the code on your microcontrollers with Toit. Kasper Lund discusses a new way of
+        building applications for the internet of things using a virtual machine and Toit.”
       </Blog>
       <Blog
+        name="Open Cloudware"
         logo={opencloudwareSvg}
         link="https://opencloudware.com/toit-platform-redefines-the-way-we-implement-iot-applications/"
       >
-        Toit platform redefines the way we implement IoT applications. A look into the features of Toit programming
+        “Toit platform redefines the way we implement IoT applications.” A look into the features of Toit programming
         language.
       </Blog>
       <Blog logo={ekorauSvg} link="https://www.ekorau.com/first-driver-in-toit/">
@@ -46,8 +48,17 @@ export function ExternalBlogs({ className }: { className?: string }): JSX.Elemen
   );
 }
 
-function Blog({ logo, link, children }: { logo: string; link: string; children: React.ReactNode }): JSX.Element {
-  const domain = new URL(link).hostname;
+function Blog({
+  name,
+  logo,
+  link,
+  children,
+}: {
+  name?: string;
+  logo: string;
+  link: string;
+  children: React.ReactNode;
+}): JSX.Element {
   return (
     <div
       css={css`
@@ -57,13 +68,23 @@ function Blog({ logo, link, children }: { logo: string; link: string; children: 
         align-items: flex-start;
       `}
     >
-      <img
+      <div
         css={css`
-          height: 4rem;
+          display: flex;
+          align-items: center;
+          font-weight: bold;
         `}
-        src={logo}
-        alt="Logo"
-      />
+      >
+        <img
+          css={css`
+            height: 4rem;
+            margin-right: 1rem;
+          `}
+          src={logo}
+          alt="Logo"
+        />
+        {name ?? ""}
+      </div>
       <div
         css={css`
           margin: 1rem 0;
@@ -71,13 +92,6 @@ function Blog({ logo, link, children }: { logo: string; link: string; children: 
         `}
       >
         {children}
-      </div>
-      <div
-        css={css`
-          margin: 1rem 0;
-        `}
-      >
-        {domain}
       </div>
       <ButtonLink
         css={css`
