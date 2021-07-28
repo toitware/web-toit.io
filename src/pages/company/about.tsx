@@ -5,6 +5,7 @@ import comicPng from "../../assets/images/illustrations/comic.png";
 import controllerBigSvg from "../../assets/images/illustrations/controller-big.svg";
 import controllerSmallSvg from "../../assets/images/illustrations/controller-small.svg";
 import dartPng from "../../assets/images/illustrations/dart.png";
+import teamJpg from "../../assets/images/illustrations/team.jpg";
 import andersPng from "../../assets/images/team/anders.png";
 import erikPng from "../../assets/images/team/erik.png";
 import florianPng from "../../assets/images/team/florian.png";
@@ -179,6 +180,15 @@ export function AboutPage(): JSX.Element {
               ),
             },
           ]}
+        />
+        <img
+          src={teamJpg}
+          css={css`
+            width: 100%;
+            max-width: 50rem !important;
+            margin: var(--sectionVerticalPadding) auto 0 auto;
+            display: block;
+          `}
         />
       </Section>
       <Section
