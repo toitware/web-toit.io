@@ -33,6 +33,13 @@ const Container = styled.header`
     background: ${white.string()};
   }
 `;
+const SimplifiedContainer = styled.header`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 500;
+`;
 
 const openedContainerCss = css`
   background: ${white.string()};
@@ -98,7 +105,7 @@ const menuLinkCss = css`
   }
 `;
 
-function Header(): JSX.Element {
+export function Header(): JSX.Element {
   const [submenuVisible, setSubmenuVisible] = useState(false);
 
   const [popupVisible, setPopupVisible] = useState(false);
@@ -225,6 +232,26 @@ function Header(): JSX.Element {
         }
       />
       <PopupMenu css={mobileCss} isOpen={popupVisible} />
+    </Wrapper>
+  );
+}
+
+export function SimplifiedHeader(): JSX.Element {
+  return (
+    <Wrapper>
+      <SimplifiedContainer>
+        <Content>
+          <Link to="/">
+            <ToitLogo
+              css={css`
+                height: 1.5rem;
+                width: auto;
+                margin-right: 8rem;
+              `}
+            />
+          </Link>
+        </Content>
+      </SimplifiedContainer>
     </Wrapper>
   );
 }
