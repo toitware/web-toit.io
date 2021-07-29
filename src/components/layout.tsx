@@ -14,7 +14,7 @@ import { components, shorthands } from "../mdx-components";
 import { golden, primaryTheme, white } from "../theme";
 import Footer from "./footer";
 import GlobalCss, { clampBuilder } from "./global-css";
-import Header from "./header";
+import Header, { SimplifiedHeader } from "./header";
 import Section from "./layout/Section";
 import SignUpButton from "./sign-up-button";
 
@@ -85,9 +85,10 @@ interface LayoutProps {
   children: React.ReactNode;
   title?: string;
   simplified?: boolean;
+  hideHeader?: boolean;
 }
 
-export default function Layout({ title, children, simplified = false }: LayoutProps): JSX.Element {
+export default function Layout({ title, children, simplified = false, hideHeader = false }: LayoutProps): JSX.Element {
   const data: GraphType = useStaticQuery(graphql`
     query LayoutTitleQuery {
       site {
@@ -116,10 +117,15 @@ export default function Layout({ title, children, simplified = false }: LayoutPr
         <MuiThemeProvider theme={primaryTheme}>
           <ThemeProvider theme={primaryTheme}>
             <Root>
-              {simplified && <Content>{children}</Content>}
+              {simplified && (
+                <>
+                  {!hideHeader && <SimplifiedHeader />}
+                  <Content>{children}</Content>
+                </>
+              )}
               {!simplified && (
                 <>
-                  <Header />
+                  {!hideHeader && <Header />}
                   <Content>
                     {children}
 

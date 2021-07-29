@@ -19,7 +19,7 @@ import { dartSecondary, pythonSecondary } from "../../theme";
 
 export function RaspberryPage(): JSX.Element {
   return (
-    <Layout title="Raspberry Pi" simplified>
+    <Layout title="Raspberry Pi" simplified hideHeader>
       <SignUpProvider
         dialogTitle="Join the Toit Raspberry Pi beta"
         campaign="RasberryPi"

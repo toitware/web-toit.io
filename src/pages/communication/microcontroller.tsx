@@ -68,8 +68,7 @@ export function IndexPage(): JSX.Element {
           `}
         />
         <p css={[bigFont]}>
-          Secure the code on your ESP32 microcontrollers with lightweight containers and orchestrate them through our
-          cloud API.
+          Modern software development on your ESP32 microcontrollers with our lightweight containers and cloud API.
         </p>
         <p>
           <SignUpButton />
