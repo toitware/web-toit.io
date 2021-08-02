@@ -4,49 +4,34 @@ import codeSampleSvg from "../../assets/images/code-sample.svg";
 import fleetSvg from "../../assets/images/illustrations/fleet.svg";
 import greenhouseSvg from "../../assets/images/illustrations/greenhouse.svg";
 import microcontrollerSvg from "../../assets/images/illustrations/microcontroller.svg";
-import ToitLogo from "../../assets/images/toit-logo.inline.svg";
-import Button from "../../components/button";
+import Button, { ButtonProps } from "../../components/button";
 import ContentSpacer from "../../components/ContentSpacer";
 import { bigFont, clampBuilder, darkSection } from "../../components/global-css";
 import Layout from "../../components/layout";
 import CenteredBlock from "../../components/layout/CenteredBlock";
 import Section from "../../components/layout/Section";
 import SideBySide from "../../components/layout/SideBySide";
-import Link from "../../components/link";
 import TeamsSection from "../../components/sections/teams";
 import { SignUpProvider, useSignUp } from "../../components/sign-up/context";
 import { dartSecondary, pythonSecondary } from "../../theme";
 
 export function RaspberryPage(): JSX.Element {
   return (
-    <Layout title="Raspberry Pi" simplified hideHeader>
-      <SignUpProvider
-        dialogTitle="Join the Toit Raspberry Pi beta"
-        campaign="RasberryPi"
-        targetUrl="https://console.toit.io/forms/raspberry_pi"
-        redditTrack="Lead"
-        trackingPixel="https://px.ads.linkedin.com/collect/?pid=3155756&conversionId=4472066&fmt=gif"
-      >
+    <SignUpProvider
+      dialogTitle="Join the Toit Raspberry Pi beta"
+      campaign="RasberryPi"
+      targetUrl="https://console.toit.io/forms/raspberry_pi"
+      redditTrack="Lead"
+      trackingPixel="https://px.ads.linkedin.com/collect/?pid=3155756&conversionId=4472066&fmt=gif"
+    >
+      <Layout title="Raspberry Pi" simplified callToAction={<JoinTheBetaButton size="small" />}>
         <Section
           css={css`
             border-top: none;
-            padding-top: ${clampBuilder("small", "large", 0, 3)};
+            padding-top: ${clampBuilder("tiny", "huge", 6, 12)};
             background: ${pythonSecondary.string()};
           `}
         >
-          <div
-            css={css`
-              margin-bottom: ${clampBuilder("small", "large", 3, 4.5)};
-            `}
-          >
-            <Link to="/">
-              <ToitLogo
-                css={css`
-                  width: ${clampBuilder("small", "large", 5.875, 8.75)};
-                `}
-              />
-            </Link>
-          </div>
           <SideBySide illustration={microcontrollerSvg}>
             <h1>50 KB code updates on Raspberry Pi</h1>
             <p>
@@ -123,13 +108,19 @@ export function RaspberryPage(): JSX.Element {
             border-top: none;
           `}
         />
-      </SignUpProvider>
-    </Layout>
+      </Layout>
+    </SignUpProvider>
   );
 }
 
-function JoinTheBetaButton(): JSX.Element {
+type JoinTheBetaButtonProps = Pick<ButtonProps, "size">;
+
+function JoinTheBetaButton({ size }: JoinTheBetaButtonProps): JSX.Element {
   const signUpContext = useSignUp();
-  return <Button onClick={() => signUpContext.dispatch("open")}>Join the beta</Button>;
+  return (
+    <Button size={size} onClick={() => signUpContext.dispatch("open")}>
+      Join the beta
+    </Button>
+  );
 }
 export default RaspberryPage;

@@ -86,9 +86,18 @@ interface LayoutProps {
   title?: string;
   simplified?: boolean;
   hideHeader?: boolean;
+  // If you want to replace the default call to action button in the header,
+  // you can provide an alternative here.
+  callToAction?: JSX.Element;
 }
 
-export default function Layout({ title, children, simplified = false, hideHeader = false }: LayoutProps): JSX.Element {
+export default function Layout({
+  title,
+  children,
+  simplified = false,
+  hideHeader = false,
+  callToAction,
+}: LayoutProps): JSX.Element {
   const data: GraphType = useStaticQuery(graphql`
     query LayoutTitleQuery {
       site {
@@ -119,7 +128,7 @@ export default function Layout({ title, children, simplified = false, hideHeader
             <Root>
               {simplified && (
                 <>
-                  {!hideHeader && <SimplifiedHeader />}
+                  {!hideHeader && <SimplifiedHeader callToAction={callToAction} />}
                   <Content>{children}</Content>
                 </>
               )}
