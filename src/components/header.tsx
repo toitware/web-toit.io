@@ -33,14 +33,6 @@ const Container = styled.header`
     background: ${white.string()};
   }
 `;
-const SimplifiedContainer = styled.header`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 500;
-`;
-
 const openedContainerCss = css`
   background: ${white.string()};
 `;
@@ -236,22 +228,35 @@ export function Header(): JSX.Element {
   );
 }
 
-export function SimplifiedHeader(): JSX.Element {
+export function SimplifiedHeader({ callToAction }: { callToAction?: JSX.Element }): JSX.Element {
+  // Whether the user scrolled down a bit. This is used to either set a
+  // background to the menu or not.
+  const [isScrolledDown, setIsScrolledDown] = useState(false);
+
+  useEffect(() => {
+    const setScrolled = () => setIsScrolledDown(window.scrollY > 40);
+
+    window.addEventListener("scroll", setScrolled);
+
+    return () => window.removeEventListener("scroll", setScrolled);
+  }, []);
+
   return (
     <Wrapper>
-      <SimplifiedContainer>
+      <Container css={[isScrolledDown && scrolledDown]}>
         <Content>
           <Link to="/">
             <ToitLogo
               css={css`
                 height: 1.5rem;
                 width: auto;
-                margin-right: 8rem;
+                margin-right: 2rem;
               `}
             />
           </Link>
+          <AccountButtons>{callToAction ?? <SignUpButton size="small" />}</AccountButtons>
         </Content>
-      </SimplifiedContainer>
+      </Container>
     </Wrapper>
   );
 }

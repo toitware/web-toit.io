@@ -9,14 +9,13 @@ import ArrowLeftSvg from "../../assets/images/illustrations/arrow-left.inline.sv
 import ArrowRightSvg from "../../assets/images/illustrations/arrow-right.inline.svg";
 import BeltOnlySvg from "../../assets/images/illustrations/belt-only.svg";
 import BeltSvg from "../../assets/images/illustrations/belt.svg";
+import bme280Png from "../../assets/images/illustrations/bme280.png";
 import ControlCenterSvg from "../../assets/images/illustrations/control-center.svg";
 import GreenhouseSvg from "../../assets/images/illustrations/greenhouse.svg";
 import KeysSvg from "../../assets/images/illustrations/keys.svg";
 import SymbolsSvg from "../../assets/images/illustrations/symbols.svg";
 import ThermostatSvg from "../../assets/images/illustrations/thermostat.svg";
-import bme280Png from "../../assets/images/illustrations/bme280.png";
 import weatherBalloonMp4 from "../../assets/images/illustrations/weather-balloon.mp4";
-import { ButtonLink } from "../../components/button";
 import ContentSpacer from "../../components/ContentSpacer";
 import FeatureBox, { FeaturesContainer } from "../../components/FeatureBox";
 import { bigFont, breakpoints, clampBuilder, darkSection } from "../../components/global-css";
@@ -29,7 +28,7 @@ import Section from "../../components/layout/Section";
 import SideBySide from "../../components/layout/SideBySide";
 import TeamsSection from "../../components/sections/teams";
 import SignUpButton from "../../components/sign-up-button";
-import { black, golden, dartSecondary, white } from "../../theme";
+import { black, dartSecondary, golden } from "../../theme";
 
 const Hero = styled.section`
   position: relative;
@@ -59,7 +58,7 @@ export function IndexPage(): JSX.Element {
         `}
       >
         <PageTitle
-          title={<span>Cloud-managed containers on the ESP32</span>}
+          title={<span>High-level programming platform on ESP32 microcontrollers</span>}
           css={css`
             border-bottom: 2px solid ${black.string()};
             h1 {
@@ -214,7 +213,7 @@ export function IndexPage(): JSX.Element {
           }
           illustrationPosition="left"
         >
-          <h2>Risk-free code deployment</h2>
+          <h2>Risk-free code deployment on ESP32 microcontrollers</h2>
 
           <p>
             No matter which bug slips into your code, the worst it can do is crash that one application. The system, as
@@ -224,11 +223,6 @@ export function IndexPage(): JSX.Element {
           <p>
             Treat firmware and drivers as you treat software. Set up a continuous delivery pipeline and deploy new
             device code on every commit.
-          </p>
-          <p>
-            <ButtonLink to="/product/device" variant="outlined">
-              Learn more
-            </ButtonLink>
           </p>
         </SideBySide>
         <ContentSpacer />
@@ -243,16 +237,15 @@ export function IndexPage(): JSX.Element {
             All communication is end-to-end encrypted using modern public-key cryptography. The same technology that
             keeps the internet secure keeps your devices and data safe.
           </p>
-          <p>
-            <ButtonLink to="/product/cloud" variant="outlined">
-              Learn more
-            </ButtonLink>
-          </p>
         </SideBySide>
       </Section>
       <Section css={darkSection}>
-        <CenteredBlock>
-          <H1>Built for software developers</H1>
+        <CenteredBlock
+          css={css`
+            max-width: ${clampBuilder("tiny", "huge", 40, 56)};
+          `}
+        >
+          <H1>No more firmware development - modern software platform for microcontrollers</H1>
           <p css={bigFont}>
             If you have ever tried to build software for microcontrollers you know that it’s not a nice experience. You
             code in C, and a simple code change takes minutes to re-deploy.
@@ -285,7 +278,8 @@ export function IndexPage(): JSX.Element {
               }
             `}
           >
-            Toit is a modern object-oriented language designed specifically for microcontroller-based IoT solutions.
+            Toit is a modern object-oriented language designed specifically for IoT. Easy software development on the
+            ESP32 microcontroller.
           </p>
           <img
             css={css`
@@ -332,19 +326,6 @@ main:\n\
           <p>
             Deploying code on your device takes just a second, with no need to flash the device, not minutes like you
             normally see for microcontrollers.
-          </p>
-
-          <p>
-            <ButtonLink
-              css={css`
-                --buttonColor: ${white.string()};
-                --buttonContrastColor: ${black.string()};
-              `}
-              href="https://docs.toit.io/language/language"
-              variant="outlined"
-            >
-              Learn more
-            </ButtonLink>
           </p>
         </SideBySide>
 
