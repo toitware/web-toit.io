@@ -41,22 +41,26 @@ export const bigFont = css`
 export function clampBuilder(
   minWidthPx: number | breakpointName,
   maxWidthPx: number | breakpointName,
-  minFontSize: number,
-  maxFontSize: number,
-  unit: "em" | "rem" = "rem"
+  minSize: number,
+  maxSize: number,
+  options?: {
+    unit?: "em" | "rem";
+    basis?: "vw" | "vh";
+  }
 ): string {
+  const { unit = "rem", basis = "vw" } = options ?? {};
   const pixelsPerRem = 16;
 
   const minWidth = (typeof minWidthPx === "string" ? breakpointsPixels[minWidthPx] : minWidthPx) / pixelsPerRem;
   const maxWidth = (typeof maxWidthPx === "string" ? breakpointsPixels[maxWidthPx] : maxWidthPx) / pixelsPerRem;
 
-  const slope = (maxFontSize - minFontSize) / (maxWidth - minWidth);
-  const yAxisIntersection = -minWidth * slope + minFontSize;
+  const slope = (maxSize - minSize) / (maxWidth - minWidth);
+  const yAxisIntersection = -minWidth * slope + minSize;
 
-  const lowerBound = maxFontSize > minFontSize ? minFontSize : maxFontSize;
-  const upperBound = maxFontSize > minFontSize ? maxFontSize : minFontSize;
+  const lowerBound = maxSize > minSize ? minSize : maxSize;
+  const upperBound = maxSize > minSize ? maxSize : minSize;
 
-  return `clamp(${lowerBound}${unit}, ${yAxisIntersection}${unit} + ${slope * 100}vw, ${upperBound}${unit})`;
+  return `clamp(${lowerBound}${unit}, ${yAxisIntersection}${unit} + ${slope * 100}${basis}, ${upperBound}${unit})`;
 }
 
 export const darkSection = css`
@@ -82,6 +86,8 @@ export function GlobalCss(): JSX.Element {
           -moz-osx-font-smoothing: grayscale;
         }
         :root {
+          --fontFamilyContent: Roboto, Helvetica, sans-serif;
+          --fontFamilyTitle: "ClashDisplay", Verdana, sans-serif;
           --maxPageWidth: 1440px;
           --maxContentWidth: 1200px;
           --sectionVerticalPadding: ${clampBuilder("tiny", "huge", 4.5, 12)};
@@ -104,7 +110,7 @@ export function GlobalCss(): JSX.Element {
           // sections cause the scrollbar to appear.
           overflow-y: scroll;
 
-          font-family: Roboto, Helvetica, sans-serif;
+          font-family: var(--fontFamilyContent);
           font-size: 16px;
           line-height: 1.5rem;
         }
@@ -117,7 +123,7 @@ export function GlobalCss(): JSX.Element {
 
         h1,
         h2 {
-          font-family: "ClashDisplay", Verdana, sans-serif;
+          font-family: var(--fontFamilyTitle);
           font-weight: 200;
           line-height: 1.3em;
         }
@@ -145,7 +151,7 @@ export function GlobalCss(): JSX.Element {
           border: none;
         }
         small {
-          font-size: 0.65em;
+          font-size: ${clampBuilder("tiny", "huge", 0.65, 1)};
           line-height: 1.5;
         }
         video {
