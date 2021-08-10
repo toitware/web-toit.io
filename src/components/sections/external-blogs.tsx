@@ -40,7 +40,7 @@ export function ExternalBlogs({ className }: { className?: string }): JSX.Elemen
         “Toit platform redefines the way we implement IoT applications.” A look into the features of Toit programming
         language.
       </Blog>
-      <Blog logo={ekorauSvg} link="https://www.ekorau.com/first-driver-in-toit/">
+      <Blog logo={ekorauSvg} link="https://ekorau.com/2021/05/28/First-driver-Toit.html">
         Implementing their first driver in Toit: To get a sense of the driver development process, David re-implemented
         a fragment of the BME280 driver.
       </Blog>
