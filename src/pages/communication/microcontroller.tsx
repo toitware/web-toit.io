@@ -58,7 +58,7 @@ export function IndexPage(): JSX.Element {
         `}
       >
         <PageTitle
-          title={<span>High-level programming platform on ESP32 microcontrollers</span>}
+          title={<span>Toit - High-level programming platform on ESP32 microcontrollers</span>}
           css={css`
             border-bottom: 2px solid ${black.string()};
             h1 {
