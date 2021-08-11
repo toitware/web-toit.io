@@ -2,6 +2,7 @@ import { formatBytes, formatDuration, formatNumber, formatPrice } from "./format
 
 describe("formatDuration", () => {
   it("properly formats different durations", () => {
+    expect(formatDuration(0)).toBe("Always connected");
     expect(formatDuration(1 / 60 / 1000)).toBe("1 ms");
     expect(formatDuration(10 / 60 / 1000)).toBe("10 ms");
     expect(formatDuration(100 / 60 / 1000)).toBe("100 ms");
@@ -59,5 +60,10 @@ describe("formatNumber", () => {
     expect(formatNumber(1000)).toBe("1,000");
     expect(formatNumber(100000)).toBe("100,000");
     expect(formatNumber(1000000)).toBe("1,000,000");
+  });
+  it("properly adds the unit name", () => {
+    expect(formatNumber(0, "device")).toBe("0 devices");
+    expect(formatNumber(1, "device")).toBe("1 device");
+    expect(formatNumber(10, "device")).toBe("10 devices");
   });
 });

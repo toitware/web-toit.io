@@ -16,6 +16,7 @@ type AttributeSliderProps = {
   name: string;
   showAsDuration?: boolean;
   choices: number[];
+  unitName?: string;
   selectedAttributeIndex: number;
   onChange: (attributeIndex: number) => void;
 };
@@ -23,12 +24,20 @@ type AttributeSliderProps = {
 const AttributeDisplay = styled.span`
   font-family: var(--fontFamilyTitle);
   font-size: 1.875rem;
-  width: 5em;
+  margin: 1.5rem 0;
+  display: block;
+`;
+const sliderCss = css`
+  flex: 1;
+  align-items: center;
+  width: auto;
+  margin: 0 0.25rem;
 `;
 
 function AttributeSlider({
   name,
   choices,
+  unitName,
   showAsDuration = false,
   selectedAttributeIndex,
   onChange,
@@ -37,12 +46,12 @@ function AttributeSlider({
   const max = choices.length - 1;
 
   const selectedAttribute = choices[selectedAttributeIndex];
-  const displayValue = showAsDuration ? formatDuration(selectedAttribute) : formatNumber(selectedAttribute);
+  const displayValue = showAsDuration ? formatDuration(selectedAttribute) : formatNumber(selectedAttribute, unitName);
 
   return (
     <div
       css={css`
-        margin: ${clampBuilder(600, 1200, 3, 6, { basis: "vh" })} 0;
+        margin-bottom: ${clampBuilder(600, 1200, 1.5, 4.5, { basis: "vh" })};
       `}
     >
       <label
@@ -54,45 +63,34 @@ function AttributeSlider({
       >
         {name}
       </label>
-      <div
-        css={css`
-          display: flex;
-          align-items: center;
-        `}
-      >
-        <Slider
-          css={css`
-            flex: 1;
-            margin-right: 1.5rem;
-            align-items: center;
-          `}
-          value={selectedAttributeIndex}
-          dots
-          min={min}
-          max={max}
-          onChange={onChange}
-          step={1}
-          railStyle={{ backgroundColor: "white", height: 2 }}
-          trackStyle={{ backgroundColor: golden.toString(), height: 2 }}
-          dotStyle={{ borderColor: "white", bottom: 1, width: 4, height: 4, marginLeft: -2 }}
-          activeDotStyle={{
-            borderColor: golden.toString(),
-            backgroundColor: golden.toString(),
-            bottom: 1,
-            width: 4,
-            height: 4,
-            marginLeft: -2,
-          }}
-          handleStyle={{
-            borderColor: golden.toString(),
-            backgroundColor: golden.toString(),
-            width: 20,
-            height: 20,
-            marginTop: -9,
-          }}
-        />
-        <AttributeDisplay>{displayValue}</AttributeDisplay>
-      </div>
+      <Slider
+        css={sliderCss}
+        value={selectedAttributeIndex}
+        dots
+        min={min}
+        max={max}
+        onChange={onChange}
+        step={1}
+        railStyle={{ backgroundColor: "white", height: 2 }}
+        trackStyle={{ backgroundColor: golden.toString(), height: 2 }}
+        dotStyle={{ borderColor: "white", bottom: 1, width: 4, height: 4, marginLeft: -2 }}
+        activeDotStyle={{
+          borderColor: golden.toString(),
+          backgroundColor: golden.toString(),
+          bottom: 1,
+          width: 4,
+          height: 4,
+          marginLeft: -2,
+        }}
+        handleStyle={{
+          borderColor: golden.toString(),
+          backgroundColor: golden.toString(),
+          width: 20,
+          height: 20,
+          marginTop: -9,
+        }}
+      />
+      <AttributeDisplay>{displayValue}</AttributeDisplay>
     </div>
   );
 }
