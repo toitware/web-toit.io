@@ -17,7 +17,7 @@ export const connectsIntervalChoices: number[] = [
   60 * 72, // 3d
 ];
 
-export const dataPointsChoices: number[] = [1, 5, 10, 25, 100];
+export const dataPointsChoices: number[] = [1, 2, 3, 4, 5, 10, 25, 50];
 
 export const codeUpdatesIntervalChoices: number[] = [
   60 * 24, // 1d

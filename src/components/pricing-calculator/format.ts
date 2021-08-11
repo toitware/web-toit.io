@@ -4,7 +4,7 @@
 export const formatDuration = (minutes: number): string => {
   const ms = Math.round(minutes * 60 * 1000);
   if (ms == 0) {
-    return "None";
+    return "Always connected";
   } else if (ms < 1000) {
     return `${ms} ms`;
   } else if (ms < 1000 * 60) {
@@ -62,6 +62,8 @@ export const formatPrice = (price: number): string => {
 /**
  * Adds thousand separators.
  */
-export const formatNumber = (number: number): string => {
-  return new Intl.NumberFormat("en-US").format(number);
+export const formatNumber = (number: number, unitName?: string): string => {
+  const formatted = new Intl.NumberFormat("en-US").format(number);
+
+  return formatted + (unitName ? ` ${unitName}${number != 1 ? "s" : ""}` : "");
 };

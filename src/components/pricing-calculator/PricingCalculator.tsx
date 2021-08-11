@@ -13,7 +13,7 @@ import {
   messagesIntervalChoices,
   numberOfDevicesChoices,
 } from "./choices";
-import { formatBytes, formatPrice } from "./format";
+import PricingResult from "./PricingResult";
 
 const Wrapper = styled.div`
   text-align: left;
@@ -28,7 +28,10 @@ export function PricingCalculator({ className }: { className?: string }): JSX.El
   const [messagesIntervalIndex, setMessagesIntervalIndex] = useState(2);
   const [connectsIntervalIndex, setConnectsIntervalIndex] = useState(1);
   const [dataPointsIndex, setDataPointsIndex] = useState(2);
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [codeUpdatesIntervalIndex, setCodeUpdatesIntervalIndex] = useState(1);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [firmwareUpdatesIntervalIndex, setFirmwareUpdatesIntervalIndex] = useState(0);
   const [numberOfDevicesIndex, setNumberOfDevicesIndex] = useState(0);
 
@@ -53,128 +56,46 @@ export function PricingCalculator({ className }: { className?: string }): JSX.El
       <div
         css={css`
           ${breakpoints.small} {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 6rem;
           }
         `}
       >
-        <div
-          css={css`
-            flex: 1;
-          `}
-        >
+        <div>
           <AttributeTitle>App data</AttributeTitle>
           <AttributeSlider
-            name="Time between messages"
+            name="How many values do you measure"
+            selectedAttributeIndex={dataPointsIndex}
+            choices={dataPointsChoices}
+            unitName="value"
+            onChange={setDataPointsIndex}
+          />
+          <AttributeSlider
+            name="How often does your device measure data"
             selectedAttributeIndex={messagesIntervalIndex}
             choices={messagesIntervalChoices}
             onChange={setMessagesIntervalIndex}
             showAsDuration
           />
           <AttributeSlider
-            name="Time between connects"
+            name="How often does your device go online"
             selectedAttributeIndex={connectsIntervalIndex}
             choices={connectsIntervalChoices}
             onChange={setConnectsIntervalIndex}
             showAsDuration
           />
-          <AttributeSlider
-            name="Data points per message"
-            selectedAttributeIndex={dataPointsIndex}
-            choices={dataPointsChoices}
-            onChange={setDataPointsIndex}
-          />
         </div>
-        <div
-          css={css`
-            flex: 1;
-          `}
-        >
-          <AttributeTitle>Service</AttributeTitle>
+        <div>
           <AttributeSlider
-            name="Number of devices"
+            name="Scale your fleet"
             selectedAttributeIndex={numberOfDevicesIndex}
             choices={numberOfDevicesChoices}
+            unitName="device"
             onChange={setNumberOfDevicesIndex}
           />
-          <AttributeSlider
-            name="Time between code updates"
-            selectedAttributeIndex={codeUpdatesIntervalIndex}
-            choices={codeUpdatesIntervalChoices}
-            onChange={setCodeUpdatesIntervalIndex}
-            showAsDuration
-          />
-          <AttributeSlider
-            name="Time between firmware updates"
-            selectedAttributeIndex={firmwareUpdatesIntervalIndex}
-            choices={firmwareUpdatesIntervalChoices}
-            onChange={setFirmwareUpdatesIntervalIndex}
-            showAsDuration
-          />
+          <PricingResult calculationResult={calculationResult} />
         </div>
-      </div>
-      <div
-        css={css`
-          display: flex;
-          justify-content: center;
-          gap: 4.5rem;
-          text-align: center;
-          margin-top: 4.5rem;
-        `}
-      >
-        <div
-          css={css`
-            min-width: 12rem;
-          `}
-        >
-          <label
-            css={css`
-              font-size: ${clampBuilder("tiny", "huge", 0.875, 1.125)};
-            `}
-          >
-            Data
-          </label>
-          <div
-            css={css`
-              font-family: var(--fontFamilyTitle);
-              font-size: ${clampBuilder("tiny", "huge", 1.875, 3.125)};
-              line-height: 1.5;
-            `}
-          >
-            {formatBytes(calculationResult.megaBytes * 1024 * 1024)}
-          </div>
-        </div>
-        <div
-          css={css`
-            min-width: 12rem;
-          `}
-        >
-          <label
-            css={css`
-              font-size: ${clampBuilder("tiny", "huge", 0.875, 1.125)};
-            `}
-          >
-            Cost
-          </label>
-          <div
-            css={css`
-              font-family: var(--fontFamilyTitle);
-              font-size: ${clampBuilder("tiny", "huge", 1.875, 3.125)};
-              line-height: 1.5;
-            `}
-          >
-            {formatPrice(calculationResult.price)}
-          </div>
-        </div>
-      </div>
-      <div
-        css={css`
-          font-size: ${clampBuilder("tiny", "huge", 0.875, 1.125)};
-          text-align: center;
-          /* padding-top: 3rem; */
-          /* border-top: 1px solid white; */
-        `}
-      >
-        per month
       </div>
     </Wrapper>
   );

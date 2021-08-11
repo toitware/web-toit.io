@@ -1,5 +1,7 @@
 export type CalculationResult = {
   megaBytes: number;
+  // The price without the free 100MB
+  originalPrice: number;
   price: number;
   debugOutput: string;
 };
@@ -78,6 +80,7 @@ export const calculate = ({
     messageDataPerMonth + codeUpdateDataPerMonth + connectOverheadPerMonth + systemDataOverheadPerMonth;
   const megaBytesTotal = megaBytesPerDevice * numberOfDevices;
   const price = Math.max(0, megaBytesTotal - 100) * 0.1;
+  const originalPrice = Math.max(0, megaBytesTotal) * 0.1;
 
   const debug = `
   messages per day: ${messagesPerDay} 
@@ -102,6 +105,7 @@ export const calculate = ({
   return {
     megaBytes: megaBytesTotal,
     price: price,
+    originalPrice: originalPrice,
     debugOutput: debug,
   };
 };
