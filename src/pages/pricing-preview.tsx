@@ -3,6 +3,7 @@ import React from "react";
 import CheckmarkSvg from "../assets/images/icons/checkmark.inline.svg";
 import { bigFont, clampBuilder, darkSection } from "../components/global-css";
 import Layout from "../components/layout";
+import CenteredBlock from "../components/layout/CenteredBlock";
 import PageTitle from "../components/layout/PageTitle";
 import Section from "../components/layout/Section";
 import PricingBlock from "../components/pricing-block-preview";
@@ -33,17 +34,9 @@ export function PricingPage(): JSX.Element {
           background: ${golden.string()};
         `}
       >
-        <div
-          css={css`
-            ${bigFont}
-            margin: 3rem auto;
-            text-align: center;
-            max-width: 21em;
-          `}
-        >
-          Pay for data - and only data.
-          <br /> Use edge computing to minimize your cost, and always get 100MB for free every month.
-        </div>
+        <CenteredBlock css={bigFont}>
+          You pay based on how much data is transferred through our platform with your devices.
+        </CenteredBlock>
 
         <PricingBlock />
 

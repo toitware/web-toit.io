@@ -51,7 +51,7 @@ export function PricingResult({ calculationResult }: { calculationResult: Calcul
   return (
     <div>
       <PricingContainer>
-        {calculationResult.price < 100 && (
+        {calculationResult.price < 1000 && (
           <List>
             <Position>
               <PositionName>Calculated</PositionName>

@@ -1,9 +1,9 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React from "react";
-import { bigFont, clampBuilder } from "./global-css";
-import SignUpButton from "./sign-up-button";
 import { black, golden, white } from "../theme";
+import { clampBuilder } from "./global-css";
+import SignUpButton from "./sign-up-button";
 
 const Wrapper = styled.div`
   position: relative;
@@ -13,28 +13,6 @@ const Wrapper = styled.div`
   border-radius: var(--borderRadius);
   margin: 0 auto;
   font-size: 1rem;
-`;
-
-const FreeMbContainer = styled.div`
-  ${bigFont}
-  position: relative;
-  border: 1px solid black;
-  margin: 0 auto 3rem auto;
-  border-radius: 8px;
-  max-width: 26rem;
-  background: ${golden.toString()};
-  padding: 5px;
-`;
-const FreeMbContent = styled.div`
-  border: 2px solid black;
-  border-radius: 5px;
-  padding: 3rem;
-  background: white;
-  strong {
-    font-family: var(--fontFamilyTitle);
-    font-size: 1.875rem;
-    font-weight: 200;
-  }
 `;
 
 const PricingBlockHeader = styled.header`
@@ -64,7 +42,7 @@ type Props = {
 const PricingBlock: React.FC<Props> = ({ className }) => (
   <Wrapper className={className}>
     <PricingBlockHeader>
-      <h2>Standard rate</h2>
+      <h2>One single rate</h2>
       <span css={freeLimit}>100 MB FREE</span>
     </PricingBlockHeader>
     <div
@@ -73,12 +51,6 @@ const PricingBlock: React.FC<Props> = ({ className }) => (
         padding: 3rem 5%;
       `}
     >
-      <FreeMbContainer>
-        <FreeMbContent>
-          First <strong>100 MB</strong> per month <strong>free forever</strong>
-        </FreeMbContent>
-      </FreeMbContainer>
-      <div>after that</div>
       <div
         css={css`
           font-family: "ClashDisplay", Verdana, sans-serif;
@@ -88,12 +60,18 @@ const PricingBlock: React.FC<Props> = ({ className }) => (
       >
         $0.10
       </div>
-      <div>per MB data used</div>
+      <div css={css``}>per MB</div>
+      <div
+        css={css`
+          margin-top: 1.5rem;
+        `}
+      >
+        First 100 MB per month are always free.
+      </div>
 
       <SignUpButton
         css={css`
-          margin: 1.5rem 0;
-          min-width: 50%;
+          margin: 1.5rem 0 0 0;
         `}
       />
     </div>
