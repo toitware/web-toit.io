@@ -6,6 +6,7 @@ import React from "react";
 import { golden } from "../../theme";
 import { clampBuilder } from "../global-css";
 import { formatDuration, formatNumber } from "./format";
+import InfoTooltip from "./InfoTooltip";
 
 export const FeaturesContainer = styled.div`
   display: flex;
@@ -14,6 +15,7 @@ export const FeaturesContainer = styled.div`
 
 type AttributeSliderProps = {
   name: string;
+  description?: string;
   showAsDuration?: boolean;
   choices: number[];
   unitName?: string;
@@ -36,6 +38,7 @@ const sliderCss = css`
 
 function AttributeSlider({
   name,
+  description,
   choices,
   unitName,
   showAsDuration = false,
@@ -61,7 +64,22 @@ function AttributeSlider({
           display: block;
         `}
       >
-        {name}
+        <span
+          css={css`
+            margin-right: 0.75rem;
+          `}
+        >
+          {name}
+        </span>
+        {description && (
+          <InfoTooltip
+            css={css`
+              top: 1px;
+            `}
+          >
+            {description}
+          </InfoTooltip>
+        )}
       </label>
       <Slider
         css={sliderCss}
