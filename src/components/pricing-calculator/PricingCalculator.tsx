@@ -66,7 +66,7 @@ export function PricingCalculator({ className }: { className?: string }): JSX.El
           <AttributeTitle>App data</AttributeTitle>
           <AttributeSlider
             name="How many values do you measure"
-            description="Choose the number of values (temperature, air pressure, etc...) you measure and collect on your device."
+            description="The number of values (temperature, air pressure, etc...) you measure and collect on your device."
             selectedAttributeIndex={dataPointsIndex}
             choices={dataPointsChoices}
             unitName="value"
@@ -74,7 +74,7 @@ export function PricingCalculator({ className }: { className?: string }): JSX.El
           />
           <AttributeSlider
             name="How often does your device measure data"
-            description="Defines the interval at which your device measures the values."
+            description="The interval at which your device measures the values."
             selectedAttributeIndex={messagesIntervalIndex}
             choices={messagesIntervalChoices}
             onChange={setMessagesIntervalIndex}
@@ -82,7 +82,7 @@ export function PricingCalculator({ className }: { className?: string }): JSX.El
           />
           <AttributeSlider
             name="How often does your device go online"
-            description="Defines how often your device connects to the internet and submits the collected values."
+            description="How often your device connects to the cloud to upload the collected values and check for updates."
             selectedAttributeIndex={connectsIntervalIndex}
             choices={connectsIntervalChoices}
             onChange={setConnectsIntervalIndex}
@@ -92,7 +92,7 @@ export function PricingCalculator({ className }: { className?: string }): JSX.El
         <div>
           <AttributeSlider
             name="Scale your fleet"
-            description="Choose how many devices you intend on using with Toit."
+            description="The amount of devices you intend on using with Toit."
             selectedAttributeIndex={numberOfDevicesIndex}
             choices={numberOfDevicesChoices}
             unitName="device"

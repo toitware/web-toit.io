@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   position: relative;
 `;
 const InfoIcon = styled.a`
+  cursor: help;
   position: relative;
   display: block;
   width: 16px;
@@ -83,14 +84,10 @@ export function InfoTooltip({ children, className }: { children: React.ReactNode
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          setIsVisible(!isVisible);
-        }}
-        onMouseEnter={() => {
           setIsVisible(true);
         }}
-        onMouseLeave={() => {
-          setIsVisible(false);
-        }}
+        onMouseEnter={() => setIsVisible(true)}
+        onMouseLeave={() => setIsVisible(false)}
       >
         <svg
           css={infoIconCss}
