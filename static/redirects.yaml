@@ -3,4 +3,4 @@ redirects:
   "/product/device": "/product/device-software"
   "/product/cloud": "/product/cloud-orchestration"
   # URL Shortener links
-  "/r/devkit": "https://console.toit.io/login"
+  "/r/devkit": "https://console.toit.io/login?utm_source=devkit&utm_medium=qr-code&utm_campaign=getting-started"
