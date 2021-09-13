@@ -200,7 +200,7 @@ export function Header(): JSX.Element {
           </Menu>
           <AccountButtons css={desktopCss}>
             <ButtonLink
-              href="http://console.toit.io/login"
+              href="https://console.toit.io/login"
               size="small"
               variant="text"
               css={css`
