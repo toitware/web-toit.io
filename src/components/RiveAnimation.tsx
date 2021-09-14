@@ -1,3 +1,4 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useRive, UseRiveParameters } from "rive-react";
@@ -20,15 +21,12 @@ export const RiveAnimation: React.FC<Props> = ({ src, width, height, className }
   };
   const { rive, setCanvasRef } = useRive(params);
 
-  if (rive) {
-    rive.drawFrame();
-    rive.scrub("Animation 1", 0);
-    rive.startRendering();
-  }
-
   const ref = useRef<HTMLCanvasElement>();
+  const intersectionRef = useRef<HTMLDivElement>(null);
   const [isInitialized, setIsInitialized] = useState(false);
 
+  // Since we need to provide the canvas element to the rive player, we use
+  // our own ref function that sets both the ref.current and the rive canvas.
   const measuredRef = useCallback((node: HTMLCanvasElement) => {
     if (node !== null) {
       setCanvasRef(node);
@@ -38,30 +36,55 @@ export const RiveAnimation: React.FC<Props> = ({ src, width, height, className }
   }, []);
 
   useEffect(() => {
-    if (!ref.current || !rive) return;
+    // Make sure the first frame is visible until we start the animation.
+    if (rive) {
+      rive.drawFrame();
+      rive.scrub("Animation 1", 0);
+      rive.startRendering();
+    }
 
-    console.log("setting up ovserver");
-    const canvasElement = ref.current;
+    if (!isInitialized || !ref.current || !intersectionRef.current || !rive) return;
 
+    // Setup the interesection observer to get notified when the element is
+    // visible, and then start playing.
     const autoPlayObserver = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting && !rive.isPlaying) {
+        const entry = entries[0];
+        entry.intersectionRatio;
+        if (entry.isIntersecting && !rive.isPlaying) {
           rive.play();
+          autoPlayObserver.disconnect();
         }
       },
       {
-        rootMargin: "0px 0px -100px 0px",
-        threshold: 0.9,
+        rootMargin: "50px 0px 50px 0px",
+        threshold: 1,
       }
     );
-    autoPlayObserver.observe(canvasElement);
+    // We're using a special "intersection" element here, because otherwise the
+    // we'll never get a full intersection with the canvas element when the
+    // browser is too narrow.
+    //
+    // This is the easiest way to "capture" when the bottom of the canvas is
+    // visible.
+    autoPlayObserver.observe(intersectionRef.current);
 
     return () => {
       autoPlayObserver.disconnect();
     };
-  }, [isInitialized, ref.current, rive]);
+  }, [isInitialized, ref.current, intersectionRef.current, rive]);
 
-  return <Canvas className={className} width={width * 2} height={height * 2} ref={measuredRef} />;
+  return (
+    <div
+      className={className}
+      css={css`
+        position: relative;
+      `}
+    >
+      <Canvas width={width * 2} height={height * 2} ref={measuredRef} />
+      <div ref={intersectionRef}></div>
+    </div>
+  );
 };
 
 export default RiveAnimation;
