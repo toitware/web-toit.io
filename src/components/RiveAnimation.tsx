@@ -74,6 +74,7 @@ export const RiveAnimation: React.FC<Props> = ({ src, width, height, className }
     };
   }, [isInitialized, ref.current, intersectionRef.current, rive]);
 
+  const dpi = 2;
   return (
     <div
       className={className}
@@ -81,7 +82,7 @@ export const RiveAnimation: React.FC<Props> = ({ src, width, height, className }
         position: relative;
       `}
     >
-      <Canvas width={width * 2} height={height * 2} ref={measuredRef} />
+      <Canvas width={width * dpi} height={height * dpi} ref={measuredRef} />
       <div ref={intersectionRef}></div>
     </div>
   );
