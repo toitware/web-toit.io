@@ -7,14 +7,12 @@ import RobustSandboxingSvg from "../assets/images/icons/robust-sandboxing.inline
 import SecureCommunicationsSvg from "../assets/images/icons/secure-communications.inline.svg";
 import ArrowLeftSvg from "../assets/images/illustrations/arrow-left.inline.svg";
 import ArrowRightSvg from "../assets/images/illustrations/arrow-right.inline.svg";
-import BeltOnlySvg from "../assets/images/illustrations/belt-only.svg";
-import BeltSvg from "../assets/images/illustrations/belt.svg";
+import bme280Png from "../assets/images/illustrations/bme280.png";
 import ControlCenterSvg from "../assets/images/illustrations/control-center.svg";
 import GreenhouseSvg from "../assets/images/illustrations/greenhouse.svg";
 import KeysSvg from "../assets/images/illustrations/keys.svg";
 import SymbolsSvg from "../assets/images/illustrations/symbols.svg";
 import ThermostatSvg from "../assets/images/illustrations/thermostat.svg";
-import bme280Png from "../assets/images/illustrations/bme280.png";
 import weatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
 import { ButtonLink } from "../components/button";
 import ContentSpacer from "../components/ContentSpacer";
@@ -27,9 +25,10 @@ import PageTitle from "../components/layout/PageTitle";
 import ParagraphHeader from "../components/layout/ParagraphHeader";
 import Section from "../components/layout/Section";
 import SideBySide from "../components/layout/SideBySide";
+import RiveAnimation from "../components/RiveAnimation";
 import TeamsSection from "../components/sections/teams";
 import SignUpButton from "../components/sign-up-button";
-import { black, golden, dartSecondary, white } from "../theme";
+import { black, dartSecondary, golden, white } from "../theme";
 
 const Hero = styled.section`
   position: relative;
@@ -168,22 +167,12 @@ export function IndexPage(): JSX.Element {
             text-align: center;
           `}
         >
-          <img
-            src={BeltOnlySvg}
+          <RiveAnimation
+            width={1200}
+            height={900}
+            src="/animations/provision.riv"
             css={css`
-              margin: ${clampBuilder("small", "huge", 4.5, 12)} 0;
-              @media (min-width: 550px) {
-                display: none;
-              }
-            `}
-          />
-          <img
-            src={BeltSvg}
-            css={css`
-              margin: ${clampBuilder("small", "huge", 4.5, 12)} 0;
-              @media (max-width: 549px) {
-                display: none;
-              }
+              margin-bottom: ${clampBuilder("small", "huge", 4.5, 12)};
             `}
           />
 

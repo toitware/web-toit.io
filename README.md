@@ -45,6 +45,9 @@ For all available scripts, look at the `scripts` section in `package.json`.
 
 ## M1 Macs
 
+> This section is outdated and probably doesn't apply anymore. I'll leave it in
+> for reference for now, but it probably can be removed.
+
 Currently `yarn install` will fail if you try to run it with a M1 mac. That's
 because [`sharp`](https://sharp.pixelplumbing.com) (a dependency of
 `gatsby-plugin-manifest`) doesn't come with `vips` compiled for ARM build yet.
