@@ -169,7 +169,7 @@ export function IndexPage(): JSX.Element {
         >
           <RiveAnimation
             width={1200}
-            height={900}
+            height={690}
             src="/animations/provision.riv"
             css={css`
               margin-bottom: ${clampBuilder("small", "huge", 4.5, 12)};
