@@ -43,7 +43,7 @@ export const calculate = ({
   const systemBootLogsAverageSizeBytes = 45;
   const systemConnectLogsAverageSizeBytes = 65;
 
-  const daysPerMonth = 30;
+  const daysPerMonth = 30.44;
 
   const messagesPerDay = (24 * 60) / messagesInterval;
   const averageMessageSizeBytes = dataPoints * 12;
@@ -65,13 +65,18 @@ export const calculate = ({
       effectiveConnectsPerDay * systemConnectLogsAverageSizeBytes) /
     1024;
 
-  const messageDataPerMonth = (messageDataPerDayKb * daysPerMonth) / 1024;
+  const messageDataPerMonth = Math.round((10 * (messageDataPerDayKb * daysPerMonth)) / 1024) / 10;
   const codeUpdateDataPerMonth =
-    ((daysPerMonth / daysBetweenCodeUpdates) * codeUpdateSizeBytes +
-      (daysPerMonth / daysBetweenFirmwareUpdates) * firmwareUpdateSizeBytes) /
-    (1024 * 1024);
-  const connectOverheadPerMonth = (effectiveConnectsPerDay * connectOverheadBytes * daysPerMonth) / (1024 * 1024);
-  const systemDataOverheadPerMonth = (daysPerMonth * (systemMetricsPerDayKb + systemLogsPerDayKb)) / 1024;
+    Math.round(
+      (10 *
+        ((daysPerMonth / daysBetweenCodeUpdates) * codeUpdateSizeBytes +
+          (daysPerMonth / daysBetweenFirmwareUpdates) * firmwareUpdateSizeBytes)) /
+        (1024 * 1024)
+    ) / 10;
+  const connectOverheadPerMonth =
+    Math.round((10 * (effectiveConnectsPerDay * connectOverheadBytes * daysPerMonth)) / (1024 * 1024)) / 10;
+  const systemDataOverheadPerMonth =
+    Math.round((10 * (daysPerMonth * (systemMetricsPerDayKb + systemLogsPerDayKb))) / 1024) / 10;
 
   const megaBytesPerDevice =
     messageDataPerMonth + codeUpdateDataPerMonth + connectOverheadPerMonth + systemDataOverheadPerMonth;
