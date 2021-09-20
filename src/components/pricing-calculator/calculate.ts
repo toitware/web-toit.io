@@ -29,22 +29,21 @@ export const calculate = ({
   const codeUpdateSizeBytes = 50 * 1024;
   const firmwareUpdateSizeBytes = 256 * 1024;
 
-  const messagesOverheadBytes = 60;
-  const connectOverheadBytes = 200;
+  const messagesOverheadBytes = 70;
+  const connectOverheadBytes = 70;
 
   const flashEventsCapacity = 64 * 1024;
   const flashUsageLimit = 0.7; // Percentage
   const flashEncodingBlowupFactor = 4096 / (4096 - 300);
   const flashEncodingOverheadBytes = 32;
 
-  const minutesBetweenMetricsFlushing = 1;
-  const minutesBetweenForcedReconnects = 30;
+  const minutesBetweenMetricsFlushing = 60;
 
-  const systemMetricsAverageSizeBytes = 450;
-  const systemBootLogsAverageSizeBytes = 100;
-  const systemConnectLogsAverageSizeBytes = 800;
+  const systemMetricsAverageSizeBytes = 233;
+  const systemBootLogsAverageSizeBytes = 45;
+  const systemConnectLogsAverageSizeBytes = 65;
 
-  const daysPerMonth = 30;
+  const daysPerMonth = 30.44;
 
   const messagesPerDay = (24 * 60) / messagesInterval;
   const averageMessageSizeBytes = dataPoints * 12;
@@ -55,26 +54,29 @@ export const calculate = ({
   const messageDataPerDayKb = (messagesPerDay * (messagesOverheadBytes + averageMessageSizeBytes)) / 1024;
 
   const dataDrivenConnectsPerDay = connectsInterval == 0 ? 0 : messagesPerDay / messagesBetweenConnects;
-  const enforcedConnectsPerDay =
-    (24 * 60) / (connectsInterval == 0 ? minutesBetweenForcedReconnects : connectsInterval);
+  const enforcedConnectsPerDay = connectsInterval == 0 ? 0 : (24 * 60) / connectsInterval;
   const effectiveConnectsPerDay = Math.max(dataDrivenConnectsPerDay, enforcedConnectsPerDay);
 
   const bootSequencesPerDay = connectsInterval == 0 ? 0 : (24 * 60) / Math.min(messagesInterval, connectsInterval);
-  const systemMetricsFlushesPerDay =
-    connectsInterval == 0 ? (24 * 60) / minutesBetweenMetricsFlushing : bootSequencesPerDay;
+  const systemMetricsFlushesPerDay = (24 * 60) / minutesBetweenMetricsFlushing;
   const systemMetricsPerDayKb = systemMetricsFlushesPerDay * (systemMetricsAverageSizeBytes / 1024);
   const systemLogsPerDayKb =
     (bootSequencesPerDay * systemBootLogsAverageSizeBytes +
       effectiveConnectsPerDay * systemConnectLogsAverageSizeBytes) /
     1024;
 
-  const messageDataPerMonth = (messageDataPerDayKb * daysPerMonth) / 1024;
+  const messageDataPerMonth = Math.round((10 * (messageDataPerDayKb * daysPerMonth)) / 1024) / 10;
   const codeUpdateDataPerMonth =
-    ((daysPerMonth / daysBetweenCodeUpdates) * codeUpdateSizeBytes +
-      (daysPerMonth / daysBetweenFirmwareUpdates) * firmwareUpdateSizeBytes) /
-    (1024 * 1024);
-  const connectOverheadPerMonth = (effectiveConnectsPerDay * connectOverheadBytes * daysPerMonth) / (1024 * 1024);
-  const systemDataOverheadPerMonth = (daysPerMonth * (systemMetricsPerDayKb + systemLogsPerDayKb)) / 1024;
+    Math.round(
+      (10 *
+        ((daysPerMonth / daysBetweenCodeUpdates) * codeUpdateSizeBytes +
+          (daysPerMonth / daysBetweenFirmwareUpdates) * firmwareUpdateSizeBytes)) /
+        (1024 * 1024)
+    ) / 10;
+  const connectOverheadPerMonth =
+    Math.round((10 * (effectiveConnectsPerDay * connectOverheadBytes * daysPerMonth)) / (1024 * 1024)) / 10;
+  const systemDataOverheadPerMonth =
+    Math.round((10 * (daysPerMonth * (systemMetricsPerDayKb + systemLogsPerDayKb))) / 1024) / 10;
 
   const megaBytesPerDevice =
     messageDataPerMonth + codeUpdateDataPerMonth + connectOverheadPerMonth + systemDataOverheadPerMonth;
