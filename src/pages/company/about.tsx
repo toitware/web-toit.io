@@ -327,7 +327,7 @@ export function AboutPage(): JSX.Element {
             justify-content: space-around;
             flex-wrap: wrap;
             max-width: 60rem;
-            margin: ${clampBuilder(400, 1200, 4.5, 12, { basis: "vh" })} auto 3rem;
+            margin: ${clampBuilder(400, 1200, 4.5, 9, { basis: "vh" })} auto;
           `}
         >
           <Link href="https://hackaday.io/search?term=toit">
