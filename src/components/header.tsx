@@ -29,8 +29,9 @@ const Container = styled.header`
   z-index: 500;
   backdrop-filter: blur(10px);
   transition: background-color var(--menuFadeSpeed) linear;
+  color: var(--headerTextColor);
   &:hover {
-    background: ${white.string()};
+    background: var(--headerHoverBackgroundColor);
   }
 `;
 const openedContainerCss = css`
@@ -49,7 +50,7 @@ const mobileCss = css`
 `;
 
 const scrolledDown = css`
-  background: ${white.alpha(0.6).string()};
+  background: var(--headerBackgroundColor);
 `;
 
 const Mask = styled.div`

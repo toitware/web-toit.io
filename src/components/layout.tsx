@@ -82,6 +82,7 @@ interface GraphType {
 }
 
 interface LayoutProps {
+  className?: string;
   children: React.ReactNode;
   title?: string;
   simplified?: boolean;
@@ -92,6 +93,7 @@ interface LayoutProps {
 }
 
 export default function Layout({
+  className,
   title,
   children,
   simplified = false,
@@ -125,7 +127,7 @@ export default function Layout({
       <MDXProvider components={{ ...shorthands, ...components }}>
         <MuiThemeProvider theme={primaryTheme}>
           <ThemeProvider theme={primaryTheme}>
-            <Root>
+            <Root className={className}>
               {simplified && (
                 <>
                   {!hideHeader && <SimplifiedHeader callToAction={callToAction} />}
