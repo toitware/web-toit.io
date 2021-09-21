@@ -173,6 +173,9 @@ export function IndexPage(): JSX.Element {
             src="/animations/provision.riv"
             css={css`
               margin-bottom: ${clampBuilder("small", "huge", 4.5, 12)};
+              max-width: 60rem;
+              margin-left: auto;
+              margin-right: auto;
             `}
           />
 

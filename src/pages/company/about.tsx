@@ -2,6 +2,9 @@ import { css } from "@emotion/react";
 import React from "react";
 import ArrowColumn from "../../assets/images/illustrations/arrow-column.inline.svg";
 import comicPng from "../../assets/images/illustrations/comic.png";
+import instructablesLogoSrc from "../../assets/images/logos/instructables.svg";
+import hackadayLogoSrc from "../../assets/images/logos/hackaday.svg";
+import hacksterLogoSrc from "../../assets/images/logos/hackster.svg";
 import controllerBigSvg from "../../assets/images/illustrations/controller-big.svg";
 import controllerSmallSvg from "../../assets/images/illustrations/controller-small.svg";
 import dartPng from "../../assets/images/illustrations/dart.png";
@@ -299,26 +302,56 @@ export function AboutPage(): JSX.Element {
           </ButtonLink>
         </CenteredBlock>
       </Section>
-      <Section
-        centered
-        css={css`
-          padding-bottom: 0;
-        `}
-      >
+      <Section centered>
         <h1>What they say about us</h1>
-      </Section>
-      <Section
-        css={css`
-          padding-top: 0;
-          border-top: none;
-        `}
-        centered
-      >
         <ExternalBlogs
           css={css`
             margin-top: 6rem;
           `}
         />
+      </Section>
+      <Section centered css={darkSection}>
+        <h1>What they build with us</h1>
+
+        <CenteredBlock>
+          <p>
+            Whether it&apos;s home security, a temperature controlled fan, Google Sheets integration of sensed data,
+            driving a display, and more: people have built and written about it.
+          </p>
+        </CenteredBlock>
+        <div
+          css={css`
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 60rem;
+            margin: ${clampBuilder(400, 1200, 4.5, 9, { basis: "vh" })} auto;
+          `}
+        >
+          <Link href="https://hackaday.io/search?term=toit">
+            <img src={hackadayLogoSrc} alt="Hackaday Logo" />
+          </Link>
+          <Link href="https://www.hackster.io/search?i=projects&amp;q=toit">
+            <img src={hacksterLogoSrc} alt="Hackster Logo" />
+          </Link>
+          <Link href="https://www.instructables.com/howto/toit/">
+            <img src={instructablesLogoSrc} alt="Instructables Logo" />
+          </Link>
+        </div>
+        <CenteredBlock
+          css={css`
+            max-width: 38em;
+          `}
+        >
+          <p css={bigFont}>
+            Head over to <Link href="https://hackaday.io/search?term=toit">hackaday.io</Link>,{" "}
+            <Link href="https://www.hackster.io/search?i=projects&amp;q=toit">hackster.io</Link>,{" "}
+            <Link href="https://www.instructables.com/howto/toit/">instructables.com</Link>, or{" "}
+            <Link href="https://ekorau.com">ekorau.com</Link> to find detailed tutorials.
+          </p>
+        </CenteredBlock>
       </Section>
       <Section centered>
         <CenteredBlock>
