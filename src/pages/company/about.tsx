@@ -326,7 +326,7 @@ export function AboutPage(): JSX.Element {
             align-items: center;
             justify-content: space-around;
             flex-wrap: wrap;
-            max-width: 60rem;
+            max-width: 40rem;
             margin: ${clampBuilder(400, 1200, 4.5, 9, { basis: "vh" })} auto;
           `}
         >
@@ -336,9 +336,9 @@ export function AboutPage(): JSX.Element {
           <Link href="https://www.hackster.io/search?i=projects&amp;q=toit">
             <img src={hacksterLogoSrc} alt="Hackster Logo" />
           </Link>
-          <Link href="https://www.instructables.com/howto/toit/">
+          {/* <Link href="https://www.instructables.com/howto/toit/">
             <img src={instructablesLogoSrc} alt="Instructables Logo" />
-          </Link>
+          </Link> */}
         </div>
         <CenteredBlock
           css={css`
