@@ -1,10 +1,10 @@
 import { css } from "@emotion/react";
 import React from "react";
+import { ButtonLink } from "../../components/button";
 import { clampBuilder, darkSection } from "../../components/global-css";
 import Layout from "../../components/layout";
 import Section from "../../components/layout/Section";
 import RiveAnimation from "../../components/RiveAnimation";
-import SignUpButton from "../../components/sign-up-button";
 import { black, white } from "../../theme";
 
 export function ProvisionPage(): JSX.Element {
@@ -15,16 +15,14 @@ export function ProvisionPage(): JSX.Element {
         --headerHoverBackgroundColor: ${black.string()};
         --headerBackgroundColor: ${black.alpha(0.4).string()};
       `}
-      title="Provisioning the ESP32"
+      title="Provisioning ESP32"
       simplified
       callToAction={
-        <SignUpButton
+        <SignInButton
           css={css`
             --buttonColor: white;
             --buttonContrastColor: black;
           `}
-          size="small"
-          variant="outlined"
         />
       }
     >
@@ -52,6 +50,20 @@ export function ProvisionPage(): JSX.Element {
         />
       </Section>
     </Layout>
+  );
+}
+
+type SignUpButtonProps = {
+  className?: string;
+};
+
+const signupLink = "https://auth.toit.io/";
+
+function SignInButton({ className }: SignUpButtonProps): JSX.Element {
+  return (
+    <ButtonLink variant="outlined" size="small" className={className} href={signupLink}>
+      Sign in
+    </ButtonLink>
   );
 }
 
