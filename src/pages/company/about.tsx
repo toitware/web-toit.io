@@ -2,13 +2,12 @@ import { css } from "@emotion/react";
 import React from "react";
 import ArrowColumn from "../../assets/images/illustrations/arrow-column.inline.svg";
 import comicPng from "../../assets/images/illustrations/comic.png";
-import instructablesLogoSrc from "../../assets/images/logos/instructables.svg";
-import hackadayLogoSrc from "../../assets/images/logos/hackaday.svg";
-import hacksterLogoSrc from "../../assets/images/logos/hackster.svg";
 import controllerBigSvg from "../../assets/images/illustrations/controller-big.svg";
 import controllerSmallSvg from "../../assets/images/illustrations/controller-small.svg";
 import dartPng from "../../assets/images/illustrations/dart.png";
 import teamJpg from "../../assets/images/illustrations/team.jpg";
+import hackadayLogoSrc from "../../assets/images/logos/hackaday.svg";
+import hacksterLogoSrc from "../../assets/images/logos/hackster.svg";
 import andersPng from "../../assets/images/team/anders.png";
 import erikPng from "../../assets/images/team/erik.png";
 import florianPng from "../../assets/images/team/florian.png";
@@ -326,7 +325,7 @@ export function AboutPage(): JSX.Element {
             align-items: center;
             justify-content: space-around;
             flex-wrap: wrap;
-            max-width: 60rem;
+            max-width: 40rem;
             margin: ${clampBuilder(400, 1200, 4.5, 9, { basis: "vh" })} auto;
           `}
         >
@@ -336,9 +335,9 @@ export function AboutPage(): JSX.Element {
           <Link href="https://www.hackster.io/search?i=projects&amp;q=toit">
             <img src={hacksterLogoSrc} alt="Hackster Logo" />
           </Link>
-          <Link href="https://www.instructables.com/howto/toit/">
+          {/* <Link href="https://www.instructables.com/howto/toit/">
             <img src={instructablesLogoSrc} alt="Instructables Logo" />
-          </Link>
+          </Link> */}
         </div>
         <CenteredBlock
           css={css`

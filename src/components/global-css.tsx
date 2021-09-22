@@ -95,6 +95,10 @@ export function GlobalCss(): JSX.Element {
           --contentPadding: max(1.5rem, 6vw);
           --calculatedContentPadding: max(var(--contentPadding), calc((100vw - var(--maxContentWidth)) / 2));
 
+          --headerTextColor: ${black.string()};
+          --headerHoverBackgroundColor: ${white.string()};
+          --headerBackgroundColor: ${white.alpha(0.6).string()};
+
           --centeredBlockWidth: ${clampBuilder("tiny", "huge", 30, 40)};
 
           --highlightColor: ${dart.string()};
