@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import React from "react";
+import { black } from "../theme";
 import { ButtonLink } from "./button";
-
 type VersusMenuProps = {
   active: "balena" | "particle" | "azure-sphere";
 };
@@ -31,6 +31,13 @@ export function VersusMenu(props: VersusMenuProps): JSX.Element {
             position: absolute;
             flex-direction: row;
             gap: 1.5rem;
+          }
+
+          /* Making sure the active button doesn't looks like the inactive
+          one when hovering. */
+          a:hover {
+            color: white;
+            background: ${black.string()};
           }
         `}
       >

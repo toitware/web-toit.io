@@ -14,7 +14,7 @@ export function CloudPage(): JSX.Element {
     <Layout title="Connectivity options">
       <PageTitle
         title="Compare Toit"
-        subTitle="Company"
+        subTitle="Product"
         css={css`
           background: ${dartSecondary.string()};
           padding-bottom: 6rem;
