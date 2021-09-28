@@ -25,7 +25,7 @@ export function CloudPage(): JSX.Element {
         <SideBySide
           css={css`
             img {
-              max-width: min(80%, 24rem);
+              max-width: min(80%, 20rem) !important;
             }
           `}
           illustration={airUpdatesSvg}
