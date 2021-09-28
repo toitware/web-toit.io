@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 import React, { FC } from "react";
 import checkkmarkSvg from "../assets/images/small-checkmark.svg";
 import { breakpoints } from "../components/global-css";
@@ -11,48 +12,49 @@ type Reason = {
   description?: string;
 };
 
+const Wrapper = styled.div`
+  margin-top: var(--contentPadding);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  ${breakpoints.small} {
+    align-items: center;
+  }
+`;
+
+const List = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-gap: 1.5rem var(--contentPadding);
+  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+`;
+
+const ListItem = styled.li`
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+`;
+
+const Title = styled.h2`
+  font-weight: normal;
+  font-size: inherit;
+  font-family: inherit;
+  margin: 0 0 0.5rem 0;
+`;
+
 export const Reasons: FC<ReasonsProps> = ({ reasons }) => {
   return (
-    <div
-      css={css`
-        margin-top: var(--contentPadding);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        ${breakpoints.small} {
-          align-items: center;
-        }
-
-        ul {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          display: grid;
-          grid-gap: 1.5rem var(--contentPadding);
-          grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
-        }
-        li {
-          padding: 0.5rem 0;
-          display: flex;
-          align-items: flex-start;
-          gap: 0.5rem;
-        }
-      `}
-    >
-      <ul>
+    <Wrapper>
+      <List>
         {reasons.map((reason) => {
           return (
-            <li key={reason.name}>
+            <ListItem key={reason.name}>
               <div>
-                <h2
-                  css={css`
-                    font-weight: normal;
-                    font-size: inherit;
-                    font-family: inherit;
-                    margin: 0 0 0.5rem 0;
-                  `}
-                >
+                <Title>
                   {reason.name}
                   <img
                     css={css`
@@ -64,7 +66,7 @@ export const Reasons: FC<ReasonsProps> = ({ reasons }) => {
                     src={checkkmarkSvg}
                     alt=""
                   />
-                </h2>
+                </Title>
                 <p
                   css={css`
                     margin: 0;
@@ -74,11 +76,11 @@ export const Reasons: FC<ReasonsProps> = ({ reasons }) => {
                   {reason.description}
                 </p>
               </div>
-            </li>
+            </ListItem>
           );
         })}
-      </ul>
-    </div>
+      </List>
+    </Wrapper>
   );
 };
 
