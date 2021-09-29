@@ -44,7 +44,7 @@ export function CloudPage(): JSX.Element {
             {
               name: "High-level language",
               description:
-                "Use a modern high-level language with stack traces and garbage collection to write apps and access peripherals . With Toit, any developer can write IoT applications.",
+                "Use a modern high-level language with stack traces and garbage collection to write apps and access peripherals. With Toit, any developer can write IoT applications.",
             },
             {
               name: "Built-in data pipeline",
