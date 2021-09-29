@@ -1,3 +1,4 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React, { ReactNode } from "react";
 import { breakpoints } from "../global-css";
@@ -36,21 +37,26 @@ const Illustration = styled.div`
   align-items: center;
   justify-content: center;
 
+  ${breakpoints.small} {
+    &.left {
+      grid-row: 1;
+    }
+  }
+`;
+
+const IllustrationElement = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   img,
   video {
     width: 100%;
-    max-width: 32rem;
   }
 
   /* Prevent the Chromecast icon from appearing on android devices */
   video::-internal-media-controls-overlay-cast-button {
     display: none;
-  }
-
-  ${breakpoints.small} {
-    &.left {
-      grid-row: 1;
-    }
   }
 `;
 
@@ -59,6 +65,7 @@ type SideBySideProps = {
   children: ReactNode;
   illustration: string | JSX.Element;
   illustrationPosition?: "left" | "right";
+  illustrationMaxWidth?: string;
   className?: string;
 };
 
@@ -67,6 +74,7 @@ export function SideBySide({
   className,
   illustration,
   illustrationPosition = "right",
+  illustrationMaxWidth = "32rem",
 }: SideBySideProps): JSX.Element {
   return (
     <Wrapper className={className}>
@@ -74,8 +82,14 @@ export function SideBySide({
         <div>{children}</div>
       </Content>
       <Illustration className={illustrationPosition}>
-        {typeof illustration === "string" && <img src={illustration} />}
-        {typeof illustration !== "string" && illustration}
+        <IllustrationElement
+          css={css`
+            max-width: ${illustrationMaxWidth};
+          `}
+        >
+          {typeof illustration === "string" && <img src={illustration} />}
+          {typeof illustration !== "string" && illustration}
+        </IllustrationElement>
       </Illustration>
     </Wrapper>
   );

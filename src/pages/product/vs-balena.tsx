@@ -22,14 +22,7 @@ export function CloudPage(): JSX.Element {
       />
       <VersusMenu active="balena" />
       <Section>
-        <SideBySide
-          css={css`
-            img {
-              max-width: min(80%, 20rem) !important;
-            }
-          `}
-          illustration={airUpdatesSvg}
-        >
+        <SideBySide illustration={airUpdatesSvg} illustrationMaxWidth="20rem">
           <h1>Toit vs Balena</h1>
           <p>
             Both Toit and Balena offer a solution that includes fleet management and OTA deployment of containers with
