@@ -5,6 +5,7 @@ import consibioSvg from "../../assets/images/teams/consibio.svg";
 import cosesySvg from "../../assets/images/teams/cosesy.svg";
 import synapSvg from "../../assets/images/teams/synap.svg";
 import triforkSvg from "../../assets/images/teams/trifork.svg";
+import iotCatalystSvg from "../../assets/images/teams/iot-catalyst.svg";
 import { breakpoints, clampBuilder, greySection } from "../../components/global-css";
 import Section from "../../components/layout/Section";
 
@@ -14,7 +15,7 @@ const TeamGrid = styled.div`
   grid-gap: 4.5rem;
   margin: 0 auto;
   ${breakpoints.small} {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 `;
 
@@ -59,6 +60,9 @@ export function TeamsSection({ className }: Props): JSX.Element {
         </TeamCell>
         <TeamCell>
           <img src={consibioSvg} alt="Consibio" />
+        </TeamCell>
+        <TeamCell>
+          <img src={iotCatalystSvg} alt="IoT Catalyst" />
         </TeamCell>
       </TeamGrid>
     </Section>
