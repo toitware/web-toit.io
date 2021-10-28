@@ -43,7 +43,7 @@ const PricingBlock: React.FC<Props> = ({ className }) => (
   <Wrapper className={className}>
     <PricingBlockHeader>
       <h2>One single rate</h2>
-      <span css={freeLimit}>100 MB FREE</span>
+      <span css={freeLimit}>10 FREE DEVICES</span>
     </PricingBlockHeader>
     <div
       css={css`
@@ -58,15 +58,15 @@ const PricingBlock: React.FC<Props> = ({ className }) => (
           line-height: 1.3;
         `}
       >
-        $0.10
+        $0.50
       </div>
-      <div css={css``}>per MB</div>
+      <div css={css``}>per device/month</div>
       <div
         css={css`
           margin-top: 1.5rem;
         `}
       >
-        First 100 MB per month are always free.
+        First <b>10</b> devices are always free and full-featured.
       </div>
 
       <SignUpButton
