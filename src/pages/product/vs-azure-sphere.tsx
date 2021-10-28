@@ -54,7 +54,7 @@ export function CloudPage(): JSX.Element {
             {
               name: "Transparent pricing",
               description:
-                "At Toit, you pay based only on how much data flows through our cloud. You can use our console or build your own to check your device fleet’s health, we do not add extra fees for licensing, access to a fleet management dashboard, additional users or devices, or support.",
+                "At Toit, you pay based only on how many devices are serviced through our cloud. You can use our console or build your own to check your device fleet’s health, we do not add extra fees for licensing, access to a fleet management dashboard, additional users, or support.",
             },
           ]}
         />
