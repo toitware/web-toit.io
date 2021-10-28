@@ -57,7 +57,7 @@ export function CloudPage(): JSX.Element {
             {
               name: "Transparent pricing",
               description:
-                "At Toit, you pay only for how much data flows through our cloud. We do not add extra fees for additional users or devices or better support.",
+                "At Toit, you pay only for how many devices are serviced through our cloud. We do not add extra fees for additional users or better support.",
             },
             {
               name: "Cheaper designs",
