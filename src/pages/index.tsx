@@ -193,12 +193,13 @@ export function IndexPage(): JSX.Element {
         <SideBySide illustration={KeysSvg}>
           <H1>Control your data</H1>
           <p>
-            You own your data and you get to store it wherever you want. We help you get your data to and from your
-            devices. It is as simple as that.
+            You own your data and you get to store it wherever you want. Feed data from your devices directly into your
+            own system using HTTPS or MQTT, or let us help you get your bits to and from your devices. It is as simple
+            as that.
           </p>
           <p>
-            Deploy code, access logs, update firmware, and collect data from your devices. Use the data in your own
-            system, share it with your customers. We just handle your microcontrollers.
+            Deploy code, access logs, update firmware, and install applications on your devices. Let your data flow into
+            your own system, share it with your customers. We just handle your microcontrollers.
           </p>
         </SideBySide>
         <ContentSpacer />
