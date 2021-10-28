@@ -66,7 +66,7 @@ const PricingBlock: React.FC<Props> = ({ className }) => (
           margin-top: 1.5rem;
         `}
       >
-        First <b>10</b> devices are always free and full-featured.
+        First <b>10</b> devices are free forever and full-featured.
       </div>
 
       <SignUpButton
