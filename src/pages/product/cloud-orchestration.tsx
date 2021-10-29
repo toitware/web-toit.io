@@ -79,6 +79,7 @@ export function CloudPage(): JSX.Element {
           `}
           illustration={<ApiCalls />}
           illustrationPosition="right"
+          unboxedIllustration
         >
           <div
             css={css`
