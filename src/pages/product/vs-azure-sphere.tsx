@@ -11,7 +11,7 @@ import { dartSecondary } from "../../theme";
 
 export function CloudPage(): JSX.Element {
   return (
-    <Layout title="Connectivity options">
+    <Layout title="Toit vs Microsoft Azure Sphere">
       <PageTitle
         title="Compare Toit"
         subTitle="Product"
