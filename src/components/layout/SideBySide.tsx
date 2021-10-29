@@ -66,6 +66,7 @@ type SideBySideProps = {
   illustration: string | JSX.Element;
   illustrationPosition?: "left" | "right";
   illustrationMaxWidth?: string;
+  unboxedIllustration?: boolean;
   className?: string;
 };
 
@@ -75,21 +76,25 @@ export function SideBySide({
   illustration,
   illustrationPosition = "right",
   illustrationMaxWidth = "32rem",
+  unboxedIllustration = false,
 }: SideBySideProps): JSX.Element {
+  const illustrationElement = typeof illustration === "string" ? <img src={illustration} /> : illustration;
   return (
     <Wrapper className={className}>
       <Content>
         <div>{children}</div>
       </Content>
       <Illustration className={illustrationPosition}>
-        <IllustrationElement
-          css={css`
-            max-width: ${illustrationMaxWidth};
-          `}
-        >
-          {typeof illustration === "string" && <img src={illustration} />}
-          {typeof illustration !== "string" && illustration}
-        </IllustrationElement>
+        {unboxedIllustration && illustrationElement}
+        {!unboxedIllustration && (
+          <IllustrationElement
+            css={css`
+              max-width: ${illustrationMaxWidth};
+            `}
+          >
+            {illustrationElement}
+          </IllustrationElement>
+        )}
       </Illustration>
     </Wrapper>
   );
