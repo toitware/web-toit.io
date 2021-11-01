@@ -77,8 +77,7 @@ export function IndexPage(): JSX.Element {
 
         <Tooltip
           css={css`
-            margin-top: 1rem;
-            margin-bottom: 3rem;
+            margin: 1rem 0 3rem;
           `}
         >
           Free forever on 10 devices

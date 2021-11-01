@@ -5,7 +5,6 @@ const TooltipWrapper = styled.div`
   --bg-color: white;
   display: inline-block;
   position: relative;
-  margin: 0 auto;
   background: var(--bg-color);
   border-radius: 3px;
   font-size: 0.875em;
