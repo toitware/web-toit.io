@@ -79,6 +79,7 @@ export function IndexPage(): JSX.Element {
           css={css`
             margin: 1rem 0 3rem;
           `}
+          hideTip
         >
           Free forever on 10 devices
         </Tooltip>
