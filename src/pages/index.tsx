@@ -28,6 +28,7 @@ import SideBySide from "../components/layout/SideBySide";
 import RiveAnimation from "../components/RiveAnimation";
 import TeamsSection from "../components/sections/teams";
 import SignUpButton from "../components/sign-up-button";
+import Tooltip from "../components/Tooltip";
 import { black, dartSecondary, golden, white } from "../theme";
 
 const Hero = styled.section`
@@ -70,9 +71,18 @@ export function IndexPage(): JSX.Element {
           Secure the code on your ESP32 microcontrollers with lightweight containers and orchestrate them through our
           cloud API.
         </p>
-        <p>
+        <div>
           <SignUpButton />
-        </p>
+        </div>
+
+        <Tooltip
+          css={css`
+            margin: 1rem 0 3rem;
+          `}
+          hideTip
+        >
+          Free forever on 10 devices
+        </Tooltip>
 
         <div
           css={css`
