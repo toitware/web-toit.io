@@ -10,6 +10,7 @@ import CommunicationSvg from "../../assets/images/submenu-icons/communication.in
 import DeviceSvg from "../../assets/images/submenu-icons/device.inline.svg";
 import DocumentSvg from "../../assets/images/submenu-icons/document.inline.svg";
 import FaqSvg from "../../assets/images/submenu-icons/faq.inline.svg";
+import PackagesSvg from "../../assets/images/submenu-icons/packages.inline.svg";
 import menu from "../../content/menu.yaml";
 import { white } from "../../theme";
 import Submenu from "./Submenu";
@@ -50,6 +51,7 @@ const iconMap: {
   about: <AboutSvg />,
   blog: <BlogSvg />,
   faq: <FaqSvg />,
+  "package registry": <PackagesSvg />,
 };
 
 export const SubmenuContainer: React.FC<SubmenuContainerProps> = ({ visibleSubmenu, isVisible }) => {

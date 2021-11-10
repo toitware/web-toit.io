@@ -28,7 +28,7 @@ items:
       easy, we'll show you how.
     subpages:
       - title: Documentation
-        description: Learn how easy it is to develop IoT apps with Toit.
+        description: Learn to develop IoT apps with Toit.
         href: https://docs.toit.io/
       - title: API
         href: https://docs.toit.io/apis/api
@@ -36,6 +36,9 @@ items:
       - path: /faq
         title: FAQ
         description: Answers to the most common questions.
+      - title: Package registry
+        description: Browse the Toit package registry.
+        href: https://pkg.toit.io/
   - path: /company
     title: Company
     description: >
