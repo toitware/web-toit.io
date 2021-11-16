@@ -42,8 +42,8 @@ type Props = {
 const PricingBlock: React.FC<Props> = ({ className }) => (
   <Wrapper className={className}>
     <PricingBlockHeader>
-      <h2>One single rate</h2>
-      <span css={freeLimit}>10 FREE DEVICES</span>
+      <h2>Single rate</h2>
+      <span css={freeLimit}>SERVICE 10 DEVICES FOR FREE</span>
     </PricingBlockHeader>
     <div
       css={css`
@@ -60,13 +60,13 @@ const PricingBlock: React.FC<Props> = ({ className }) => (
       >
         $0.50
       </div>
-      <div css={css``}>per device/month</div>
+      <div css={css``}>per serviced device per month</div>
       <div
         css={css`
           margin-top: 1.5rem;
         `}
       >
-        First <b>10</b> devices are free forever and full-featured.
+        Free forever and full-featured on <b>10</b> devices.
       </div>
 
       <SignUpButton

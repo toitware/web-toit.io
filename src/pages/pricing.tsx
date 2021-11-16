@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import React from "react";
 import CheckmarkSvg from "../assets/images/icons/checkmark.inline.svg";
-import { bigFont, clampBuilder } from "../components/global-css";
+import { bigFont, clampBuilder, darkSection } from "../components/global-css";
 import Layout from "../components/layout";
 import CenteredBlock from "../components/layout/CenteredBlock";
 import PageTitle from "../components/layout/PageTitle";
@@ -21,10 +21,10 @@ export function PricingPage(): JSX.Element {
       <PageTitle
         css={css`
           h1 {
-            max-width: 8em;
+            max-width: 10em;
           }
         `}
-        title="Start for free"
+        title="Subscribe to serviceability"
         subTitle="Pricing"
       />
       <Section
@@ -33,7 +33,9 @@ export function PricingPage(): JSX.Element {
           background: ${golden.string()};
         `}
       >
-        <CenteredBlock css={bigFont}>You pay based on how many devices you service through our platform.</CenteredBlock>
+        <CenteredBlock css={bigFont}>
+          Each month you pay for the devices you service through our platform.
+        </CenteredBlock>
 
         <PricingBlock />
 
@@ -63,9 +65,22 @@ export function PricingPage(): JSX.Element {
         </div>
         <SectionDownArrow />
       </Section>
-      <Section centered>
+      <Section css={[darkSection]} centered>
         <h2>No additional fees</h2>
-        <p>Grow the business at your pace</p>
+        <p
+          css={css`
+            max-width: 26em;
+            margin-left: auto;
+            margin-right: auto;
+          `}
+        >
+          You enable and disable serviceability for individual devices when you want to. Your unserviced devices are
+          free and keep running your applications, so you are in full control of your bill. Our support is always
+          included.
+        </p>
+      </Section>
+      <Section centered>
+        <h2>Serviceability</h2>
         <ul
           css={css`
             display: flex;
@@ -80,17 +95,17 @@ export function PricingPage(): JSX.Element {
           <li css={featureCss}>
             <CheckmarkSvg style={{ color: dartSecondary.string() }} />
             <br />
-            Support included
+            System and application updates
           </li>
           <li css={featureCss}>
             <CheckmarkSvg style={{ color: goldenSecondary.string() }} />
             <br />
-            Unlimited usage
+            Logging and monitoring
           </li>
           <li css={featureCss}>
             <CheckmarkSvg style={{ color: passionSecondary.string() }} />
             <br />
-            No developer licenses
+            Secure, managed data pipeline
           </li>
         </ul>
       </Section>
@@ -131,7 +146,7 @@ export function SectionDownArrow(): JSX.Element {
     >
       <path
         d="M35.367 86.3112L34.4106 87.014L34.4234 87.0313L34.4367 87.0482L35.367 86.3112ZM17.6121 65.1467L18.2921 66.1193L18.3121 66.1053L18.3315 66.0905L17.6121 65.1467ZM3.58482 104.907L2.40557 105.041L2.4066 105.05L3.58482 104.907ZM15.2693 149.345C15.8685 149.611 16.5696 149.34 16.8352 148.741L21.1639 138.976C21.4295 138.377 21.1591 137.676 20.5599 137.41C19.9607 137.145 19.2596 137.415 18.994 138.014L15.1462 146.694L6.46649 142.847C5.86728 142.581 5.16619 142.851 4.90056 143.451C4.63493 144.05 4.90535 144.751 5.50456 145.016L15.2693 149.345ZM80.3864 93.7734L81.3844 94.4156L80.3864 93.7734ZM16.932 64.1741C2.94906 73.9513 0.639116 89.4809 2.4056 105.041L4.76404 104.774C3.03432 89.5369 5.37883 75.1486 18.2921 66.1193L16.932 64.1741ZM2.4066 105.05C3.79603 116.541 6.67546 128.031 14.643 148.687L16.8575 147.833C8.9313 127.284 6.12078 115.994 4.76303 104.765L2.4066 105.05ZM36.3234 85.6085C23.3705 67.9797 20.1072 52.1134 21.6684 38.2787C23.2343 24.4014 29.6688 12.4374 36.3469 2.66983L34.3875 1.33017C27.6181 11.2312 20.9388 23.5753 19.3097 38.0126C17.6758 52.4925 21.1362 68.9476 34.4106 87.014L36.3234 85.6085ZM34.4367 87.0482C39.0827 92.9131 46.9947 100.412 55.6367 103.663C59.98 105.297 64.5826 105.885 69.0602 104.567C73.5514 103.244 77.7593 100.049 81.3844 94.4156L79.3883 93.1313C76.002 98.394 72.2223 101.161 68.3896 102.29C64.5433 103.422 60.4856 102.952 56.4724 101.442C48.4014 98.4055 40.815 91.2772 36.2973 85.5743L34.4367 87.0482ZM81.3844 94.4156C87.0273 85.6459 87.463 78.0072 84.2055 71.8383C80.9978 65.7639 74.3587 61.4134 66.4823 58.7866C58.5776 56.1503 49.2502 55.1866 40.3921 56.0247C31.5455 56.8616 23.052 59.5075 16.8926 64.2028L18.3315 66.0905C24.0263 61.7494 32.0457 59.1985 40.6157 58.3877C49.1742 57.578 58.1671 58.5155 65.7314 61.0383C73.3241 63.5705 79.3027 67.637 82.1066 72.9467C84.8605 78.1618 84.7015 84.874 79.3883 93.1313L81.3844 94.4156Z"
-        fill="black"
+        fill="white"
       />
     </svg>
   );
