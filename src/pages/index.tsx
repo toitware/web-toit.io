@@ -168,8 +168,9 @@ export function IndexPage(): JSX.Element {
         ]}
       >
         <ParagraphHeader title="Fast and safe" subtitle="Modular applications for embedded devices">
-          Write your applications in our high-level, memory-safe language and let our battery-optimized virtual machine
-          execute them efficiently on your ESP32s. Fast to develop, safe to run.
+          Our platform is built on the free and open source <a href="https://github.com/toitlang/toit">Toit language</a>
+          , so you write your applications in a high-level, memory-safe language and let the battery-optimized virtual
+          machine execute them efficiently on your ESP32s. Fast to develop, safe to run.
         </ParagraphHeader>
 
         <div
@@ -292,7 +293,7 @@ export function IndexPage(): JSX.Element {
               }
             `}
           >
-            Toit is a modern object-oriented language designed specifically for IoT.
+            Toit is a free and open source object-oriented language designed specifically for IoT
           </p>
           <img
             css={css`
@@ -332,8 +333,8 @@ main:\n\
 
         <SideBySide illustration={SymbolsSvg} illustrationPosition="left">
           <p>
-            <strong>Toit gives you a modern, memory-safe language.</strong> It includes state of the art editor
-            integration including syntax highlighting, goto-definitions, and auto completions.
+            <strong>Toit is a modern, memory-safe language.</strong> It includes state of the art editor integration
+            including syntax highlighting, goto-definitions, and auto completions.
           </p>
 
           <p>
