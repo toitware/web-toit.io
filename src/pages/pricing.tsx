@@ -34,7 +34,7 @@ export function PricingPage(): JSX.Element {
         `}
       >
         <CenteredBlock css={bigFont}>
-          Each month you pay for the devices you service through our platform.
+          Each month you pay only for the devices you service through our platform.
         </CenteredBlock>
 
         <PricingBlock />
@@ -74,13 +74,13 @@ export function PricingPage(): JSX.Element {
             margin-right: auto;
           `}
         >
-          You enable and disable serviceability for individual devices when you want to. Your unserviced devices are
-          free and keep running your applications, so you are in full control of your bill. Our support is always
-          included.
+          You enable and disable serviceability for individual devices when you want to.&nbsp;
+          <strong>Your turned off, disconnected, or unserviced devices are free</strong> and keep running your
+          applications, so you are in full control of your bill. Our support is always included.
         </p>
       </Section>
       <Section centered>
-        <h2>Serviceability</h2>
+        <h2>Serviceability includes</h2>
         <ul
           css={css`
             display: flex;

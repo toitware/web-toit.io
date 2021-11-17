@@ -64,6 +64,7 @@ const PricingBlock: React.FC<Props> = ({ className }) => (
       <div
         css={css`
           margin-top: 1.5rem;
+          font-size: 1.25rem;
         `}
       >
         Free forever and full-featured on <b>10</b> devices.
