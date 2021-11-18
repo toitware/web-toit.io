@@ -27,7 +27,10 @@ import { black, white } from "../../theme";
 
 export function AboutPage(): JSX.Element {
   return (
-    <Layout title="About">
+    <Layout
+      title="About"
+      description="Founded by the team that created the V8 engine for google Chrome and the Dart programing language, Toit is a development plartform for the ESP32."
+    >
       <PageTitle
         css={css`
           h1 {

@@ -17,7 +17,10 @@ const featureCss = css`
 
 export function PricingPage(): JSX.Element {
   return (
-    <Layout title="Pricing">
+    <Layout
+      title="Pricing"
+      description="Continuously update firmware and software on your ESP32 with the Toit platform. 10 devices are free forever to let you get started on your project."
+    >
       <PageTitle
         css={css`
           h1 {

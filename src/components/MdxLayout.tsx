@@ -8,6 +8,7 @@ interface Props {
   pageContext: {
     frontmatter: {
       title: string;
+      description?: string;
       path?: string;
     };
   };
@@ -16,7 +17,7 @@ interface Props {
 export default function MdxLayout(props: Props): JSX.Element {
   const { pageContext, children } = props;
   return (
-    <Layout title={pageContext.frontmatter.title}>
+    <Layout title={pageContext.frontmatter.title} description={pageContext.frontmatter.description}>
       <MDXProvider components={{ ...shorthands, ...components }}>{children}</MDXProvider>
     </Layout>
   );

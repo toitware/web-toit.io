@@ -11,7 +11,10 @@ import { dartSecondary } from "../../theme";
 
 export function CloudPage(): JSX.Element {
   return (
-    <Layout title="Toit vs Balena">
+    <Layout
+      title="Toit vs Balena"
+      description="Toit's containers are smaller than Balena's so they fit on the ESP32, and OTAs are more likely to succeed even on shaky cellular connection."
+    >
       <PageTitle
         title="Compare Toit"
         subTitle="Product"
