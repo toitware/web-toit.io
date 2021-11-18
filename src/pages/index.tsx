@@ -52,7 +52,11 @@ const H1 = styled.h1`
 
 export function IndexPage(): JSX.Element {
   return (
-    <Layout description="Toit is an end-to-end IoT development platform for the ESP32. With Toit, deploy independent appplications on a lightweight OS designed for MCUs.">
+    <Layout
+      title="Toit - IoT development platform for the ESP32"
+      rawTitle
+      description="Toit is an end-to-end IoT development platform for the ESP32. With Toit, deploy independent appplications on a lightweight OS designed for MCUs."
+    >
       <Hero
         css={css`
           overflow: hidden;

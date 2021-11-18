@@ -16,7 +16,7 @@ import { pythonSecondary } from "../../theme";
 export function CloudPage(): JSX.Element {
   return (
     <Layout
-      title="Supported hardware"
+      title="Supported hardware for the Toit firmware"
       description="Toit runs on the ESP32 chip from Espressif because it offers the best price / performance out of all the microcontrollers out there."
     >
       <PageTitle

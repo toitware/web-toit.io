@@ -19,7 +19,7 @@ import { pythonSecondary } from "../../theme";
 export function DevicePage(): JSX.Element {
   return (
     <Layout
-      title="Device software"
+      title="Toit programming language and OTA updates"
       description="Code your apps for the ESP32 in the Toit language to benefit from better performance, robustness and ease-of-use than than C or micropython."
     >
       <PageTitle

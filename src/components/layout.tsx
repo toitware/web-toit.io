@@ -85,6 +85,7 @@ interface LayoutProps {
   className?: string;
   children: React.ReactNode;
   title?: string;
+  rawTitle?: boolean;
   description?: string;
   simplified?: boolean;
   hideHeader?: boolean;
@@ -96,6 +97,7 @@ interface LayoutProps {
 export default function Layout({
   className,
   title,
+  rawTitle = false,
   description,
   children,
   simplified = false,
@@ -114,16 +116,20 @@ export default function Layout({
   `);
 
   const siteTitle = data.site.siteMetadata?.title;
-  const siteTagline = data.site.siteMetadata?.tagline;
 
-  const titleWithSuffix = (title ? `${title} - ` : "") + siteTitle;
-  const ogTitle = `${siteTitle} - ` + (title ?? siteTagline);
+  let computedTitle = title;
+
+  if (!computedTitle) {
+    computedTitle = siteTitle;
+  } else if (!rawTitle) {
+    computedTitle = `${computedTitle} - ${siteTitle}`;
+  }
 
   return (
     <>
       <GlobalCss />
-      <Helmet title={titleWithSuffix}>
-        <meta property="og:title" content={ogTitle} />
+      <Helmet title={computedTitle}>
+        <meta property="og:title" content={computedTitle} />
         <meta property="og:image" content={opengraphPng} />
         {description && <meta property="description" content={description} />}
       </Helmet>
