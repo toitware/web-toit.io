@@ -29,7 +29,7 @@ export function SignUpSuccessPage(): JSX.Element {
   }, []);
 
   return (
-    <Layout title="Sign Up Successful" simplified>
+    <Layout title="Sign up for the Toit platform successful" simplified>
       <Section
         css={css`
           min-height: 100vh;

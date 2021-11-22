@@ -15,7 +15,10 @@ import { dartSecondary } from "../../theme";
 
 export function CloudPage(): JSX.Element {
   return (
-    <Layout title="Cloud orchestration">
+    <Layout
+      title="Manage your fleet with API-based cloud orchestration"
+      description="Manage devices from the Toit cloud: schedule when a device goes online to update the Toit firmware and software or to send data to the cloud."
+    >
       <PageTitle
         title="Fleet orchestration"
         subTitle="Cloud"

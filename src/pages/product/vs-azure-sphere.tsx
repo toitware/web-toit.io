@@ -11,7 +11,10 @@ import { dartSecondary } from "../../theme";
 
 export function CloudPage(): JSX.Element {
   return (
-    <Layout title="Toit vs Microsoft Azure Sphere">
+    <Layout
+      title="Compare Microsoft Azure Sphere with Toit"
+      description="With its high-level language, Toit offers a more robust IoT development environment on the ESP32 than Microsoft Azure Sphere"
+    >
       <PageTitle
         title="Compare Toit"
         subTitle="Product"
