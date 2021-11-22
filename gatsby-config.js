@@ -28,6 +28,7 @@ module.exports = {
         icon: "src/assets/images/icon.svg",
       },
     },
+    "gatsby-plugin-offline",
     {
       resolve: `gatsby-plugin-svgr-svgo`,
       options: {
