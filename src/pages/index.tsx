@@ -55,7 +55,7 @@ export function IndexPage(): JSX.Element {
     <Layout
       title="Toit - IoT development platform for the ESP32"
       rawTitle
-      description="Toit is an end-to-end IoT development platform for the ESP32. With Toit, deploy independent appplications on a lightweight OS designed for MCUs."
+      description="Toit is an end-to-end IoT development platform for the ESP32. With Toit, deploy independent applications on a lightweight OS designed for MCUs."
     >
       <Hero
         css={css`

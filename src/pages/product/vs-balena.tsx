@@ -13,7 +13,7 @@ export function CloudPage(): JSX.Element {
   return (
     <Layout
       title="Compare Balena IoT platform with Toit"
-      description="Toit's containers are smaller than Balena's so they fit on the ESP32, and OTAs are more likely to succeed even on shaky cellular connection."
+      description="Toit containers are smaller than Balena's so they fit on the ESP32, and OTAs are more likely to succeed even on shaky cellular connection."
     >
       <PageTitle
         title="Compare Toit"
