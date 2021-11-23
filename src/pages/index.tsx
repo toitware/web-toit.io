@@ -44,7 +44,9 @@ const Hero = styled.section`
   }
 `;
 
-const H1 = styled.h1`
+// This h2 is posing as h1 for SEO purposes.
+const H1 = styled.h2`
+  font-size: 3.5rem;
   display: block;
   max-width: 16em;
   margin: 3rem 0;
@@ -142,7 +144,7 @@ export function IndexPage(): JSX.Element {
           background-color: ${dartSecondary.string()};
         `}
       >
-        <h1>Connectivity and peripherals</h1>
+        <h2 className="h1">Connectivity and peripherals</h2>
 
         <CenteredBlock>
           <p>

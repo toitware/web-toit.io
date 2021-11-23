@@ -19,6 +19,7 @@ const Titles = styled.div`
     margin-right: 1.5rem;
   }
   h1,
+  h2,
   h3 {
     margin: 0;
   }
@@ -44,7 +45,7 @@ export function ParagraphHeader({ children, title, subtitle }: ParagraphHeaderPr
     <Wrapper>
       <Titles>
         <h3>{subtitle}</h3>
-        <h1>{title}</h1>
+        <h2 className="h1">{title}</h2>
       </Titles>
 
       <Paragraph>{children}</Paragraph>

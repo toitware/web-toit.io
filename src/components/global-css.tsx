@@ -125,20 +125,27 @@ export function GlobalCss(): JSX.Element {
           margin: 0;
         }
 
+        // The .h1 and .h2 classes are used to disguise a different h-tag for
+        // SEO purposes.
         h1,
-        h2 {
+        h2,
+        .h1,
+        .h2 {
           font-family: var(--fontFamilyTitle);
           font-weight: 200;
           line-height: 1.3em;
         }
-        h1 {
+        h1,
+        .h1 {
           font-size: ${clampBuilder("tiny", "huge", 2.5, 3.75)};
         }
-        h2 {
+        h2,
+        .h2 {
           font-size: ${clampBuilder("tiny", "huge", 2.25, 3.125)};
         }
         h3 {
           font-size: ${clampBuilder("tiny", "huge", 2, 2.2)};
+          line-height: 1.3em;
         }
 
         a {
