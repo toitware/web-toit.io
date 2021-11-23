@@ -10,7 +10,7 @@ const LinkList = styled.ul`
   padding: 0;
 `;
 
-const GroupTitle = styled.h3`
+const GroupTitle = styled.div`
   ${linkCss}
   font-size: 1rem;
   font-weight: normal;
