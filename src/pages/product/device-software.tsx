@@ -48,7 +48,7 @@ export function DevicePage(): JSX.Element {
         <HeroImage containerHeightRem={18} image={editorSvg} imageWidth={979} />
       </Section>
       <Section centered>
-        <h1>Why create a new language?</h1>
+        <h2 className="h1">Why create a new language?</h2>
 
         <CenteredBlock>
           <p>
@@ -74,7 +74,7 @@ export function DevicePage(): JSX.Element {
         `}
       >
         <SideBySide illustration={chipSvg}>
-          <h1>Virtual machine</h1>
+          <h2 className="h1">Virtual machine</h2>
           Your code runs as one or more applications inside the Toit virtual machine. The virtual machine creates a
           sandboxed environment for your code, so the worst that can happen from a bug is your application crashing. The
           system keeps running and so do your other applications.
@@ -83,7 +83,7 @@ export function DevicePage(): JSX.Element {
 
       <Section>
         <SideBySide illustration={overTheAirUpdatesSvg} illustrationPosition="left">
-          <h1>Over-the-air updates</h1>
+          <h2 className="h1">Over-the-air updates</h2>
           Updating your devices over the air is as easy on the Toit platform as it is to deploy new code to a web app,
           even on slow and shaky connections. The system even keeps running through the update.
         </SideBySide>

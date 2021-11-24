@@ -16,7 +16,7 @@ export function CloudPage(): JSX.Element {
       description="Toit lets you write high-level code on a $2 microcontroller. Get a more robust programming environment than with Microsoft Azure Sphere."
     >
       <PageTitle
-        title="Compare Toit"
+        title="Compare Toit to Microsoft Azure"
         subTitle="Product"
         css={css`
           background: ${dartSecondary.string()};
@@ -26,7 +26,7 @@ export function CloudPage(): JSX.Element {
       <VersusMenu active="azure-sphere" />
       <Section>
         <SideBySide illustration={airUpdatesSvg}>
-          <h1>Toit vs Azure Sphere</h1>
+          <h2 className="h1">Toit vs Azure Sphere</h2>
           <p>
             Microsoft Azure Sphere provides traditional IoT development capabilities on specific ARM-based dev kits,
             while Toit offers a modern development environment that lets you run several memory-isolated apps in

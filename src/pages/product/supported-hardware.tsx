@@ -28,7 +28,7 @@ export function CloudPage(): JSX.Element {
       />
 
       <Section centered css={darkSection}>
-        <h1>ESP32 micro&shy;controllers</h1>
+        <h2 className="h1">ESP32 micro&shy;controllers</h2>
 
         <CenteredBlock>
           <p>
@@ -55,7 +55,7 @@ export function CloudPage(): JSX.Element {
 
       <Section>
         <SideBySide illustration={peripheralsPng} illustrationPosition="left">
-          <h1>Peripherals</h1>
+          <h2 className="h1">Peripherals</h2>
 
           <p>
             Toit supports any peripheral you plug into your ESP32 through the GPIO pins, such as Bosch BME280 and
@@ -67,7 +67,7 @@ export function CloudPage(): JSX.Element {
         <ContentSpacer />
 
         <SideBySide illustration={boxesSvg} illustrationPosition="right">
-          <h1>Out-of-the-box drivers</h1>
+          <h2 className="h1">Out-of-the-box drivers</h2>
 
           <p>
             The Toit ecosystem comes with ready-to-use drivers for many of the commonly used peripherals, including GSM

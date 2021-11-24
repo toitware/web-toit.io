@@ -61,7 +61,7 @@ export function CloudPage(): JSX.Element {
 
       <Section>
         <SideBySide illustration={securityGateSvg} illustrationPosition="left">
-          <h1>Secure communication</h1>
+          <h2 className="h1">Secure communication</h2>
           All communication between the device and the cloud is end-to-end encrypted using modern public-key encryption.
           Each device has its own cryptographically secure identity, so you know exactly where all collected data stems
           from.
@@ -90,7 +90,7 @@ export function CloudPage(): JSX.Element {
               padding-bottom: var(--sectionVerticalPadding);
             `}
           >
-            <h1>Fully programmable</h1>
+            <h2 className="h1">Fully programmable</h2>
             <p>
               Our APIs are designed to give you full programmatic control of your devices and to make it easy to ingest
               collected data into your own backend. After all, IoT is all about data - your data!

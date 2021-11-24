@@ -16,7 +16,7 @@ export function CloudPage(): JSX.Element {
       description="Code updates on the Toit platform are 100KB or less - 100x smaller than on Balena. Safely update your code, even on a shaky cellular connection."
     >
       <PageTitle
-        title="Compare Toit"
+        title="Compare Toit to Balena"
         subTitle="Product"
         css={css`
           background: ${dartSecondary.string()};
@@ -26,7 +26,7 @@ export function CloudPage(): JSX.Element {
       <VersusMenu active="balena" />
       <Section>
         <SideBySide illustration={airUpdatesSvg} illustrationMaxWidth="20rem">
-          <h1>Toit vs Balena</h1>
+          <h2 className="h1">Toit vs Balena</h2>
           <p>
             Both Toit and Balena offer a solution that includes fleet management and OTA deployment of containers with
             only the diffs between the previously installed version and the newest one.
