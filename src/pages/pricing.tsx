@@ -18,8 +18,8 @@ const featureCss = css`
 export function PricingPage(): JSX.Element {
   return (
     <Layout
-      title="Pay only 0.50$ per devices for full serviceability"
-      description="Continuously update firmware and software on your ESP32 with the Toit platform. 10 devices are free forever to let you get started on your project."
+      title="Simple pricing that works for everyone"
+      description="Simple pricing for the Toit platform. $0.50 per device per month. 10 devices are free forever. No credit card needed."
     >
       <PageTitle
         css={css`

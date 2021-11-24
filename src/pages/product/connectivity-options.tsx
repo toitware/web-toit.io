@@ -11,7 +11,7 @@ import { dartSecondary } from "../../theme";
 export function CloudPage(): JSX.Element {
   return (
     <Layout
-      title="WiFi and Cellular as connectivities options"
+      title="Connectivity options include WiFi and Cellular"
       description="Toit includes the built-in WiFi connectivity of the ESP32 and support for the most commonly used cellular modules for NB-IoT or LTE-M."
     >
       <PageTitle

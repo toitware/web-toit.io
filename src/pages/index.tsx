@@ -55,9 +55,9 @@ const H1 = styled.h2`
 export function IndexPage(): JSX.Element {
   return (
     <Layout
-      title="Toit - IoT development platform for the ESP32"
+      title="Toit - IoT software platform for the ESP32"
       rawTitle
-      description="Toit is an end-to-end IoT development platform for the ESP32. With Toit, deploy independent applications on a lightweight OS designed for MCUs."
+      description="The Toit software platform makes it easy to deploy high-level code on the ESP32. Sign up for Toit and get started on your IoT project."
     >
       <Hero
         css={css`
