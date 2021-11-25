@@ -155,7 +155,7 @@ export default function Layout({
                         background: ${golden.string()};
                       `}
                     >
-                      <h2>Ready to get started?</h2>
+                      <h2>Start your IoT project</h2>
                       <p
                         css={css`
                           max-width: 18em;

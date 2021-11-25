@@ -39,7 +39,7 @@ const ListItem = styled.li`
   gap: 0.5rem;
 `;
 
-const Title = styled.h2`
+const Title = styled.h3`
   font-weight: normal;
   font-size: inherit;
   font-family: inherit;

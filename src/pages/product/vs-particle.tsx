@@ -16,7 +16,7 @@ export function CloudPage(): JSX.Element {
       description="Run several memory-isolated apps in parallel and code in a high-level language with Toit. More robust programming environment than Particle."
     >
       <PageTitle
-        title="Compare Toit"
+        title="Compare Toit to Particle"
         subTitle="Product"
         css={css`
           background: ${dartSecondary.string()};
@@ -26,7 +26,7 @@ export function CloudPage(): JSX.Element {
       <VersusMenu active="particle" />
       <Section>
         <SideBySide illustration={blocksSvg}>
-          <h1>Toit vs Particle</h1>
+          <h2 className="h1">Toit vs Particle</h2>
           <p>
             Particle sells ready-made ARM-based development boards and provides fleet management solutions to get
             started with your IoT product. However, IoT development is done the traditional way, where all functionality
