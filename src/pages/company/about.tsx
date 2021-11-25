@@ -29,7 +29,7 @@ export function AboutPage(): JSX.Element {
   return (
     <Layout
       title="About the company and our team"
-      description="Toit makes software development on the ESP32 easy. Our founders previously built the V8 engine for Google Chrome and the Dart programing language."
+      description="Toit makes software development on the ESP32 easy. Our founders previously built the V8 engine for Google Chrome and the Dart programming language."
     >
       <PageTitle
         css={css`
