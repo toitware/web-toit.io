@@ -12,8 +12,8 @@ import { dartSecondary } from "../../theme";
 export function CloudPage(): JSX.Element {
   return (
     <Layout
-      title="Compare Balena IoT platform with Toit"
-      description="Toit containers are smaller than Balena's so they fit on the ESP32, and OTAs are more likely to succeed even on shaky cellular connection."
+      title="Toit vs Balena - IoT platforms"
+      description="Code updates on the Toit platform are 100KB or less - 100x smaller than on Balena. Safely update your code, even on a shaky cellular connection."
     >
       <PageTitle
         title="Compare Toit"

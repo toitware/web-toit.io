@@ -29,7 +29,7 @@ const InfoBox = styled.aside`
   width: 16rem;
   margin-right: 6rem;
 
-  h1 {
+  .title {
     font-family: inherit;
     font-size: 1.25rem;
     font-weight: normal;
@@ -58,7 +58,7 @@ export const Submenu: React.FC<SubmenuProps & React.RefAttributes<HTMLDivElement
   return (
     <Wrapper ref={ref} css={[isVisible && visibleCss]}>
       <InfoBox>
-        <h1>{title}</h1>
+        <div className="title">{title}</div>
         <p>{description}</p>
       </InfoBox>
       <MenuItems>{children}</MenuItems>

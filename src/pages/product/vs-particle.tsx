@@ -12,8 +12,8 @@ import { dartSecondary } from "../../theme";
 export function CloudPage(): JSX.Element {
   return (
     <Layout
-      title="Compare Particle IoT platform with Toit"
-      description="Toit lets you run several memory-isolated apps in parallel on an ESP32, leading to shorter time to market than when building with Particle."
+      title="Toit vs Particle - IoT platforms"
+      description="Run several memory-isolated apps in parallel and code in a high-level language with Toit. More robust programming environment than Particle."
     >
       <PageTitle
         title="Compare Toit"

@@ -17,7 +17,7 @@ export function CloudPage(): JSX.Element {
   return (
     <Layout
       title="Supported hardware for the Toit firmware"
-      description="Toit runs on the ESP32 chip from Espressif because it offers the best price / performance out of all the microcontrollers out there."
+      description="Toit runs on the ESP32 chip from Espressif. $2 gets you 520 KB RAM, built-in WiFi and 34 pins for peripherals that you can use in any way you want."
     >
       <PageTitle
         title="Supported hardware"

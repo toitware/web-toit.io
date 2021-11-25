@@ -37,16 +37,17 @@ export function TeamsSection({ className }: Props): JSX.Element {
         --sectionVerticalPadding: ${clampBuilder("tiny", "huge", 4.5, 7.5)};
       `}
     >
-      <h1
+      <h3
         css={css`
           font-family: inherit;
+          font-weight: normal;
           font-size: 1.875rem;
           text-align: center;
           margin-bottom: var(--sectionVerticalPadding);
         `}
       >
         Great teams build on Toit
-      </h1>
+      </h3>
 
       <TeamGrid>
         <TeamCell>

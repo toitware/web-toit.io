@@ -44,7 +44,9 @@ const Hero = styled.section`
   }
 `;
 
-const H1 = styled.h1`
+// This h2 is posing as h1 for SEO purposes.
+const H1 = styled.h2`
+  font-size: 3.5rem;
   display: block;
   max-width: 16em;
   margin: 3rem 0;
@@ -53,9 +55,9 @@ const H1 = styled.h1`
 export function IndexPage(): JSX.Element {
   return (
     <Layout
-      title="Toit - IoT development platform for the ESP32"
+      title="Toit - IoT software platform for the ESP32"
       rawTitle
-      description="Toit is an end-to-end IoT development platform for the ESP32. With Toit, deploy independent applications on a lightweight OS designed for MCUs."
+      description="The Toit software platform makes it easy to deploy high-level code on the ESP32. Sign up for Toit and get started on your IoT project."
     >
       <Hero
         css={css`
@@ -142,7 +144,7 @@ export function IndexPage(): JSX.Element {
           background-color: ${dartSecondary.string()};
         `}
       >
-        <h1>Connectivity and peripherals</h1>
+        <h2 className="h1">Connectivity and peripherals</h2>
 
         <CenteredBlock>
           <p>

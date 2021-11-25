@@ -36,8 +36,9 @@ const Text = styled.div`
   font-size: clamp(1rem, 3vw, 1.875rem);
 `;
 
-const Title = styled.h1`
+const Title = styled.h3`
   font-family: inherit;
+  font-weight: normal;
   margin: 0 0 1rem 0;
   font-size: clamp(0.875rem, 2vw, 1.25rem);
 `;

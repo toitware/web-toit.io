@@ -1,6 +1,6 @@
-import { css } from "@emotion/react";
+import { css, ThemeProvider } from "@emotion/react";
 import styled from "@emotion/styled";
-import { ThemeProvider as MuiThemeProvider, ThemeProvider } from "@material-ui/core";
+import { ThemeProvider as MuiThemeProvider } from "@material-ui/core";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
