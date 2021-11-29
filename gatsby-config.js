@@ -16,8 +16,12 @@ module.exports = {
     "gatsby-plugin-eslint",
     "gatsby-plugin-remove-trailing-slashes",
     "gatsby-plugin-react-helmet",
-
-    "gatsby-plugin-robots-txt",
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        policy: [{ userAgent: "*", allow: "/", disallow: "/communication" }],
+      },
+    },
     "gatsby-plugin-sitemap",
     "gatsby-plugin-typescript-checker",
     "gatsby-plugin-material-ui",
