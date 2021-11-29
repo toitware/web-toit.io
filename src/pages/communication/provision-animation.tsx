@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import React from "react";
+import { Helmet } from "react-helmet";
 import { ButtonLink } from "../../components/button";
 import { clampBuilder, darkSection } from "../../components/global-css";
 import Layout from "../../components/layout";
@@ -26,6 +27,9 @@ export function ProvisionPage(): JSX.Element {
         />
       }
     >
+      <Helmet>
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <Section
         css={css`
           ${darkSection}

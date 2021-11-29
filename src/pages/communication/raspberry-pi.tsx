@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import React from "react";
+import { Helmet } from "react-helmet";
 import codeSampleSvg from "../../assets/images/code-sample.svg";
 import fleetSvg from "../../assets/images/illustrations/fleet.svg";
 import greenhouseSvg from "../../assets/images/illustrations/greenhouse.svg";
@@ -24,6 +25,9 @@ export function RaspberryPage(): JSX.Element {
       redditTrack="Lead"
       trackingPixel="https://px.ads.linkedin.com/collect/?pid=3155756&conversionId=4472066&fmt=gif"
     >
+      <Helmet>
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <Layout title="Raspberry Pi" simplified callToAction={<JoinTheBetaButton size="small" />}>
         <Section
           css={css`

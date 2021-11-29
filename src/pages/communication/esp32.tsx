@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React from "react";
+import { Helmet } from "react-helmet";
 import codeSampleSvg from "../../assets/images/code-sample.svg";
 import consoleSvg from "../../assets/images/console.svg";
 import RobustSandboxingSvg from "../../assets/images/icons/robust-sandboxing.inline.svg";
@@ -56,6 +57,9 @@ export function IndexPage(): JSX.Element {
       title="Software development platform for ESP32"
       description="Toit makes it easy to deploy high-level code on microcontrollers. Sign up for Toit and provision an ESP32 to get started on your IoT project."
     >
+      <Helmet>
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <Hero
         css={css`
           overflow: hidden;
