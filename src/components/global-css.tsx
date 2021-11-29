@@ -108,9 +108,9 @@ export function GlobalCss(): JSX.Element {
 
           --columnSeparatorWidth: clamp(3rem, 6vw, 4.5rem);
 
-          --h1-font-size: ${clampBuilder("tiny", "huge", 2.5, 3.75)};
-          --h2-font-size: ${clampBuilder("tiny", "huge", 2.25, 3.125)};
-          --h3-font-size: ${clampBuilder("tiny", "huge", 2, 2.2)};
+          --h1FontSize: ${clampBuilder("tiny", "huge", 2.5, 3.75)};
+          --h2FontSize: ${clampBuilder("tiny", "huge", 2.25, 3.125)};
+          --h3FontSize: ${clampBuilder("tiny", "huge", 2, 2.2)};
         }
         html {
           // Make sure the scrollbar is always visible (on the devices that don't
@@ -141,14 +141,14 @@ export function GlobalCss(): JSX.Element {
         }
         h1,
         .h1 {
-          font-size: var(---h1-font-size);
+          font-size: var(--h1FontSize);
         }
         h2,
         .h2 {
-          font-size: var(---h2-font-size);
+          font-size: var(--h2FontSize);
         }
         h3 {
-          font-size: var(---h3-font-size);
+          font-size: var(--h3FontSize);
           line-height: 1.3em;
         }
 
