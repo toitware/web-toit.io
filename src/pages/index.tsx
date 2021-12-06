@@ -130,7 +130,7 @@ export function IndexPage(): JSX.Element {
           Full serviceability for your fleet
         </H1>
 
-        <SideBySide illustration={GreenhouseSvg}>
+        <SideBySide illustration={GreenhouseSvg} illustrationWidth={1505} illustrationHeight={1051}>
           <p css={bigFont}>
             Continuously update the code on your ESP32 microcontrollers even over cellular connections. Monitor and
             securely service your entire device fleet in production; all through the Toit API.
@@ -158,6 +158,8 @@ export function IndexPage(): JSX.Element {
           illustration={
             <StaticImage placeholder="blurred" src="../assets/images/illustrations/bme280.png" alt="BME 280" />
           }
+          illustrationWidth={1024}
+          illustrationHeight={1024}
         >
           <p>
             We let you control any peripheral you plug into your ESP32 through the GPIO pins. You can connect using the
@@ -212,7 +214,7 @@ export function IndexPage(): JSX.Element {
         </div>
       </Section>
       <Section>
-        <SideBySide illustration={KeysSvg}>
+        <SideBySide illustration={KeysSvg} illustrationWidth={517} illustrationHeight={651}>
           <H1>Control your data</H1>
           <p>
             You own your data and you get to store it wherever you want. Feed data from your devices directly into your
@@ -251,7 +253,7 @@ export function IndexPage(): JSX.Element {
           </p>
         </SideBySide>
         <ContentSpacer />
-        <SideBySide illustration={ThermostatSvg}>
+        <SideBySide illustration={ThermostatSvg} illustrationWidth={516} illustrationHeight={652}>
           <h2>Monitor and service your devices in production</h2>
           <p>
             Get full visibility into your device fleet with logs covering connectivity, code execution, and crash
@@ -342,7 +344,12 @@ main:\n\
 
         <ContentSpacer preventLine large />
 
-        <SideBySide illustration={SymbolsSvg} illustrationPosition="left">
+        <SideBySide
+          illustration={SymbolsSvg}
+          illustrationPosition="left"
+          illustrationWidth={365}
+          illustrationHeight={266}
+        >
           <p>
             <strong>Toit is a modern, memory-safe language.</strong> It includes state of the art editor integration
             including syntax highlighting, goto-definitions, and auto completions.
@@ -369,7 +376,7 @@ main:\n\
 
         <ContentSpacer preventLine large />
 
-        <SideBySide illustration={ControlCenterSvg}>
+        <SideBySide illustration={ControlCenterSvg} illustrationWidth={683} illustrationHeight={553}>
           <h2>Control everything with our API</h2>
 
           <p>
