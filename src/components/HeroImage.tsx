@@ -19,7 +19,7 @@ export type Props = {
   containerHeightRem?: number;
 };
 
-export const HeroImage: React.FC<Props> = ({ image, width, containerHeightRem = 20 }) => {
+export const HeroImage: React.FC<Props> = ({ image, width, height, containerHeightRem = 20 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
 
@@ -53,6 +53,8 @@ export const HeroImage: React.FC<Props> = ({ image, width, containerHeightRem = 
             width: ${width}px;
             max-width: none !important;
           `}
+          width={width}
+          height={height}
           src={image}
         />
       </div>
