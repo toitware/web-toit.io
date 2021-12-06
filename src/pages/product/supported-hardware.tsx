@@ -1,8 +1,8 @@
 import { css } from "@emotion/react";
+import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import boxesSvg from "../../assets/images/illustrations/boxes.svg";
 import microcontrollersSvg from "../../assets/images/illustrations/microcontrollers.svg";
-import peripheralsPng from "../../assets/images/illustrations/peripherals.png";
 import ContentSpacer from "../../components/ContentSpacer";
 import { darkSection } from "../../components/global-css";
 import Layout from "../../components/layout";
@@ -54,7 +54,16 @@ export function CloudPage(): JSX.Element {
       </Section>
 
       <Section>
-        <SideBySide illustration={peripheralsPng} illustrationPosition="left">
+        <SideBySide
+          illustration={
+            <StaticImage
+              placeholder="blurred"
+              src="../../assets/images/illustrations/peripherals.png"
+              alt="Collection of motors"
+            />
+          }
+          illustrationPosition="left"
+        >
           <h2 className="h1">Peripherals</h2>
 
           <p>

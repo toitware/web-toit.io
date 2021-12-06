@@ -4,7 +4,7 @@ import { breakpoints } from "../global-css";
 
 export type Person = {
   name: string;
-  image: string;
+  image: JSX.Element;
   description: JSX.Element;
 };
 
@@ -36,7 +36,7 @@ export function ToitTeam({ people, className }: { people: Person[]; className?: 
                 margin-bottom: 1.5rem;
               `}
             >
-              <img width="256" height="256" src={person.image} alt={person.name} />
+              {person.image}
             </div>
             <span
               css={css`

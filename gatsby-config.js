@@ -34,6 +34,13 @@ module.exports = {
     },
     "gatsby-plugin-offline",
     {
+      resolve: "gatsby-plugin-image",
+      options: {
+        placeholder: "blurred",
+      },
+    },
+    "gatsby-plugin-sharp",
+    {
       resolve: `gatsby-plugin-svgr-svgo`,
       options: {
         inlineSvgOptions: [

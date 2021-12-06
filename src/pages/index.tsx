@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import codeSampleSvg from "../assets/images/code-sample.svg";
 import consoleSvg from "../assets/images/console.svg";
@@ -7,7 +8,6 @@ import RobustSandboxingSvg from "../assets/images/icons/robust-sandboxing.inline
 import SecureCommunicationsSvg from "../assets/images/icons/secure-communications.inline.svg";
 import ArrowLeftSvg from "../assets/images/illustrations/arrow-left.inline.svg";
 import ArrowRightSvg from "../assets/images/illustrations/arrow-right.inline.svg";
-import bme280Png from "../assets/images/illustrations/bme280.png";
 import ControlCenterSvg from "../assets/images/illustrations/control-center.svg";
 import GreenhouseSvg from "../assets/images/illustrations/greenhouse.svg";
 import KeysSvg from "../assets/images/illustrations/keys.svg";
@@ -153,7 +153,12 @@ export function IndexPage(): JSX.Element {
           </p>
         </CenteredBlock>
 
-        <SideBySide illustrationPosition="left" illustration={bme280Png}>
+        <SideBySide
+          illustrationPosition="left"
+          illustration={
+            <StaticImage placeholder="blurred" src="../assets/images/illustrations/bme280.png" alt="BME 280" />
+          }
+        >
           <p>
             We let you control any peripheral you plug into your ESP32 through the GPIO pins. You can connect using the
             I2C, SPI, I2S or UART protocols.

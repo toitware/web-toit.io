@@ -1,17 +1,11 @@
 import { css } from "@emotion/react";
+import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import ArrowColumn from "../../assets/images/illustrations/arrow-column.inline.svg";
-import comicPng from "../../assets/images/illustrations/comic.png";
 import controllerBigSvg from "../../assets/images/illustrations/controller-big.svg";
 import controllerSmallSvg from "../../assets/images/illustrations/controller-small.svg";
-import dartPng from "../../assets/images/illustrations/dart.png";
-import teamJpg from "../../assets/images/illustrations/team.jpg";
 import hackadayLogoSrc from "../../assets/images/logos/hackaday.svg";
 import hacksterLogoSrc from "../../assets/images/logos/hackster.svg";
-import andersPng from "../../assets/images/team/anders.png";
-import erikPng from "../../assets/images/team/erik.png";
-import florianPng from "../../assets/images/team/florian.png";
-import kasperPng from "../../assets/images/team/kasper.png";
 import { ButtonLink } from "../../components/button";
 import ContentSpacer from "../../components/ContentSpacer";
 import { bigFont, breakpoints, clampBuilder, darkSection } from "../../components/global-css";
@@ -50,11 +44,12 @@ export function AboutPage(): JSX.Element {
           illustration={
             <div>
               <Link href="https://www.google.com/googlebooks/chrome/big_12.html">
-                <img
+                <StaticImage
                   css={css`
                     display: block;
                   `}
-                  src={comicPng}
+                  placeholder="blurred"
+                  src="../../assets/images/illustrations/comic.png"
                   alt="Comic Strip - Words by the Google Chrome team, comics adaptation by Scott McCloud"
                 />
               </Link>
@@ -79,7 +74,18 @@ export function AboutPage(): JSX.Element {
           </p>
         </SideBySide>
         <ContentSpacer preventLine={true} />
-        <SideBySide illustration={dartPng}>
+        <SideBySide
+          illustration={
+            <StaticImage
+              css={css`
+                display: block;
+              `}
+              placeholder="blurred"
+              src="../../assets/images/illustrations/dart.png"
+              alt="Dart programming language illustration"
+            />
+          }
+        >
           <h2>Then Dart</h2>
           <p>
             Or do you remember when you had to write your app in 3 different languages so it would work on mobile,
@@ -125,7 +131,15 @@ export function AboutPage(): JSX.Element {
           people={[
             {
               name: "Kasper Lund",
-              image: kasperPng,
+              image: (
+                <StaticImage
+                  placeholder="blurred"
+                  src="../../assets/images/team/kasper.png"
+                  alt="Kasper Lund"
+                  width={256}
+                  height={256}
+                />
+              ),
               description: (
                 <div>
                   Kasper Lund spent 12 years at Google as a senior staff engineer and site lead. He co-founded the{" "}
@@ -141,7 +155,15 @@ export function AboutPage(): JSX.Element {
             },
             {
               name: "Erik Corry",
-              image: erikPng,
+              image: (
+                <StaticImage
+                  placeholder="blurred"
+                  src="../../assets/images/team/erik.png"
+                  alt="Erik Corry"
+                  width={256}
+                  height={256}
+                />
+              ),
               description: (
                 <div>
                   Erik Corry was one of the early Google engineers on{" "}
@@ -160,7 +182,15 @@ export function AboutPage(): JSX.Element {
             },
             {
               name: "Florian Loitsch",
-              image: florianPng,
+              image: (
+                <StaticImage
+                  placeholder="blurred"
+                  src="../../assets/images/team/florian.png"
+                  alt="Florian Loitsch"
+                  width={256}
+                  height={256}
+                />
+              ),
               description: (
                 <div>
                   Florian Loitsch is a programming language and compiler specialist. He was the tech lead for the
@@ -173,7 +203,15 @@ export function AboutPage(): JSX.Element {
             },
             {
               name: "Anders Johnsen",
-              image: andersPng,
+              image: (
+                <StaticImage
+                  placeholder="blurred"
+                  src="../../assets/images/team/anders.png"
+                  alt="Anders Johnsen"
+                  width={256}
+                  height={256}
+                />
+              ),
               description: (
                 <div>
                   Anders Johnsen is an infrastructure and scalability wizard. He was tech lead for Uber’s micro-service
@@ -186,8 +224,10 @@ export function AboutPage(): JSX.Element {
             },
           ]}
         />
-        <img
-          src={teamJpg}
+        <StaticImage
+          placeholder="blurred"
+          src="../../assets/images/illustrations/team.jpg"
+          alt="Anders Johnsen"
           css={css`
             width: 100%;
             max-width: 50rem !important;
