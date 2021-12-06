@@ -45,7 +45,7 @@ export function DevicePage(): JSX.Element {
           <SignUpButton />
         </CenteredBlock>
 
-        <HeroImage containerHeightRem={18} image={editorSvg} imageWidth={979} />
+        <HeroImage containerHeightRem={18} image={editorSvg} width={1024} height={314} />
       </Section>
       <Section centered>
         <h2 className="h1">Why create a new language?</h2>
