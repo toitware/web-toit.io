@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React, { useRef } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useViewportPosition } from "../helper";
 
 const Wrapper = styled.div`
@@ -13,11 +14,12 @@ const Wrapper = styled.div`
 
 export type Props = {
   image: string;
-  imageWidth: number;
+  width: number;
+  height: number;
   containerHeightRem?: number;
 };
 
-export const HeroImage: React.FC<Props> = ({ image, imageWidth, containerHeightRem = 20 }) => {
+export const HeroImage: React.FC<Props> = ({ image, width, height, containerHeightRem = 20 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
 
@@ -37,18 +39,24 @@ export const HeroImage: React.FC<Props> = ({ image, imageWidth, containerHeightR
         height: ${containerHeightRem}rem;
       `}
     >
-      <img
+      <div
         ref={imageRef}
         css={css`
-          width: ${imageWidth}px;
-          max-width: none !important;
           transform-origin: left top;
-          @media (min-width: ${imageWidth + 120}px) {
+          @media (min-width: ${width + 120}px) {
             transform-origin: center top;
           }
         `}
-        src={image}
-      />
+      >
+        <LazyLoadImage
+          css={css`
+            max-width: none !important;
+          `}
+          width={width}
+          height={height}
+          src={image}
+        />
+      </div>
     </Wrapper>
   );
 };

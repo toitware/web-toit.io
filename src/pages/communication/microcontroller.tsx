@@ -100,7 +100,7 @@ export function IndexPage(): JSX.Element {
             `}
           />
         </div>
-        <HeroImage image={consoleSvg} imageWidth={979} />
+        <HeroImage image={consoleSvg} width={979} height={662} />
       </Hero>
       <Section>
         <H1

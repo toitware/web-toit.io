@@ -1,14 +1,109 @@
 import { css } from "@emotion/react";
+import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import { breakpoints } from "../global-css";
+import Link from "../link";
 
 export type Person = {
   name: string;
-  image: string;
+  image: JSX.Element;
   description: JSX.Element;
 };
 
-export function ToitTeam({ people, className }: { people: Person[]; className?: string }): JSX.Element {
+const imageSize = 256;
+
+const people: Person[] = [
+  {
+    name: "Kasper Lund",
+    image: (
+      <StaticImage
+        placeholder="blurred"
+        src="../../assets/images/team/kasper.png"
+        alt="Kasper Lund"
+        width={imageSize}
+        height={imageSize}
+      />
+    ),
+    description: (
+      <div>
+        Kasper Lund spent 12 years at Google as a senior staff engineer and site lead. He co-founded the{" "}
+        <Link href="https://en.wikipedia.org/wiki/Chrome_V8%22">V8</Link> and{" "}
+        <Link href="https://en.wikipedia.org/wiki/Dart_(programming_language)">Dart</Link> projects, and led the team
+        that brought{" "}
+        <Link href="https://blog.chromium.org/2010/12/new-crankshaft-for-v8.html">
+          adaptive optimizations to JavaScript
+        </Link>
+        , finally making the web fast.
+      </div>
+    ),
+  },
+  {
+    name: "Erik Corry",
+    image: (
+      <StaticImage
+        placeholder="blurred"
+        src="../../assets/images/team/erik.png"
+        alt="Erik Corry"
+        width={imageSize}
+        height={imageSize}
+      />
+    ),
+    description: (
+      <div>
+        Erik Corry was one of the early Google engineers on{" "}
+        <Link href="https://en.wikipedia.org/wiki/Chrome_V8%22">V8</Link>, the engine behind Chrome and later{" "}
+        <Link href="https://nodejs.org">Node.js</Link>. He is an expert on{" "}
+        <Link href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">garbage collectors</Link> and
+        the co-author of the{" "}
+        <Link href="https://blog.chromium.org/2009/02/irregexp-google-chromes-new-regexp.html">
+          fastest regular expression engine
+        </Link>{" "}
+        in the world.
+      </div>
+    ),
+  },
+  {
+    name: "Florian Loitsch",
+    image: (
+      <StaticImage
+        placeholder="blurred"
+        src="../../assets/images/team/florian.png"
+        alt="Florian Loitsch"
+        width={imageSize}
+        height={imageSize}
+      />
+    ),
+    description: (
+      <div>
+        Florian Loitsch is a programming language and compiler specialist. He was the tech lead for the business
+        critical <Link href="https://webdev.dartlang.org/tools/dart2js">Dart-to-JavaScript compiler</Link> at Google and
+        in charge of the evolution of the{" "}
+        <Link href="https://en.wikipedia.org/wiki/Dart_(programming_language)">Dart language</Link>.
+      </div>
+    ),
+  },
+  {
+    name: "Anders Johnsen",
+    image: (
+      <StaticImage
+        placeholder="blurred"
+        src="../../assets/images/team/anders.png"
+        alt="Anders Johnsen"
+        width={imageSize}
+        height={imageSize}
+      />
+    ),
+    description: (
+      <div>
+        Anders Johnsen is an infrastructure and scalability wizard. He was tech lead for Uber’s micro-service scheduling
+        platform and <Link href="https://eng.uber.com/schemaless-part-one/">scalable datastore</Link> and he worked on
+        optimizing server-side <Link href="https://en.wikipedia.org/wiki/Dart_(programming_language)">Dart</Link> at
+        Google.
+      </div>
+    ),
+  },
+];
+export function ToitTeam({ className }: { className?: string }): JSX.Element {
   return (
     <div
       className={className}
@@ -36,7 +131,7 @@ export function ToitTeam({ people, className }: { people: Person[]; className?: 
                 margin-bottom: 1.5rem;
               `}
             >
-              <img width="256" height="256" src={person.image} alt={person.name} />
+              {person.image}
             </div>
             <span
               css={css`

@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React, { ReactNode } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { breakpoints } from "../global-css";
 
 const Wrapper = styled.section`
@@ -52,6 +53,7 @@ const IllustrationElement = styled.div`
   img,
   video {
     width: 100%;
+    height: auto;
   }
 
   /* Prevent the Chromecast icon from appearing on android devices */
@@ -66,6 +68,8 @@ type SideBySideProps = {
   illustration: string | JSX.Element;
   illustrationPosition?: "left" | "right";
   illustrationMaxWidth?: string;
+  illustrationWidth?: number;
+  illustrationHeight?: number;
   unboxedIllustration?: boolean;
   className?: string;
 };
@@ -76,9 +80,16 @@ export function SideBySide({
   illustration,
   illustrationPosition = "right",
   illustrationMaxWidth = "32rem",
+  illustrationWidth,
+  illustrationHeight,
   unboxedIllustration = false,
 }: SideBySideProps): JSX.Element {
-  const illustrationElement = typeof illustration === "string" ? <img src={illustration} /> : illustration;
+  const illustrationElement =
+    typeof illustration === "string" ? (
+      <LazyLoadImage width={illustrationWidth} height={illustrationHeight} src={illustration} />
+    ) : (
+      illustration
+    );
   return (
     <Wrapper className={className}>
       <Content>

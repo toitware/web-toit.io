@@ -1,17 +1,11 @@
 import { css } from "@emotion/react";
+import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import ArrowColumn from "../../assets/images/illustrations/arrow-column.inline.svg";
-import comicPng from "../../assets/images/illustrations/comic.png";
 import controllerBigSvg from "../../assets/images/illustrations/controller-big.svg";
 import controllerSmallSvg from "../../assets/images/illustrations/controller-small.svg";
-import dartPng from "../../assets/images/illustrations/dart.png";
-import teamJpg from "../../assets/images/illustrations/team.jpg";
 import hackadayLogoSrc from "../../assets/images/logos/hackaday.svg";
 import hacksterLogoSrc from "../../assets/images/logos/hackster.svg";
-import andersPng from "../../assets/images/team/anders.png";
-import erikPng from "../../assets/images/team/erik.png";
-import florianPng from "../../assets/images/team/florian.png";
-import kasperPng from "../../assets/images/team/kasper.png";
 import { ButtonLink } from "../../components/button";
 import ContentSpacer from "../../components/ContentSpacer";
 import { bigFont, breakpoints, clampBuilder, darkSection } from "../../components/global-css";
@@ -50,11 +44,12 @@ export function AboutPage(): JSX.Element {
           illustration={
             <div>
               <Link href="https://www.google.com/googlebooks/chrome/big_12.html">
-                <img
+                <StaticImage
                   css={css`
                     display: block;
                   `}
-                  src={comicPng}
+                  placeholder="blurred"
+                  src="../../assets/images/illustrations/comic.png"
                   alt="Comic Strip - Words by the Google Chrome team, comics adaptation by Scott McCloud"
                 />
               </Link>
@@ -79,7 +74,18 @@ export function AboutPage(): JSX.Element {
           </p>
         </SideBySide>
         <ContentSpacer preventLine={true} />
-        <SideBySide illustration={dartPng}>
+        <SideBySide
+          illustration={
+            <StaticImage
+              css={css`
+                display: block;
+              `}
+              placeholder="blurred"
+              src="../../assets/images/illustrations/dart.png"
+              alt="Dart programming language illustration"
+            />
+          }
+        >
           <h2>Then Dart</h2>
           <p>
             Or do you remember when you had to write your app in 3 different languages so it would work on mobile,
@@ -122,72 +128,11 @@ export function AboutPage(): JSX.Element {
           css={css`
             margin-top: var(--sectionVerticalPadding);
           `}
-          people={[
-            {
-              name: "Kasper Lund",
-              image: kasperPng,
-              description: (
-                <div>
-                  Kasper Lund spent 12 years at Google as a senior staff engineer and site lead. He co-founded the{" "}
-                  <Link href="https://en.wikipedia.org/wiki/Chrome_V8%22">V8</Link> and{" "}
-                  <Link href="https://en.wikipedia.org/wiki/Dart_(programming_language)">Dart</Link> projects, and led
-                  the team that brought{" "}
-                  <Link href="https://blog.chromium.org/2010/12/new-crankshaft-for-v8.html">
-                    adaptive optimizations to JavaScript
-                  </Link>
-                  , finally making the web fast.
-                </div>
-              ),
-            },
-            {
-              name: "Erik Corry",
-              image: erikPng,
-              description: (
-                <div>
-                  Erik Corry was one of the early Google engineers on{" "}
-                  <Link href="https://en.wikipedia.org/wiki/Chrome_V8%22">V8</Link>, the engine behind Chrome and later{" "}
-                  <Link href="https://nodejs.org">Node.js</Link>. He is an expert on{" "}
-                  <Link href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">
-                    garbage collectors
-                  </Link>{" "}
-                  and the co-author of the{" "}
-                  <Link href="https://blog.chromium.org/2009/02/irregexp-google-chromes-new-regexp.html">
-                    fastest regular expression engine
-                  </Link>{" "}
-                  in the world.
-                </div>
-              ),
-            },
-            {
-              name: "Florian Loitsch",
-              image: florianPng,
-              description: (
-                <div>
-                  Florian Loitsch is a programming language and compiler specialist. He was the tech lead for the
-                  business critical{" "}
-                  <Link href="https://webdev.dartlang.org/tools/dart2js">Dart-to-JavaScript compiler</Link> at Google
-                  and in charge of the evolution of the{" "}
-                  <Link href="https://en.wikipedia.org/wiki/Dart_(programming_language)">Dart language</Link>.
-                </div>
-              ),
-            },
-            {
-              name: "Anders Johnsen",
-              image: andersPng,
-              description: (
-                <div>
-                  Anders Johnsen is an infrastructure and scalability wizard. He was tech lead for Uber’s micro-service
-                  scheduling platform and{" "}
-                  <Link href="https://eng.uber.com/schemaless-part-one/">scalable datastore</Link> and he worked on
-                  optimizing server-side{" "}
-                  <Link href="https://en.wikipedia.org/wiki/Dart_(programming_language)">Dart</Link> at Google.
-                </div>
-              ),
-            },
-          ]}
         />
-        <img
-          src={teamJpg}
+        <StaticImage
+          placeholder="blurred"
+          src="../../assets/images/illustrations/team.jpg"
+          alt="Anders Johnsen"
           css={css`
             width: 100%;
             max-width: 50rem !important;
