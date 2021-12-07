@@ -50,7 +50,6 @@ export const HeroImage: React.FC<Props> = ({ image, width, height, containerHeig
       >
         <LazyLoadImage
           css={css`
-            width: ${width}px;
             max-width: none !important;
           `}
           width={width}
