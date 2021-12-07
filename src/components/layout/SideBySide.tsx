@@ -53,6 +53,7 @@ const IllustrationElement = styled.div`
   img,
   video {
     width: 100%;
+    height: auto;
   }
 
   /* Prevent the Chromecast icon from appearing on android devices */
