@@ -58,6 +58,7 @@ export function IndexPage(): JSX.Element {
       title="Toit - IoT software platform for the ESP32"
       rawTitle
       description="The Toit software platform makes it easy to deploy high-level code on the ESP32. Sign up for Toit and get started on your IoT project."
+      signUpText="Get access to our software development platform and start building your IoT solution on the ESP32."
     >
       <Hero
         css={css`
@@ -65,7 +66,7 @@ export function IndexPage(): JSX.Element {
         `}
       >
         <PageTitle
-          title={<span>Cloud-managed containers on the ESP32</span>}
+          title={<span>IoT software platform for the ESP32</span>}
           css={css`
             border-bottom: 2px solid ${black.string()};
             h1 {
@@ -74,8 +75,7 @@ export function IndexPage(): JSX.Element {
           `}
         />
         <p css={[bigFont]}>
-          Secure the code on your ESP32 microcontrollers with lightweight containers and orchestrate them through our
-          cloud API.
+          Modern programming platform on embedded devices. Code your ESP32 microcontrollers with the Toit firmware.
         </p>
         <div>
           <SignUpButton />
@@ -127,13 +127,13 @@ export function IndexPage(): JSX.Element {
             margin-bottom: ${clampBuilder("tiny", "large", 3, 12)};
           `}
         >
-          Full serviceability for your fleet
+          Over the Air updates for your microcontrollers
         </H1>
 
         <SideBySide illustration={GreenhouseSvg} illustrationWidth={1505} illustrationHeight={1051}>
           <p css={bigFont}>
-            Continuously update the code on your ESP32 microcontrollers even over cellular connections. Monitor and
-            securely service your entire device fleet in production; all through the Toit API.
+            Risk free OTA code updates of your ESP32-based devices with the Toit firmware. Full serviceability of your
+            device fleet in production with our API.
           </p>
           <SignUpButton />
         </SideBySide>
@@ -144,12 +144,12 @@ export function IndexPage(): JSX.Element {
           background-color: ${dartSecondary.string()};
         `}
       >
-        <h2 className="h1">Connectivity and peripherals</h2>
+        <h2 className="h1">Flexible connectivity</h2>
 
         <CenteredBlock>
           <p>
-            Toit supports the ESP32’s built-in WiFi, but we also support the most common external communications
-            modules. Many of our customers connect to the cloud via cellular modems using NB-IoT or LTE-M.
+            Use the WiFi built into the ESP32, or use an external GSM module. LTE-M and NB-IoT are both popular with our
+            customers.
           </p>
         </CenteredBlock>
 
@@ -161,17 +161,14 @@ export function IndexPage(): JSX.Element {
           illustrationWidth={1024}
           illustrationHeight={1024}
         >
+          <p>Connect any peripheral you want with the GPIO pins. Toit supports UART, I2C, I2S and SPI.</p>
           <p>
-            We let you control any peripheral you plug into your ESP32 through the GPIO pins. You can connect using the
-            I2C, SPI, I2S or UART protocols.
-          </p>
-          <p>
-            Our package manager gives you access to drivers for many commonly used peripherals like sensors and motors,
-            and if you’re missing one, our engineering team is ready to help you write it.
+            Find the drivers you need with our package manager. If you find one missing, let us know, and we are ready
+            to help you code it.
           </p>
         </SideBySide>
       </Section>
-      <TeamsSection />
+      <TeamsSection title="Happy Toit customers" />
       <Section
         css={[
           darkSection,
@@ -180,10 +177,14 @@ export function IndexPage(): JSX.Element {
           `,
         ]}
       >
-        <ParagraphHeader title="Fast and safe" subtitle="Modular applications for embedded devices">
-          Our platform is built on the free and open source <a href="https://github.com/toitlang/toit">Toit language</a>
-          , so you write your applications in a high-level, memory-safe language and let the battery-optimized virtual
-          machine execute them efficiently on your ESP32s. Fast to develop, safe to run.
+        <ParagraphHeader
+          title="Open source programming language"
+          subtitle="High-level software platform for embedded devices"
+        >
+          Toit is built on the <a href="https://github.com/toitlang/toit">Toit programming language</a>, a fast-growing
+          open source language built for IoT. Toit language is a memory-safe, high-level coding language that executes
+          your code in a virtual machine optimized for power consumption. Our customers run an ESP32 for years on 2 AA
+          batteries.
         </ParagraphHeader>
 
         <div
@@ -204,26 +205,21 @@ export function IndexPage(): JSX.Element {
           />
 
           <FeaturesContainer>
-            <FeatureBox title="Sandboxed containers" icon={<RobustSandboxingSvg />} position="left">
-              Your applications run isolated from the system, and each other, on the devices.
+            <FeatureBox title="Isolated software applications" icon={<RobustSandboxingSvg />} position="left">
+              The system is isolated from your code, and your applications are isolated from each other.
             </FeatureBox>
-            <FeatureBox title="Secure communications" icon={<SecureCommunicationsSvg />} position="right">
-              Communicate with our cloud through a simple API, we take care of the rest.
+            <FeatureBox title="Built-in security" icon={<SecureCommunicationsSvg />} position="right">
+              All communication is end-to-end encrypted. Finally a secure IoT platform.
             </FeatureBox>
           </FeaturesContainer>
         </div>
       </Section>
       <Section>
         <SideBySide illustration={KeysSvg} illustrationWidth={517} illustrationHeight={651}>
-          <H1>Control your data</H1>
+          <H1>Send your data to your cloud</H1>
           <p>
-            You own your data and you get to store it wherever you want. Feed data from your devices directly into your
-            own system using HTTPS or MQTT, or let us help you get your bits to and from your devices. It is as simple
-            as that.
-          </p>
-          <p>
-            Deploy code, access logs, update firmware, and install applications on your devices. Let your data flow into
-            your own system, share it with your customers. We just handle your microcontrollers.
+            Use HTTPS or MQTT to send your data directly from your devices to your own system, or use our built-in
+            Pub/Sub. Deploy code, update firmware and monitor your devices. We take care of your ESP32 microcontrollers.
           </p>
         </SideBySide>
         <ContentSpacer />
@@ -237,16 +233,16 @@ export function IndexPage(): JSX.Element {
           illustrationWidth={960}
           illustrationHeight={1320}
         >
-          <h2>Risk-free code deployment</h2>
+          <h2>Deploy code with no risk</h2>
 
           <p>
-            No matter which bug slips into your code, the worst it can do is crash that one application. The system, as
-            well as all your other applications, keeps running as if nothing had happened. This makes changing and
-            deploying new code risk-free.
+            Bugs in embedded software development used to be catastrophic. With Toit, a bug in your code will only crash
+            that one application. The system and your other applications keep running. Change and deploy new code with
+            no risk.
           </p>
           <p>
-            Treat firmware and drivers as you treat software. Set up a continuous delivery pipeline and deploy new
-            device code on every commit.
+            Toit makes embedded development like software development. Integrate your device into your continuous
+            delivery pipeline and deploy new code every week instead of every year.
           </p>
           <p>
             <ButtonLink to="/product/device" variant="outlined">
@@ -256,15 +252,15 @@ export function IndexPage(): JSX.Element {
         </SideBySide>
         <ContentSpacer />
         <SideBySide illustration={ThermostatSvg} illustrationWidth={516} illustrationHeight={652}>
-          <h2>Monitor and service your devices in production</h2>
+          <h2>Full serviceability for your fleet</h2>
           <p>
-            Get full visibility into your device fleet with logs covering connectivity, code execution, and crash
-            reports. Trace the bug, fix it and redeploy, all within minutes.
+            Toit gives you a full overview of your production devices. A bug results in a stack trace that lets you fix
+            it and redeploy in minutes.
           </p>
-          <p>Assign your devices into groups and deploy updates on a group by group basis. </p>
+          <p>Group your devices and update all the devices in a group in one go.</p>
           <p>
-            All communication is end-to-end encrypted using modern public-key cryptography. The same technology that
-            keeps the internet secure keeps your devices and data safe.
+            Communication to and from the device is end-to-end encrypted. Sleep well at night knowing that your devices
+            and your data are safe.
           </p>
           <p>
             <ButtonLink to="/product/cloud" variant="outlined">
@@ -275,10 +271,10 @@ export function IndexPage(): JSX.Element {
       </Section>
       <Section css={darkSection}>
         <CenteredBlock>
-          <H1>Built for software developers</H1>
+          <H1>Modern software platform</H1>
           <p css={bigFont}>
-            If you have ever tried to write code for microcontrollers you know that it’s not a nice experience. You code
-            in C, and a simple code change takes minutes to re-deploy.
+            Writing code for microcontrollers is not nice. You need to code in C, and deploying a simple code update
+            takes several minutes.
           </p>
         </CenteredBlock>
 
@@ -308,7 +304,7 @@ export function IndexPage(): JSX.Element {
               }
             `}
           >
-            Toit is a free and open source object-oriented language designed specifically for IoT
+            Toit is an open source programming language designed for embedded devices
           </p>
           <img
             css={css`
@@ -353,13 +349,13 @@ main:\n\
           illustrationHeight={266}
         >
           <p>
-            <strong>Toit is a modern, memory-safe language.</strong> It includes state of the art editor integration
-            including syntax highlighting, goto-definitions, and auto completions.
+            <strong>Toit is a high-level object-oriented programming language</strong> built for IoT. It has full editor
+            integration with auto completion, syntax highlighting and more.
           </p>
 
           <p>
-            Deploying code on your device takes just a second, with no need to flash the device, not minutes like you
-            normally see for microcontrollers.
+            It takes only one second to deploy code to your ESP32. It all happens over the air, and you don’t need to
+            flash your device. No more waiting minutes like you’re used to for embedded development.
           </p>
 
           <p>
@@ -379,21 +375,14 @@ main:\n\
         <ContentSpacer preventLine large />
 
         <SideBySide illustration={ControlCenterSvg} illustrationWidth={683} illustrationHeight={553}>
-          <h2>Control everything with our API</h2>
+          <h2>API first</h2>
 
           <p>
-            We don&apos;t want to lock you into using our console. We don&apos;t want you to feel constrained by our
-            command line tools.{" "}
-            <strong>
-              You are in full control of your devices and everything you can do with the Toit platform, you can do
-              through our powerful API.
-            </strong>
+            <strong>Our API lets you do everything you need.</strong> Download data from your devices, check the health
+            of your microcontrollers, deploy new software, and view logs.
           </p>
 
-          <p>
-            Our programmatic API can be used from any environment and from any programming language. It is easy to
-            integrate our platform into your products and turn your device fleet fully programmable.
-          </p>
+          <p>Our API works with any programming language and is easy to integrate into your product.</p>
         </SideBySide>
       </Section>
     </Layout>
