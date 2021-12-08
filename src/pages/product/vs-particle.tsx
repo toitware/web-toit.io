@@ -25,7 +25,7 @@ export function CloudPage(): JSX.Element {
       />
       <VersusMenu active="particle" />
       <Section>
-        <SideBySide illustration={blocksSvg}>
+        <SideBySide illustration={blocksSvg} illustrationWidth={419} illustrationHeight={341}>
           <h2 className="h1">Toit vs Particle</h2>
           <p>
             Particle sells ready-made ARM-based development boards and provides fleet management solutions to get

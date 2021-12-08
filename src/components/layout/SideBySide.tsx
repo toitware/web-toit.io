@@ -1,8 +1,8 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React, { ReactNode } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { breakpoints } from "../global-css";
+import LazyImage from "../LazyImage";
 
 const Wrapper = styled.section`
   display: grid;
@@ -68,8 +68,8 @@ type SideBySideProps = {
   illustration: string | JSX.Element;
   illustrationPosition?: "left" | "right";
   illustrationMaxWidth?: string;
-  illustrationWidth?: number;
-  illustrationHeight?: number;
+  illustrationWidth: number;
+  illustrationHeight: number;
   unboxedIllustration?: boolean;
   className?: string;
 };
@@ -86,7 +86,7 @@ export function SideBySide({
 }: SideBySideProps): JSX.Element {
   const illustrationElement =
     typeof illustration === "string" ? (
-      <LazyLoadImage width={illustrationWidth} height={illustrationHeight} src={illustration} />
+      <LazyImage width={illustrationWidth} height={illustrationHeight} src={illustration} />
     ) : (
       illustration
     );

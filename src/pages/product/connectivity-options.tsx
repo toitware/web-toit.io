@@ -22,7 +22,7 @@ export function CloudPage(): JSX.Element {
         `}
       />
       <Section>
-        <SideBySide illustration={connectivityPng}>
+        <SideBySide illustration={connectivityPng} illustrationHeight={1024} illustrationWidth={1024}>
           <p>When you run Toit, you get direct connectivity using the built-in WiFi of the ESP32.</p>
           <p>
             You can also connect any external communications module. Our platform has built-in support for the most

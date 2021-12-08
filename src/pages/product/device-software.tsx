@@ -61,7 +61,13 @@ export function DevicePage(): JSX.Element {
 
         <ContentSpacer />
 
-        <SideBySide illustrationPosition="left" illustration={<VideoAutoPlay videoUrl={blocksVideo} />} css={bigFont}>
+        <SideBySide
+          illustrationPosition="left"
+          illustration={<VideoAutoPlay videoUrl={blocksVideo} />}
+          css={bigFont}
+          illustrationWidth={962}
+          illustrationHeight={1180}
+        >
           Toit language is a high-level language that’s made to have a syntax very close to Python. As it’s built from
           first principles for microcontrollers, it’s at least 20x faster than MicroPython. We’ve also built a slick IDE
           integration.
@@ -73,7 +79,7 @@ export function DevicePage(): JSX.Element {
           background-color: ${pythonSecondary.string()};
         `}
       >
-        <SideBySide illustration={chipSvg}>
+        <SideBySide illustration={chipSvg} illustrationWidth={663} illustrationHeight={449}>
           <h2 className="h1">Virtual machine</h2>
           Your code runs as one or more applications inside the Toit virtual machine. The virtual machine creates a
           sandboxed environment for your code, so the worst that can happen from a bug is your application crashing. The
@@ -82,7 +88,12 @@ export function DevicePage(): JSX.Element {
       </Section>
 
       <Section>
-        <SideBySide illustration={overTheAirUpdatesSvg} illustrationPosition="left">
+        <SideBySide
+          illustration={overTheAirUpdatesSvg}
+          illustrationPosition="left"
+          illustrationWidth={394}
+          illustrationHeight={666}
+        >
           <h2 className="h1">Over-the-air updates</h2>
           Updating your devices over the air is as easy on the Toit platform as it is to deploy new code to a web app,
           even on slow and shaky connections. The system even keeps running through the update.
