@@ -229,11 +229,13 @@ export function IndexPage(): JSX.Element {
         <ContentSpacer />
         <SideBySide
           illustration={
-            <video muted autoPlay loop playsInline>
+            <video muted autoPlay loop playsInline width="960" height="1320">
               <source src={weatherBalloonMp4} type="video/mp4" />
             </video>
           }
           illustrationPosition="left"
+          illustrationWidth={960}
+          illustrationHeight={1320}
         >
           <h2>Risk-free code deployment</h2>
 

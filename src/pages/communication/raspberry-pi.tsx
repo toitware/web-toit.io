@@ -36,7 +36,7 @@ export function RaspberryPage(): JSX.Element {
             background: ${pythonSecondary.string()};
           `}
         >
-          <SideBySide illustration={microcontrollerSvg}>
+          <SideBySide illustration={microcontrollerSvg} illustrationWidth={540} illustrationHeight={407}>
             <h1>50 KB code updates on Raspberry Pi</h1>
             <p>
               Tired of 200 MB code updates on your Raspberry Pi IoT device? Connect your Raspberry Pi to the Toit cloud
@@ -62,7 +62,7 @@ export function RaspberryPage(): JSX.Element {
           >
             Full serviceability on cellular connections
           </h1>
-          <SideBySide illustration={greenhouseSvg}>
+          <SideBySide illustration={greenhouseSvg} illustrationWidth={1505} illustrationHeight={1051}>
             <p>
               Update your code over a low-bandwidth cellular connection in 2 seconds instead of 10 minutes. Code updates
               via the Toit software platform are typically 50 KB or less, and they never fail. Even if the connection
@@ -76,7 +76,12 @@ export function RaspberryPage(): JSX.Element {
             background: ${dartSecondary.string()};
           `}
         >
-          <SideBySide illustration={fleetSvg} illustrationPosition="left">
+          <SideBySide
+            illustration={fleetSvg}
+            illustrationPosition="left"
+            illustrationWidth={666}
+            illustrationHeight={429}
+          >
             <h1>Install on your existing fleet with zero risk</h1>
             <p>
               The entire Toit installation is just 1 MB. Put it on your existing devices next to the existing code.
@@ -98,7 +103,7 @@ export function RaspberryPage(): JSX.Element {
             </p>
           </CenteredBlock>
           <ContentSpacer />
-          <SideBySide illustration={codeSampleSvg}>
+          <SideBySide illustration={codeSampleSvg} illustrationWidth={555} illustrationHeight={536}>
             <h2>Use the same code across hardware platforms</h2>
             <p>
               Toit works just as great on the ESP32 microcontroller. If you want to swap your $30 Raspberry Pi with a $2

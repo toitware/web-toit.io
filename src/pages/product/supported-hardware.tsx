@@ -62,6 +62,8 @@ export function CloudPage(): JSX.Element {
               alt="Collection of motors"
             />
           }
+          illustrationWidth={1024}
+          illustrationHeight={1024}
           illustrationPosition="left"
         >
           <h2 className="h1">Peripherals</h2>
@@ -75,7 +77,12 @@ export function CloudPage(): JSX.Element {
 
         <ContentSpacer />
 
-        <SideBySide illustration={boxesSvg} illustrationPosition="right">
+        <SideBySide
+          illustration={boxesSvg}
+          illustrationPosition="right"
+          illustrationWidth={749}
+          illustrationHeight={749}
+        >
           <h2 className="h1">Out-of-the-box drivers</h2>
 
           <p>

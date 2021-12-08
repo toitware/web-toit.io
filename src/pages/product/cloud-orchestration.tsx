@@ -28,7 +28,7 @@ export function CloudPage(): JSX.Element {
       />
 
       <Section>
-        <SideBySide illustration={fleetSvg}>
+        <SideBySide illustration={fleetSvg} illustrationWidth={666} illustrationHeight={429}>
           <p css={bigFont}>
             Our fleet orchestration gives you both a clear overview and detailed information about the health of your
             device fleet.
@@ -60,7 +60,12 @@ export function CloudPage(): JSX.Element {
       </Section>
 
       <Section>
-        <SideBySide illustration={securityGateSvg} illustrationPosition="left">
+        <SideBySide
+          illustration={securityGateSvg}
+          illustrationPosition="left"
+          illustrationWidth={401}
+          illustrationHeight={609}
+        >
           <h2 className="h1">Secure communication</h2>
           All communication between the device and the cloud is end-to-end encrypted using modern public-key encryption.
           Each device has its own cryptographically secure identity, so you know exactly where all collected data stems
@@ -82,6 +87,8 @@ export function CloudPage(): JSX.Element {
           `}
           illustration={<ApiCalls />}
           illustrationPosition="right"
+          illustrationWidth={0} // Ignored
+          illustrationHeight={0} // Ignored
           unboxedIllustration
         >
           <div

@@ -65,6 +65,8 @@ export function AboutPage(): JSX.Element {
             </div>
           }
           illustrationPosition="left"
+          illustrationWidth={1362}
+          illustrationHeight={1080}
         >
           <h2>First Chrome V8</h2>
           <p>Do you remember when your browser crashed because you had opened one too many tabs?</p>
@@ -85,6 +87,8 @@ export function AboutPage(): JSX.Element {
               alt="Dart programming language illustration"
             />
           }
+          illustrationWidth={1404}
+          illustrationHeight={1080}
         >
           <h2>Then Dart</h2>
           <p>
@@ -216,7 +220,7 @@ export function AboutPage(): JSX.Element {
           </div>
         </div>
         <ContentSpacer />
-        <SideBySide illustration={controllerBigSvg}>
+        <SideBySide illustration={controllerBigSvg} illustrationWidth={404} illustrationHeight={283}>
           <p>
             So when you sign up for Toit, you can start using our software on your own microcontroller-based hardware.
           </p>

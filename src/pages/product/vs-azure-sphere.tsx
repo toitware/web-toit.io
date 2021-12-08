@@ -25,7 +25,7 @@ export function CloudPage(): JSX.Element {
       />
       <VersusMenu active="azure-sphere" />
       <Section>
-        <SideBySide illustration={airUpdatesSvg}>
+        <SideBySide illustration={airUpdatesSvg} illustrationWidth={663} illustrationHeight={449}>
           <h2 className="h1">Toit vs Azure Sphere</h2>
           <p>
             Microsoft Azure Sphere provides traditional IoT development capabilities on specific ARM-based dev kits,

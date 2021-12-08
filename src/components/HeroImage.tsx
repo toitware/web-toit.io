@@ -1,8 +1,8 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React, { useRef } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useViewportPosition } from "../helper";
+import LazyImage from "./LazyImage";
 
 const Wrapper = styled.div`
   display: block;
@@ -48,7 +48,7 @@ export const HeroImage: React.FC<Props> = ({ image, width, height, containerHeig
           }
         `}
       >
-        <LazyLoadImage
+        <LazyImage
           css={css`
             max-width: none !important;
           `}
