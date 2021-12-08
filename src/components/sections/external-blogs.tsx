@@ -81,7 +81,7 @@ function Blog({
   children,
 }: {
   name?: string;
-  Logo: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+  Logo: React.FunctionComponent;
   link: string;
   children: React.ReactNode;
 }): JSX.Element {
