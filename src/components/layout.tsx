@@ -92,6 +92,8 @@ interface LayoutProps {
   // If you want to replace the default call to action button in the header,
   // you can provide an alternative here.
   callToAction?: JSX.Element;
+
+  signUpText?: string;
 }
 
 export default function Layout({
@@ -103,6 +105,7 @@ export default function Layout({
   simplified = false,
   hideHeader = false,
   callToAction,
+  signUpText = "Get access to our platform and start your journey to invent the future.",
 }: LayoutProps): JSX.Element {
   const data: GraphType = useStaticQuery(graphql`
     query LayoutTitleQuery {
@@ -162,7 +165,7 @@ export default function Layout({
                           margin: 3rem auto;
                         `}
                       >
-                        Get access to our platform and start your journey to invent the future.
+                        {signUpText}
                       </p>
                       <SignUpButton />
                     </Section>
