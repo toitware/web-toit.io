@@ -26,9 +26,10 @@ const TeamCell = styled.div`
 
 type Props = {
   className?: string;
+  title?: string;
 };
 
-export function TeamsSection({ className }: Props): JSX.Element {
+export function TeamsSection({ className, title = "Great teams build on Toit" }: Props): JSX.Element {
   return (
     <Section
       className={className}
@@ -46,7 +47,7 @@ export function TeamsSection({ className }: Props): JSX.Element {
           margin-bottom: var(--sectionVerticalPadding);
         `}
       >
-        Great teams build on Toit
+        {title}
       </h3>
 
       <TeamGrid>
