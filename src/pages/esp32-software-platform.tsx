@@ -57,7 +57,7 @@ export function IndexPage(): JSX.Element {
     <Layout
       title="Toit - IoT software platform for the ESP32"
       rawTitle
-      description="The Toit software platform makes it easy to deploy high-level code on the ESP32. Sign up for Toit and get started on your IoT project."
+      description="Develop high-level software for your ESP32 microcontrollers with the Toit coding platform. Start your IoT project today with Toit."
       signUpText="Get access to our software development platform and start building your IoT solution on the ESP32."
     >
       <Hero
