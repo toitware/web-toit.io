@@ -249,8 +249,8 @@ export function IndexPage(): JSX.Element {
             device code on every commit.
           </p>
           <p>
-            <ButtonLink to="/product/device" variant="outlined">
-              Learn more
+            <ButtonLink to="/product/device-software" variant="outlined">
+              Learn more <span className="link-title">about the device software</span>
             </ButtonLink>
           </p>
         </SideBySide>
@@ -267,8 +267,8 @@ export function IndexPage(): JSX.Element {
             keeps the internet secure keeps your devices and data safe.
           </p>
           <p>
-            <ButtonLink to="/product/cloud" variant="outlined">
-              Learn more
+            <ButtonLink to="/product/cloud-orchestration" variant="outlined">
+              Learn more <span className="link-title">about fleet orchestration</span>
             </ButtonLink>
           </p>
         </SideBySide>
@@ -371,7 +371,7 @@ main:\n\
               href="https://docs.toit.io/language/language"
               variant="outlined"
             >
-              Learn more
+              Learn more <span className="link-title">about the Toit programming language</span>
             </ButtonLink>
           </p>
         </SideBySide>
