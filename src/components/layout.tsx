@@ -134,7 +134,7 @@ export default function Layout({
       <Helmet title={computedTitle}>
         <meta property="og:title" content={computedTitle} />
         <meta property="og:image" content={opengraphPng} />
-        {description && <meta property="description" content={description} />}
+        {description && <meta name="description" content={description} />}
       </Helmet>
       <MDXProvider components={{ ...shorthands, ...components }}>
         <MuiThemeProvider theme={primaryTheme}>
