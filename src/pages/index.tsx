@@ -316,6 +316,7 @@ export function IndexPage(): JSX.Element {
                 width: 45%;
               }
             `}
+            alt="Toit language code sample"
             src={codeSampleSvg}
           />
         </div>

@@ -131,7 +131,12 @@ export default function Layout({
   return (
     <>
       <GlobalCss />
-      <Helmet title={computedTitle}>
+      <Helmet
+        title={computedTitle}
+        htmlAttributes={{
+          lang: "en",
+        }}
+      >
         <meta property="og:title" content={computedTitle} />
         <meta property="og:image" content={opengraphPng} />
         {description && <meta name="description" content={description} />}
@@ -179,10 +184,10 @@ export default function Layout({
                       </p>
 
                       <ThirdPartyLogos>
-                        <img src={EspressifSvg} />
-                        <img src={OnomondoSvg} />
-                        <img src={SoracomSvg} />
-                        <img src={UbloxSvg} />
+                        <img src={EspressifSvg} alt="Espressif" />
+                        <img src={OnomondoSvg} alt="Onomondo" />
+                        <img src={SoracomSvg} alt="Soracom" />
+                        <img src={UbloxSvg} alt="Ublox" />
                       </ThirdPartyLogos>
                     </Section>
                   </Content>
