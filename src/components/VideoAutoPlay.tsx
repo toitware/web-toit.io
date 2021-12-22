@@ -71,7 +71,7 @@ export const VideoAutoPlay: React.FC<Props> = ({ videoUrl, autoRewind = false })
 
   return (
     <div ref={wrapperRef}>
-      <video ref={ref} muted autoPlay playsInline>
+      <video ref={ref} muted autoPlay playsInline disableRemotePlayback>
         <source src={videoUrl} type="video/mp4" />
       </video>
     </div>
