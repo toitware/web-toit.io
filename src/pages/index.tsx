@@ -156,7 +156,13 @@ export function IndexPage(): JSX.Element {
         <SideBySide
           illustrationPosition="left"
           illustration={
-            <StaticImage placeholder="blurred" src="../assets/images/illustrations/bme280.png" alt="BME 280" />
+            <StaticImage
+              placeholder="blurred"
+              src="../assets/images/illustrations/bme280.png"
+              width={1024}
+              height={1024}
+              alt="BME 280"
+            />
           }
           illustrationWidth={1024}
           illustrationHeight={1024}
@@ -318,6 +324,8 @@ export function IndexPage(): JSX.Element {
             `}
             alt="Toit language code sample"
             src={codeSampleSvg}
+            width="555"
+            height="536"
           />
         </div>
 
