@@ -55,11 +55,6 @@ const IllustrationElement = styled.div`
     width: 100%;
     height: auto;
   }
-
-  /* Prevent the Chromecast icon from appearing on android devices */
-  video::-internal-media-controls-overlay-cast-button {
-    display: none;
-  }
 `;
 
 type SideBySideProps = {

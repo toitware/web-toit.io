@@ -91,9 +91,10 @@ const Menu = styled.nav`
 `;
 
 const menuLinkCss = css`
+  display: inline-block;
   cursor: pointer;
   text-decoration: none;
-  &:not(:last-of-type) {
+  &:not(:last-child) {
     margin-right: 1.5rem;
   }
 `;
@@ -174,19 +175,23 @@ export function Header(): JSX.Element {
             {menu.items.map((menuItem) => {
               if (menuItem.subpages) {
                 return (
-                  <a
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    aria-expanded={visibleSubmenu == menuItem.title ? "true" : "false"}
                     key={menuItem.title}
                     css={menuLinkCss}
                     onMouseEnter={openSubmenu(menuItem.title)}
                     onClick={toggleSubmenu(menuItem.title)}
                   >
                     {menuItem.title} <CaretSvg className={clsx(visibleSubmenu == menuItem.title && "opened")} />
-                  </a>
+                  </div>
                 );
               } else {
                 return (
                   <Link
                     key={menuItem.title}
+                    tabIndex={0}
                     css={menuLinkCss}
                     to={menuItem.path}
                     href={menuItem.href}

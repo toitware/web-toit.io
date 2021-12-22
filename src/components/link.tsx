@@ -15,7 +15,7 @@ export function Link(props: Props): JSX.Element {
     return <a target="_blank" rel="noreferrer" {...props} />;
   } else if (to) {
     return (
-      <GatsbyLink to={to} className={props.className}>
+      <GatsbyLink to={to} className={props.className} tabIndex={props.tabIndex}>
         {children}
       </GatsbyLink>
     );

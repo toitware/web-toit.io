@@ -156,7 +156,13 @@ export function IndexPage(): JSX.Element {
         <SideBySide
           illustrationPosition="left"
           illustration={
-            <StaticImage placeholder="blurred" src="../assets/images/illustrations/bme280.png" alt="BME 280" />
+            <StaticImage
+              placeholder="blurred"
+              src="../assets/images/illustrations/bme280.png"
+              width={1024}
+              height={1024}
+              alt="BME 280"
+            />
           }
           illustrationWidth={1024}
           illustrationHeight={1024}
@@ -229,7 +235,7 @@ export function IndexPage(): JSX.Element {
         <ContentSpacer />
         <SideBySide
           illustration={
-            <video muted autoPlay loop playsInline width="960" height="1320">
+            <video muted autoPlay loop playsInline width="960" height="1320" disableRemotePlayback>
               <source src={weatherBalloonMp4} type="video/mp4" />
             </video>
           }
@@ -249,8 +255,8 @@ export function IndexPage(): JSX.Element {
             device code on every commit.
           </p>
           <p>
-            <ButtonLink to="/product/device" variant="outlined">
-              Learn more
+            <ButtonLink to="/product/device-software" variant="outlined">
+              Learn more <span className="link-title">about the device software</span>
             </ButtonLink>
           </p>
         </SideBySide>
@@ -267,8 +273,8 @@ export function IndexPage(): JSX.Element {
             keeps the internet secure keeps your devices and data safe.
           </p>
           <p>
-            <ButtonLink to="/product/cloud" variant="outlined">
-              Learn more
+            <ButtonLink to="/product/cloud-orchestration" variant="outlined">
+              Learn more <span className="link-title">about fleet orchestration</span>
             </ButtonLink>
           </p>
         </SideBySide>
@@ -316,7 +322,10 @@ export function IndexPage(): JSX.Element {
                 width: 45%;
               }
             `}
+            alt="Toit language code sample"
             src={codeSampleSvg}
+            width="555"
+            height="536"
           />
         </div>
 
@@ -371,7 +380,7 @@ main:\n\
               href="https://docs.toit.io/language/language"
               variant="outlined"
             >
-              Learn more
+              Learn more <span className="link-title">about the Toit programming language</span>
             </ButtonLink>
           </p>
         </SideBySide>

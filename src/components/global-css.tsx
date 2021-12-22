@@ -178,6 +178,16 @@ export function GlobalCss(): JSX.Element {
           -webkit-backface-visibility: hidden;
           -moz-backface-visibility: hidden;
         }
+
+        .link-title {
+          /* https://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/C7 */
+          height: 1px;
+          width: 1px;
+          position: absolute;
+          overflow: hidden;
+          top: -10px;
+          color: transparent;
+        }
       `}
     />
   );

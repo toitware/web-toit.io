@@ -52,19 +52,19 @@ export function TeamsSection({ className, title = "Great teams build on Toit" }:
 
       <TeamGrid>
         <TeamCell>
-          <img src={synapSvg} alt="Synap IoT" />
+          <img src={synapSvg} width="194" height="53" alt="Synap IoT" />
         </TeamCell>
         <TeamCell>
-          <img src={triforkSvg} alt="Trifork" />
+          <img src={triforkSvg} width="212" height="53" alt="Trifork" />
         </TeamCell>
         <TeamCell>
-          <img src={cosesySvg} alt="Cosesy" />
+          <img src={cosesySvg} width="187" height="53" alt="Cosesy" />
         </TeamCell>
         <TeamCell>
-          <img src={consibioSvg} alt="Consibio" />
+          <img src={consibioSvg} width="171" height="44" alt="Consibio" />
         </TeamCell>
         <TeamCell>
-          <img src={iotCatalystSvg} alt="IoT Catalyst" />
+          <img src={iotCatalystSvg} width="211" height="50" alt="IoT Catalyst" />
         </TeamCell>
       </TeamGrid>
     </Section>
