@@ -15,7 +15,7 @@
     "clean": "gatsby clean",
     "lint": "eslint '**/*.{js,ts,tsx}' --max-warnings=0",
     "test": "jest",
-    "test:jenkins": "jest --ci --reporters=jest-junit --coverage  --coverageDirectory=coverage"
+    "test:ci": "jest --ci --coverage --coverageDirectory=coverage"
   },
   "types": "src/@types/index.d.ts",
   "dependencies": {
