@@ -82,26 +82,6 @@ const people: Person[] = [
       </div>
     ),
   },
-  {
-    name: "Anders Johnsen",
-    image: (
-      <StaticImage
-        placeholder="blurred"
-        src="../../assets/images/team/anders.png"
-        alt="Anders Johnsen"
-        width={imageSize}
-        height={imageSize}
-      />
-    ),
-    description: (
-      <div>
-        Anders Johnsen is an infrastructure and scalability wizard. He was tech lead for Uber’s micro-service scheduling
-        platform and <Link href="https://eng.uber.com/schemaless-part-one/">scalable datastore</Link> and he worked on
-        optimizing server-side <Link href="https://en.wikipedia.org/wiki/Dart_(programming_language)">Dart</Link> at
-        Google.
-      </div>
-    ),
-  },
 ];
 export function ToitTeam({ className }: { className?: string }): JSX.Element {
   return (

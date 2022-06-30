@@ -133,17 +133,6 @@ export function AboutPage(): JSX.Element {
             margin-top: var(--sectionVerticalPadding);
           `}
         />
-        <StaticImage
-          placeholder="blurred"
-          src="../../assets/images/illustrations/team.jpg"
-          alt="Anders Johnsen"
-          css={css`
-            width: 100%;
-            max-width: 50rem !important;
-            margin: var(--sectionVerticalPadding) auto 0 auto;
-            display: block;
-          `}
-        />
       </Section>
       <Section
         centered
@@ -301,14 +290,6 @@ export function AboutPage(): JSX.Element {
             <Link href="https://www.hackster.io/search?i=projects&amp;q=toit">hackster.io</Link>,{" "}
             <Link href="https://www.instructables.com/howto/toit/">instructables.com</Link>, or{" "}
             <Link href="https://ekorau.com">ekorau.com</Link> to find detailed tutorials.
-          </p>
-        </CenteredBlock>
-      </Section>
-      <Section centered>
-        <CenteredBlock>
-          <p>Are you interested in joining the team building the next big computing platform?</p>
-          <p>
-            Reach out at <a href="mailto:jobs@toit.io">jobs@toit.io</a>.
           </p>
         </CenteredBlock>
       </Section>
