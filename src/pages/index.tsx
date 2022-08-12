@@ -81,15 +81,6 @@ export function IndexPage(): JSX.Element {
           <SignUpButton />
         </div>
 
-        <Tooltip
-          css={css`
-            margin: 1rem 0 3rem;
-          `}
-          hideTip
-        >
-          Free forever on 10 devices
-        </Tooltip>
-
         <div
           css={css`
             position: relative;
