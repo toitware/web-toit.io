@@ -31,7 +31,7 @@ export function SignUpSuccess({ handleClose, trackingPixel }: SignUpSuccessProps
         <Typography>
           Thanks for the interest.
           <br /> If you want to experience Toit today, you can{" "}
-          <Link href="https://auth.toit.io/signup">sign up here</Link>.
+          <Link href="https://github.com/toitlang/jaguar">try Jaguar</Link> on your devices.
           {trackingPixel !== undefined && (
             <img height="1" width="1" style={{ display: "none" }} alt="" src={trackingPixel} />
           )}

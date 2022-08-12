@@ -92,8 +92,8 @@ export const Menu: React.FC<Props> = ({ className, isOpen }) => {
         </MenuGroup>
       </Root>
       <AccountButtons>
-        <ButtonLink css={actionButtonCss} href="https://console.toit.io/login" variant="outlined">
-          Sign in
+        <ButtonLink css={actionButtonCss} href="https://chat.toit.io/" variant="outlined">
+          Discussions
         </ButtonLink>
         <SignUpButton css={actionButtonCss} />
       </AccountButtons>

@@ -127,7 +127,7 @@ export function IndexPage(): JSX.Element {
             margin-bottom: ${clampBuilder("tiny", "large", 3, 12)};
           `}
         >
-          Over the Air updates for your microcontrollers
+          Over the air updates for your microcontrollers
         </H1>
 
         <SideBySide illustration={GreenhouseSvg} illustrationWidth={1505} illustrationHeight={1051}>

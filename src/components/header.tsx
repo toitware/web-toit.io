@@ -206,14 +206,14 @@ export function Header(): JSX.Element {
           </Menu>
           <AccountButtons css={desktopCss}>
             <ButtonLink
-              href="https://console.toit.io/login"
+              href="https://chat.toit.io/"
               size="small"
               variant="text"
               css={css`
                 margin-right: 1.5rem;
               `}
             >
-              Sign in
+              Discussions
             </ButtonLink>
             <SignUpButton size="small" />
           </AccountButtons>

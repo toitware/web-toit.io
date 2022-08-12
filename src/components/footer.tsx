@@ -205,9 +205,6 @@ function FooterContent({
           <li>
             <Link to="/pricing">Pricing</Link>
           </li>
-          <li>
-            <Link to="/esp32-software-platform">ESP32 software platform</Link>
-          </li>
         </ul>
       </Product>
       <Developers>
