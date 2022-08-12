@@ -6,11 +6,11 @@ type SignUpButtonProps = Pick<ButtonProps, "size" | "variant"> & {
   text?: string;
 };
 
-const signupLink = "https://auth.toit.io/signup";
+const jaguarLink = "https://github.com/toitlang/jaguar";
 
 function SignUpButton({ size, variant = "contained", className, text = "Start now" }: SignUpButtonProps): JSX.Element {
   return (
-    <ButtonLink variant={variant} size={size} className={className} href={signupLink}>
+    <ButtonLink variant={variant} size={size} className={className} href={jaguarLink}>
       {text}
     </ButtonLink>
   );

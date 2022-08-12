@@ -61,11 +61,11 @@ type SignUpButtonProps = {
   className?: string;
 };
 
-const signupLink = "https://auth.toit.io/";
+const jaguarLink = "https://github.com/toitlang/jaguar";
 
 function SignInButton({ className }: SignUpButtonProps): JSX.Element {
   return (
-    <ButtonLink variant="outlined" size="small" className={className} href={signupLink}>
+    <ButtonLink variant="outlined" size="small" className={className} href={jaguarLink}>
       Sign in
     </ButtonLink>
   );
