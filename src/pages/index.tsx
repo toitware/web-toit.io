@@ -76,7 +76,11 @@ export function IndexPage(): JSX.Element {
           Secure the code on your ESP32 microcontrollers with lightweight containers and orchestrate them through our
           cloud API.
         </p>
-        <div>
+        <div
+          css={css`
+            margin-bottom: 1rem;
+          `}
+        >
           <SignUpButton />
         </div>
 
