@@ -28,7 +28,6 @@ import SideBySide from "../components/layout/SideBySide";
 import RiveAnimation from "../components/RiveAnimation";
 import TeamsSection from "../components/sections/teams";
 import SignUpButton from "../components/sign-up-button";
-import Tooltip from "../components/Tooltip";
 import { black, dartSecondary, golden, white } from "../theme";
 
 const Hero = styled.section`
