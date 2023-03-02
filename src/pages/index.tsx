@@ -13,6 +13,7 @@ import KeysSvg from "../assets/images/illustrations/keys.svg";
 import SymbolsSvg from "../assets/images/illustrations/symbols.svg";
 import weatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
 import { ButtonLink } from "../components/button";
+import { Link } from "../components/link";
 import ContentSpacer from "../components/ContentSpacer";
 import FeatureBox, { FeaturesContainer } from "../components/FeatureBox";
 import { bigFont, breakpoints, clampBuilder, darkSection } from "../components/global-css";
@@ -52,9 +53,9 @@ const H1 = styled.h2`
 export function IndexPage(): JSX.Element {
   return (
     <Layout
-      title="Toit - IoT software platform for the ESP32"
+      title="Toit - high-level software platform for the ESP32"
       rawTitle
-      description="The Toit software platform makes it easy to deploy high-level code on the ESP32. Sign up for Toit and get started on your IoT project."
+      description="Easily deploy high-level code to your ESP32 and run them in containers."
     >
       <Hero
         css={css`
@@ -62,7 +63,7 @@ export function IndexPage(): JSX.Element {
         `}
       >
         <PageTitle
-          title={<span>Cloud-managed containers on the ESP32</span>}
+          title={<span>High-level code and containers on the ESP32</span>}
           css={css`
             border-bottom: 2px solid ${black.string()};
             h1 {
@@ -71,8 +72,10 @@ export function IndexPage(): JSX.Element {
           `}
         />
         <p css={[bigFont]}>
-          Secure the code on your ESP32 microcontrollers with lightweight containers and orchestrate them through our
-          cloud API.
+          Secure the services on your ESP32 microcontrollers with lightweight containers running on top of our robust
+          open source technology. Built by <Link to="/company/about">the engineers</Link> behind the high-performance
+          virtual machines that power <a href="https://www.google.com/chrome/">Google Chrome</a> and
+          <a href="https://flutter.dev/">Flutter</a>.
         </p>
         <div
           css={css`
@@ -119,13 +122,14 @@ export function IndexPage(): JSX.Element {
             margin-bottom: ${clampBuilder("tiny", "large", 3, 12)};
           `}
         >
-          Full serviceability for your fleet
+          Serviceability for your devices
         </H1>
 
         <SideBySide illustration={GreenhouseSvg} illustrationWidth={1505} illustrationHeight={1051}>
           <p css={bigFont}>
-            Continuously update the code on your ESP32 microcontrollers even over cellular connections. Monitor and
-            securely service your entire device fleet in production; all through the Toit API.
+            Toit comes with robust support for continuously updating the code on your ESP32 microcontrollers even over
+            cellular connections. Devices can be serviced remotely and their firmware, services, and configurations can
+            be maintained over time.
           </p>
           <SignUpButton />
         </SideBySide>
@@ -141,7 +145,7 @@ export function IndexPage(): JSX.Element {
         <CenteredBlock>
           <p>
             Toit supports the ESP32’s built-in WiFi, but we also support the most common external communications
-            modules. Many of our customers connect to the cloud via cellular modems using NB-IoT or LTE-M.
+            modules. Many of our users connect to the cloud via cellular modems using NB-IoT or LTE-M.
           </p>
         </CenteredBlock>
 
