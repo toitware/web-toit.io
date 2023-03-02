@@ -14,6 +14,7 @@ const TeamGrid = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 4.5rem;
   margin: 0 auto;
+  align-items: center;
   ${breakpoints.small} {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -64,7 +65,7 @@ export function TeamsSection({ className, title = "Great teams build on Toit" }:
           <img src={consibioSvg} width="171" height="44" alt="Consibio" />
         </TeamCell>
         <TeamCell>
-          <img src={spottuneSvg} width="150" height="124" alt="Spottune" />
+          <img src={spottuneSvg} height="90" alt="Spottune" />
         </TeamCell>
       </TeamGrid>
     </Section>
