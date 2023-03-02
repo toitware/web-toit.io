@@ -9,6 +9,7 @@ import EspressifSvg from "../assets/images/logos/espressif.svg";
 import OnomondoSvg from "../assets/images/logos/onomondo.svg";
 import SoracomSvg from "../assets/images/logos/soracom.svg";
 import UbloxSvg from "../assets/images/logos/ublox.svg";
+import SpottuneSvg from "../assets/images/logos/spottune.svg";
 import opengraphPng from "../assets/images/opengraph.png";
 import { components, shorthands } from "../mdx-components";
 import { golden, primaryTheme, white } from "../theme";
@@ -188,6 +189,7 @@ export default function Layout({
                         <img src={OnomondoSvg} alt="Onomondo" />
                         <img src={SoracomSvg} alt="Soracom" />
                         <img src={UbloxSvg} alt="u-blox" />
+                        <img src={SpottuneSvg} alt="Spottune" />
                       </ThirdPartyLogos>
                     </Section>
                   </Content>
