@@ -1,41 +1,14 @@
 # If an item has a subpage, the first subpage will be used as the target for
 # the link.
 items:
-  - path: /product
-    title: Product # Displayed in the menu and submenu on the left
-    description: > # Displayed on desktop in the submenu
-      We make it as easy to create software for microcontrollers as it is to
-      build a mobile app.
-    subpages:
-      - path: /device-software
-        title: Device software
-        description: Maintain and update the firmware on your devices.
-      - path: /cloud-orchestration
-        title: Cloud orchestration
-        description: Manage orchestration across your device fleet.
-      - path: /supported-hardware
-        title: Supported hardware
-        description: See which hardware is compatible with Toit.
-      - path: /connectivity-options
-        title: Connectivity options
-        description: The different ways to communicate with your device.
-  - path: /pricing
-    title: Pricing
   - path: /developers
     title: Developers
     description: >
-      Resources for developers to get started with Toit. IoT development can be
-      easy, we'll show you how.
+      Resources for developers to get started with Toit.
     subpages:
       - title: Documentation
-        description: Learn to develop IoT apps with Toit.
+        description: Learn how to use Toit to build sophisticated IoT products.
         href: https://docs.toit.io/
-      - title: API
-        href: https://docs.toit.io/apis/api
-        description: Talk to your devices and get the data you need. #Get started with connecting your apps to our API.
-      - path: /faq
-        title: FAQ
-        description: Answers to the most common questions.
       - title: Package registry
         description: Browse the Toit package registry.
         href: https://pkg.toit.io/

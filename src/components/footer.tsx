@@ -25,19 +25,18 @@ const Root = styled.footer`
   grid-template-rows: auto;
   grid-gap: 1.5rem;
   grid-template-areas:
-    "contact   contact"
-    "product   developers"
-    "company   legal"
-    "copyright copyright"
-    "design    design";
+    "contact    developers"
+    "company    legal"
+    "copyright  copyright"
+    "design     design";
 
   ${breakpoints.small} {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
-      "contact   product   developers company legal"
-      "contact   product   developers company legal"
-      "contact   product   developers company legal"
-      "copyright copyright copyright  design  design";
+      "contact   developers company legal"
+      "contact   developers company legal"
+      "contact   developers company legal"
+      "copyright copyright  design  design";
   }
 `;
 
@@ -69,10 +68,6 @@ const navStyles = css`
   }
 `;
 
-const Product = styled.div`
-  grid-area: product;
-  ${navStyles}
-`;
 const Developers = styled.div`
   grid-area: developers;
   ${navStyles}
@@ -177,37 +172,11 @@ function FooterContent({
         </div>
       </Contact>
 
-      <Product>
-        <header>Product</header>
-        <ul>
-          <li>
-            <Link to="/product/device-software">Device software</Link>
-          </li>
-          <li>
-            <Link to="/product/cloud">Cloud orchestration</Link>
-          </li>
-          <li>
-            <Link to="/product/supported-hardware">Supported hardware</Link>
-          </li>
-          <li>
-            <Link to="/product/connectivity-options">Connectivity options</Link>
-          </li>
-          <li>
-            <Link to="/pricing">Pricing</Link>
-          </li>
-        </ul>
-      </Product>
       <Developers>
         <header>Developers</header>
         <ul>
           <li>
             <Link href="https://docs.toit.io/">Documentation</Link>
-          </li>
-          <li>
-            <Link href="https://docs.toit.io/apis/api">API</Link>
-          </li>
-          <li>
-            <Link to="/developers/faq">FAQ</Link>
           </li>
         </ul>
       </Developers>

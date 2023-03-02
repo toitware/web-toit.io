@@ -208,7 +208,7 @@ export function IndexPage(): JSX.Element {
               Your applications run isolated from the system, and each other, on the devices.
             </FeatureBox>
             <FeatureBox title="Secure communications" icon={<SecureCommunicationsSvg />} position="right">
-              Communicate with our cloud through a simple API, we take care of the rest.
+              Send your data to your cloud using standard protocols, such as HTTPS, MQTT, or CoAP.
             </FeatureBox>
           </FeaturesContainer>
         </div>
@@ -217,13 +217,12 @@ export function IndexPage(): JSX.Element {
         <SideBySide illustration={KeysSvg} illustrationWidth={517} illustrationHeight={651}>
           <H1>Control your data</H1>
           <p>
-            You own your data and you get to store it wherever you want. Feed data from your devices directly into your
-            own system using HTTPS or MQTT, or let us help you get your bits to and from your devices. It is as simple
-            as that.
+            You own your data and you get to store it wherever you want. You feed data from your devices directly into your
+            own cloud using HTTPS, MQTT, or CoAP, and the data never passes other servers. It is as simple as that.
           </p>
           <p>
             Deploy code, access logs, update firmware, and install applications on your devices. Let your data flow into
-            your own system, share it with your customers. We just handle your microcontrollers.
+            your own cloud, share it with your customers. We just handle your microcontrollers.
           </p>
         </SideBySide>
         <ContentSpacer />
@@ -247,29 +246,6 @@ export function IndexPage(): JSX.Element {
           <p>
             Treat firmware and drivers as you treat software. Set up a continuous delivery pipeline and deploy new
             device code on every commit.
-          </p>
-          <p>
-            <ButtonLink to="/product/device-software" variant="outlined">
-              Learn more <span className="link-title">about the device software</span>
-            </ButtonLink>
-          </p>
-        </SideBySide>
-        <ContentSpacer />
-        <SideBySide illustration={ThermostatSvg} illustrationWidth={516} illustrationHeight={652}>
-          <h2>Monitor and service your devices in production</h2>
-          <p>
-            Get full visibility into your device fleet with logs covering connectivity, code execution, and crash
-            reports. Trace the bug, fix it and redeploy, all within minutes.
-          </p>
-          <p>Assign your devices into groups and deploy updates on a group by group basis. </p>
-          <p>
-            All communication is end-to-end encrypted using modern public-key cryptography. The same technology that
-            keeps the internet secure keeps your devices and data safe.
-          </p>
-          <p>
-            <ButtonLink to="/product/cloud-orchestration" variant="outlined">
-              Learn more <span className="link-title">about fleet orchestration</span>
-            </ButtonLink>
           </p>
         </SideBySide>
       </Section>
@@ -376,26 +352,6 @@ main:\n\
             >
               Learn more <span className="link-title">about the Toit programming language</span>
             </ButtonLink>
-          </p>
-        </SideBySide>
-
-        <ContentSpacer preventLine large />
-
-        <SideBySide illustration={ControlCenterSvg} illustrationWidth={683} illustrationHeight={553}>
-          <h2>Control everything with our API</h2>
-
-          <p>
-            We don&apos;t want to lock you into using our console. We don&apos;t want you to feel constrained by our
-            command line tools.{" "}
-            <strong>
-              You are in full control of your devices and everything you can do with the Toit platform, you can do
-              through our powerful API.
-            </strong>
-          </p>
-
-          <p>
-            Our programmatic API can be used from any environment and from any programming language. It is easy to
-            integrate our platform into your products and turn your device fleet fully programmable.
           </p>
         </SideBySide>
       </Section>

@@ -105,7 +105,7 @@ export default function Layout({
   simplified = false,
   hideHeader = false,
   callToAction,
-  signUpText = "Get access to our platform and start your journey to invent the future.",
+  signUpText = "Find our open source technology on GitHub and start your journey to invent the future.",
 }: LayoutProps): JSX.Element {
   const data: GraphType = useStaticQuery(graphql`
     query LayoutTitleQuery {
@@ -163,7 +163,7 @@ export default function Layout({
                         background: ${golden.string()};
                       `}
                     >
-                      <h2>Start your IoT project</h2>
+                      <h2>Get started with Toit</h2>
                       <p
                         css={css`
                           max-width: 18em;
@@ -187,7 +187,7 @@ export default function Layout({
                         <img src={EspressifSvg} alt="Espressif" />
                         <img src={OnomondoSvg} alt="Onomondo" />
                         <img src={SoracomSvg} alt="Soracom" />
-                        <img src={UbloxSvg} alt="Ublox" />
+                        <img src={UbloxSvg} alt="u-blox" />
                       </ThirdPartyLogos>
                     </Section>
                   </Content>

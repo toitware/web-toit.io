@@ -118,7 +118,7 @@ export function AboutPage(): JSX.Element {
         >
           <p>
             Strong from their virtual machine and programming languages successes, these engineers - and the rest of the
-            ever-growing Toit team - have now built Toit, a cloud-managed container platform for IoT.
+            ever-growing Toit team - have now built Toit, a high-level software platform for IoT.
           </p>
           <p>
             So now developers can say “Remember when we had to send the whole image of our firmware over-the-air at
@@ -152,7 +152,7 @@ export function AboutPage(): JSX.Element {
         >
           <p>
             The Toit team has built a software platform that lets you run containers on very small MCUs with{" "}
-            <strong>as little as 500 KB of RAM</strong> - and in particular on ESP32 microcontrollers because we love
+            <strong>as little as 200 KB of RAM</strong> - and in particular on ESP32 microcontrollers because we love
             their price/performance benefits.
           </p>
         </CenteredBlock>
@@ -199,12 +199,8 @@ export function AboutPage(): JSX.Element {
                 `}
               />
               For this to work on microcontrollers, Toit brings you a new high-level <strong>language</strong> designed
-              for IoT. You will use it to build apps that communicate with the hardware to generate data. Transfer of
-              the data to the cloud is handled out of the box using the Toit API.
-            </p>
-            <p>
-              Finally, the team built an easy-to-use <strong>cloud-based management platform</strong> that takes care of
-              updating your devices, visualizing your fleet health, and much more.
+              for IoT. You will use it to build apps that communicate with the hardware to generate data. The data can
+              then be sent to your cloud using standard protocols such as HTTP, MQTT, or CoAP.
             </p>
           </div>
         </div>
