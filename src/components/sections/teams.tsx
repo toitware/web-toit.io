@@ -5,6 +5,7 @@ import consibioSvg from "../../assets/images/teams/consibio.svg";
 import cosesySvg from "../../assets/images/teams/cosesy.svg";
 import synapSvg from "../../assets/images/teams/synap.svg";
 import triforkSvg from "../../assets/images/teams/trifork.svg";
+import spottuneSvg from "../../assets/images/teams/spottune.svg";
 import { breakpoints, clampBuilder, greySection } from "../../components/global-css";
 import Section from "../../components/layout/Section";
 
@@ -61,6 +62,9 @@ export function TeamsSection({ className, title = "Great teams build on Toit" }:
         </TeamCell>
         <TeamCell>
           <img src={consibioSvg} width="171" height="44" alt="Consibio" />
+        </TeamCell>
+        <TeamCell>
+          <img src={spottuneSvg} width="150" height="124" alt="Spottune" />
         </TeamCell>
       </TeamGrid>
     </Section>
