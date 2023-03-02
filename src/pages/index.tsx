@@ -8,11 +8,9 @@ import RobustSandboxingSvg from "../assets/images/icons/robust-sandboxing.inline
 import SecureCommunicationsSvg from "../assets/images/icons/secure-communications.inline.svg";
 import ArrowLeftSvg from "../assets/images/illustrations/arrow-left.inline.svg";
 import ArrowRightSvg from "../assets/images/illustrations/arrow-right.inline.svg";
-import ControlCenterSvg from "../assets/images/illustrations/control-center.svg";
 import GreenhouseSvg from "../assets/images/illustrations/greenhouse.svg";
 import KeysSvg from "../assets/images/illustrations/keys.svg";
 import SymbolsSvg from "../assets/images/illustrations/symbols.svg";
-import ThermostatSvg from "../assets/images/illustrations/thermostat.svg";
 import weatherBalloonMp4 from "../assets/images/illustrations/weather-balloon.mp4";
 import { ButtonLink } from "../components/button";
 import ContentSpacer from "../components/ContentSpacer";
@@ -217,8 +215,8 @@ export function IndexPage(): JSX.Element {
         <SideBySide illustration={KeysSvg} illustrationWidth={517} illustrationHeight={651}>
           <H1>Control your data</H1>
           <p>
-            You own your data and you get to store it wherever you want. You feed data from your devices directly into your
-            own cloud using HTTPS, MQTT, or CoAP, and the data never passes other servers. It is as simple as that.
+            You own your data and you get to store it wherever you want. You feed data from your devices directly into
+            your own cloud using HTTPS, MQTT, or CoAP, and the data never passes other servers. It is as simple as that.
           </p>
           <p>
             Deploy code, access logs, update firmware, and install applications on your devices. Let your data flow into

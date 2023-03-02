@@ -200,7 +200,7 @@ export function AboutPage(): JSX.Element {
               />
               For this to work on microcontrollers, Toit brings you a new high-level <strong>language</strong> designed
               for IoT. You will use it to build apps that communicate with the hardware to generate data. The data can
-              then be sent to your cloud using standard protocols such as HTTP, MQTT, or CoAP.
+              then be sent to your cloud using standard protocols such as HTTPS, MQTT, or CoAP.
             </p>
           </div>
         </div>
