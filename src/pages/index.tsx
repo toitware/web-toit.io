@@ -72,7 +72,7 @@ export function IndexPage(): JSX.Element {
           `}
         />
         <p css={[bigFont]}>
-          Secure the services on your ESP32 microcontrollers with lightweight containers running on top of our robust{" "}
+          Secure the code on your ESP32 microcontrollers with lightweight containers running on top of our robust{" "}
           <a href="https://toitlang.org/">open source technology</a>.
         </p>
         <div
@@ -85,8 +85,8 @@ export function IndexPage(): JSX.Element {
 
         <p>
           Built by <Link to="/company/about">the engineers</Link> behind the high-performance virtual machines that
-          power <a href="https://www.google.com/chrome/">Google Chrome</a>
-          and <a href="https://flutter.dev/">Flutter</a>.
+          power <a href="https://www.google.com/chrome/">Google Chrome</a> and{" "}
+          <a href="https://flutter.dev/">Flutter</a>.
         </p>
 
         <div

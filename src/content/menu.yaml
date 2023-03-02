@@ -7,7 +7,7 @@ items:
       Resources for developers to get started with Toit.
     subpages:
       - title: Documentation
-        description: Learn how to use Toit to build sophisticated IoT products.
+        description: Learn how to use Toit to build sophisticated products.
         href: https://docs.toit.io/
       - title: Package registry
         description: Browse the Toit package registry.
@@ -15,7 +15,7 @@ items:
   - path: /company
     title: Company
     description: >
-      Toit provides technology startups with the very best foundation for their IoT solutions.
+      Toit provides technology startups with the very best foundation for their solutions.
     subpages:
       - path: /about
         title: About
