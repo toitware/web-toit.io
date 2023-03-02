@@ -210,7 +210,7 @@ export function IndexPage(): JSX.Element {
               Your applications run isolated from the system, and each other, on the devices.
             </FeatureBox>
             <FeatureBox title="Secure communications" icon={<SecureCommunicationsSvg />} position="right">
-              Send your data to your cloud using standard protocols, such as HTTPS, MQTT, or CoAP.
+              Send your data to your cloud using HTTPS, MQTT, or CoAP.
             </FeatureBox>
           </FeaturesContainer>
         </div>
