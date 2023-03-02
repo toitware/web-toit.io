@@ -227,7 +227,7 @@ export function IndexPage(): JSX.Element {
             your own cloud using HTTPS, MQTT, or CoAP, and the data never passes other servers. It is as simple as that.
           </p>
           <p>
-            Deploy code, access logs, update firmware, and install applications on your devices. Let your data flow into
+            Deploy code, access logs, update firmware, and install applications on your devices. Let your data flow to
             your own cloud, share it with your customers. We just handle your microcontrollers.
           </p>
         </SideBySide>
