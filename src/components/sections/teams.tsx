@@ -65,7 +65,7 @@ export function TeamsSection({ className, title = "Great teams build on Toit" }:
           <img src={consibioSvg} width="171" height="44" alt="Consibio" />
         </TeamCell>
         <TeamCell>
-          <img src={spottuneSvg} height="90" alt="Spottune" />
+          <img src={spottuneSvg} width="109" height="90" alt="Spottune" />
         </TeamCell>
       </TeamGrid>
     </Section>
