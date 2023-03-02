@@ -180,7 +180,7 @@ export default function Layout({
                           margin: 0 0 3rem;
                         `}
                       >
-                        Official platform partners:
+                        Official platform partners
                       </p>
 
                       <ThirdPartyLogos>
