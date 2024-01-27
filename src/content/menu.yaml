@@ -10,9 +10,6 @@ items:
       - path: /device-software
         title: Device software
         description: Maintain and update the firmware on your devices.
-      - path: /cloud-orchestration
-        title: Cloud orchestration
-        description: Manage orchestration across your device fleet.
   - path: /pricing
     title: Pricing
   - path: /developers
