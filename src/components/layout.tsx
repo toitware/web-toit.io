@@ -88,6 +88,7 @@ interface LayoutProps {
   rawTitle?: boolean;
   description?: string;
   simplified?: boolean;
+  noDefaultSignup?: boolean;
   hideHeader?: boolean;
   // If you want to replace the default call to action button in the header,
   // you can provide an alternative here.
@@ -103,6 +104,7 @@ export default function Layout({
   description,
   children,
   simplified = false,
+  noDefaultSignup = false,
   hideHeader = false,
   callToAction,
   signUpText = "Find our open source technology on GitHub and start your journey to invent the future.",
@@ -157,23 +159,25 @@ export default function Layout({
                   <Content>
                     {children}
 
-                    <Section
-                      centered
-                      css={css`
-                        background: ${golden.string()};
-                      `}
-                    >
-                      <h2>Get started with Toit</h2>
-                      <p
+                    {!noDefaultSignup && (
+                      <Section
+                        centered
                         css={css`
-                          max-width: 18em;
-                          margin: 3rem auto;
+                          background: ${golden.string()};
                         `}
                       >
-                        {signUpText}
-                      </p>
-                      <SignUpButton />
-                    </Section>
+                        <h2>Get started with Toit</h2>
+                        <p
+                          css={css`
+                            max-width: 18em;
+                            margin: 3rem auto;
+                          `}
+                        >
+                          {signUpText}
+                        </p>
+                        <SignUpButton />
+                      </Section>
+                    )}
                     <Section centered>
                       <p
                         css={css`

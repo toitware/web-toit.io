@@ -9,7 +9,10 @@ items:
     subpages:
       - path: /device-software
         title: Device software
-        description: Maintain and update the firmware on your devices.
+        description: Build the firmware on your devices.
+      - path: /artemis
+        title: Artemis fleet management
+        description: Manage your fleet of devices
   - path: /pricing
     title: Pricing
   - path: /developers

@@ -1,25 +1,18 @@
 import { css } from "@emotion/react";
 import React from "react";
-import CheckmarkSvg from "../assets/images/icons/checkmark.inline.svg";
 import { bigFont, clampBuilder, darkSection } from "../components/global-css";
 import Layout from "../components/layout";
 import CenteredBlock from "../components/layout/CenteredBlock";
 import PageTitle from "../components/layout/PageTitle";
 import Section from "../components/layout/Section";
 import PricingBlock from "../components/pricing-block-preview";
-import { dart, dartSecondary, golden, goldenSecondary, passionSecondary } from "../theme";
-
-const featureCss = css`
-  text-align: center;
-  white-space: nowrap;
-  margin: 1.5rem;
-`;
+import { dart, golden } from "../theme";
 
 export function PricingPage(): JSX.Element {
   return (
     <Layout
       title="Simple pricing that works for everyone"
-      description="Simple pricing for the Toit platform. $0.50 per device per month. 10 devices are free forever. No credit card needed."
+      description="Simple pricing for the Artemis fleet management. $0.50 per device per month. 10 devices are free forever. No credit card needed."
     >
       <PageTitle
         css={css`
@@ -77,40 +70,10 @@ export function PricingPage(): JSX.Element {
             margin-right: auto;
           `}
         >
-          You enable and disable serviceability for individual devices when you want to.&nbsp;
           <strong>Your turned off, disconnected, or unserviced devices are free</strong> and keep running your
-          applications, so you are in full control of your bill. Our support is always included.
+          applications, so you are in full control of your bill. Our support is always included.&nbsp; You can also
+          remove Artemis from your devices at any time; even over the air.
         </p>
-      </Section>
-      <Section centered>
-        <h2>Serviceability includes</h2>
-        <ul
-          css={css`
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            width: 100%;
-            list-style: none;
-            padding: 0;
-            margin: 3rem auto;
-          `}
-        >
-          <li css={featureCss}>
-            <CheckmarkSvg style={{ color: dartSecondary.string() }} />
-            <br />
-            System and application updates
-          </li>
-          <li css={featureCss}>
-            <CheckmarkSvg style={{ color: goldenSecondary.string() }} />
-            <br />
-            Logging and monitoring
-          </li>
-          <li css={featureCss}>
-            <CheckmarkSvg style={{ color: passionSecondary.string() }} />
-            <br />
-            Secure, managed data pipeline
-          </li>
-        </ul>
       </Section>
     </Layout>
   );

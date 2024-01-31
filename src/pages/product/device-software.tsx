@@ -3,17 +3,17 @@ import React from "react";
 import editorSvg from "../../assets/images/editor.svg";
 import blocksVideo from "../../assets/images/illustrations/blocks.mp4";
 import chipSvg from "../../assets/images/illustrations/chip.svg";
-import overTheAirUpdatesSvg from "../../assets/images/illustrations/over-the-air-updates.svg";
+import symbolsSvg from "../../assets/images/illustrations/symbols.svg";
 import ContentSpacer from "../../components/ContentSpacer";
-import { bigFont } from "../../components/global-css";
 import HeroImage from "../../components/HeroImage";
+import VideoAutoPlay from "../../components/VideoAutoPlay";
+import { bigFont } from "../../components/global-css";
 import Layout from "../../components/layout";
 import CenteredBlock from "../../components/layout/CenteredBlock";
 import PageTitle from "../../components/layout/PageTitle";
 import Section from "../../components/layout/Section";
 import SideBySide from "../../components/layout/SideBySide";
 import SignUpButton from "../../components/sign-up-button";
-import VideoAutoPlay from "../../components/VideoAutoPlay";
 import { pythonSecondary } from "../../theme";
 
 export function DevicePage(): JSX.Element {
@@ -54,8 +54,8 @@ export function DevicePage(): JSX.Element {
           <p>
             Existing languages that can be used on microcontrollers are not very good. C has great performance but
             it&apos;s hard to learn, risky to use and even simple functionality takes a long time to build. MicroPython
-            is easy to write but performance is so poor that it’s hardly usable. Oh, and it doesn’t really work like
-            Python.
+            is easy to write but performance is so poor that it&apos;s hardly usable. Oh, and it doesn&apos;t really
+            work like Python.
           </p>
         </CenteredBlock>
 
@@ -68,9 +68,9 @@ export function DevicePage(): JSX.Element {
           illustrationWidth={962}
           illustrationHeight={1180}
         >
-          Toit language is a high-level language that’s made to have a syntax very close to Python. As it’s built from
-          first principles for microcontrollers, it’s at least 20x faster than MicroPython. We’ve also built a slick IDE
-          integration.
+          Toit language is a high-level language that&apos;s made to have a syntax very close to Python. As it&apos;s
+          built from first principles for microcontrollers, it&apos;s at least 20x faster than MicroPython. We&apos;ve
+          also built a slick IDE integration.
         </SideBySide>
       </Section>
 
@@ -89,14 +89,17 @@ export function DevicePage(): JSX.Element {
 
       <Section>
         <SideBySide
-          illustration={overTheAirUpdatesSvg}
           illustrationPosition="left"
-          illustrationWidth={394}
-          illustrationHeight={666}
+          illustration={symbolsSvg}
+          css={bigFont}
+          illustrationWidth={962}
+          illustrationHeight={1180}
         >
-          <h2 className="h1">Over-the-air updates</h2>
-          Updating your devices over the air is as easy on the Toit platform as it is to deploy new code to a web app,
-          even on slow and shaky connections. The system even keeps running through the update.
+          <h2 className="h1">Learn more</h2>
+          Find more information about the Toit language at <a href="https://toitlang.org">toitlang.org</a>, or read
+          the <a href="https://docs.toit.io/">documentation</a>.
+          The <a href="https://docs.toit.io/tutorials">tutorials</a> section is a great place to start and learn
+          how Toit looks and feels.
         </SideBySide>
       </Section>
     </Layout>
