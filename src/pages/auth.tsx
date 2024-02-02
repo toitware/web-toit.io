@@ -29,17 +29,17 @@ export function AuthPage(): JSX.Element {
   } else {
     title += " failed"
   }
-  let bodyLine1 = "You may close this window"
-  let bodyLine2 = ""
-  if (error) {
-    bodyLine1 = "Error";
-    if (errorCode) {
-      bodyLine1 += ` (${errorCode})`;
-    }
-    bodyLine1 += `: ${error}\n`;
-    if (errorDescription) {
-      bodyLine2 = errorDescription;
-    }
+  let body = <div></div>
+  if (!error) {
+    body = <div>
+      You may close this window.
+    </div>
+  } else {
+    body = <div>
+      <b>Error</b>{errorCode ? ` (${errorCode})` : ""}: {error}
+      <br/>
+      {errorDescription ? errorDescription + "." : ""}
+    </div>
   }
   return (
     <Layout
@@ -63,9 +63,7 @@ export function AuthPage(): JSX.Element {
           padding-top: 4.5rem;
         `}
       >
-        {bodyLine1}
-        <br/>
-        {bodyLine2}
+        {body}
       </Section>
     </Layout>
   );
