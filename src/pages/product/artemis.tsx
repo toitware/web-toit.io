@@ -5,15 +5,14 @@ import fleetSvg from "../../assets/images/illustrations/fleet.svg";
 import overTheAirUpdatesSvg from "../../assets/images/illustrations/over-the-air-updates.svg";
 import ContentSpacer from "../../components/ContentSpacer";
 import HeroImage from "../../components/HeroImage";
-import { ButtonLink } from "../../components/button";
+import ArtemisButton from "../../components/artemis-button";
 import { bigFont } from "../../components/global-css";
 import Layout from "../../components/layout";
 import CenteredBlock from "../../components/layout/CenteredBlock";
 import PageTitle from "../../components/layout/PageTitle";
 import Section from "../../components/layout/Section";
 import SideBySide from "../../components/layout/SideBySide";
-import SignUpButton from "../../components/sign-up-button";
-import { golden, pythonSecondary } from "../../theme";
+import { dartSecondary, golden } from "../../theme";
 
 export function ArtemisPage(): JSX.Element {
   return (
@@ -21,12 +20,13 @@ export function ArtemisPage(): JSX.Element {
       title="Fleet management with Artemis"
       description="Manage your fleet of devices with robust over-the-air updates."
       noDefaultSignup={true}
+      callToAction={<ArtemisButton size="small" />}
     >
       <PageTitle
         title="Artemis"
         subTitle="Fleet management"
         css={css`
-          background: ${pythonSecondary.string()};
+          background: ${dartSecondary.string()};
         `}
       />
 
@@ -42,7 +42,7 @@ export function ArtemisPage(): JSX.Element {
           `}
         >
           <p css={bigFont}>A fleet management system under your control.</p>
-          <SignUpButton />
+          <ArtemisButton />
         </CenteredBlock>
 
         <HeroImage containerHeightRem={18} image={editorSvg} width={1024} height={314} />
@@ -97,9 +97,7 @@ export function ArtemisPage(): JSX.Element {
         >
           Manage your fleet.
         </p> */}
-          <ButtonLink variant="contained" href="https://docs.toit.io/getstarted/fleet">
-            Manage your fleet
-          </ButtonLink>
+          <ArtemisButton />
       </Section>
     </Layout>
   );

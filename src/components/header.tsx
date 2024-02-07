@@ -1,6 +1,6 @@
-import { globalHistory } from "@reach/router";
 import { css, Global } from "@emotion/react";
 import styled from "@emotion/styled";
+import { globalHistory } from "@reach/router";
 import clsx from "clsx";
 import * as React from "react";
 import { useEffect, useRef, useState } from "react";
@@ -13,8 +13,8 @@ import { breakpoints } from "./global-css";
 import Link from "./link";
 import SubmenuContainer from "./Menu/SubmenuContainer";
 
-import MenuToggle from "./popup-menu/menu-toggle";
 import { Menu as PopupMenu } from "./popup-menu/menu";
+import MenuToggle from "./popup-menu/menu-toggle";
 import SignUpButton from "./sign-up-button";
 
 const Wrapper = styled.div`
@@ -99,7 +99,13 @@ const menuLinkCss = css`
   }
 `;
 
-export function Header(): JSX.Element {
+interface HeaderProps {
+  callToAction?: JSX.Element;
+}
+
+export function Header({
+  callToAction
+}: HeaderProps): JSX.Element {
   const [submenuVisible, setSubmenuVisible] = useState(false);
 
   const [popupVisible, setPopupVisible] = useState(false);
@@ -215,7 +221,7 @@ export function Header(): JSX.Element {
             >
               Discussions
             </ButtonLink>
-            <SignUpButton size="small" />
+            { callToAction ?? <SignUpButton size="small" /> }
           </AccountButtons>
           <MenuToggle css={mobileCss} toggle={() => setPopupVisible(!popupVisible)} isOpen={popupVisible} />
         </Content>

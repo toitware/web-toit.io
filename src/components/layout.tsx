@@ -155,7 +155,7 @@ export default function Layout({
               )}
               {!simplified && (
                 <>
-                  {!hideHeader && <Header />}
+                  {!hideHeader && <Header callToAction={callToAction} />}
                   <Content>
                     {children}
 
