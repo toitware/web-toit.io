@@ -43,7 +43,7 @@ const iconMap: {
   [key: string]: JSX.Element;
 } = {
   "device software": <CodeSvg />,
-  "artemis fleet management": <CloudSvg />,
+  "fleet management": <CloudSvg />,
   "supported hardware": <DeviceSvg />,
   "connectivity options": <CommunicationSvg />,
   documentation: <DocumentSvg />,

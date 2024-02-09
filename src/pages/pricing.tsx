@@ -1,18 +1,21 @@
 import { css } from "@emotion/react";
 import React from "react";
+import ArtemisButton from "../components/artemis-button";
 import { bigFont, clampBuilder, darkSection } from "../components/global-css";
 import Layout from "../components/layout";
 import CenteredBlock from "../components/layout/CenteredBlock";
 import PageTitle from "../components/layout/PageTitle";
 import Section from "../components/layout/Section";
 import PricingBlock from "../components/pricing-block-preview";
-import { dart, golden } from "../theme";
+import SignUpButton from "../components/sign-up-button";
+import { dart, dartSecondary, golden } from "../theme";
 
 export function PricingPage(): JSX.Element {
   return (
     <Layout
       title="Simple pricing that works for everyone"
       description="Simple pricing for the Artemis fleet management. $0.50 per device per month. 10 devices are free forever. No credit card needed."
+      noDefaultSignup={true}
     >
       <PageTitle
         css={css`
@@ -24,11 +27,28 @@ export function PricingPage(): JSX.Element {
         subTitle="Pricing"
       />
       <Section
+        centered
         css={css`
-          padding-top: 4.5rem;
+          padding-top: 3.5rem;
+          padding-bottom: 3.5rem;
           background: ${golden.string()};
         `}
       >
+        <CenteredBlock css={bigFont}>
+          The Toit framework is open-source. If you don&apos;t need our fleet
+          management system, you can use it for free.
+        </CenteredBlock>
+        <SignUpButton />
+      </Section>
+      <Section
+        css={css`
+          padding-top: 2.5rem;
+          background: ${dartSecondary.string()};
+        `}
+      >
+        <CenteredBlock css={bigFont}>
+          Subscribe to our fleet management solution.
+        </CenteredBlock>
         <CenteredBlock css={bigFont}>
           Each month you pay only for the devices you service through our platform.
         </CenteredBlock>
@@ -75,6 +95,9 @@ export function PricingPage(): JSX.Element {
           remove Artemis from your devices at any time; even over the air.
         </p>
       </Section>
+      <CenteredBlock>
+      <ArtemisButton />
+      </CenteredBlock>
     </Layout>
   );
 }

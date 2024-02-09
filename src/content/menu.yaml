@@ -10,8 +10,8 @@ items:
       - path: /device-software
         title: Device software
         description: Build the firmware on your devices.
-      - path: /artemis
-        title: Artemis fleet management
+      - path: /fleet-management
+        title: Fleet management
         description: Manage your fleet of devices
   - path: /pricing
     title: Pricing
