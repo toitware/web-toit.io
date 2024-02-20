@@ -1,9 +1,9 @@
 import { css } from "@emotion/react";
 import React from "react";
-import editorSvg from "../../assets/images/editor.svg";
-import fleetSvg from "../../assets/images/illustrations/fleet.svg";
+import artemisKonsole from "../../assets/images/artemis-konsole.png";
 import overTheAirUpdatesSvg from "../../assets/images/illustrations/over-the-air-updates.svg";
 import weatherBalloonMp4 from "../../assets/images/illustrations/weather-balloon.mp4";
+import addPr from "../../assets/images/pr-add-devices.png";
 import ContentSpacer from "../../components/ContentSpacer";
 import HeroImage from "../../components/HeroImage";
 import ArtemisButton from "../../components/artemis-button";
@@ -33,7 +33,7 @@ export function ArtemisPage(): JSX.Element {
 
       <Section
         css={css`
-          padding: 4.5rem 0 0;
+          padding: 1.5rem 0 0;
         `}
       >
         <CenteredBlock
@@ -46,18 +46,19 @@ export function ArtemisPage(): JSX.Element {
           <ArtemisButton />
         </CenteredBlock>
 
-        <HeroImage containerHeightRem={18} image={editorSvg} width={1024} height={314} />
       </Section>
       <Section
         centered
         css={css`
           background: ${golden.string()};
+          padding: 4.5rem 0 0;
         `}>
         <h2 className="h1">Artemis</h2>
         <p>
           Artemis is a fleet management tool written by developers for
           developers. No fancy web UI, but a robust and powerful CLI.
         </p>
+        <HeroImage containerHeightRem={18} image={artemisKonsole} width={800} height={544} />
       </Section>
       <Section centered>
         <h2 className="h1">Familiar tools</h2>
@@ -70,10 +71,10 @@ export function ArtemisPage(): JSX.Element {
 
         <SideBySide
           illustrationPosition="left"
-          illustration={fleetSvg}
+          illustration={addPr}
           css={bigFont}
-          illustrationWidth={962}
-          illustrationHeight={1180}
+          illustrationWidth={855}
+          illustrationHeight={633}
         >
           The state of your fleet is saved in your version control system. Reviews, rollbacks and rollouts are done
           through the tools you are familiar with.
