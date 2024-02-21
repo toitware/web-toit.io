@@ -42,7 +42,7 @@ export function ArtemisPage(): JSX.Element {
             padding-right: var(--contentPadding);
           `}
         >
-          <p css={bigFont}>A fleet management system under your control.</p>
+          <p css={bigFont}>A fleet-management system under your control.</p>
           <ArtemisButton />
         </CenteredBlock>
 
@@ -107,7 +107,7 @@ export function ArtemisPage(): JSX.Element {
           Furthermore, Artemis channels are a flash-based message queue that
           allows for efficient and reliable off-loading from the device to the cloud.
           Years of experience have made our cellular stack robust and reliable.
-          <p>
+          <p css={css` padding-top: 1.0rem;`}>
           Contact us to discuss how we can help you get started.
           </p>
         </SideBySide>
@@ -123,7 +123,7 @@ export function ArtemisPage(): JSX.Element {
           <h2 className="h1">Over-the-air updates</h2>
           The Artemis CLI features a patch-based over-the-air update mechanism, that
           makes updates small, fast, and reliable.
-          <p>
+          <p css={css` padding-top: 1.0rem;`}>
           If you want to have more control over your firmware images you can also
           run your own broker.
           The code for the Artemis cloud component
@@ -139,14 +139,6 @@ export function ArtemisPage(): JSX.Element {
         `}
       >
         <h2>Get started with Artemis</h2>
-        {/* <p
-          css={css`
-            max-width: 18em;
-            margin: 3rem auto;
-          `}
-        >
-          Manage your fleet.
-        </p> */}
           <ArtemisButton />
       </Section>
     </Layout>

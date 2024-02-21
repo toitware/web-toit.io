@@ -29,8 +29,8 @@ export function PricingPage(): JSX.Element {
       <Section
         centered
         css={css`
-          padding-top: 3.5rem;
-          padding-bottom: 3.5rem;
+          padding-top: 1.0rem;
+          padding-bottom: 2.0rem;
           background: ${golden.string()};
         `}
       >
@@ -41,13 +41,15 @@ export function PricingPage(): JSX.Element {
         <SignUpButton />
       </Section>
       <Section
+        centered
         css={css`
           padding-top: 2.5rem;
           background: ${dartSecondary.string()};
         `}
       >
+        <h2>Fleet management</h2>
         <CenteredBlock css={bigFont}>
-          Subscribe to our fleet management solution.
+          You can also subscribe to our fleet management solution.
         </CenteredBlock>
         <CenteredBlock css={bigFont}>
           Each month you pay only for the devices you service through our platform.
@@ -82,6 +84,26 @@ export function PricingPage(): JSX.Element {
         <SectionDownArrow />
       </Section>
       <Section css={[darkSection]} centered>
+        <h2>A robust fleet-management system</h2>
+        <p
+          css={css`
+            max-width: 26em;
+            margin-left: auto;
+            margin-right: auto;
+          `}
+        >
+          Our framework allows you to focus on your applications. We take care of the
+          tedious (but important) task of keeping your devices connected and up to date.
+        </p>
+      </Section>
+      <Section
+        centered
+        css={css`
+          padding-top: 1.0rem;
+          padding-bottom: 2.0rem;
+          background: ${golden.string()};
+        `}
+      >
         <h2>No additional fees</h2>
         <p
           css={css`
@@ -92,7 +114,7 @@ export function PricingPage(): JSX.Element {
         >
           <strong>Your turned off, disconnected, or unserviced devices are free</strong> and keep running your
           applications, so you are in full control of your bill. Our support is always included.&nbsp; You can also
-          remove Artemis from your devices at any time; even over the air.
+          remove our framework from your devices at any time; even over the air.
         </p>
       </Section>
       <CenteredBlock>

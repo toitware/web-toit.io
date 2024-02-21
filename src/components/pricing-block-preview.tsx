@@ -2,8 +2,8 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React from "react";
 import { black, golden, white } from "../theme";
+import ArtemisButton from "./artemis-button";
 import { clampBuilder } from "./global-css";
-import SignUpButton from "./sign-up-button";
 
 const Wrapper = styled.div`
   position: relative;
@@ -70,7 +70,7 @@ const PricingBlock: React.FC<Props> = ({ className }) => (
         Free forever and full-featured on <b>10</b> devices.
       </div>
 
-      <SignUpButton
+      <ArtemisButton
         css={css`
           margin: 1.5rem 0 0 0;
         `}
