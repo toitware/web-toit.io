@@ -36,7 +36,7 @@ export function PricingPage(): JSX.Element {
       >
         <CenteredBlock css={bigFont}>
           The Toit framework is open-source. If you don&apos;t need our fleet
-          management system, you can use it for free.
+          management system, you can use the platform for free.
         </CenteredBlock>
         <SignUpButton />
       </Section>
@@ -113,7 +113,8 @@ export function PricingPage(): JSX.Element {
           `}
         >
           <strong>Your turned off, disconnected, or unserviced devices are free</strong> and keep running your
-          applications, so you are in full control of your bill. Our support is always included.&nbsp; You can also
+          applications, so you are in full control of your bill. Our support is always included.
+          You can also
           remove our framework from your devices at any time; even over the air.
         </p>
       </Section>
