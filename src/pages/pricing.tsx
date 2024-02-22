@@ -1,25 +1,21 @@
 import { css } from "@emotion/react";
 import React from "react";
-import CheckmarkSvg from "../assets/images/icons/checkmark.inline.svg";
+import ArtemisButton from "../components/artemis-button";
 import { bigFont, clampBuilder, darkSection } from "../components/global-css";
 import Layout from "../components/layout";
 import CenteredBlock from "../components/layout/CenteredBlock";
 import PageTitle from "../components/layout/PageTitle";
 import Section from "../components/layout/Section";
 import PricingBlock from "../components/pricing-block-preview";
-import { dart, dartSecondary, golden, goldenSecondary, passionSecondary } from "../theme";
-
-const featureCss = css`
-  text-align: center;
-  white-space: nowrap;
-  margin: 1.5rem;
-`;
+import SignUpButton from "../components/sign-up-button";
+import { dart, dartSecondary, golden } from "../theme";
 
 export function PricingPage(): JSX.Element {
   return (
     <Layout
       title="Simple pricing that works for everyone"
-      description="Simple pricing for the Toit platform. $0.50 per device per month. 10 devices are free forever. No credit card needed."
+      description="Simple pricing for the Artemis fleet management. $0.50 per device per month. 10 devices are free forever. No credit card needed."
+      noDefaultSignup={true}
     >
       <PageTitle
         css={css`
@@ -31,11 +27,30 @@ export function PricingPage(): JSX.Element {
         subTitle="Pricing"
       />
       <Section
+        centered
         css={css`
-          padding-top: 4.5rem;
+          padding-top: 1.0rem;
+          padding-bottom: 2.0rem;
           background: ${golden.string()};
         `}
       >
+        <CenteredBlock css={bigFont}>
+          The Toit framework is open-source. If you don&apos;t need our fleet
+          management system, you can use the platform for free.
+        </CenteredBlock>
+        <SignUpButton />
+      </Section>
+      <Section
+        centered
+        css={css`
+          padding-top: 2.5rem;
+          background: ${dartSecondary.string()};
+        `}
+      >
+        <h2>Fleet management</h2>
+        <CenteredBlock css={bigFont}>
+          You can also subscribe to our fleet management solution.
+        </CenteredBlock>
         <CenteredBlock css={bigFont}>
           Each month you pay only for the devices you service through our platform.
         </CenteredBlock>
@@ -69,6 +84,26 @@ export function PricingPage(): JSX.Element {
         <SectionDownArrow />
       </Section>
       <Section css={[darkSection]} centered>
+        <h2>A robust fleet management system</h2>
+        <p
+          css={css`
+            max-width: 26em;
+            margin-left: auto;
+            margin-right: auto;
+          `}
+        >
+          Our framework allows you to focus on your applications. We take care of the
+          tedious, but important, task of keeping your devices connected and up to date.
+        </p>
+      </Section>
+      <Section
+        centered
+        css={css`
+          padding-top: 1.0rem;
+          padding-bottom: 2.0rem;
+          background: ${golden.string()};
+        `}
+      >
         <h2>No additional fees</h2>
         <p
           css={css`
@@ -77,41 +112,15 @@ export function PricingPage(): JSX.Element {
             margin-right: auto;
           `}
         >
-          You enable and disable serviceability for individual devices when you want to.&nbsp;
           <strong>Your turned off, disconnected, or unserviced devices are free</strong> and keep running your
           applications, so you are in full control of your bill. Our support is always included.
+          You can also
+          remove our framework from your devices at any time; even over the air.
         </p>
       </Section>
-      <Section centered>
-        <h2>Serviceability includes</h2>
-        <ul
-          css={css`
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            width: 100%;
-            list-style: none;
-            padding: 0;
-            margin: 3rem auto;
-          `}
-        >
-          <li css={featureCss}>
-            <CheckmarkSvg style={{ color: dartSecondary.string() }} />
-            <br />
-            System and application updates
-          </li>
-          <li css={featureCss}>
-            <CheckmarkSvg style={{ color: goldenSecondary.string() }} />
-            <br />
-            Logging and monitoring
-          </li>
-          <li css={featureCss}>
-            <CheckmarkSvg style={{ color: passionSecondary.string() }} />
-            <br />
-            Secure, managed data pipeline
-          </li>
-        </ul>
-      </Section>
+      <CenteredBlock>
+      <ArtemisButton />
+      </CenteredBlock>
     </Layout>
   );
 }
