@@ -9,10 +9,10 @@ items:
     subpages:
       - path: /device-software
         title: Device software
-        description: Build the firmware on your devices.
+        description: Build the firmware for your devices.
       - path: /fleet-management
         title: Fleet management
-        description: Manage your fleet of devices
+        description: Manage your fleet of devices.
   - path: /pricing
     title: Pricing
   - path: /developers

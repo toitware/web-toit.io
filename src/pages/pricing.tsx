@@ -84,7 +84,7 @@ export function PricingPage(): JSX.Element {
         <SectionDownArrow />
       </Section>
       <Section css={[darkSection]} centered>
-        <h2>A robust fleet-management system</h2>
+        <h2>A robust fleet management system</h2>
         <p
           css={css`
             max-width: 26em;
@@ -93,7 +93,7 @@ export function PricingPage(): JSX.Element {
           `}
         >
           Our framework allows you to focus on your applications. We take care of the
-          tedious (but important) task of keeping your devices connected and up to date.
+          tedious, but important, task of keeping your devices connected and up to date.
         </p>
       </Section>
       <Section

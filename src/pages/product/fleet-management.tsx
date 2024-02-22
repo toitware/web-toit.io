@@ -25,7 +25,7 @@ export function ArtemisPage(): JSX.Element {
     >
       <PageTitle
         title="Fleet management"
-        subTitle="Keep your devices up to date"
+        subTitle="Service your devices via the cloud"
         css={css`
           background: ${dartSecondary.string()};
         `}
@@ -42,7 +42,7 @@ export function ArtemisPage(): JSX.Element {
             padding-right: var(--contentPadding);
           `}
         >
-          <p css={bigFont}>A fleet-management system under your control.</p>
+          <p css={bigFont}>A fleet management system under your control.</p>
           <ArtemisButton />
         </CenteredBlock>
 
@@ -56,7 +56,9 @@ export function ArtemisPage(): JSX.Element {
         <h2 className="h1">Artemis</h2>
         <p>
           Artemis is a fleet management tool written by developers for
-          developers. No fancy web UI, but a robust and powerful CLI.
+          developers. A robust and powerful CLI.allows you to script
+          your fleet management tasks and integrate it into your existing
+          infrastructure.
         </p>
         <HeroImage containerHeightRem={18} image={artemisKonsole} width={800} height={544} />
       </Section>
@@ -126,8 +128,8 @@ export function ArtemisPage(): JSX.Element {
           <p css={css` padding-top: 1.0rem;`}>
           If you want to have more control over your firmware images you can also
           run your own broker.
-          The code for the Artemis cloud component
-          is <a href="https://github.com/toitware/artemis-releases/tree/main/broker">open source</a>.
+          The code
+          is <a href="https://github.com/toitware/artemis-releases/tree/main/broker">open-source</a>.
           </p>
         </SideBySide>
       </Section>

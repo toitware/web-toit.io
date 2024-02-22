@@ -107,7 +107,7 @@ export default function Layout({
   noDefaultSignup = false,
   hideHeader = false,
   callToAction,
-  signUpText = "Find our open source technology on GitHub and start your journey to invent the future.",
+  signUpText = "Find our open-source technology on GitHub and start your journey to invent the future.",
 }: LayoutProps): JSX.Element {
   const data: GraphType = useStaticQuery(graphql`
     query LayoutTitleQuery {
