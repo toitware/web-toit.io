@@ -7,6 +7,12 @@ This is the public facing landing page served at https://toit.io/
 This project is built with [gatsby](https://www.gatsbyjs.com) and
 [react](https://reactjs.org).
 
+## Node version
+
+This project doesn't compile anymore with recent node versions. Use,
+for example, `nvm` to install an older version of node. The repository
+contains a `.nvmrc` file that specifies the node version that works.
+
 ## yarn
 
 `yarn` is used in web projects. To install `yarn`, follow the guide
@@ -33,7 +39,7 @@ Here's a short summary of what you need to do:
    1. Name it appropriately
    2. Check `write:packages` and `read:packages`
 2. Copy the token
-3. Add the token to your `~/.npmrc`:  
+3. Add the token to your `~/.npmrc`:
    `echo "//npm.pkg.github.com/:_authToken=YOUR_TOKEN" >> ~/.npmrc`
 
 ## Running the development server
