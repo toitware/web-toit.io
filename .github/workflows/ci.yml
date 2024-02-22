@@ -4,6 +4,13 @@ on:
   push:
   release:
     types: [published]
+  workflow_dispatch:
+    inputs:
+      upload:
+        description: 'Whether to upload the build to Google Cloud Storage'
+        type: boolean
+        required: true
+        default: false
 
 env:
   BUCKET: toit-web
@@ -83,6 +90,7 @@ jobs:
     if: |
       github.event_name == 'release' ||
       github.event_name == 'push' && github.ref_name == 'master' ||
+      inputs.upload ||
       github.event_name == 'push' && startsWith(github.ref_name, 'release-v')
 
     steps:
