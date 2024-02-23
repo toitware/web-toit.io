@@ -9,6 +9,7 @@ import Section from "../components/layout/Section";
 import PricingBlock from "../components/pricing-block-preview";
 import SignUpButton from "../components/sign-up-button";
 import { dart, dartSecondary, golden } from "../theme";
+import { Link } from "../components/link";
 
 export function PricingPage(): JSX.Element {
   return (
