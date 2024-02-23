@@ -49,14 +49,14 @@ export function PricingPage(): JSX.Element {
         `}
       >
         <h2>Fleet management</h2>
-        <CenteredBlock css={bigFont}>
+        <CenteredBlock>
           If you need help keeping your devices up-to-date and running smoothly,
           you can subscribe to our robust serviceability offering that allows you
           manage your fleet through the cloud.
         </CenteredBlock>
         <CenteredBlock>
-          Each month you pay only for the devices you service through our
-          <Link to="/product/fleet-management">fleet manager</Link>.
+          Each month you pay only for the devices you service through
+          our <Link to="/product/fleet-management">fleet manager</Link>.
         </CenteredBlock>
 
         <PricingBlock />
