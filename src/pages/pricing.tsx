@@ -35,8 +35,8 @@ export function PricingPage(): JSX.Element {
         `}
       >
         <CenteredBlock css={bigFont}>
-          The Toit framework is open-source. If you don&apos;t need our fleet
-          management system, you can use the platform for free.
+          The Toit platform is open-source. You can use it for free on all your
+          devices and benefit from our technology with no strings attached.
         </CenteredBlock>
         <SignUpButton />
       </Section>
@@ -49,10 +49,13 @@ export function PricingPage(): JSX.Element {
       >
         <h2>Fleet management</h2>
         <CenteredBlock css={bigFont}>
-          You can also subscribe to our fleet management solution.
+          If you need help keeping your devices up-to-date and running smoothly, 
+          you can subscribe to our robust serviceability offering that allows you 
+          manage your fleet through the cloud.
         </CenteredBlock>
-        <CenteredBlock css={bigFont}>
-          Each month you pay only for the devices you service through our platform.
+        <CenteredBlock>
+          Each month you pay only for the devices you service through our
+          fleet manager.
         </CenteredBlock>
 
         <PricingBlock />
@@ -84,7 +87,7 @@ export function PricingPage(): JSX.Element {
         <SectionDownArrow />
       </Section>
       <Section css={[darkSection]} centered>
-        <h2>A robust fleet management system</h2>
+        <h2>Manage your fleet with ease/h2>
         <p
           css={css`
             max-width: 26em;
@@ -92,8 +95,8 @@ export function PricingPage(): JSX.Element {
             margin-right: auto;
           `}
         >
-          Our framework allows you to focus on your applications. We take care of the
-          tedious, but important, task of keeping your devices connected and up to date.
+          Our fleet manager allows you to focus on your applications. We take care
+          of the tedious, but important, task of keeping your devices connected and up-to-date.
         </p>
       </Section>
       <Section
@@ -114,8 +117,7 @@ export function PricingPage(): JSX.Element {
         >
           <strong>Your turned off, disconnected, or unserviced devices are free</strong> and keep running your
           applications, so you are in full control of your bill. Our support is always included.
-          You can also
-          remove our framework from your devices at any time; even over the air.
+          You can also remove our fleet manager from your devices at any time; even over the air.
         </p>
       </Section>
       <CenteredBlock>
