@@ -42,7 +42,10 @@ export function ArtemisPage(): JSX.Element {
             padding-right: var(--contentPadding);
           `}
         >
-          <p css={bigFont}>A fleet management system under your control.</p>
+          <p css={bigFont}>
+            Manage your fleet with ease through the cloud. Service your devices
+            and keep them up-to-date.
+          </p>
           <ArtemisButton />
         </CenteredBlock>
 
@@ -56,7 +59,7 @@ export function ArtemisPage(): JSX.Element {
         <h2 className="h1">Artemis</h2>
         <CenteredBlock>
         <p>
-          Artemis is a fleet management tool written by developers for
+          Artemis is a fleet manager written by developers for
           developers. A robust and powerful CLI allows you to script
           your fleet management tasks and integrate it into your existing
           infrastructure.

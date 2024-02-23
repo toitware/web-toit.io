@@ -9,12 +9,13 @@ import Section from "../components/layout/Section";
 import PricingBlock from "../components/pricing-block-preview";
 import SignUpButton from "../components/sign-up-button";
 import { dart, dartSecondary, golden } from "../theme";
+import { Link } from "../components/link";
 
 export function PricingPage(): JSX.Element {
   return (
     <Layout
       title="Simple pricing that works for everyone"
-      description="Simple pricing for the Artemis fleet management. $0.50 per device per month. 10 devices are free forever. No credit card needed."
+      description="Simple pricing for the Artemis fleet manager. $0.50 per device per month. 10 devices are free forever. No credit card needed."
       noDefaultSignup={true}
     >
       <PageTitle
