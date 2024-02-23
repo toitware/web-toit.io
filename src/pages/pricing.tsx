@@ -14,7 +14,7 @@ export function PricingPage(): JSX.Element {
   return (
     <Layout
       title="Simple pricing that works for everyone"
-      description="Simple pricing for the Artemis fleet management. $0.50 per device per month. 10 devices are free forever. No credit card needed."
+      description="Simple pricing for the Artemis fleet manager. $0.50 per device per month. 10 devices are free forever. No credit card needed."
       noDefaultSignup={true}
     >
       <PageTitle
