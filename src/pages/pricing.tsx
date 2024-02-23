@@ -49,13 +49,13 @@ export function PricingPage(): JSX.Element {
       >
         <h2>Fleet management</h2>
         <CenteredBlock css={bigFont}>
-          If you need help keeping your devices up-to-date and running smoothly, 
-          you can subscribe to our robust serviceability offering that allows you 
+          If you need help keeping your devices up-to-date and running smoothly,
+          you can subscribe to our robust serviceability offering that allows you
           manage your fleet through the cloud.
         </CenteredBlock>
         <CenteredBlock>
           Each month you pay only for the devices you service through our
-          fleet manager.
+          <Link to="/product/fleet-management">fleet manager</Link>.
         </CenteredBlock>
 
         <PricingBlock />
@@ -87,7 +87,7 @@ export function PricingPage(): JSX.Element {
         <SectionDownArrow />
       </Section>
       <Section css={[darkSection]} centered>
-        <h2>Manage your fleet with ease/h2>
+        <h2>Manage your fleet with ease</h2>
         <p
           css={css`
             max-width: 26em;
