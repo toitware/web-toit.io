@@ -54,12 +54,14 @@ export function ArtemisPage(): JSX.Element {
           padding: 4.5rem 0 0;
         `}>
         <h2 className="h1">Artemis</h2>
+        <CenteredBlock>
         <p>
           Artemis is a fleet management tool written by developers for
-          developers. A robust and powerful CLI.allows you to script
+          developers. A robust and powerful CLI allows you to script
           your fleet management tasks and integrate it into your existing
           infrastructure.
         </p>
+        </CenteredBlock>
         <HeroImage containerHeightRem={18} image={artemisKonsole} width={800} height={544} />
       </Section>
       <Section centered>
