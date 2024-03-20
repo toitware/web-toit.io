@@ -1,5 +1,5 @@
 /* eslint-disable */
-// Code copied from toitware/toit. DO NOT EDIT.
+// Code copied from toitware/ide-tools. DO NOT EDIT.
 
 // Copyright (C) 2021 Toitware ApS. All rights reserved.
 // Use of this source code is governed by an MIT-style license that can be
