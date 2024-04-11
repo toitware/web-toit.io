@@ -13,6 +13,15 @@ This project doesn't compile anymore with recent node versions. Use,
 for example, `nvm` to install an older version of node. The repository
 contains a `.nvmrc` file that specifies the node version that works.
 
+If you have nvm installed, but not automatically activated in your
+.bashrc, you will need to do
+
+```bash
+source /usr/share/nvm/init-nvm.sh
+```
+
+Then run `nvm install` to install the correct version of node.
+
 ## yarn
 
 `yarn` is used in web projects. To install `yarn`, follow the guide
