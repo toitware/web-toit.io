@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /communication
+Sitemap: https://toit.io/sitemap/sitemap-index.xml
+Host: https://toit.io
