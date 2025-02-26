@@ -1,12 +1,11 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { ThemeProvider } from "@material-ui/styles";
-import React, { useState } from "react";
+import React from "react";
 import LinkedInIcon from "../assets/images/social/linked-in.inline.svg";
 import RedditIcon from "../assets/images/social/reddit.inline.svg";
 import BlueSkyIcon from "../assets/images/social/bsky.inline.svg";
 import ToitLogo from "../assets/images/toit-logo.inline.svg";
-import { black, primaryTheme, white } from "../theme";
+import { black, white } from "../theme";
 import { breakpoints } from "./global-css";
 import { Link } from "./link";
 
@@ -109,16 +108,6 @@ type Props = {
 };
 
 export default function Footer({ simplified = false }: Props): JSX.Element {
-  let segmentAPIKey = process.env.GATSBY_SEGMENT_WRITE_KEY;
-
-  if (typeof document !== `undefined`) {
-    // Check if the meta segment-key is set.
-    const segmentKeyDOM = document.querySelector('meta[name="segment-key"]');
-    if (segmentKeyDOM) {
-      segmentAPIKey = segmentKeyDOM.getAttribute("content") || segmentAPIKey;
-    }
-  }
-
   return (
     <>
       {!simplified && <FooterContent />}
