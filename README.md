@@ -1,6 +1,6 @@
 # Toit landing page
 
-This is the public facing landing page served at https://toit.io/
+This is the public facing landing page served at https://toit.io/.
 
 # Getting started
 
