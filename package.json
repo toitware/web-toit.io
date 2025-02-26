@@ -31,7 +31,6 @@
     "@mdx-js/react": "^1.6.22",
     "@popperjs/core": "^2.10.2",
     "@svgr/webpack": "^5.5.0",
-    "@toitware/cookie-consent": "^0.1.5",
     "@types/color": "^3.0.2",
     "@types/js-cookie": "^3.0.1",
     "@types/mdx-js__react": "^1.5.5",
