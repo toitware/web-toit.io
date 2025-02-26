@@ -81,7 +81,6 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^12.1.2",
-    "@toitware/testing-utils": "^0.0.8",
     "@types/jest": "^27.0.3",
     "@types/react-lazy-load-image-component": "^1.5.2",
     "@types/react-test-renderer": "^17.0.1",
