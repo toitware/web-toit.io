@@ -6,7 +6,6 @@ import Layout from "../components/layout";
 import CenteredBlock from "../components/layout/CenteredBlock";
 import PageTitle from "../components/layout/PageTitle";
 import Section from "../components/layout/Section";
-import PricingBlock from "../components/pricing-block-preview";
 import SignUpButton from "../components/sign-up-button";
 import { dart, dartSecondary, golden } from "../theme";
 import { Link } from "../components/link";
@@ -60,8 +59,6 @@ export function PricingPage(): JSX.Element {
           at no cost under fair use restrictions. We are here to help
           set up your infrastructure!
         </CenteredBlock>
-
-        <PricingBlock />
 
         <div
           css={css`
