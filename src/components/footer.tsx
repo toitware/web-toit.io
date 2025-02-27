@@ -1,13 +1,11 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { ThemeProvider } from "@material-ui/styles";
-import CookieConsent from "@toitware/cookie-consent";
-import React, { useState } from "react";
+import React from "react";
 import LinkedInIcon from "../assets/images/social/linked-in.inline.svg";
 import RedditIcon from "../assets/images/social/reddit.inline.svg";
-import TwitterIcon from "../assets/images/social/twitter.inline.svg";
+import BlueSkyIcon from "../assets/images/social/bsky.inline.svg";
 import ToitLogo from "../assets/images/toit-logo.inline.svg";
-import { black, primaryTheme, white } from "../theme";
+import { black, white } from "../theme";
 import { breakpoints } from "./global-css";
 import { Link } from "./link";
 
@@ -110,41 +108,15 @@ type Props = {
 };
 
 export default function Footer({ simplified = false }: Props): JSX.Element {
-  const [changeConsent, setChangeConsent] = useState(false);
-
-  let segmentAPIKey = process.env.GATSBY_SEGMENT_WRITE_KEY;
-
-  if (typeof document !== `undefined`) {
-    // Check if the meta segment-key is set.
-    const segmentKeyDOM = document.querySelector('meta[name="segment-key"]');
-    if (segmentKeyDOM) {
-      segmentAPIKey = segmentKeyDOM.getAttribute("content") || segmentAPIKey;
-    }
-  }
-
   return (
     <>
-      <ThemeProvider theme={primaryTheme}>
-        <CookieConsent
-          show={true}
-          segmentKey={segmentAPIKey || "no-key"}
-          changeConsent={changeConsent}
-          onAnalyticsReady={() => {
-            window.redditSnippetLoader("t2_brvtmsx5");
-          }}
-        />
-      </ThemeProvider>
-      {!simplified && <FooterContent setChangeConsent={setChangeConsent} />}
+      {!simplified && <FooterContent />}
       {simplified && <SimplifiedFooterContent />}
     </>
   );
 }
 
-function FooterContent({
-  setChangeConsent,
-}: {
-  setChangeConsent: React.Dispatch<React.SetStateAction<boolean>>;
-}): JSX.Element {
+function FooterContent(): JSX.Element {
   return (
     <Root>
       <Contact>
@@ -160,8 +132,8 @@ function FooterContent({
             }
           `}
         >
-          <Link href="https://twitter.com/toitware">
-            <TwitterIcon />
+          <Link href="https://bsky.app/profile/toitlang.org">
+            <BlueSkyIcon />
           </Link>
           <Link href="https://www.linkedin.com/company/toitio">
             <LinkedInIcon />
@@ -206,14 +178,9 @@ function FooterContent({
           <li>
             <Link to="/cookies-policy">Cookies policy</Link>
           </li>
-          <li>
-            <a href="#" onClick={() => setChangeConsent(true)}>
-              Change cookie consent
-            </a>
-          </li>
         </ul>
       </Legal>
-      <Copyright>&copy; Toitware ApS</Copyright>
+      <Copyright>&copy; Florian Loitsch and Kasper Lund</Copyright>
       <Design>
         Design by <Link href="https://jacktheobald.com/">Jack Theobald</Link>
       </Design>
@@ -234,7 +201,6 @@ function SimplifiedFooterContent(): JSX.Element {
           <ToitLogo
             css={css`
               ${toitLogoCss}
-
               margin-right: 0;
             `}
           />
@@ -244,7 +210,7 @@ function SimplifiedFooterContent(): JSX.Element {
             padding-top: 0rem;
           `}
         >
-          &copy; Toitware ApS
+          &copy; Florian Loitsch and Kasper Lund
         </Copyright>
       </Contact>
     </SimplifiedRoot>

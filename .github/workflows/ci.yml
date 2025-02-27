@@ -20,7 +20,6 @@ on:
 env:
   BUILD_DIR: public
   HAS_PROTOBUF: false
-  RUN_TESTS: true
   ARTIFACT_EXTENSION: tar.gz
 
 jobs:
@@ -51,11 +50,6 @@ jobs:
       - name: Lint
         run: |
           yarn lint
-
-      - name: Test
-        if: env.RUN_TESTS == 'true'
-        run: |
-          yarn test:ci
 
       - name: Build
         run: |

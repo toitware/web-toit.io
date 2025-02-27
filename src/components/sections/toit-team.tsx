@@ -14,6 +14,26 @@ const imageSize = 256;
 
 const people: Person[] = [
   {
+    name: "Florian Loitsch",
+    image: (
+      <StaticImage
+        placeholder="blurred"
+        src="../../assets/images/team/florian.png"
+        alt="Florian Loitsch"
+        width={imageSize}
+        height={imageSize}
+      />
+    ),
+    description: (
+      <div>
+        Florian Loitsch is a programming language and compiler specialist. He was the tech lead for the business
+        critical <Link href="https://webdev.dartlang.org/tools/dart2js">Dart-to-JavaScript compiler</Link> at Google and
+        in charge of the evolution of the{" "}
+        <Link href="https://en.wikipedia.org/wiki/Dart_(programming_language)">Dart language</Link>.
+      </div>
+    ),
+  },
+  {
     name: "Kasper Lund",
     image: (
       <StaticImage
@@ -34,51 +54,6 @@ const people: Person[] = [
           adaptive optimizations to JavaScript
         </Link>
         , finally making the web fast.
-      </div>
-    ),
-  },
-  {
-    name: "Erik Corry",
-    image: (
-      <StaticImage
-        placeholder="blurred"
-        src="../../assets/images/team/erik.png"
-        alt="Erik Corry"
-        width={imageSize}
-        height={imageSize}
-      />
-    ),
-    description: (
-      <div>
-        Erik Corry was one of the early Google engineers on{" "}
-        <Link href="https://en.wikipedia.org/wiki/Chrome_V8%22">V8</Link>, the engine behind Chrome and later{" "}
-        <Link href="https://nodejs.org">Node.js</Link>. He is an expert on{" "}
-        <Link href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">garbage collectors</Link> and
-        the co-author of the{" "}
-        <Link href="https://blog.chromium.org/2009/02/irregexp-google-chromes-new-regexp.html">
-          fastest regular expression engine
-        </Link>{" "}
-        in the world.
-      </div>
-    ),
-  },
-  {
-    name: "Florian Loitsch",
-    image: (
-      <StaticImage
-        placeholder="blurred"
-        src="../../assets/images/team/florian.png"
-        alt="Florian Loitsch"
-        width={imageSize}
-        height={imageSize}
-      />
-    ),
-    description: (
-      <div>
-        Florian Loitsch is a programming language and compiler specialist. He was the tech lead for the business
-        critical <Link href="https://webdev.dartlang.org/tools/dart2js">Dart-to-JavaScript compiler</Link> at Google and
-        in charge of the evolution of the{" "}
-        <Link href="https://en.wikipedia.org/wiki/Dart_(programming_language)">Dart language</Link>.
       </div>
     ),
   },
