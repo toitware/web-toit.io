@@ -14,8 +14,8 @@ import { Link } from "../components/link";
 export function PricingPage(): JSX.Element {
   return (
     <Layout
-      title="Simple pricing that works for everyone"
-      description="Simple pricing for the Artemis fleet manager. $0.50 per device per month. 10 devices are free forever. No credit card needed."
+      title="Open-source and free"
+      description="The Toit platform is open-source and free. No strings attached."
       noDefaultSignup={true}
     >
       <PageTitle
@@ -24,7 +24,7 @@ export function PricingPage(): JSX.Element {
             max-width: 10em;
           }
         `}
-        title="Subscribe to serviceability"
+        title="Open-source and free"
         subTitle="Pricing"
       />
       <Section
@@ -50,13 +50,15 @@ export function PricingPage(): JSX.Element {
       >
         <h2>Fleet management</h2>
         <CenteredBlock>
-          If you need help keeping your devices up-to-date and running smoothly,
-          you can subscribe to our robust serviceability offering that allows you
-          manage your fleet through the cloud.
+          If you need to manage a fleet of devices, you can use our
+          <Link to="/product/fleet-management">fleet manager</Link>.
+          It connects your devices to the cloud and services them
+          through a rich command-line interface.
         </CenteredBlock>
         <CenteredBlock>
-          Each month you pay only for the devices you service through
-          our <Link to="/product/fleet-management">fleet manager</Link>.
+          You can run your own cloud broker or use one provided by us
+          at no cost under fair use restrictions. We are here to help
+          set up your infrastructure!
         </CenteredBlock>
 
         <PricingBlock />
@@ -82,7 +84,8 @@ export function PricingPage(): JSX.Element {
             Deploying more than <strong>1,000</strong> devices?
           </div>
           <div>
-            <a href="mailto:sales@toit.io">Contact us</a> and we will get you started.
+            <a href="mailto:contact@toit.io">Contact us</a> and we will get you started on
+            the right path.
           </div>
         </div>
         <SectionDownArrow />
@@ -97,7 +100,9 @@ export function PricingPage(): JSX.Element {
           `}
         >
           Our fleet manager allows you to focus on your applications. We take care
-          of the tedious, but important, task of keeping your devices connected and up-to-date.
+          of the tedious, but important, task of keeping your devices connected and
+          up-to-date. Our fleet manager is fully optional and you can roll your own
+          if you have more specific needs.
         </p>
       </Section>
       <Section
@@ -108,7 +113,7 @@ export function PricingPage(): JSX.Element {
           background: ${golden.string()};
         `}
       >
-        <h2>No additional fees</h2>
+        <h2>Need our help?</h2>
         <p
           css={css`
             max-width: 26em;
@@ -116,9 +121,11 @@ export function PricingPage(): JSX.Element {
             margin-right: auto;
           `}
         >
-          <strong>Your turned off, disconnected, or unserviced devices are free</strong> and keep running your
-          applications, so you are in full control of your bill. Our support is always included.
-          You can also remove our fleet manager from your devices at any time; even over the air.
+          Sometimes you know you need more dedicated help. We support companies
+          by working on their architecture, debugging and optimizing applications, and by
+          building drivers for specific peripherals. <strong>We charge by the hour or
+          per project</strong>, always after a thorough, mutual understanding of the technical
+          requirements and priorities.
         </p>
       </Section>
       <CenteredBlock>
