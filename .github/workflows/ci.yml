@@ -6,8 +6,8 @@ on:
     types: [published]
   workflow_dispatch:
     inputs:
-      upload:
-        description: 'Whether to upload the build to Google Cloud Storage'
+      deploy-dev:
+        description: 'Whether to deploy to the dev version of the page'
         type: boolean
         required: true
         default: false
@@ -86,7 +86,7 @@ jobs:
             VERSION
 
       - name: Dispatch dev-deployment
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master' || github.event.inputs.deploy-dev == 'true'
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.LEON_REPOSITORY_DISPATCH }}
