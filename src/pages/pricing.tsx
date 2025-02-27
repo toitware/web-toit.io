@@ -58,7 +58,7 @@ export function PricingPage(): JSX.Element {
         <CenteredBlock>
           You can run your own cloud broker or use one provided by us
           at no cost under fair use restrictions. We are here to help
-          setting up your infrastructure!
+          set up your infrastructure!
         </CenteredBlock>
 
         <PricingBlock />
@@ -121,7 +121,7 @@ export function PricingPage(): JSX.Element {
             margin-right: auto;
           `}
         >
-          Sometimes you know you need more dedicated help. We have supported companies
+          Sometimes you know you need more dedicated help. We support companies
           by working on their architecture, debugging and optimizing applications, and by
           building drivers for specific peripherals. <strong>We charge by the hour or
           per project</strong>, always after a thorough, mutual understanding of the technical
