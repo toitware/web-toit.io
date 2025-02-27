@@ -49,8 +49,8 @@ export function PricingPage(): JSX.Element {
       >
         <h2>Fleet management</h2>
         <CenteredBlock>
-          If you need to manage a fleet of devices, you can use our
-          <Link to="/product/fleet-management">fleet manager</Link>.
+          If you need to manage a fleet of devices, you can use
+          our <Link to="/product/fleet-management">fleet manager</Link>.
           It connects your devices to the cloud and services them
           through a rich command-line interface.
         </CenteredBlock>
