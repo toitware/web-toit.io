@@ -212,14 +212,14 @@ export function Header({
           </Menu>
           <AccountButtons css={desktopCss}>
             <ButtonLink
-              href="https://chat.toit.io/"
+              href="https://help.toit.io/"
               size="small"
               variant="text"
               css={css`
                 margin-right: 1.5rem;
               `}
             >
-              Discussions
+              Help
             </ButtonLink>
             { callToAction ?? <SignUpButton size="small" /> }
           </AccountButtons>
