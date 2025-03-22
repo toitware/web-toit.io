@@ -353,7 +353,7 @@ main:\n\
                 --buttonColor: ${white.string()};
                 --buttonContrastColor: ${black.string()};
               `}
-              href="https://docs.toit.io/language/language"
+              href="https://docs.toit.io/language"
               variant="outlined"
             >
               Learn more <span className="link-title">about the Toit programming language</span>
